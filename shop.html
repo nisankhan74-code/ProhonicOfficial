@@ -13,14 +13,14 @@
         }
 
         body {
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #333;
         }
 
         /* Hero Section Styling */
         .hero-section {
             width: 100%;
-            height: 80vh;
+            height: 75vh;
             overflow: hidden;
         }
 
@@ -45,73 +45,136 @@
             transform: translate(-50%, -50%);
             color: #fff;
             text-align: center;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 25px 45px;
             border-radius: 8px;
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
         }
 
         /* Section Title Styling */
         .section-title {
             text-align: center;
-            margin: 40px 0 20px;
-            font-size: 28px;
+            margin: 40px 0 10px;
+            font-size: 30px;
+            text-transform: uppercase;
             letter-spacing: 1px;
+            color: #111;
         }
 
-        /* Category Section Styling (4 Column, 2 Row) */
-        .category-container {
+        /* Category Header Title */
+        .category-header {
             max-width: 1200px;
-            margin: 0 auto 50px;
+            margin: 50px auto 20px;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .category-header h3 {
+            font-size: 24px;
+            color: #222;
+        }
+
+        .view-all-btn {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .view-all-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Product Grid (3 Columns) */
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto 30px;
             padding: 0 15px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
-        .category-card {
-            position: relative;
-            height: 250px;
+        /* Product Card Styling */
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .category-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .category-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
         }
 
-        .category-name {
-            color: #ffffff;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .product-price {
             font-size: 20px;
             font-weight: bold;
-            text-transform: uppercase;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            color: #e63946;
+            margin-bottom: 15px;
         }
 
-        /* --- Updated Review Section Styling with Images --- */
+        .order-btn {
+            margin-top: auto;
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 12px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .order-btn:hover {
+            background-color: #e63946;
+        }
+
+        /* Review Section Styling */
         .reviews-section {
             background-color: #fff;
-            padding: 50px 15px;
+            padding: 60px 15px;
+            margin-top: 50px;
         }
 
         .reviews-container {
@@ -119,7 +182,7 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; /* স্পেস একটু বাড়ানো হয়েছে */
+            gap: 30px;
         }
 
         .review-card {
@@ -130,150 +193,209 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            align-items: center; /* কার্ডের ভেতরের সব উপাদান মাঝখানে থাকবে */
+            align-items: center;
             text-align: center;
         }
 
-        /* কাস্টমারের তোলা ছবির স্টাইলিং */
         .customer-watch-img {
-            width: 100px; /* ছবি ছোট করে দেখানো হচ্ছে */
-            height: 100px;
-            border-radius: 50%; /* গোল ছবি */
-            object-fit: cover; /* ছবি গোল ঘরের ভেতর ঠিকভাবে বসবে */
-            border: 4px solid #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 15px; /* ছবি থেকে টেক্সটের দূরত্ব */
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
         }
 
         .review-card p {
             font-style: italic;
             margin-bottom: 15px;
             color: #555;
-            font-size: 15px;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         .reviewer-name {
             font-weight: bold;
             color: #111;
-            margin-top: auto; /* রিভিউর পর নাম একেবারে নিচে থাকবে */
+            margin-top: auto;
         }
 
         .stars {
             color: #ffb400;
             margin-top: 5px;
-            font-size: 18px;
         }
 
         /* Responsive Design */
         @media (max-width: 900px) {
-            .category-container {
+            .product-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 500px) {
-            .category-container {
+        @media (max-width: 600px) {
+            .product-grid {
                 grid-template-columns: 1fr;
             }
-            .reviews-container {
-                grid-template-columns: 1fr;
+            .hero-text h1 {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section (Clickable) -->
+    <!-- 1. Hero Section (Clickable) -->
     <section class="hero-section">
         <a href="shop.html">
-            <!-- ডামি হিরো ইমেজ -->
             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200" alt="Hero Watch Banner">
             <div class="hero-text">
-                <h1>নতুন কালেকশন ব্রাউজ করুন</h1>
-                <p>সবচেয়ে সেরা ঘড়ির সংগ্রহ দেখতে এখানে ক্লিক করুন</p>
+                <h1>প্রিমিয়াম ওয়াচ কালেকশন</h1>
+                <p>সেরা ডিল দেখতে এখানে ক্লিক করুন</p>
             </div>
         </a>
     </section>
 
-    <!-- Product Category Section (4 Col x 2 Row) -->
-    <h2 class="section-title">প্রোডাক্ট ক্যাটাগরি</h2>
-    <section class="category-container">
-        
-        <!-- ডামি ক্যাটাগরি ইমেজেস -->
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500" alt="Category 1">
-            <div class="category-overlay">
-                <span class="category-name">লাক্সারি ওয়াচ</span>
+    <h2 class="section-title">পছন্দের ক্যাটাগরি ও প্রোডাক্টস</h2>
+
+    <!-- ================= CATEGORY 1: Luxury Watches ================= -->
+    <div class="category-header">
+        <h3>১. লাক্সারি ওয়াচ (Luxury Watches)</h3>
+        <a href="category-luxury.html" class="view-all-btn">সবগুলো দেখুন &rarr;</a>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500" alt="Watch 1" class="product-img">
+            <div class="product-info">
+                <div class="product-title">রয়্যাল সিলভার ক্রোনোগ্রাফ</div>
+                <div class="product-desc">স্টেইনলেস স্টিল বডি এবং ওয়াটারপ্রুফ গ্লাস দিয়ে তৈরি প্রিমিয়াম ডিজাইন।</div>
+                <div class="product-price">৳ ৪,৯৯০</div>
+                <a href="checkout.html?id=1" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" alt="Category 2">
-            <div class="category-overlay">
-                <span class="category-name">স্মার্ট ওয়াচ</span>
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" alt="Watch 2" class="product-img">
+            <div class="product-info">
+                <div class="product-title">গোল্ডেন ক্লাস এডিটর</div>
+                <div class="product-desc">রয়্যাল গোল্ডেন ফিনিশিং যা আপনার ব্যক্তিত্বকে আরও আকর্ষণীয় করবে।</div>
+                <div class="product-price">৳ ৬,৫০০</div>
+                <a href="checkout.html?id=2" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=500" alt="Category 3">
-            <div class="category-overlay">
-                <span class="category-name">স্পোর্টস ওয়াচ</span>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" alt="Watch 3" class="product-img">
+            <div class="product-info">
+                <div class="product-title">ব্ল্যাক অটোমেটিক ওয়াচ</div>
+                <div class="product-desc">অটোমেটিক মুভমেন্ট এবং স্ক্র্যাচ-প্রুফ স্যাফায়ার গ্লাস প্রোটেকশন।</div>
+                <div class="product-price">৳ ৫,৮০০</div>
+                <a href="checkout.html?id=3" class="order-btn">Order Now</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= CATEGORY 2: Smart Watches ================= -->
+    <div class="category-header">
+        <h3>২. স্মার্ট ওয়াচ (Smart Watches)</h3>
+        <a href="category-smart.html" class="view-all-btn">সবগুলো দেখুন &rarr;</a>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" alt="Smartwatch 1" class="product-img">
+            <div class="product-info">
+                <div class="product-title">ফিটনেস প্রো স্মার্টওয়াচ</div>
+                <div class="product-desc">হার্ট রেট মনিটর, স্পোর্টস মোড এবং ৭ দিনের ব্যাটারি ব্যাকআপ।</div>
+                <div class="product-price">৳ ২,৯৯০</div>
+                <a href="checkout.html?id=4" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" alt="Category 4">
-            <div class="category-overlay">
-                <span class="category-name">লেডিস ওয়াচ</span>
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500" alt="Smartwatch 2" class="product-img">
+            <div class="product-info">
+                <div class="product-title">অ্যামোলেড কলিং ওয়াচ</div>
+                <div class="product-desc">ফুল এইচডি অ্যামোলেড ডিসপ্লে এবং ব্লুটুথ কলিং ফিচারসহ।</div>
+                <div class="product-price">৳ ৩,৫০০</div>
+                <a href="checkout.html?id=5" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" alt="Category 5">
-            <div class="category-overlay">
-                <span class="category-name">ক্ল্যাসিক লেদার</span>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500" alt="Smartwatch 3" class="product-img">
+            <div class="product-info">
+                <div class="product-title">সিরিজ ৮ আল্ট্রা স্মার্টওয়াচ</div>
+                <div class="product-desc">ওয়াটারপ্রুফ বডি, জিপিএস ট্র্যাকিং এবং স্টাইলিশ সিলিকন স্ট্র্যাপ।</div>
+                <div class="product-price">৳ ৩,২০০</div>
+                <a href="checkout.html?id=6" class="order-btn">Order Now</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= CATEGORY 3: Leather Watches ================= -->
+    <div class="category-header">
+        <h3>৩. লেদার ওয়াচ (Leather Watches)</h3>
+        <a href="category-leather.html" class="view-all-btn">সবগুলো দেখুন &rarr;</a>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" alt="Leather Watch 1" class="product-img">
+            <div class="product-info">
+                <div class="product-title">ভিনটেজ ব্রাউন লেদার</div>
+                <div class="product-desc">১০০% অরিজিনাল লেদার স্ট্র্যাপ এবং ক্লাসিকাল ডায়াল ডিজাইন।</div>
+                <div class="product-price">৳ ২,৪৫০</div>
+                <a href="checkout.html?id=7" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=500" alt="Category 6">
-            <div class="category-overlay">
-                <span class="category-name">স্টেইনলেস স্টিল</span>
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Leather Watch 2" class="product-img">
+            <div class="product-info">
+                <div class="product-title">ব্ল্যাক লেদার ফরমাল ওয়াচ</div>
+                <div class="product-desc">অফিসিয়াল এবং ফরমাল আউটফিটের সাথে পারফেক্ট একটি ঘড়ি।</div>
+                <div class="product-price">৳ ১,৯৯০</div>
+                <a href="checkout.html?id=8" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" alt="Category 7">
-            <div class="category-overlay">
-                <span class="category-name">ক্রোনোগ্রাফ</span>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=500" alt="Leather Watch 3" class="product-img">
+            <div class="product-info">
+                <div class="product-title">ক্যাজুয়াল ডার্ক ব্রাউন</div>
+                <div class="product-desc">দৈনন্দিন ব্যবহারের জন্য টেকসই এবং আরামদায়ক লেদার স্ট্র্যাপ।</div>
+                <div class="product-price">৳ ২,২০০</div>
+                <a href="checkout.html?id=9" class="order-btn">Order Now</a>
             </div>
         </div>
+    </div>
 
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1511370235399-1802cae1d32f?w=500" alt="Category 8">
-            <div class="category-overlay">
-                <span class="category-name">ডিজিটাল ওয়াচ</span>
-            </div>
-        </div>
 
-    </section>
-
-    <!-- --- Updated Customer Review Section with Images --- -->
+    <!-- 3. Customer Review Section -->
     <section class="reviews-section">
         <h2 class="section-title" style="margin-top: 0;">কাস্টমার রিভিউ</h2>
         <div class="reviews-container">
             
-            <!-- Review Card 1 -->
             <div class="review-card">
-                <!-- কাস্টমারের তোলা ঘড়ির ডামি ছবি -->
                 <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=200" alt="Customer Watch 1" class="customer-watch-img">
                 <p>"ঘড়িটির ফিনিশিং এবং কোয়ালিটি অসাধারণ! অর্ডার দেওয়ার ৩ দিনের মধ্যে পেয়েছি।"</p>
                 <div class="reviewer-name">- আরিয়ান আহমেদ</div>
                 <div class="stars">★★★★★</div>
             </div>
 
-            <!-- Review Card 2 -->
             <div class="review-card">
                 <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200" alt="Customer Watch 2" class="customer-watch-img">
                 <p>"স্মার্টওয়াচটি খুব চমৎকার কাজ করছে। ব্যাটারি ব্যাকআপ দারুণ।"</p>
@@ -281,7 +403,6 @@
                 <div class="stars">★★★★★</div>
             </div>
 
-            <!-- Review Card 3 -->
             <div class="review-card">
                 <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=200" alt="Customer Watch 3" class="customer-watch-img">
                 <p>"অরিজিনাল প্রোডাক্ট দেওয়ার জন্য ধন্যবাদ। প্যাকজিং খুবই প্রিমিয়াম ছিল।"</p>
