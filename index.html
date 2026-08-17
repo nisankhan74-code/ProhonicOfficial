@@ -3,397 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Prohonic </title>
+    <title>Prohonic</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Nirmala UI', 'Nirmala', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
+        
+        header { background-color: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo img { max-height: 50px; }
 
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
+        .hero { display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #fff; align-items: center; gap: 30px; }
+        .hero-image { flex: 1 1 400px; text-align: center; }
+        .hero-image img { width: 100%; max-width: 450px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.2s; }
+        .hero-details { flex: 1 1 400px; }
+        .hero-details h1 { font-size: 2.2rem; margin-bottom: 15px; color: #111; }
+        
+        .price { font-size: 1.8rem; color: #e63946; font-weight: bold; margin-bottom: 15px; }
+        .color-selection { margin-bottom: 20px; }
+        .color-selection p { font-weight: bold; margin-bottom: 8px; }
+        .color-options { display: flex; gap: 12px; }
+        .color-btn { padding: 8px 16px; border: 2px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .color-btn.active { border-color: #e63946; background-color: #ffe6e6; color: #e63946; }
 
-        /* Header / Navbar */
-        header {
-            background-color: #ffffff;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        .description { margin-bottom: 25px; color: #555; }
+        .btn-order-now { display: inline-block; background-color: #e63946; color: #fff; padding: 14px 35px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; transition: 0.3s; border: none; cursor: pointer; text-align: center; }
+        .btn-order-now:hover { background-color: #c82333; }
 
-        .logo img {
-            max-height: 50px;
-        }
+        .products-section { padding: 50px 5%; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #111; }
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .product-card { background: #fff; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; cursor: pointer; }
+        .product-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .product-card .card-price { color: #e63946; font-weight: bold; margin-bottom: 12px; font-size: 1.05rem; }
 
-        /* Hero / Featured Product Section */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 40px 5%;
-            background-color: #fff;
-            align-items: center;
-            gap: 30px;
-        }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .order-container { background: #fff; width: 100%; max-width: 500px; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto; }
+        .image-viewer-container { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
+        .image-viewer-container img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 8px; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; font-weight: bold; color: #888; cursor: pointer; border: none; background: none; }
+        .image-viewer-container .close-btn { top: -40px; right: 0; color: #fff; font-size: 2.2rem; }
 
-        .hero-image {
-            flex: 1 1 400px;
-            text-align: center;
-        }
+        .modal-title { font-size: 1.4rem; margin-bottom: 15px; text-align: center; color: #111; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
+        .delivery-option { display: flex; gap: 15px; margin-top: 5px; }
+        .bill-summary { background: #f1f3f5; padding: 12px 15px; border-radius: 6px; margin: 15px 0; font-size: 0.95rem; }
+        .bill-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .bill-row.total { font-weight: bold; font-size: 1.1rem; color: #e63946; border-top: 1px solid #ccc; padding-top: 5px; margin-top: 5px; }
+        .success-message { display: none; background-color: #d4edda; color: #155724; padding: 20px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 1.1rem; }
 
-        .hero-image img {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: 0.2s;
-        }
+        .visit-store-container { text-align: center; padding: 40px 20px 60px; background-color: #fff; border-top: 1px solid #eee; }
+        .btn-visit-store { display: inline-block; background-color: #111; color: #fff; padding: 16px 45px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: all 0.3s ease; }
+        .btn-visit-store:hover { background-color: #e63946; transform: translateY(-3px); }
 
-        .hero-image img:hover {
-            opacity: 0.9;
-        }
-
-        .hero-details {
-            flex: 1 1 400px;
-        }
-
-        .hero-details h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            color: #111;
-        }
-
-        .price {
-            font-size: 1.8rem;
-            color: #e63946;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .color-selection {
-            margin-bottom: 20px;
-        }
-
-        .color-selection p {
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .color-options {
-            display: flex;
-            gap: 12px;
-        }
-
-        .color-btn {
-            padding: 8px 16px;
-            border: 2px solid #ccc;
-            background: #fff;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .color-btn.active {
-            border-color: #e63946;
-            background-color: #ffe6e6;
-            color: #e63946;
-        }
-
-        .description {
-            margin-bottom: 25px;
-            color: #555;
-        }
-
-        .btn-order-now {
-            display: inline-block;
-            background-color: #e63946;
-            color: #fff;
-            padding: 14px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 6px;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn-order-now:hover {
-            background-color: #c82333;
-        }
-
-        /* All Products Section: 4 Columns Grid */
-        .products-section {
-            padding: 50px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #111;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .product-card img:hover {
-            opacity: 0.9;
-        }
-
-        .product-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .product-card .card-price {
-            color: #e63946;
-            font-weight: bold;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
-
-        /* Modal Overlay & Order Form */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .order-container {
-            background: #ffffff;
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        /* Only Image Modal Wrapper */
-        .image-viewer-container {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image-viewer-container img {
-            max-width: 100%;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #888;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
-        .close-btn:hover {
-            color: #000;
-        }
-
-        .image-viewer-container .close-btn {
-            top: -40px;
-            right: 0;
-            color: #fff;
-            font-size: 2.2rem;
-        }
-
-        .modal-title {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #111;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-
-        .delivery-option {
-            display: flex;
-            gap: 15px;
-            margin-top: 5px;
-        }
-
-        .delivery-option label {
-            font-weight: normal;
-            cursor: pointer;
-        }
-
-        /* Bill Summary Box */
-        .bill-summary {
-            background: #f1f3f5;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            font-size: 0.95rem;
-        }
-
-        .bill-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .bill-row.total {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #e63946;
-            border-top: 1px solid #ccc;
-            padding-top: 5px;
-            margin-top: 5px;
-        }
-
-        .success-message {
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Visit Store Footer Button Styling */
-        .visit-store-container {
-            text-align: center;
-            padding: 40px 20px 60px;
-            background-color: #ffffff;
-            border-top: 1px solid #eee;
-        }
-
-        .btn-visit-store {
-            display: inline-block;
-            background-color: #111111;
-            color: #ffffff;
-            padding: 16px 45px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-        }
-
-        .btn-visit-store:hover {
-            background-color: #e63946;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
-        }
-
-        @media (max-width: 992px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .product-grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-            .hero {
-                padding: 20px 5%;
-            }
-        }
+        @media (max-width: 992px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 576px) { .product-grid { grid-template-columns: repeat(1, 1fr); } .hero { padding: 20px 5%; } }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="Images/Weblogo.png" id="site-logo" alt="Logo">
+            <img src="Images/Weblogo.png" id="site-logo" alt="Logo" loading="lazy" decoding="async">
         </div>
     </header>
 
-    <!-- Main Featured Product Section -->
     <section class="hero">
         <div class="hero-image">
+            <!-- Hero Image priority high -->
             <img src="Images/Black1.jpeg" id="main-product-img" alt="Luxury Watch" onclick="openQuickView('Images/Black1.jpeg')">
         </div>
         <div class="hero-details">
-            <h1> Hublot Classic Fusion </h1>
-            <div class="price"> ৳ ৯৫০ </div>
+            <h1>Hublot Classic Fusion</h1>
+            <div class="price">৳ ৯৫০</div>
             
             <div class="color-selection">
                 <p>কালার সিলেক্ট করুন:</p>
@@ -412,62 +97,61 @@
         </div>
     </section>
 
-    <!-- All Products Section (4 Columns x 2 Rows) -->
     <section class="products-section">
         <h2 class="section-title">আমাদের সকল ঘড়ি</h2>
         <div class="product-grid">
             
             <div class="product-card">
-                <img src="Images/Black1.jpeg" alt="Product 1" onclick="openQuickView('Images/Black1.jpeg')">
+                <img src="Images/Black1.jpeg" alt="Product 1" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpeg')">
                 <h3>রয়্যাল ক্রোনোগ্রাফ</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('রয়্যাল ক্রোনোগ্রাফ', 950)">Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Silver1.jpeg" alt="Product 2" onclick="openQuickView('Images/Silver1.jpeg')">
+                <img src="Images/Silver1.jpeg" alt="Product 2" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpeg')">
                 <h3>স্পোর্টস এডিশন ওয়াচ</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('স্পোর্টস এডিশন ওয়াচ', 950)">Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Golden1.jpeg" alt="Product 3" onclick="openQuickView('Images/Golden1.jpeg')">
+                <img src="Images/Golden1.jpeg" alt="Product 3" loading="lazy" decoding="async" onclick="openQuickView('Images/Golden1.jpeg')">
                 <h3>স্মার্ট ক্লাসিক ওয়াচ</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('স্মার্ট ক্লাসিক ওয়াচ', 950)">Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Black1.jpeg" alt="Product 4" onclick="openQuickView('Images/Black1.jpeg')">
+                <img src="Images/Black1.jpeg" alt="Product 4" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpeg')">
                 <h3>লেদার স্ট্র্যাপ ওয়াচ</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('লেদার স্ট্র্যাপ ওয়াচ', 950)">Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Silver1.jpeg" alt="Product 5" onclick="openQuickView('Images/Silver1.jpeg')">
+                <img src="Images/Silver1.jpeg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpeg')">
                 <h3>ডিজিটাল স্পোর্টস ওয়াচ</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('ডিজিটাল স্পোর্টস ওয়াচ', 950)">Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Golden1.jpeg" alt="Product 6" onclick="openQuickView('Images/Golden1.jpeg')">
+                <img src="Images/Golden1.jpeg" alt="Product 6" loading="lazy" decoding="async" onclick="openQuickView('Images/Golden1.jpeg')">
                 <h3>অটোমেটিক মেকানিক্যাল</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অটোমেটিক মেকানিক্যাল', 950)">Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Black1.jpeg" alt="Product 7" onclick="openQuickView('Images/Black1.jpeg')">
+                <img src="Images/Black1.jpeg" alt="Product 7" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpeg')">
                 <h3>অফিসিয়াল ফর্মাল ওয়াচ</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অফিসিয়াল ফর্মাল ওয়াচ', 950)">Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Silver1.jpeg" alt="Product 8" onclick="openQuickView('Images/Silver1.jpeg')">
+                <img src="Images/Silver1.jpeg" alt="Product 8" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpeg')">
                 <h3>পলিমেড ব্ল্যাক ওয়াচ</h3>
                 <div class="card-price">৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('পলিমেড ব্ল্যাক ওয়াচ', 950)">Order Now</button>
@@ -476,20 +160,17 @@
         </div>
     </section>
 
-    <!-- Visit Store Section (Bottom Button) -->
     <section class="visit-store-container">
         <a href="shop.html" class="btn-visit-store">Visit Store</a>
     </section>
 
-    <!-- Popup Image Lightbox (Only Image) -->
     <div class="modal-overlay" id="quickViewModal">
         <div class="image-viewer-container">
             <button class="close-btn" onclick="closeQuickView()">&times;</button>
-            <img id="qv-image" src="" alt="Watch Preview">
+            <img id="qv-image" src="" alt="Watch Preview" loading="lazy">
         </div>
     </div>
 
-    <!-- Popup Order Modal -->
     <div class="modal-overlay" id="orderModal">
         <div class="order-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
@@ -515,37 +196,17 @@
                 <div class="form-group">
                     <label>ডেলিভারি এলাকা নির্বাচন করুন:</label>
                     <div class="delivery-option">
-                        <label>
-                            <input type="radio" name="delivery" value="70" checked onclick="updateTotal()"> ঢাকার ভেতরে (৳৭০)
-                        </label>
-                        <label>
-                            <input type="radio" name="delivery" value="130" onclick="updateTotal()"> ঢাকার বাইরে (৳১৩০)
-                        </label>
+                        <label><input type="radio" name="delivery" value="70" checked onclick="updateTotal()"> ঢাকার ভেতরে (৳৭০)</label>
+                        <label><input type="radio" name="delivery" value="130" onclick="updateTotal()"> ঢাকার বাইরে (৳১৩০)</label>
                     </div>
                 </div>
 
-                <!-- Live Total Bill Breakdown -->
                 <div class="bill-summary">
-                    <div class="bill-row">
-                        <span>পণ্যের নাম:</span>
-                        <strong id="summary-product-name">-</strong>
-                    </div>
-                    <div class="bill-row">
-                        <span>কালার:</span>
-                        <strong id="summary-color">কালো</strong>
-                    </div>
-                    <div class="bill-row">
-                        <span>পণ্যের দাম:</span>
-                        <span>৳ <span id="summary-price">0</span></span>
-                    </div>
-                    <div class="bill-row">
-                        <span>ডেলিভারি চার্জ:</span>
-                        <span>৳ <span id="summary-delivery">70</span></span>
-                    </div>
-                    <div class="bill-row total">
-                        <span>সর্বমোট বিল:</span>
-                        <span>৳ <span id="summary-total">0</span></span>
-                    </div>
+                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
+                    <div class="bill-row"><span>কালার:</span><strong id="summary-color">কালো</strong></div>
+                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">0</span></span></div>
+                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">70</span></span></div>
+                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
 
                 <button type="submit" id="submit-btn" class="btn-order-now" style="width: 100%;">অর্ডার নিশ্চিত করুন</button>
@@ -565,7 +226,6 @@
         let selectedColorName = "কালো";
         let currentProductName = "";
 
-        // Dynamically change main watch image based on color selection
         function selectColor(element, colorName, imageSrc) {
             let buttons = document.querySelectorAll('.color-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -573,14 +233,9 @@
             
             selectedColorName = colorName;
             document.getElementById('summary-color').innerText = colorName;
-            
-            // Switch main product image
-            if(imageSrc) {
-                document.getElementById('main-product-img').src = imageSrc;
-            }
+            if(imageSrc) document.getElementById('main-product-img').src = imageSrc;
         }
 
-        // Quick View Function (Pure Image Lightbox)
         function openQuickView(imageSrc) {
             document.getElementById('qv-image').src = imageSrc;
             document.getElementById('quickViewModal').classList.add('active');
@@ -590,7 +245,6 @@
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
-        // Order Modal Functions
         function openOrderModal(productName, price) {
             currentProductName = productName;
             currentProductPrice = price;
@@ -618,15 +272,10 @@
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
             let qvModal = document.getElementById('quickViewModal');
-            if (event.target === orderModal) {
-                closeOrderModal();
-            }
-            if (event.target === qvModal) {
-                closeQuickView();
-            }
+            if (event.target === orderModal) closeOrderModal();
+            if (event.target === qvModal) closeQuickView();
         }
 
-        // Send Order details to Telegram Bot
         function handleOrder(event) {
             event.preventDefault();
             
@@ -650,38 +299,28 @@
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-
-            fetch(url, {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
             })
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                
                 if (data.ok) {
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('success-message').style.display = 'block';
                 } else {
-                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
                 alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
             });
         }
     </script>
-
 </body>
 </html>
