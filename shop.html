@@ -108,10 +108,42 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease;
+            position: relative;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
+        }
+
+        /* Coming Soon Card Design */
+        .product-card.coming-soon-card {
+            min-height: 380px;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%);
+            border: 2px dashed #ced4da;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .coming-soon-card .cs-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .coming-soon-card .cs-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff9800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .coming-soon-card .cs-desc {
+            font-size: 14px;
+            color: #6c757d;
         }
 
         .product-img {
@@ -457,6 +489,20 @@
             .hero-text p {
                 font-size: 13px;
             }
+            .product-card.coming-soon-card {
+                min-height: 220px;
+                padding: 15px 10px;
+            }
+            .coming-soon-card .cs-icon {
+                font-size: 30px;
+                margin-bottom: 8px;
+            }
+            .coming-soon-card .cs-title {
+                font-size: 16px;
+            }
+            .coming-soon-card .cs-desc {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
@@ -485,7 +531,7 @@
     </div>
 
     <div class="product-grid">
-        <!-- Product 1.1 -->
+        <!-- Product 1.1 (ACTIVE) -->
         <div class="product-card">
             <img id="cat1-p1" src="Images/Black1.jpeg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
@@ -510,58 +556,22 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('রয়্যাল এডিশন ওয়াচ', 4990, 'c1-p1-text')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text')">Order Now</button>
             </div>
         </div>
 
-        <!-- Product 1.2 -->
-        <div class="product-card">
-            <img id="cat1-p2" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
-            <div class="product-info">
-                <div class="product-title">ক্রোনোগ্রাফ ডেল্টা</div>
-                <div class="product-desc">মেটাল স্ট্র্যাপ এবং আধুনিক স্পোর্টস ডায়াল।</div>
-                <div class="product-price">৳ ৫,৫০০</div>
-                
-                <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat1-p2', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500', 'c1-p2-text', 'Black', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=100">
-                            <span class="color-text">Black</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500', 'c1-p2-text', 'Silver', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=100">
-                            <span class="color-text">Silver</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="openOrderModal('ক্রোনোগ্রাফ ডেল্টা', 5500, 'c1-p2-text')">Order Now</button>
-            </div>
+        <!-- Product 1.2 (COMING SOON) -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
         </div>
 
-        <!-- Product 1.3 -->
-        <div class="product-card">
-            <img id="cat1-p3" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
-            <div class="product-info">
-                <div class="product-title">গোল্ডেন সিগনেচার</div>
-                <div class="product-desc">১৮কে গোল্ড প্লেটেড বডি ও প্রিমিয়াম লুক।</div>
-                <div class="product-price">৳ ৬,৮০০</div>
-                
-                <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Golden</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat1-p3', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500', 'c1-p3-text', 'Golden', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100">
-                            <span class="color-text">Golden</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p3', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c1-p3-text', 'Black', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
-                            <span class="color-text">Black</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="openOrderModal('গোল্ডেন সিগনেচার', 6800, 'c1-p3-text')">Order Now</button>
-            </div>
+        <!-- Product 1.3 (COMING SOON) -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
         </div>
     </div>
 
@@ -571,7 +581,7 @@
     </div>
 
     <div class="product-grid">
-        <!-- Product 2.1 -->
+        <!-- Product 2.1 (ACTIVE) -->
         <div class="product-card">
             <img id="cat2-p1" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
@@ -596,54 +606,18 @@
             </div>
         </div>
 
-        <!-- Product 2.2 -->
-        <div class="product-card">
-            <img id="cat2-p2" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
-            <div class="product-info">
-                <div class="product-title">স্মার্ট ব্যান্ড এক্সট্রা</div>
-                <div class="product-desc">৭ দিনের ব্যাটারি ব্যাকআপ ও স্পোর্টস মোড।</div>
-                <div class="product-price">৳ ২,৮০০</div>
-                
-                <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c2-p2-text" class="selected-color-name">Black</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat2-p2', 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500', 'c2-p2-text', 'Black', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=100">
-                            <span class="color-text">Black</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat2-p2', 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=500', 'c2-p2-text', 'Green', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=100">
-                            <span class="color-text">Green</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="openOrderModal('স্মার্ট ব্যান্ড এক্সট্রা', 2800, 'c2-p2-text')">Order Now</button>
-            </div>
+        <!-- Product 2.2 (COMING SOON) -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
         </div>
 
-        <!-- Product 2.3 -->
-        <div class="product-card">
-            <img id="cat2-p3" src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
-            <div class="product-info">
-                <div class="product-title">কলিং স্মার্টওয়াচ ভি২</div>
-                <div class="product-desc">ব্লুটুথ কলিং ও এইচডি স্পিকার সাপোর্ট।</div>
-                <div class="product-price">৳ ৪,২০০</div>
-                
-                <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c2-p3-text" class="selected-color-name">Silver</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat2-p3', 'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500', 'c2-p3-text', 'Silver', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=100">
-                            <span class="color-text">Silver</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat2-p3', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500', 'c2-p3-text', 'Black', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=100">
-                            <span class="color-text">Black</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="openOrderModal('কলিং স্মার্টওয়াচ ভি২', 4200, 'c2-p3-text')">Order Now</button>
-            </div>
+        <!-- Product 2.3 (COMING SOON) -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
         </div>
     </div>
 
@@ -653,7 +627,7 @@
     </div>
 
     <div class="product-grid">
-        <!-- Product 3.1 -->
+        <!-- Product 3.1 (ACTIVE) -->
         <div class="product-card">
             <img id="cat3-p1" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" class="product-img" alt="Casual Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
@@ -678,54 +652,18 @@
             </div>
         </div>
 
-        <!-- Product 3.2 -->
-        <div class="product-card">
-            <img id="cat3-p2" src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=500" class="product-img" alt="Casual Watch" onclick="openQuickView(this.src)">
-            <div class="product-info">
-                <div class="product-title">আর্মি স্পোর্টস জি-শট</div>
-                <div class="product-desc">শক-প্রুফ কেসিং এবং ৫০ মিটার ওয়াটার রেসিস্ট্যান্ট।</div>
-                <div class="product-price">৳ ২,৯৯০</div>
-                
-                <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c3-p2-text" class="selected-color-name">Green</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat3-p2', 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=500', 'c3-p2-text', 'Green', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=100">
-                            <span class="color-text">Green</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat3-p2', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c3-p2-text', 'Black', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
-                            <span class="color-text">Black</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="openOrderModal('আর্মি স্পোর্টস জি-শট', 2990, 'c3-p2-text')">Order Now</button>
-            </div>
+        <!-- Product 3.2 (COMING SOON) -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
         </div>
 
-        <!-- Product 3.3 -->
-        <div class="product-card">
-            <img id="cat3-p3" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500" class="product-img" alt="Casual Watch" onclick="openQuickView(this.src)">
-            <div class="product-info">
-                <div class="product-title">ক্যাজুয়াল স্টিল এডিটর</div>
-                <div class="product-desc">অফিস ও ক্যাজুয়াল ব্যবহারের জন্য হালকা ডিজাইনের ঘড়ি।</div>
-                <div class="product-price">৳ ৩,৮০০</div>
-                
-                <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c3-p3-text" class="selected-color-name">Silver</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat3-p3', 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500', 'c3-p3-text', 'Silver', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=100">
-                            <span class="color-text">Silver</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat3-p3', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500', 'c3-p3-text', 'Golden', this)">
-                            <img class="color-thumb" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100">
-                            <span class="color-text">Golden</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="openOrderModal('ক্যাজুয়াল স্টিল এডিটর', 3800, 'c3-p3-text')">Order Now</button>
-            </div>
+        <!-- Product 3.3 (COMING SOON) -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
         </div>
     </div>
 
