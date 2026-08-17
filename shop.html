@@ -142,7 +142,7 @@
         .product-desc {
             font-size: 13px;
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.4;
         }
 
@@ -150,7 +150,52 @@
             font-size: 20px;
             font-weight: bold;
             color: #e63946;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+        }
+
+        /* Color Selector Styling */
+        .color-selection {
+            margin-bottom: 18px;
+        }
+
+        .color-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #444;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-options label {
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Hide Default Radio Button */
+        .color-options input[type="radio"] {
+            display: none;
+        }
+
+        /* Custom Color Swatch Circle */
+        .color-swatch {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 2px solid #ddd;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        /* Radio Selected State */
+        .color-options input[type="radio"]:checked + .color-swatch {
+            border-color: #111;
+            transform: scale(1.2);
+            box-shadow: 0 0 4px rgba(0,0,0,0.3);
         }
 
         .order-btn {
@@ -272,6 +317,26 @@
                 <div class="product-title">রয়্যাল সিলভার ক্রোনোগ্রাফ</div>
                 <div class="product-desc">স্টেইনলেস স্টিল বডি এবং ওয়াটারপ্রুফ গ্লাস দিয়ে তৈরি প্রিমিয়াম ডিজাইন।</div>
                 <div class="product-price">৳ ৪,৯৯০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p1" value="silver" checked>
+                            <span class="color-swatch" style="background-color: #c0c0c0;" title="Silver"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p1" value="black">
+                            <span class="color-swatch" style="background-color: #222;" title="Black"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p1" value="gold">
+                            <span class="color-swatch" style="background-color: #ffd700;" title="Gold"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=1" class="order-btn">Order Now</a>
             </div>
         </div>
@@ -283,6 +348,22 @@
                 <div class="product-title">গোল্ডেন ক্লাস এডিটর</div>
                 <div class="product-desc">রয়্যাল গোল্ডেন ফিনিশিং যা আপনার ব্যক্তিত্বকে আরও আকর্ষণীয় করবে।</div>
                 <div class="product-price">৳ ৬,৫০০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p2" value="gold" checked>
+                            <span class="color-swatch" style="background-color: #ffd700;" title="Gold"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p2" value="rose_gold">
+                            <span class="color-swatch" style="background-color: #b76e79;" title="Rose Gold"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=2" class="order-btn">Order Now</a>
             </div>
         </div>
@@ -294,6 +375,22 @@
                 <div class="product-title">ব্ল্যাক অটোমেটিক ওয়াচ</div>
                 <div class="product-desc">অটোমেটিক মুভমেন্ট এবং স্ক্র্যাচ-প্রুফ স্যাফায়ার গ্লাস প্রোটেকশন।</div>
                 <div class="product-price">৳ ৫,৮০০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p3" value="black" checked>
+                            <span class="color-swatch" style="background-color: #111;" title="Black"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p3" value="blue">
+                            <span class="color-swatch" style="background-color: #1a365d;" title="Dark Blue"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=3" class="order-btn">Order Now</a>
             </div>
         </div>
@@ -307,35 +404,87 @@
     </div>
 
     <div class="product-grid">
-        <!-- Product 1 -->
+        <!-- Product 4 -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" alt="Smartwatch 1" class="product-img">
             <div class="product-info">
                 <div class="product-title">ফিটনেস প্রো স্মার্টওয়াচ</div>
                 <div class="product-desc">হার্ট রেট মনিটর, স্পোর্টস মোড এবং ৭ দিনের ব্যাটারি ব্যাকআপ।</div>
                 <div class="product-price">৳ ২,৯৯০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p4" value="black" checked>
+                            <span class="color-swatch" style="background-color: #222;" title="Black"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p4" value="orange">
+                            <span class="color-swatch" style="background-color: #ff6600;" title="Orange"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p4" value="grey">
+                            <span class="color-swatch" style="background-color: #888;" title="Grey"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=4" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <!-- Product 2 -->
+        <!-- Product 5 -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500" alt="Smartwatch 2" class="product-img">
             <div class="product-info">
                 <div class="product-title">অ্যামোলেড কলিং ওয়াচ</div>
                 <div class="product-desc">ফুল এইচডি অ্যামোলেড ডিসপ্লে এবং ব্লুটুথ কলিং ফিচারসহ।</div>
                 <div class="product-price">৳ ৩,৫০০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p5" value="black" checked>
+                            <span class="color-swatch" style="background-color: #000;" title="Black"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p5" value="pink">
+                            <span class="color-swatch" style="background-color: #ffc0cb;" title="Pink"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=5" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <!-- Product 3 -->
+        <!-- Product 6 -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500" alt="Smartwatch 3" class="product-img">
             <div class="product-info">
                 <div class="product-title">সিরিজ ৮ আল্ট্রা স্মার্টওয়াচ</div>
                 <div class="product-desc">ওয়াটারপ্রুফ বডি, জিপিএস ট্র্যাকিং এবং স্টাইলিশ সিলিকন স্ট্র্যাপ।</div>
                 <div class="product-price">৳ ৩,২০০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p6" value="orange" checked>
+                            <span class="color-swatch" style="background-color: #ff6000;" title="Orange"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p6" value="starlight">
+                            <span class="color-swatch" style="background-color: #f5f5dc;" title="Starlight"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=6" class="order-btn">Order Now</a>
             </div>
         </div>
@@ -349,35 +498,87 @@
     </div>
 
     <div class="product-grid">
-        <!-- Product 1 -->
+        <!-- Product 7 -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" alt="Leather Watch 1" class="product-img">
             <div class="product-info">
                 <div class="product-title">ভিনটেজ ব্রাউন লেদার</div>
                 <div class="product-desc">১০০% অরিজিনাল লেদার স্ট্র্যাপ এবং ক্লাসিকাল ডায়াল ডিজাইন।</div>
                 <div class="product-price">৳ ২,৪৫০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p7" value="brown" checked>
+                            <span class="color-swatch" style="background-color: #8b4513;" title="Brown"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p7" value="dark_brown">
+                            <span class="color-swatch" style="background-color: #3d2314;" title="Dark Brown"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p7" value="black">
+                            <span class="color-swatch" style="background-color: #000;" title="Black"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=7" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <!-- Product 2 -->
+        <!-- Product 8 -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Leather Watch 2" class="product-img">
             <div class="product-info">
                 <div class="product-title">ব্ল্যাক লেদার ফরমাল ওয়াচ</div>
                 <div class="product-desc">অফিসিয়াল এবং ফরমাল আউটফিটের সাথে পারফেক্ট একটি ঘড়ি।</div>
                 <div class="product-price">৳ ১,৯৯০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p8" value="black" checked>
+                            <span class="color-swatch" style="background-color: #111;" title="Black"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p8" value="tan">
+                            <span class="color-swatch" style="background-color: #d2b48c;" title="Tan"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=8" class="order-btn">Order Now</a>
             </div>
         </div>
 
-        <!-- Product 3 -->
+        <!-- Product 9 -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=500" alt="Leather Watch 3" class="product-img">
             <div class="product-info">
                 <div class="product-title">ক্যাজুয়াল ডার্ক ব্রাউন</div>
                 <div class="product-desc">দৈনন্দিন ব্যবহারের জন্য টেকসই এবং আরামদায়ক লেদার স্ট্র্যাপ।</div>
                 <div class="product-price">৳ ২,২০০</div>
+                
+                <!-- Color Options -->
+                <div class="color-selection">
+                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <div class="color-options">
+                        <label>
+                            <input type="radio" name="color_p9" value="dark_brown" checked>
+                            <span class="color-swatch" style="background-color: #4a2c11;" title="Dark Brown"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="color_p9" value="black">
+                            <span class="color-swatch" style="background-color: #111;" title="Black"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <a href="checkout.html?id=9" class="order-btn">Order Now</a>
             </div>
         </div>
