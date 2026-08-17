@@ -410,12 +410,53 @@
             color: #ffb400;
         }
 
+        /* Responsive Layout Updates */
         @media (max-width: 900px) {
-            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .product-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 15px; 
+            }
         }
         @media (max-width: 600px) {
-            .product-grid { grid-template-columns: 1fr; gap: 15px; }
-            .hero-text h1 { font-size: 22px; }
+            .product-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 10px; 
+                padding: 0 8px;
+            }
+            .product-img {
+                height: 160px;
+            }
+            .product-info {
+                padding: 10px;
+            }
+            .product-title {
+                font-size: 14px;
+            }
+            .product-desc {
+                font-size: 11px;
+                margin-bottom: 6px;
+            }
+            .product-price {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+            .color-thumb {
+                width: 28px;
+                height: 28px;
+            }
+            .color-text {
+                font-size: 9px;
+            }
+            .btn-order-now {
+                padding: 8px 0;
+                font-size: 0.85rem;
+            }
+            .hero-text h1 { 
+                font-size: 20px; 
+            }
+            .hero-text p {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -450,7 +491,7 @@
             <div class="product-info">
                 <div class="product-title">রয়্যাল এডিশন ওয়াচ</div>
                 <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
-                <div class="product-price">৳ ৪,৯ ৯০</div>
+                <div class="product-price">৳ ৪,৯৯০</div>
                 
                 <div class="color-selection">
                     <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
