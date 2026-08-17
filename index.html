@@ -333,6 +333,34 @@
             font-size: 1.1rem;
         }
 
+        /* Visit Store Footer Button Styling */
+        .visit-store-container {
+            text-align: center;
+            padding: 40px 20px 60px;
+            background-color: #ffffff;
+            border-top: 1px solid #eee;
+        }
+
+        .btn-visit-store {
+            display: inline-block;
+            background-color: #111111;
+            color: #ffffff;
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .btn-visit-store:hover {
+            background-color: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
+        }
+
         @media (max-width: 992px) {
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -447,12 +475,12 @@
 
         </div>
     </section>
-    
-<!-- Visit Store Section (Bottom Button) -->
+
+    <!-- Visit Store Section (Bottom Button) -->
     <section class="visit-store-container">
         <a href="shop.html" class="btn-visit-store">Visit Store</a>
     </section>
-    
+
     <!-- Popup Image Lightbox (Only Image) -->
     <div class="modal-overlay" id="quickViewModal">
         <div class="image-viewer-container">
