@@ -146,10 +146,13 @@
             color: #6c757d;
         }
 
+        /* Product Image Fixed - Gap-less & Fits Properly */
         .product-img {
             width: 100%;
-            height: 230px;
-            object-fit: cover;
+            height: 250px;
+            object-fit: cover; /* কোনো ফাঁকা জায়গা ছাড়া পুরো ইমেজের বক্স ফিলাপ রাখবে */
+            padding: 0; /* গ্যাপ দূর করার জন্য প্যাডিং শূন্য করা হয়েছে */
+            display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
         }
@@ -456,7 +459,7 @@
                 padding: 0 8px;
             }
             .product-img {
-                height: 160px;
+                height: 180px;
             }
             .product-info {
                 padding: 10px;
@@ -527,7 +530,7 @@
 
     <!-- ================= CATEGORY 1: LUXURY WATCHES ================= -->
     <div class="category-header">
-        <h3>১. লাক্সারি ওয়াচ (Luxury Watches)</h3>
+        <h3>১. লাক্সারি ওয়াচ (Luxury Watches)</h3>
     </div>
 
     <div class="product-grid">
@@ -536,7 +539,7 @@
             <img id="cat1-p1" src="Images/Black1.jpeg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
-                <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
+                <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
                 <div class="product-price">৳ ৯৫০</div>
                 
                 <div class="color-selection">
@@ -550,7 +553,7 @@
                             <img class="color-thumb" src="Images/Silver1.jpeg">
                             <span class="color-text">Silver</span>
                         </div>
-                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver&Black.png', 'c1-p1-text', 'Golden', this)">
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver&Black.png', 'c1-p1-text', 'Silver & Black', this)">
                             <img class="color-thumb" src="Images/Silver&Black.png">
                             <span class="color-text">Silver & Black</span>
                         </div>
@@ -577,7 +580,7 @@
 
     <!-- ================= CATEGORY 2: SMART WATCHES ================= -->
     <div class="category-header">
-        <h3>২. স্মার্ট ওয়াচ (Smart Watches)</h3>
+        <h3>২. স্মার্ট ওয়াচ (Smart Watches)</h3>
     </div>
 
     <div class="product-grid">
@@ -673,13 +676,13 @@
         <div class="reviews-container">
             <div class="review-card">
                 <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=200" class="customer-watch-img" alt="Review">
-                <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
+                <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
                 <div class="reviewer-name">- আরিয়ান আহমেদ</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
                 <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200" class="customer-watch-img" alt="Review">
-                <p>"Golden ওয়াচটি বাস্তবে অনেক প্রিমিয়াম লেগেছে। কোয়ালিটি অনেক ভালো।"</p>
+                <p>"Golden ওয়াচটি বাস্তবে অনেক প্রিমিয়াম লেগেছে। কোয়ালিটি অনেক ভালো।"</p>
                 <div class="reviewer-name">- তানজিম হোসেন</div>
                 <div class="stars">★★★★★</div>
             </div>
@@ -737,7 +740,7 @@
             </form>
 
             <div id="success-message" class="success-message">
-                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে। আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
+                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে। আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
             </div>
         </div>
     </div>
