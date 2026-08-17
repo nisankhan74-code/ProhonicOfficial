@@ -31,7 +31,6 @@
         .products-section { padding: 50px 5%; }
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #111; }
         
-        /* 4 Columns Grid for Desktop */
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .product-card { background: #fff; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
         .product-card:hover { transform: translateY(-5px); }
@@ -61,12 +60,10 @@
         .btn-visit-store { display: inline-block; background-color: #111; color: #fff; padding: 16px 45px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: all 0.3s ease; }
         .btn-visit-store:hover { background-color: #e63946; transform: translateY(-3px); }
 
-        /* Tablet Responsive */
         @media (max-width: 992px) { 
             .product-grid { grid-template-columns: repeat(2, 1fr); } 
         }
         
-        /* Mobile Responsive: Force 2 Columns Layout */
         @media (max-width: 576px) { 
             .product-grid { 
                 grid-template-columns: repeat(2, 1fr) !important; 
@@ -90,7 +87,8 @@
 
     <section class="hero">
         <div class="hero-image">
-            <img src="Images/Black1.jpeg" id="main-product-img" alt="Luxury Watch" onclick="openQuickView('Images/Black1.jpeg')">
+            <!-- Dynamic Click Event added -->
+            <img src="Images/Black1.jpeg" id="main-product-img" alt="Luxury Watch" onclick="openCurrentHeroView()">
         </div>
         <div class="hero-details">
             <h1>Hublot Classic Fusion</h1>
@@ -180,12 +178,12 @@
         <a href="shop.html" class="btn-visit-store">Visit Store</a>
     </section>
 
-   <div class="modal-overlay" id="quickViewModal">
-    <div class="image-viewer-container">
-        <button class="close-btn" onclick="closeQuickView()">&times;</button>
-        <img id="qv-image" src="" alt="Watch Preview">
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="image-viewer-container">
+            <button class="close-btn" onclick="closeQuickView()">&times;</button>
+            <img id="qv-image" src="" alt="Watch Preview">
+        </div>
     </div>
-</div>
 
     <div class="modal-overlay" id="orderModal">
         <div class="order-container">
@@ -241,6 +239,7 @@
         let currentProductPrice = 0;
         let selectedColorName = "কালো";
         let currentProductName = "";
+        let currentHeroImageSrc = "Images/Black1.jpeg"; // ডিফোল্ট কালার ছবি
 
         function selectColor(element, colorName, imageSrc) {
             let buttons = document.querySelectorAll('.color-btn');
@@ -249,7 +248,16 @@
             
             selectedColorName = colorName;
             document.getElementById('summary-color').innerText = colorName;
-            if(imageSrc) document.getElementById('main-product-img').src = imageSrc;
+            
+            if(imageSrc) {
+                document.getElementById('main-product-img').src = imageSrc;
+                currentHeroImageSrc = imageSrc; // সিলেক্ট করা কালারের ছবি সেভ রাখা হচ্ছে
+            }
+        }
+
+        // মডালে বর্তমানে সিলেক্ট থাকা কালারের ছবি ওপেন করার জন্য
+        function openCurrentHeroView() {
+            openQuickView(currentHeroImageSrc);
         }
 
         function openQuickView(imageSrc) {
