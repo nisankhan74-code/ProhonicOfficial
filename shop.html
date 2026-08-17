@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Watches | Home</title>
+    <title>Watch Store | Prohonic</title>
     <style>
         * {
             margin: 0;
@@ -15,21 +15,31 @@
         body {
             background-color: #f8f9fa;
             color: #333;
+            line-height: 1.6;
         }
 
-        /* Hero Section Styling */
+        header {
+            background-color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo img {
+            max-height: 45px;
+        }
+
+        /* Hero Section */
         .hero-section {
             width: 100%;
-            height: 75vh;
+            height: 50vh;
             overflow: hidden;
-        }
-
-        .hero-section a {
-            display: block;
-            width: 100%;
-            height: 100%;
             position: relative;
-            text-decoration: none;
         }
 
         .hero-section img {
@@ -45,55 +55,41 @@
             transform: translate(-50%, -50%);
             color: #fff;
             text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 25px 45px;
+            background: rgba(0, 0, 0, 0.65);
+            padding: 25px 35px;
             border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
         }
 
         .hero-text h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 8px;
         }
 
-        /* Section Title Styling */
-        .section-title {
+        /* Section Titles */
+        .main-title {
             text-align: center;
             margin: 40px 0 10px;
-            font-size: 30px;
+            font-size: 28px;
             text-transform: uppercase;
-            letter-spacing: 1px;
             color: #111;
         }
 
-        /* Category Header Title */
         .category-header {
             max-width: 1200px;
-            margin: 50px auto 20px;
+            margin: 40px auto 20px;
             padding: 0 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 2px solid #111;
             padding-bottom: 10px;
         }
 
         .category-header h3 {
-            font-size: 24px;
-            color: #222;
+            font-size: 22px;
+            color: #111;
         }
 
-        .view-all-btn {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .view-all-btn:hover {
-            text-decoration: underline;
-        }
-
-        /* Product Grid (3 Columns) */
+        /* Product Grid */
         .product-grid {
             max-width: 1200px;
             margin: 0 auto 30px;
@@ -103,30 +99,31 @@
             gap: 25px;
         }
 
-        /* Product Card Styling */
+        /* Product Card */
         .product-card {
             background: #fff;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .product-img {
             width: 100%;
             height: 230px;
             object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
         }
 
         .product-info {
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -135,14 +132,14 @@
         .product-title {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: #222;
         }
 
         .product-desc {
             font-size: 13px;
             color: #666;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             line-height: 1.4;
         }
 
@@ -153,17 +150,22 @@
             margin-bottom: 12px;
         }
 
-        /* Color Selector Styling */
+        /* Image Swatch */
         .color-selection {
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .color-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
             color: #444;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+        }
+
+        .selected-color-name {
+            color: #e63946;
+            font-weight: bold;
         }
 
         .color-options {
@@ -171,55 +173,196 @@
             gap: 10px;
         }
 
-        .color-options label {
-            position: relative;
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             cursor: pointer;
         }
 
-        /* Hide Default Radio Button */
-        .color-options input[type="radio"] {
-            display: none;
-        }
-
-        /* Custom Color Swatch Circle */
-        .color-swatch {
-            width: 22px;
-            height: 22px;
+        .color-thumb {
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            display: inline-block;
-            border: 2px solid #ddd;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            transition: all 0.2s ease;
         }
 
-        /* Radio Selected State */
-        .color-options input[type="radio"]:checked + .color-swatch {
-            border-color: #111;
-            transform: scale(1.2);
-            box-shadow: 0 0 4px rgba(0,0,0,0.3);
+        .color-text {
+            font-size: 11px;
+            color: #666;
+            margin-top: 3px;
+            font-weight: 600;
         }
 
-        .order-btn {
+        .color-item.active .color-thumb {
+            border-color: #e63946;
+            transform: scale(1.1);
+            box-shadow: 0 0 5px rgba(230, 57, 70, 0.4);
+        }
+
+        .color-item.active .color-text {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .btn-order-now {
             margin-top: auto;
             display: block;
-            text-align: center;
-            background-color: #111;
+            width: 100%;
+            background-color: #e63946;
             color: #fff;
             padding: 12px 0;
-            text-decoration: none;
-            border-radius: 5px;
+            font-size: 1rem;
             font-weight: bold;
-            transition: background 0.3s ease;
+            border-radius: 6px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
         }
 
-        .order-btn:hover {
-            background-color: #e63946;
+        .btn-order-now:hover {
+            background-color: #c82333;
         }
 
-        /* Review Section Styling */
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .order-container {
+            background: #fff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .image-viewer-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-viewer-container img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .image-viewer-container .close-btn {
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2.2rem;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #111;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .delivery-option {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .bill-summary {
+            background: #f1f3f5;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .bill-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .bill-row.total {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #e63946;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Reviews Section */
         .reviews-section {
             background-color: #fff;
-            padding: 60px 15px;
-            margin-top: 50px;
+            padding: 50px 15px;
+            margin-top: 40px;
         }
 
         .reviews-container {
@@ -227,15 +370,14 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
 
         .review-card {
             background: #f9f9f9;
-            padding: 25px;
+            padding: 20px;
             border-radius: 8px;
             border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -243,376 +385,509 @@
         }
 
         .customer-watch-img {
-            width: 90px;
-            height: 90px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            margin-bottom: 12px;
         }
 
         .review-card p {
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #555;
             font-size: 14px;
-            line-height: 1.5;
         }
 
         .reviewer-name {
             font-weight: bold;
             color: #111;
-            margin-top: auto;
         }
 
         .stars {
             color: #ffb400;
-            margin-top: 5px;
         }
 
-        /* Responsive Design */
         @media (max-width: 900px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 600px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-text h1 {
-                font-size: 24px;
-            }
+            .product-grid { grid-template-columns: 1fr; gap: 15px; }
+            .hero-text h1 { font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Hero Section (Clickable) -->
+    <header>
+        <div class="logo">
+            <img src="Images/Weblogo.png" id="site-logo" alt="Logo" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero-section">
-        <a href="shop.html">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200" alt="Hero Watch Banner">
-            <div class="hero-text">
-                <h1>প্রিমিয়াম ওয়াচ কালেকশন</h1>
-                <p>সেরা ডিল দেখতে এখানে ক্লিক করুন</p>
-            </div>
-        </a>
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200" alt="Hero Banner">
+        <div class="hero-text">
+            <h1>প্রিমিয়াম ওয়াচ কালেকশন</h1>
+            <p>আমাদের এক্সক্লুসিভ কালেকশন দেখতে নিচে ভিজিট করুন</p>
+        </div>
     </section>
 
-    <h2 class="section-title">পছন্দের ক্যাটাগরি ও প্রোডাক্টস</h2>
+    <h2 class="main-title">ক্যাটাগরি সমূহ</h2>
 
-    <!-- ================= CATEGORY 1: Luxury Watches ================= -->
+    <!-- ================= CATEGORY 1: LUXURY WATCHES ================= -->
     <div class="category-header">
         <h3>১. লাক্সারি ওয়াচ (Luxury Watches)</h3>
-        <a href="category-luxury.html" class="view-all-btn">সবগুলো দেখুন &rarr;</a>
     </div>
 
     <div class="product-grid">
-        <!-- Product 1 -->
+        <!-- Product 1.1 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500" alt="Watch 1" class="product-img">
+            <img id="cat1-p1" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">রয়্যাল সিলভার ক্রোনোগ্রাফ</div>
-                <div class="product-desc">স্টেইনলেস স্টিল বডি এবং ওয়াটারপ্রুফ গ্লাস দিয়ে তৈরি প্রিমিয়াম ডিজাইন।</div>
-                <div class="product-price">৳ ৪,৯৯০</div>
+                <div class="product-title">রয়্যাল এডিশন ওয়াচ</div>
+                <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
+                <div class="product-price">৳ ৪,৯ ৯০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p1" value="silver" checked>
-                            <span class="color-swatch" style="background-color: #c0c0c0;" title="Silver"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p1" value="black">
-                            <span class="color-swatch" style="background-color: #222;" title="Black"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p1" value="gold">
-                            <span class="color-swatch" style="background-color: #ffd700;" title="Gold"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat1-p1', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c1-p1-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500', 'c1-p1-text', 'Silver', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=100">
+                            <span class="color-text">Silver</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500', 'c1-p1-text', 'Golden', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100">
+                            <span class="color-text">Golden</span>
+                        </div>
                     </div>
                 </div>
-
-                <a href="checkout.html?id=1" class="order-btn">Order Now</a>
+                <button class="btn-order-now" onclick="openOrderModal('রয়্যাল এডিশন ওয়াচ', 4990, 'c1-p1-text')">Order Now</button>
             </div>
         </div>
 
-        <!-- Product 2 -->
+        <!-- Product 1.2 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" alt="Watch 2" class="product-img">
+            <img id="cat1-p2" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">গোল্ডেন ক্লাস এডিটর</div>
-                <div class="product-desc">রয়্যাল গোল্ডেন ফিনিশিং যা আপনার ব্যক্তিত্বকে আরও আকর্ষণীয় করবে।</div>
-                <div class="product-price">৳ ৬,৫০০</div>
+                <div class="product-title">ক্রোনোগ্রাফ ডেল্টা</div>
+                <div class="product-desc">মেটাল স্ট্র্যাপ এবং আধুনিক স্পোর্টস ডায়াল।</div>
+                <div class="product-price">৳ ৫,৫০০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p2" value="gold" checked>
-                            <span class="color-swatch" style="background-color: #ffd700;" title="Gold"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p2" value="rose_gold">
-                            <span class="color-swatch" style="background-color: #b76e79;" title="Rose Gold"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat1-p2', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500', 'c1-p2-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500', 'c1-p2-text', 'Silver', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=100">
+                            <span class="color-text">Silver</span>
+                        </div>
                     </div>
                 </div>
-
-                <a href="checkout.html?id=2" class="order-btn">Order Now</a>
+                <button class="btn-order-now" onclick="openOrderModal('ক্রোনোগ্রাফ ডেল্টা', 5500, 'c1-p2-text')">Order Now</button>
             </div>
         </div>
 
-        <!-- Product 3 -->
+        <!-- Product 1.3 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" alt="Watch 3" class="product-img">
+            <img id="cat1-p3" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">ব্ল্যাক অটোমেটিক ওয়াচ</div>
-                <div class="product-desc">অটোমেটিক মুভমেন্ট এবং স্ক্র্যাচ-প্রুফ স্যাফায়ার গ্লাস প্রোটেকশন।</div>
-                <div class="product-price">৳ ৫,৮০০</div>
+                <div class="product-title">গোল্ডেন সিগনেচার</div>
+                <div class="product-desc">১৮কে গোল্ড প্লেটেড বডি ও প্রিমিয়াম লুক।</div>
+                <div class="product-price">৳ ৬,৮০০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Golden</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p3" value="black" checked>
-                            <span class="color-swatch" style="background-color: #111;" title="Black"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p3" value="blue">
-                            <span class="color-swatch" style="background-color: #1a365d;" title="Dark Blue"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat1-p3', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500', 'c1-p3-text', 'Golden', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100">
+                            <span class="color-text">Golden</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c1-p3-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
                     </div>
                 </div>
-
-                <a href="checkout.html?id=3" class="order-btn">Order Now</a>
+                <button class="btn-order-now" onclick="openOrderModal('গোল্ডেন সিগনেচার', 6800, 'c1-p3-text')">Order Now</button>
             </div>
         </div>
     </div>
 
-
-    <!-- ================= CATEGORY 2: Smart Watches ================= -->
+    <!-- ================= CATEGORY 2: SMART WATCHES ================= -->
     <div class="category-header">
         <h3>২. স্মার্ট ওয়াচ (Smart Watches)</h3>
-        <a href="category-smart.html" class="view-all-btn">সবগুলো দেখুন &rarr;</a>
     </div>
 
     <div class="product-grid">
-        <!-- Product 4 -->
+        <!-- Product 2.1 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" alt="Smartwatch 1" class="product-img">
+            <img id="cat2-p1" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">ফিটনেস প্রো স্মার্টওয়াচ</div>
-                <div class="product-desc">হার্ট রেট মনিটর, স্পোর্টস মোড এবং ৭ দিনের ব্যাটারি ব্যাকআপ।</div>
-                <div class="product-price">৳ ২,৯৯০</div>
-                
-                <!-- Color Options -->
-                <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
-                    <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p4" value="black" checked>
-                            <span class="color-swatch" style="background-color: #222;" title="Black"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p4" value="orange">
-                            <span class="color-swatch" style="background-color: #ff6600;" title="Orange"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p4" value="grey">
-                            <span class="color-swatch" style="background-color: #888;" title="Grey"></span>
-                        </label>
-                    </div>
-                </div>
-
-                <a href="checkout.html?id=4" class="order-btn">Order Now</a>
-            </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500" alt="Smartwatch 2" class="product-img">
-            <div class="product-info">
-                <div class="product-title">অ্যামোলেড কলিং ওয়াচ</div>
-                <div class="product-desc">ফুল এইচডি অ্যামোলেড ডিসপ্লে এবং ব্লুটুথ কলিং ফিচারসহ।</div>
+                <div class="product-title">ফিটনেস প্রো প্রিমিয়াম</div>
+                <div class="product-desc">হার্ট রেট, স্লিপ ট্র্যাকিং এবং AMOLED ডিসপ্লে।</div>
                 <div class="product-price">৳ ৩,৫০০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p5" value="black" checked>
-                            <span class="color-swatch" style="background-color: #000;" title="Black"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p5" value="pink">
-                            <span class="color-swatch" style="background-color: #ffc0cb;" title="Pink"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat2-p1', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500', 'c2-p1-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat2-p1', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c2-p1-text', 'Silver', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
+                            <span class="color-text">Silver</span>
+                        </div>
                     </div>
                 </div>
-
-                <a href="checkout.html?id=5" class="order-btn">Order Now</a>
+                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3500, 'c2-p1-text')">Order Now</button>
             </div>
         </div>
 
-        <!-- Product 6 -->
+        <!-- Product 2.2 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500" alt="Smartwatch 3" class="product-img">
+            <img id="cat2-p2" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">সিরিজ ৮ আল্ট্রা স্মার্টওয়াচ</div>
-                <div class="product-desc">ওয়াটারপ্রুফ বডি, জিপিএস ট্র্যাকিং এবং স্টাইলিশ সিলিকন স্ট্র্যাপ।</div>
-                <div class="product-price">৳ ৩,২০০</div>
+                <div class="product-title">স্মার্ট ব্যান্ড এক্সট্রা</div>
+                <div class="product-desc">৭ দিনের ব্যাটারি ব্যাকআপ ও স্পোর্টস মোড।</div>
+                <div class="product-price">৳ ২,৮০০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c2-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p6" value="orange" checked>
-                            <span class="color-swatch" style="background-color: #ff6000;" title="Orange"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p6" value="starlight">
-                            <span class="color-swatch" style="background-color: #f5f5dc;" title="Starlight"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat2-p2', 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500', 'c2-p2-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat2-p2', 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=500', 'c2-p2-text', 'Green', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=100">
+                            <span class="color-text">Green</span>
+                        </div>
                     </div>
                 </div>
+                <button class="btn-order-now" onclick="openOrderModal('স্মার্ট ব্যান্ড এক্সট্রা', 2800, 'c2-p2-text')">Order Now</button>
+            </div>
+        </div>
 
-                <a href="checkout.html?id=6" class="order-btn">Order Now</a>
+        <!-- Product 2.3 -->
+        <div class="product-card">
+            <img id="cat2-p3" src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">কলিং স্মার্টওয়াচ ভি২</div>
+                <div class="product-desc">ব্লুটুথ কলিং ও এইচডি স্পিকার সাপোর্ট।</div>
+                <div class="product-price">৳ ৪,২০০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c2-p3-text" class="selected-color-name">Silver</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat2-p3', 'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500', 'c2-p3-text', 'Silver', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=100">
+                            <span class="color-text">Silver</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat2-p3', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500', 'c2-p3-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="openOrderModal('কলিং স্মার্টওয়াচ ভি২', 4200, 'c2-p3-text')">Order Now</button>
             </div>
         </div>
     </div>
 
-
-    <!-- ================= CATEGORY 3: Leather Watches ================= -->
+    <!-- ================= CATEGORY 3: SPORTS & CASUAL ================= -->
     <div class="category-header">
-        <h3>৩. লেদার ওয়াচ (Leather Watches)</h3>
-        <a href="category-leather.html" class="view-all-btn">সবগুলো দেখুন &rarr;</a>
+        <h3>৩. স্পোর্টস ও ক্যাজুয়াল (Sports & Casual)</h3>
     </div>
 
     <div class="product-grid">
-        <!-- Product 7 -->
+        <!-- Product 3.1 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" alt="Leather Watch 1" class="product-img">
+            <img id="cat3-p1" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" class="product-img" alt="Casual Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">ভিনটেজ ব্রাউন লেদার</div>
-                <div class="product-desc">১০০% অরিজিনাল লেদার স্ট্র্যাপ এবং ক্লাসিকাল ডায়াল ডিজাইন।</div>
-                <div class="product-price">৳ ২,৪৫০</div>
+                <div class="product-title">ক্লাসিক লেদার এডিটর</div>
+                <div class="product-desc">১০০% জেনুইন লেদার এবং স্মুথ ফিনিশিং।</div>
+                <div class="product-price">৳ ৩,২০০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c3-p1-text" class="selected-color-name">Brown</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p7" value="brown" checked>
-                            <span class="color-swatch" style="background-color: #8b4513;" title="Brown"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p7" value="dark_brown">
-                            <span class="color-swatch" style="background-color: #3d2314;" title="Dark Brown"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p7" value="black">
-                            <span class="color-swatch" style="background-color: #000;" title="Black"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat3-p1', 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500', 'c3-p1-text', 'Brown', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=100">
+                            <span class="color-text">Brown</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p1', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c3-p1-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
                     </div>
                 </div>
-
-                <a href="checkout.html?id=7" class="order-btn">Order Now</a>
+                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text')">Order Now</button>
             </div>
         </div>
 
-        <!-- Product 8 -->
+        <!-- Product 3.2 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Leather Watch 2" class="product-img">
+            <img id="cat3-p2" src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=500" class="product-img" alt="Casual Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">ব্ল্যাক লেদার ফরমাল ওয়াচ</div>
-                <div class="product-desc">অফিসিয়াল এবং ফরমাল আউটফিটের সাথে পারফেক্ট একটি ঘড়ি।</div>
-                <div class="product-price">৳ ১,৯৯০</div>
+                <div class="product-title">আর্মি স্পোর্টস জি-শট</div>
+                <div class="product-desc">শক-প্রুফ কেসিং এবং ৫০ মিটার ওয়াটার রেসিস্ট্যান্ট।</div>
+                <div class="product-price">৳ ২,৯৯০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c3-p2-text" class="selected-color-name">Green</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p8" value="black" checked>
-                            <span class="color-swatch" style="background-color: #111;" title="Black"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p8" value="tan">
-                            <span class="color-swatch" style="background-color: #d2b48c;" title="Tan"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat3-p2', 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=500', 'c3-p2-text', 'Green', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=100">
+                            <span class="color-text">Green</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p2', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c3-p2-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
                     </div>
                 </div>
-
-                <a href="checkout.html?id=8" class="order-btn">Order Now</a>
+                <button class="btn-order-now" onclick="openOrderModal('আর্মি স্পোর্টস জি-শট', 2990, 'c3-p2-text')">Order Now</button>
             </div>
         </div>
 
-        <!-- Product 9 -->
+        <!-- Product 3.3 -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=500" alt="Leather Watch 3" class="product-img">
+            <img id="cat3-p3" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500" class="product-img" alt="Casual Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">ক্যাজুয়াল ডার্ক ব্রাউন</div>
-                <div class="product-desc">দৈনন্দিন ব্যবহারের জন্য টেকসই এবং আরামদায়ক লেদার স্ট্র্যাপ।</div>
-                <div class="product-price">৳ ২,২০০</div>
+                <div class="product-title">ক্যাজুয়াল স্টিল এডিটর</div>
+                <div class="product-desc">অফিস ও ক্যাজুয়াল ব্যবহারের জন্য হালকা ডিজাইনের ঘড়ি।</div>
+                <div class="product-price">৳ ৩,৮০০</div>
                 
-                <!-- Color Options -->
                 <div class="color-selection">
-                    <span class="color-label">কালার সিলেক্ট করুন:</span>
+                    <span class="color-label">কালার: <span id="c3-p3-text" class="selected-color-name">Silver</span></span>
                     <div class="color-options">
-                        <label>
-                            <input type="radio" name="color_p9" value="dark_brown" checked>
-                            <span class="color-swatch" style="background-color: #4a2c11;" title="Dark Brown"></span>
-                        </label>
-                        <label>
-                            <input type="radio" name="color_p9" value="black">
-                            <span class="color-swatch" style="background-color: #111;" title="Black"></span>
-                        </label>
+                        <div class="color-item active" onclick="changeImage('cat3-p3', 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500', 'c3-p3-text', 'Silver', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=100">
+                            <span class="color-text">Silver</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p3', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500', 'c3-p3-text', 'Golden', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100">
+                            <span class="color-text">Golden</span>
+                        </div>
                     </div>
                 </div>
-
-                <a href="checkout.html?id=9" class="order-btn">Order Now</a>
+                <button class="btn-order-now" onclick="openOrderModal('ক্যাজুয়াল স্টিল এডিটর', 3800, 'c3-p3-text')">Order Now</button>
             </div>
         </div>
     </div>
 
-
-    <!-- 3. Customer Review Section -->
+    <!-- Customer Reviews -->
     <section class="reviews-section">
-        <h2 class="section-title" style="margin-top: 0;">কাস্টমার রিভিউ</h2>
+        <h2 class="main-title" style="margin-top: 0;">কাস্টমার রিভিউ</h2>
         <div class="reviews-container">
-            
             <div class="review-card">
-                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=200" alt="Customer Watch 1" class="customer-watch-img">
-                <p>"ঘড়িটির ফিনিশিং এবং কোয়ালিটি অসাধারণ! অর্ডার দেওয়ার ৩ দিনের মধ্যে পেয়েছি।"</p>
+                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=200" class="customer-watch-img" alt="Review">
+                <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
                 <div class="reviewer-name">- আরিয়ান আহমেদ</div>
                 <div class="stars">★★★★★</div>
             </div>
-
             <div class="review-card">
-                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200" alt="Customer Watch 2" class="customer-watch-img">
-                <p>"স্মার্টওয়াচটি খুব চমৎকার কাজ করছে। ব্যাটারি ব্যাকআপ দারুণ।"</p>
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200" class="customer-watch-img" alt="Review">
+                <p>"Golden ওয়াচটি বাস্তবে অনেক প্রিমিয়াম লেগেছে। কোয়ালিটি অনেক ভালো।"</p>
                 <div class="reviewer-name">- তানজিম হোসেন</div>
                 <div class="stars">★★★★★</div>
             </div>
-
-            <div class="review-card">
-                <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=200" alt="Customer Watch 3" class="customer-watch-img">
-                <p>"অরিজিনাল প্রোডাক্ট দেওয়ার জন্য ধন্যবাদ। প্যাকজিং খুবই প্রিমিয়াম ছিল।"</p>
-                <div class="reviewer-name">- শায়লা রহমান</div>
-                <div class="stars">★★★★☆</div>
-            </div>
-
         </div>
     </section>
 
+    <!-- Quick Image Viewer Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="image-viewer-container">
+            <button class="close-btn" onclick="closeQuickView()">&times;</button>
+            <img id="qv-image" src="" alt="Watch Preview">
+        </div>
+    </div>
+
+    <!-- Order Form Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="order-container">
+            <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+            
+            <form id="checkout-form" onsubmit="handleOrder(event)">
+                <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
+                
+                <div class="form-group">
+                    <label for="name">আপনার নাম:</label>
+                    <input type="text" id="name" placeholder="আপনার পুরো নাম লিখুন" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">মোবাইল নম্বর:</label>
+                    <input type="tel" id="phone" placeholder="১১ ডিজিটের মোবাইল নম্বর" required pattern="[0-9]{11}">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">সম্পূর্ণ ঠিকানা:</label>
+                    <textarea id="address" rows="2" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>ডেলিভারি এলাকা নির্বাচন করুন:</label>
+                    <div class="delivery-option">
+                        <label><input type="radio" name="delivery" value="70" checked onclick="updateTotal()"> ঢাকার ভেতরে (৳৭০)</label>
+                        <label><input type="radio" name="delivery" value="130" onclick="updateTotal()"> ঢাকার বাইরে (৳১৩০)</label>
+                    </div>
+                </div>
+
+                <div class="bill-summary">
+                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
+                    <div class="bill-row"><span>কালার:</span><strong id="summary-color">Black</strong></div>
+                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">0</span></span></div>
+                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">70</span></span></div>
+                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn-order-now">অর্ডার নিশ্চিত করুন</button>
+            </form>
+
+            <div id="success-message" class="success-message">
+                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে। আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
+        const TELEGRAM_CHAT_ID = "6210629323";
+
+        let currentProductPrice = 0;
+        let selectedColorName = "Black";
+        let currentProductName = "";
+
+        // Swatches Image Change Logic
+        function changeImage(imageId, newSrc, colorTextId, colorName, element) {
+            var imgElement = document.getElementById(imageId);
+            var colorTextElement = document.getElementById(colorTextId);
+            
+            imgElement.style.opacity = '0.3'; 
+            setTimeout(function() {
+                imgElement.src = newSrc;
+                imgElement.style.opacity = '1'; 
+            }, 150);
+
+            colorTextElement.innerText = colorName;
+
+            var siblings = element.parentElement.children;
+            for (var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('active');
+            }
+            element.classList.add('active');
+        }
+
+        // Quick View Modal Logic
+        function openQuickView(imageSrc) {
+            document.getElementById('qv-image').src = imageSrc;
+            document.getElementById('quickViewModal').classList.add('active');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.remove('active');
+        }
+
+        // Order Modal Logic
+        function openOrderModal(productName, price, colorElementId) {
+            currentProductName = productName;
+            currentProductPrice = price;
+            
+            if(colorElementId && document.getElementById(colorElementId)) {
+                selectedColorName = document.getElementById(colorElementId).innerText;
+            } else {
+                selectedColorName = "ডিফোল্ট";
+            }
+
+            document.getElementById('summary-product-name').innerText = productName;
+            document.getElementById('summary-price').innerText = price;
+            document.getElementById('summary-color').innerText = selectedColorName;
+            
+            updateTotal();
+
+            document.getElementById('orderModal').classList.add('active');
+            document.getElementById('checkout-form').style.display = 'block';
+            document.getElementById('success-message').style.display = 'none';
+        }
+
+        function updateTotal() {
+            let deliveryCharge = parseInt(document.querySelector('input[name="delivery"]:checked').value);
+            document.getElementById('summary-delivery').innerText = deliveryCharge;
+            document.getElementById('summary-total').innerText = currentProductPrice + deliveryCharge;
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('active');
+        }
+
+        // Close Modal when clicking outside container
+        window.onclick = function(event) {
+            let orderModal = document.getElementById('orderModal');
+            let qvModal = document.getElementById('quickViewModal');
+            if (event.target === orderModal) closeOrderModal();
+            if (event.target === qvModal) closeQuickView();
+        }
+
+        // Telegram Integration logic
+        function handleOrder(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = "প্রসেসিং হচ্ছে...";
+            submitBtn.disabled = true;
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
+            const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
+            const totalPrice = currentProductPrice + parseInt(deliveryCharge);
+
+            const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
+                            `📦 *পণ্য:* ${currentProductName}\n` +
+                            `🎨 *কালার:* ${selectedColorName}\n` +
+                            `👤 *গ্রাহকের নাম:* ${name}\n` +
+                            `📞 *ফোন নম্বর:* ${phone}\n` +
+                            `🏠 *ঠিকানা:* ${address}\n` +
+                            `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
+                            `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
+
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
+            })
+            .then(res => res.json())
+            .then(data => {
+                submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+                submitBtn.disabled = false;
+                if (data.ok) {
+                    document.getElementById('checkout-form').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                } else {
+                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+                }
+            })
+            .catch(() => {
+                submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+                submitBtn.disabled = false;
+                alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
+            });
+        }
+    </script>
 </body>
 </html>
