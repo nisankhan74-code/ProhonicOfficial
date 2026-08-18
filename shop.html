@@ -34,7 +34,7 @@
             max-height: 45px;
         }
 
-        /* Hero Section (Responsive Updated without Text) */
+        /* Hero Section */
         .hero-section {
             width: 100%;
             position: relative;
@@ -652,10 +652,32 @@
             </div>
         </div>
 
-        <div class="product-card coming-soon-card">
-            <div class="cs-icon">⏳</div>
-            <div class="cs-title">Coming Soon</div>
-            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        <div class="product-card">
+            <img id="cat1-p3" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">HUBLOT Big Bang Automatic</div>
+                <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
+                <div class="product-price">৳ ৯৫০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/Black1.jpg', 'c1-p3-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/Black1.jpg">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/Silver1.jpg', 'c1-p3-text', 'Silver', this)">
+                            <img class="color-thumb" src="Images/Silver1.jpg">
+                            <span class="color-text">Silver</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/Silver&Black.png', 'c1-p3-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/Silver&Black.png">
+                            <span class="color-text">Sil-Black</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Automatic', 950, 'c1-p3-text')">Order Now</button>
+            </div>
         </div>
     </div>
 
@@ -827,12 +849,10 @@
         function startDailyLoopTimer() {
             function updateTimer() {
                 const now = new Date();
-                // Din-er shesh (রাত ১১:৫৯:৫৯)
                 const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
                 const diff = endOfDay - now;
 
                 if (diff <= 0) {
-                    // Din shesh hole abar reset hobe
                     document.getElementById("hours").innerText = "23";
                     document.getElementById("minutes").innerText = "59";
                     document.getElementById("seconds").innerText = "59";
@@ -866,7 +886,6 @@
                 imgElement.src = newSrc;
                 imgElement.style.opacity = '1'; 
             }, 150);
-
             colorTextElement.innerText = colorName;
 
             var siblings = element.parentElement.children;
