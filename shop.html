@@ -34,18 +34,23 @@
             max-height: 45px;
         }
 
-        /* Hero Section */
+        /* Hero Section (Responsive Updated) */
         .hero-section {
             width: 100%;
-            height: 50vh;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
+            background-color: #000; /* ইমেজ লোড হওয়া বা খালি জায়গায় ব্যাকগ্রাউন্ড ভালো দেখানোর জন্য */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-section img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
+            max-height: 70vh; /* পিসিতে যেন অতিরিক্ত বড় না হয়ে যায় */
+            object-fit: contain; /* মোবাইল ও পিসি কোথাও ইমেজ কাটবে না */
         }
 
         .hero-text {
@@ -206,7 +211,7 @@
         .color-options {
             display: flex;
             gap: 8px;
-            flex-wrap: wrap; /* একাধিক কালার সহজে মানিয়ে নেওয়ার জন্য */
+            flex-wrap: wrap;
         }
 
         .color-item {
@@ -449,13 +454,13 @@
         /* Responsive Layout Updates */
         @media (max-width: 900px) {
             .product-grid { 
-                grid-template-columns: repeat(2, 1fr); 
+                grid-template-columns: repeat(2, 1fr);
                 gap: 15px; 
             }
         }
         @media (max-width: 600px) {
             .product-grid { 
-                grid-template-columns: repeat(2, 1fr); 
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px; 
                 padding: 0 8px;
             }
@@ -488,7 +493,7 @@
                 font-size: 0.85rem;
             }
             .hero-text h1 { 
-                font-size: 20px; 
+                font-size: 20px;
             }
             .hero-text p {
                 font-size: 13px;
@@ -565,7 +570,7 @@
             <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
-                <div class="product-desc">স্টপ্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল এবং টেকসই ওয়াটার-রেজিস্ট্যান্ট ব্ল্যাক রাবার স্ট্র্যাপ।</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল এবং টেকসই ওয়াটার-রেজিস্ট্যান্ট ব্ল্যাক রাবার স্ট্র্যাপ।</div>
                 <div class="product-price">৳ ৯৫০</div>
                 
                 <div class="color-selection">
@@ -723,7 +728,7 @@
             
             <form id="checkout-form" onsubmit="handleOrder(event)">
                 <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
-                
+            
                 <div class="form-group">
                     <label for="name">আপনার নাম:</label>
                     <input type="text" id="name" placeholder="আপনার পুরো নাম লিখুন" required>
@@ -840,13 +845,11 @@
             let qvModal = document.getElementById('quickViewModal');
             if (event.target === orderModal) closeOrderModal();
             if (event.target === qvModal) closeQuickView();
-            
         }
 
         // Telegram Integration logic
         function handleOrder(event) {
             event.preventDefault();
-            
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
