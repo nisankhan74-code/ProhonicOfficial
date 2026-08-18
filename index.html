@@ -72,16 +72,84 @@
         .btn-order-now { display: inline-block; background-color: #e63946; color: #fff; padding: 14px 35px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; transition: 0.3s; border: none; cursor: pointer; text-align: center; }
         .btn-order-now:hover { background-color: #c82333; }
 
+        /* Products Section Improvements */
         .products-section { padding: 50px 5%; }
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #111; }
         
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .product-card { background: #fff; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; cursor: pointer; }
-        .product-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-        .product-card .card-price { color: #e63946; font-weight: bold; margin-bottom: 12px; font-size: 1.05rem; }
+        
+        .product-card { 
+            background: #fff; 
+            border-radius: 12px; 
+            padding: 15px; 
+            text-align: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            transition: all 0.3s ease; 
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            border-color: #ffd1d1;
+        }
+        
+        .product-card-img-wrapper {
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
 
+        .product-card img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Discount / Sale Badge */
+        .badge-discount {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #e63946;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            z-index: 2;
+            box-shadow: 0 2px 6px rgba(230,57,70,0.4);
+        }
+
+        .product-card h3 { font-size: 1.1rem; margin-bottom: 4px; color: #222; }
+
+        /* Star Rating & Sold Style */
+        .product-rating {
+            color: #ffb400;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .product-rating span {
+            color: #777;
+            font-size: 11px;
+            margin-left: 3px;
+        }
+
+        .product-card .card-price { color: #e63946; font-weight: bold; margin-bottom: 12px; font-size: 1.1rem; }
+
+        /* Modal Styles */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         .modal-overlay.active { display: flex; }
         .order-container { background: #fff; width: 100%; max-width: 500px; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto; }
@@ -172,7 +240,7 @@
                 <p>আমাদের এই প্রিমিয়াম ঘড়িটি তৈরি করা হয়েছে ১০০% ওয়াটারপ্রুফ এবং স্টেইনলেস স্টিল দিয়ে। মার্জিত ডিজাইন এবং দীর্ঘস্থায়ী ব্যাটারি ব্যাকআপের সাথে এটি আপনার ব্যক্তিত্বকে আরও আকর্ষণীয় করে তুলবে।</p>
             </div>
 
-            <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950)">Order Now</button>
+            <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950)">🛒 Order Now</button>
         </div>
     </section>
 
@@ -181,59 +249,107 @@
         <div class="product-grid">
             
             <div class="product-card">
-                <img src="Images/Black1.jpg" alt="Product 1" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+                <span class="badge-discount">HOT SALE</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Black1.jpg" alt="Product 1" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+                </div>
                 <h3>রয়্যাল ক্রোনোগ্রাফ</h3>
+                <div class="product-rating">
+                    ★★★★★ <span>(142 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('রয়্যাল ক্রোনোগ্রাফ', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('রয়্যাল ক্রোনোগ্রাফ', 950)">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Silver1.jpg" alt="Product 2" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
+                <span class="badge-discount">TOP PICK</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Silver1.jpg" alt="Product 2" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
+                </div>
                 <h3>স্পোর্টস এডিশন ওয়াচ</h3>
+                <div class="product-rating">
+                    ★★★★☆ <span>(89 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('স্পোর্টস এডিশন ওয়াচ', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('স্পোর্টস এডিশন ওয়াচ', 950)">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Silver&black.png" alt="Product 3" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver&black.png')">
+                <span class="badge-discount">NEW</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Silver&black.png" alt="Product 3" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver&black.png')">
+                </div>
                 <h3>স্মার্ট ক্লাসিক ওয়াচ</h3>
+                <div class="product-rating">
+                    ★★★★★ <span>(210 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('স্মার্ট ক্লাসিক ওয়াচ', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('স্মার্ট ক্লাসিক ওয়াচ', 950)">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Black1.jpg" alt="Product 4" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+                <span class="badge-discount">POPULAR</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Black1.jpg" alt="Product 4" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+                </div>
                 <h3>লেদার স্ট্র্যাপ ওয়াচ</h3>
+                <div class="product-rating">
+                    ★★★★★ <span>(115 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('লেদার স্ট্র্যাপ ওয়াচ', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('লেদার স্ট্র্যাপ ওয়াচ', 950)">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Silver1.jpg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
+                <span class="badge-discount">BEST SELLER</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Silver1.jpg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
+                </div>
                 <h3>ডিজিটাল স্পোর্টস ওয়াচ</h3>
+                <div class="product-rating">
+                    ★★★★☆ <span>(76 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('ডিজিটাল স্পোর্টস ওয়াচ', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('ডিজিটাল স্পোর্টস ওয়াচ', 950)">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Images/Silver&black.png" alt="Product 6" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver&black.png')">
+                <span class="badge-discount">HOT</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Silver&black.png" alt="Product 6" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver&black.png')">
+                </div>
                 <h3>অটোমেটিক মেকানিক্যাল</h3>
+                <div class="product-rating">
+                    ★★★★★ <span>(164 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অটোমেটিক মেকানিক্যাল', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অটোমেটিক মেকানিক্যাল', 950)">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Black1.jpg" alt="Product 7" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+                <span class="badge-discount">PREMIUM</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Black1.jpg" alt="Product 7" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+                </div>
                 <h3>অফিসিয়াল ফর্মাল ওয়াচ</h3>
+                <div class="product-rating">
+                    ★★★★★ <span>(98 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অফিসিয়াল ফর্মাল ওয়াচ', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অফিসিয়াল ফর্মাল ওয়াচ', 950)">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
-                <img src="Images/Silver1.jpg" alt="Product 8" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
+                <span class="badge-discount">HOT SALE</span>
+                <div class="product-card-img-wrapper">
+                    <img src="Images/Silver1.jpg" alt="Product 8" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
+                </div>
                 <h3>পলিমেড ব্ল্যাক ওয়াচ</h3>
+                <div class="product-rating">
+                    ★★★★☆ <span>(130 Sold)</span>
+                </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('পলিমেড ব্ল্যাক ওয়াচ', 950)">Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('পলিমেড ব্ল্যাক ওয়াচ', 950)">🛒 Order Now</button>
             </div>
 
         </div>
@@ -304,13 +420,11 @@
         let currentProductPrice = 0;
         let selectedColorName = "কালো";
         let currentProductName = "";
-        let currentHeroImageSrc = "Images/Black1.jpeg"; // ডিফোল্ট কালার ছবি
+        let currentHeroImageSrc = "Images/Black1.jpeg";
 
-        // 1-Day Loop Countdown Timer Logic
         function startDailyLoopTimer() {
             function updateTimer() {
                 const now = new Date();
-                // দিনের শেষ সময় (রাত ১১:৫৯:৫৯)
                 const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
                 const diff = endOfDay - now;
 
@@ -348,11 +462,10 @@
             
             if(imageSrc) {
                 document.getElementById('main-product-img').src = imageSrc;
-                currentHeroImageSrc = imageSrc; // সিলেক্ট করা কালারের ছবি সেভ রাখা হচ্ছে
+                currentHeroImageSrc = imageSrc;
             }
         }
 
-        // মডালে বর্তমানে সিলেক্ট থাকা কালারের ছবি ওপেন করার জন্য
         function openCurrentHeroView() {
             openQuickView(currentHeroImageSrc);
         }
