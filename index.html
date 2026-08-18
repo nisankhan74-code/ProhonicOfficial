@@ -11,6 +11,50 @@
         header { background-color: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
         .logo img { max-height: 50px; }
 
+        /* 1-Day Loop Discount Banner */
+        .offer-timer-banner {
+            background: linear-gradient(135deg, #e63946, #b80d1d);
+            color: #fff;
+            text-align: center;
+            padding: 12px 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .offer-timer-banner h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timer-box {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .timer-unit {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 6px;
+            min-width: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .timer-num {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .timer-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
         .hero { display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #fff; align-items: center; gap: 30px; }
         .hero-image { flex: 1 1 400px; text-align: center; }
         .hero-image img { width: 100%; max-width: 450px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.2s; }
@@ -74,6 +118,10 @@
             .product-card img { height: 140px; }
             .product-card h3 { font-size: 0.9rem; }
             .product-card .card-price { font-size: 0.95rem; margin-bottom: 8px; }
+            .offer-timer-banner h3 { font-size: 14px; }
+            .timer-unit { min-width: 42px; padding: 4px 6px; }
+            .timer-num { font-size: 15px; }
+            .timer-label { font-size: 8px; }
         }
     </style>
 </head>
@@ -85,9 +133,26 @@
         </div>
     </header>
 
+    <div class="offer-timer-banner">
+        <h3>🔥 বিশেষ অফার! শেষ হওয়ার আগে অর্ডার করুন 🔥</h3>
+        <div class="timer-box">
+            <div class="timer-unit">
+                <span class="timer-num" id="hours">23</span>
+                <span class="timer-label">ঘন্টা</span>
+            </div>
+            <div class="timer-unit">
+                <span class="timer-num" id="minutes">59</span>
+                <span class="timer-label">মিনিট</span>
+            </div>
+            <div class="timer-unit">
+                <span class="timer-num" id="seconds">59</span>
+                <span class="timer-label">সেকেন্ড</span>
+            </div>
+        </div>
+    </div>
+
     <section class="hero">
         <div class="hero-image">
-            <!-- Dynamic Click Event added -->
             <img src="Images/Black1.jpg" id="main-product-img" alt="Luxury Watch" onclick="openCurrentHeroView()">
         </div>
         <div class="hero-details">
@@ -240,6 +305,38 @@
         let selectedColorName = "কালো";
         let currentProductName = "";
         let currentHeroImageSrc = "Images/Black1.jpeg"; // ডিফোল্ট কালার ছবি
+
+        // 1-Day Loop Countdown Timer Logic
+        function startDailyLoopTimer() {
+            function updateTimer() {
+                const now = new Date();
+                // দিনের শেষ সময় (রাত ১১:৫৯:৫৯)
+                const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+                const diff = endOfDay - now;
+
+                if (diff <= 0) {
+                    document.getElementById("hours").innerText = "23";
+                    document.getElementById("minutes").innerText = "59";
+                    document.getElementById("seconds").innerText = "59";
+                    return;
+                }
+
+                const hrs = Math.floor(diff / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("hours").innerText = hrs < 10 ? "0" + hrs : hrs;
+                document.getElementById("minutes").innerText = mins < 10 ? "0" + mins : mins;
+                document.getElementById("seconds").innerText = secs < 10 ? "0" + secs : secs;
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        window.onload = function() {
+            startDailyLoopTimer();
+        };
 
         function selectColor(element, colorName, imageSrc) {
             let buttons = document.querySelectorAll('.color-btn');
