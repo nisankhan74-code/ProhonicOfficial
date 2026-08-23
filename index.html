@@ -608,7 +608,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'Images/Black1.jpg')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', this)">Order Now</button>
             </div>
         </div>
 
@@ -648,7 +648,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'c1-p2-text', 'Images/black.jpg')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'c1-p2-text', this)">Order Now</button>
             </div>
         </div>
 
@@ -660,7 +660,7 @@
                 <div class="product-price">৳ ৯৫০</div>
                 
                 <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Black</span></span>
+                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
                             <img class="color-thumb" src="Images/gray.jpg">
@@ -676,7 +676,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'Images/gray.jpg')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', this)">Order Now</button>
             </div>
         </div>
     </div>
@@ -706,7 +706,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3200, 'c2-p1-text', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3200, 'c2-p1-text', this)">Order Now</button>
             </div>
         </div>
 
@@ -748,7 +748,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text', 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text', this)">Order Now</button>
             </div>
         </div>
 
@@ -846,7 +846,7 @@
         let currentProductPrice = 0;
         let selectedColorName = "Black";
         let currentProductName = "";
-        let currentProductImage = "Images/Black1.jpg";
+        let currentProductImage = "";
 
         // 1-Day Loop Countdown Timer Logic
         function startDailyLoopTimer() {
@@ -890,7 +890,6 @@
                 imgElement.style.opacity = '1'; 
             }, 150);
             colorTextElement.innerText = colorName;
-            currentProductImage = newSrc;
 
             var siblings = element.parentElement.children;
             for (var i = 0; i < siblings.length; i++) {
@@ -909,8 +908,8 @@
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
-        // Order Modal Logic
-        function openOrderModal(productName, price, colorElementId, defaultImageSrc) {
+        // Order Modal Logic Fix
+        function openOrderModal(productName, price, colorElementId, btnElement) {
             currentProductName = productName;
             currentProductPrice = price;
             
@@ -920,9 +919,10 @@
                 selectedColorName = "ডিফোল্ট";
             }
 
-            if(defaultImageSrc) {
-                currentProductImage = defaultImageSrc;
-            }
+            // Find current product card and get active image src
+            const card = btnElement.closest('.product-card');
+            const mainImg = card.querySelector('.product-img');
+            currentProductImage = mainImg ? mainImg.getAttribute('src') : "";
 
             document.getElementById('summary-product-name').innerText = productName;
             document.getElementById('summary-price').innerText = price;
@@ -945,7 +945,6 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
-        // Close Modal when clicking outside container
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
             let qvModal = document.getElementById('quickViewModal');
@@ -953,7 +952,7 @@
             if (event.target === qvModal) closeQuickView();
         }
 
-        // Telegram Integration logic
+        // Telegram Integration
         function handleOrder(event) {
             event.preventDefault();
             const submitBtn = document.getElementById('submit-btn');
@@ -969,10 +968,10 @@
 
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
-            // Image URL Processing
+            // Dynamic Image URL Parsing
             let fullImageUrl = currentProductImage;
             if (!currentProductImage.startsWith('http')) {
-                fullImageUrl = window.location.origin + '/' + currentProductImage;
+                fullImageUrl = window.location.origin + '/' + currentProductImage.replace(/^\/+/, '');
             }
 
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
@@ -985,7 +984,6 @@
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            // ১. ছবি সহ পাঠানোর চেষ্টা করা হবে
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -998,7 +996,6 @@
             })
             .then(res => res.json())
             .then(data => {
-                // ছবি ব্যর্থ হলে বিকল্প হিসেবে শুধু টেক্সট মেসেজ পাঠানো হবে
                 if (!data.ok) {
                     return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                         method: 'POST',
