@@ -839,7 +839,7 @@
 
     <script>
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
-        const TELEGRAM_CHAT_ID = "6210629323";
+        const TELEGRAM_CHAT_ID = "-1003956122715";
 
         let currentProductPrice = 0;
         let selectedColorName = "Black";
@@ -968,11 +968,15 @@
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
-            })
+           fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 
+        chat_id: TELEGRAM_CHAT_ID, // এখানে -1003956122715 কাজ করবে
+        text: message, 
+        parse_mode: 'Markdown' 
+    })
+})
             .then(res => res.json())
             .then(data => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
