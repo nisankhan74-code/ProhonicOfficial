@@ -706,7 +706,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3500, 'c2-p1-text', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3200, 'c2-p1-text', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500')">Order Now</button>
             </div>
         </div>
 
@@ -969,6 +969,7 @@
 
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
+            // Image URL Processing
             let fullImageUrl = currentProductImage;
             if (!currentProductImage.startsWith('http')) {
                 fullImageUrl = window.location.origin + '/' + currentProductImage;
@@ -984,6 +985,7 @@
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
+            // ১. ছবি সহ পাঠানোর চেষ্টা করা হবে
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -996,6 +998,7 @@
             })
             .then(res => res.json())
             .then(data => {
+                // ছবি ব্যর্থ হলে বিকল্প হিসেবে শুধু টেক্সট মেসেজ পাঠানো হবে
                 if (!data.ok) {
                     return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                         method: 'POST',
