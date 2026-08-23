@@ -608,7 +608,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'Images/Black1.jpg')">Order Now</button>
             </div>
         </div>
 
@@ -648,7 +648,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'c1-p2-text')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'c1-p2-text', 'Images/black.jpg')">Order Now</button>
             </div>
         </div>
 
@@ -676,7 +676,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'Images/gray.jpg')">Order Now</button>
             </div>
         </div>
     </div>
@@ -691,7 +691,7 @@
             <div class="product-info">
                 <div class="product-title">ফিটনেস প্রো প্রিমিয়াম</div>
                 <div class="product-desc">হার্ট রেট, স্লিপ ট্র্যাকিং এবং AMOLED ডিসপ্লে।</div>
-                <div class="product-price">৳ ৩,৫০০</div>
+                <div class="product-price">৳ ৩,২০০</div>
                 
                 <div class="color-selection">
                     <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
@@ -706,7 +706,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3500, 'c2-p1-text')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3500, 'c2-p1-text', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500')">Order Now</button>
             </div>
         </div>
 
@@ -748,7 +748,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text', 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500')">Order Now</button>
             </div>
         </div>
 
@@ -832,7 +832,9 @@
             </form>
 
             <div id="success-message" class="success-message">
-                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে। আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
+                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে।<br>
+                অর্ডার আইডি: <span id="order-id-display" style="font-size: 1.2rem; color: #e63946; font-weight: bold; display: block; margin: 10px 0;"></span>
+                আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
             </div>
         </div>
     </div>
@@ -844,6 +846,7 @@
         let currentProductPrice = 0;
         let selectedColorName = "Black";
         let currentProductName = "";
+        let currentProductImage = "Images/Black1.jpg";
 
         // 1-Day Loop Countdown Timer Logic
         function startDailyLoopTimer() {
@@ -887,6 +890,7 @@
                 imgElement.style.opacity = '1'; 
             }, 150);
             colorTextElement.innerText = colorName;
+            currentProductImage = newSrc;
 
             var siblings = element.parentElement.children;
             for (var i = 0; i < siblings.length; i++) {
@@ -906,7 +910,7 @@
         }
 
         // Order Modal Logic
-        function openOrderModal(productName, price, colorElementId) {
+        function openOrderModal(productName, price, colorElementId, defaultImageSrc) {
             currentProductName = productName;
             currentProductPrice = price;
             
@@ -914,6 +918,10 @@
                 selectedColorName = document.getElementById(colorElementId).innerText;
             } else {
                 selectedColorName = "ডিফোল্ট";
+            }
+
+            if(defaultImageSrc) {
+                currentProductImage = defaultImageSrc;
             }
 
             document.getElementById('summary-product-name').innerText = productName;
@@ -959,7 +967,15 @@
             const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
 
+            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
+
+            let fullImageUrl = currentProductImage;
+            if (!currentProductImage.startsWith('http')) {
+                fullImageUrl = window.location.origin + '/' + currentProductImage;
+            }
+
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
+                            `🆔 *অর্ডার আইডি:* #${orderId}\n` +
                             `📦 *পণ্য:* ${currentProductName}\n` +
                             `🎨 *কালার:* ${selectedColorName}\n` +
                             `👤 *গ্রাহকের নাম:* ${name}\n` +
@@ -968,20 +984,32 @@
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-           fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ 
-        chat_id: TELEGRAM_CHAT_ID, // এখানে -1003956122715 কাজ করবে
-        text: message, 
-        parse_mode: 'Markdown' 
-    })
-})
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    chat_id: TELEGRAM_CHAT_ID, 
+                    photo: fullImageUrl,
+                    caption: message, 
+                    parse_mode: 'Markdown' 
+                })
+            })
             .then(res => res.json())
+            .then(data => {
+                if (!data.ok) {
+                    return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
+                    }).then(r => r.json());
+                }
+                return data;
+            })
             .then(data => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
                 if (data.ok) {
+                    document.getElementById('order-id-display').innerText = "#" + orderId;
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('success-message').style.display = 'block';
                 } else {
