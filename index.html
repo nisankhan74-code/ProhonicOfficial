@@ -324,6 +324,43 @@
             overflow-y: auto;
         }
 
+        .policy-modal-container {
+            background: #fff;
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+            line-height: 1.7;
+        }
+
+        .policy-modal-container h2 {
+            color: #111;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e63946;
+            padding-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .policy-modal-container h4 {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #e63946;
+        }
+
+        .policy-modal-container p, .policy-modal-container ul {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .policy-modal-container ul {
+            padding-left: 20px;
+        }
+
         .image-viewer-container {
             position: relative;
             max-width: 90vw;
@@ -476,6 +513,61 @@
             color: #ffb400;
         }
 
+        /* Footer Section */
+        footer {
+            background-color: #111;
+            color: #bbb;
+            padding: 40px 15px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e63946;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .footer-col ul li a:hover {
+            color: #e63946;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+
         /* Responsive Layout Updates */
         @media (max-width: 900px) {
             .product-grid { 
@@ -584,11 +676,12 @@
     </div>
 
     <div class="product-grid">
+        <!-- Card 1 -->
         <div class="product-card">
             <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
-                <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
+                <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
                 <div class="product-price">৳ ৯৫০</div>
                 
                 <div class="color-selection">
@@ -602,16 +695,17 @@
                             <img class="color-thumb" src="Images/Silver1.jpg">
                             <span class="color-text">Silver</span>
                         </div>
-                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/silverandblack.jpg', 'c1-p1-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silverandblack.jpg">
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver&Black.png', 'c1-p1-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/Silver&Black.png">
                             <span class="color-text">Silver & Black</span>
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', this)">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text')">Order Now</button>
             </div>
         </div>
 
+        <!-- Card 2 -->
         <div class="product-card">
             <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
@@ -648,35 +742,36 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'c1-p2-text', this)">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'c1-p2-text')">Order Now</button>
             </div>
         </div>
 
+        <!-- Card 3 -->
         <div class="product-card">
-            <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <img id="cat1-p3" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
-                <div class="product-title">HUBLOT Big Bang Chronograph</div>
-                <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল/স্যাফায়ার গ্লাস এবং টেকসই লেদার-রাবার হাইব্রিড স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে ও সাব-ডায়ালসহ নির্ভুল ক্রোনোগ্রাফ মুভমেন্ট।</div>
+                <div class="product-title">HUBLOT Big Bang Automatic</div>
+                <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
                 <div class="product-price">৳ ৯৫০</div>
                 
                 <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
+                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
-                            <img class="color-thumb" src="Images/gray.jpg">
-                            <span class="color-text">Gray</span>
+                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/Black1.jpg', 'c1-p3-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/Black1.jpg">
+                            <span class="color-text">Black</span>
                         </div>
-                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/green.jpg', 'c1-p3-text', 'Green', this)">
-                            <img class="color-thumb" src="Images/green.jpg">
-                            <span class="color-text">Green</span>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/Silver1.jpg', 'c1-p3-text', 'Silver', this)">
+                            <img class="color-thumb" src="Images/Silver1.jpg">
+                            <span class="color-text">Silver</span>
                         </div>
-                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/golden.jpg', 'c1-p3-text', 'Golden', this)">
-                            <img class="color-thumb" src="Images/golden.jpg">
-                            <span class="color-text">Golden</span>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/Silver&Black.png', 'c1-p3-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/Silver&Black.png">
+                            <span class="color-text">Sil-Black</span>
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', this)">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Automatic', 950, 'c1-p3-text')">Order Now</button>
             </div>
         </div>
     </div>
@@ -691,7 +786,7 @@
             <div class="product-info">
                 <div class="product-title">ফিটনেস প্রো প্রিমিয়াম</div>
                 <div class="product-desc">হার্ট রেট, স্লিপ ট্র্যাকিং এবং AMOLED ডিসপ্লে।</div>
-                <div class="product-price">৳ ৩,২০০</div>
+                <div class="product-price">৳ ৩,৫০০</div>
                 
                 <div class="color-selection">
                     <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
@@ -706,7 +801,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3200, 'c2-p1-text', this)">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3500, 'c2-p1-text')">Order Now</button>
             </div>
         </div>
 
@@ -748,7 +843,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text', this)">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text')">Order Now</button>
             </div>
         </div>
 
@@ -783,6 +878,35 @@
         </div>
     </section>
 
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Prohonic Watch</h4>
+                <p style="font-size: 13px; color: #999; margin-top: 5px;">আমরা প্রদান করি প্রিমিয়াম ও বিশ্বস্ত কোয়ালিটির সব হাতঘড়ি। গ্রাহকের সন্তুষ্টিই আমাদের মূল লক্ষ্য।</p>
+            </div>
+            <div class="footer-col">
+                <h4>কাস্টমার সার্ভিস</h4>
+                <ul>
+                    <li><a onclick="openPolicyModal('shippingModal')">Shipping Policy</a></li>
+                    <li><a onclick="openPolicyModal('paymentModal')">Payment & COD Rules</a></li>
+                    <li><a onclick="openPolicyModal('returnModal')">Return & Refund Policy</a></li>
+                    <li><a onclick="openPolicyModal('contactModal')">Contact Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>যোগাযোগ</h4>
+                <p style="font-size: 13px; color: #bbb;">📞 হেল্পলাইন: 01700-000000</p>
+                <p style="font-size: 13px; color: #bbb; margin-top: 5px;">✉️ ইমেইল: support@prohonic.com</p>
+                <p style="font-size: 13px; color: #bbb; margin-top: 5px;">📍 ঢাকা, বাংলাদেশ</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Prohonic Watch Store. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- MODALS SECTION -->
     <div class="modal-overlay" id="quickViewModal">
         <div class="image-viewer-container">
             <button class="close-btn" onclick="closeQuickView()">&times;</button>
@@ -832,21 +956,100 @@
             </form>
 
             <div id="success-message" class="success-message">
-                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে।<br>
-                অর্ডার আইডি: <span id="order-id-display" style="font-size: 1.2rem; color: #e63946; font-weight: bold; display: block; margin: 10px 0;"></span>
-                আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
+                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে। আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
             </div>
+        </div>
+    </div>
+
+    <!-- 1. SHIPPING POLICY MODAL -->
+    <div class="modal-overlay" id="shippingModal">
+        <div class="policy-modal-container">
+            <button class="close-btn" onclick="closePolicyModal('shippingModal')">&times;</button>
+            <h2>Shipping Policy (শিপিং পলিসি)</h2>
+            <p>আমাদের শপ থেকে পণ্য অর্ডারের ক্ষেত্রে ডেলিভারি সংক্রান্ত নিয়মাবলী নিচে দেওয়া হলো:</p>
+            
+            <h4>ডেলিভারি সময়সীমা:</h4>
+            <ul>
+                <li><strong>ঢাকার ভেতরে:</strong> অর্ডার কনফার্ম করার ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি করা হয়।</li>
+                <li><strong>ঢাকার বাইরে:</strong> অর্ডার কনফার্ম করার ২ থেকে ৩ কর্মদিবসের মধ্যে ডেলিভারি করা হয়।</li>
+            </ul>
+
+            <h4>ডেলিভারি চার্জ:</h4>
+            <ul>
+                <li>ঢাকার ভেতরে ডেলিভারি চার্জ: <strong>৳৭০</strong></li>
+                <li>ঢাকার বাইরে ডেলিভারি চার্জ: <strong>৳১৩০</strong></li>
+            </ul>
+
+            <h4>ট্র্যাকিং ও পর্যবেক্ষণ:</h4>
+            <p>পণ্য কুরিয়ারে হ্যান্ডওভার করার পর ডেলিভারিম্যান আপনার সাথে সরাসরি ফোনে যোগাযোগ করবে। অনুগ্রহ করে ফোন চালু রাখুন।</p>
+        </div>
+    </div>
+
+    <!-- 2. PAYMENT & COD RULES MODAL -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="policy-modal-container">
+            <button class="close-btn" onclick="closePolicyModal('paymentModal')">&times;</button>
+            <h2>Payment Terms & Cash on Delivery Rules</h2>
+            <p>আমাদের শপে কেনাকাটা নিরাপদ ও সহজ করতে ক্যাশ অন ডেলিভারি (COD) সুবিধা রয়েছে।</p>
+            
+            <h4>ক্যাশ অন ডেলিভারি (COD) নিয়মাবলী:</h4>
+            <ul>
+                <li>পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করার সুবিধা রয়েছে।</li>
+                <li>ডেলিভারিম্যানের সামনে পার্সেলটি খুলে চেক করার সুযোগ থাকবে।</li>
+            </ul>
+
+            <h4>পেমেন্ট মেথড:</h4>
+            <p>বর্তমানে আমরা নিচের মাধ্যমগুলোতে মূল্য গ্রহণ করি:</p>
+            <ul>
+                <li>ক্যাশ অন ডেলিভারি (হাতে পেয়ে নগদ টাকা পরিশোধ)</li>
+                <li>বিকাশ / নগদ (অর্ডার করার সময় বা ডেলিভারির সময়)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 3. RETURN & REFUND POLICY MODAL -->
+    <div class="modal-overlay" id="returnModal">
+        <div class="policy-modal-container">
+            <button class="close-btn" onclick="closePolicyModal('returnModal')">&times;</button>
+            <h2>Return & Refund Policy (রিটার্ন ও রিফান্ড পলিসি)</h2>
+            <p>গ্রাহকের সন্তুষ্টি আমাদের প্রধান অগ্রাধিকার। পণ্য গ্রহণের পর কোনো সমস্যা থাকলে নিচের নিয়ম অনুযায়ী রিটার্ন নেওয়া হয়:</p>
+            
+            <h4>রিটার্ন ও চেঞ্জ শর্তাবলী:</h4>
+            <ul>
+                <li>ডেলিভারিম্যানের সামনে পণ্য চেক করার সময় যদি ভাঙা, ভুল কালার বা ত্রুটিপূর্ণ পাওয়া যায়, সাথে সাথেই ফেরত দিতে পারবেন।</li>
+                <li>পণ্য পছন্দ না হলে ডেলিভারিম্যান থাকা অবস্থায় ডেলিভারি চার্জ প্রদান করে পণ্য রিটার্ন করতে হবে।</li>
+                <li>ডেলিভারিম্যান চলে আসার পর ২৪ ঘণ্টার মধ্যে যেকোনো সমস্যার ছবি/ভিডিও আমাদের হেল্পলাইনে পাঠাতে হবে।</li>
+            </ul>
+
+            <h4>রিফান্ড পলিসি:</h4>
+            <p>যদি অগ্রিম টাকা দেওয়া থাকে এবং স্টক না থাকার কারণে আমরা পণ্য পাঠাতে না পারি, তবে ২৪-৪৮ ঘণ্টার মধ্যে সম্পূর্ণ টাকা বিকাশ/নগদে রিফান্ড করা হবে।</p>
+        </div>
+    </div>
+
+    <!-- 4. CONTACT INFORMATION MODAL -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="policy-modal-container">
+            <button class="close-btn" onclick="closePolicyModal('contactModal')">&times;</button>
+            <h2>Contact Information (যোগাযোগ)</h2>
+            <p>আমাদের সাথে যোগাযোগ করতে বা কোনো প্রশ্ন থাকলে নিচের মাধ্যমে যোগাযোগ করুন:</p>
+            
+            <h4>আমাদের ঠিকানা ও হেল্পলাইন:</h4>
+            <ul>
+                <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1700-000000</li>
+                <li><strong>ইমেইল:</strong> support@prohonic.com</li>
+                <li><strong>অফিস ঠিকানা:</strong> হাউস #১২, রোড #০৫, ধানমন্ডি, ঢাকা - ১২০৫, বাংলাদেশ।</li>
+                <li><strong>সাপোর্ট টাইম:</strong> সকাল ৯:০০ টা - রাত ১০:০০ টা (প্রতিদিন)</li>
+            </ul>
         </div>
     </div>
 
     <script>
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
-        const TELEGRAM_CHAT_ID = "-1003956122715";
+        const TELEGRAM_CHAT_ID = "6210629323";
 
         let currentProductPrice = 0;
         let selectedColorName = "Black";
         let currentProductName = "";
-        let currentProductImage = "";
 
         // 1-Day Loop Countdown Timer Logic
         function startDailyLoopTimer() {
@@ -908,8 +1111,17 @@
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
-        // Order Modal Logic Fix
-        function openOrderModal(productName, price, colorElementId, btnElement) {
+        // Policy Modals Logic
+        function openPolicyModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closePolicyModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Order Modal Logic
+        function openOrderModal(productName, price, colorElementId) {
             currentProductName = productName;
             currentProductPrice = price;
             
@@ -918,11 +1130,6 @@
             } else {
                 selectedColorName = "ডিফোল্ট";
             }
-
-            // Find current product card and get active image src
-            const card = btnElement.closest('.product-card');
-            const mainImg = card.querySelector('.product-img');
-            currentProductImage = mainImg ? mainImg.getAttribute('src') : "";
 
             document.getElementById('summary-product-name').innerText = productName;
             document.getElementById('summary-price').innerText = price;
@@ -945,14 +1152,22 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
+        // Close Modal when clicking outside container
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
             let qvModal = document.getElementById('quickViewModal');
+            let policyModals = ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'];
+
             if (event.target === orderModal) closeOrderModal();
             if (event.target === qvModal) closeQuickView();
+            
+            policyModals.forEach(id => {
+                let modal = document.getElementById(id);
+                if (event.target === modal) closePolicyModal(id);
+            });
         }
 
-        // Telegram Integration
+        // Telegram Integration logic
         function handleOrder(event) {
             event.preventDefault();
             const submitBtn = document.getElementById('submit-btn');
@@ -966,16 +1181,7 @@
             const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
 
-            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
-
-            // Dynamic Image URL Parsing
-            let fullImageUrl = currentProductImage;
-            if (!currentProductImage.startsWith('http')) {
-                fullImageUrl = window.location.origin + '/' + currentProductImage.replace(/^\/+/, '');
-            }
-
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
-                            `🆔 *অর্ডার আইডি:* #${orderId}\n` +
                             `📦 *পণ্য:* ${currentProductName}\n` +
                             `🎨 *কালার:* ${selectedColorName}\n` +
                             `👤 *গ্রাহকের নাম:* ${name}\n` +
@@ -984,32 +1190,16 @@
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    chat_id: TELEGRAM_CHAT_ID, 
-                    photo: fullImageUrl,
-                    caption: message, 
-                    parse_mode: 'Markdown' 
-                })
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
             })
             .then(res => res.json())
-            .then(data => {
-                if (!data.ok) {
-                    return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
-                    }).then(r => r.json());
-                }
-                return data;
-            })
             .then(data => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
                 if (data.ok) {
-                    document.getElementById('order-id-display').innerText = "#" + orderId;
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('success-message').style.display = 'block';
                 } else {
