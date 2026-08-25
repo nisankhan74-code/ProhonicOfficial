@@ -56,56 +56,59 @@
             opacity: 0.85;
         }
 
-        /* 2ND OPTION: VISUAL SELECTOR STYLES */
+        /* ENHANCED & LARGER VISUAL SELECTOR STYLES */
         .product-selector-wrapper {
             background: #ffffff;
-            padding: 25px 5% 15px;
+            padding: 30px 5% 25px;
             text-align: center;
-            border-bottom: 1px dashed #ddd;
+            border-bottom: 2px dashed #e0e0e0;
         }
 
         .selector-title {
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             color: #111;
-            margin-bottom: 15px;
-            font-weight: bold;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
         }
 
         .selector-grid {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            max-width: 700px;
+            gap: 25px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .selector-card {
             flex: 1;
             background: #fff;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 18px;
             text-decoration: none;
             color: inherit;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            position: relative;
         }
 
         .selector-card:hover {
             border-color: #e63946;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(230,57,70,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(230,57,70,0.18);
         }
 
         .selector-card img {
-            width: 60px;
-            height: 60px;
+            width: 85px;
+            height: 85px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 1px solid #eee;
         }
 
         .selector-info {
@@ -113,19 +116,22 @@
         }
 
         .selector-info h4 {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: #111;
-            margin-bottom: 3px;
+            margin-bottom: 6px;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .selector-info .badge {
             display: inline-block;
             background: #ffe6e6;
             color: #e63946;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: bold;
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-top: 2px;
         }
 
         .hero { display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #fff; align-items: center; gap: 30px; border-bottom: 2px solid #f1f1f1; scroll-margin-top: 80px; }
@@ -344,9 +350,11 @@
         }
         
         @media (max-width: 576px) { 
-            .selector-grid { flex-direction: column; gap: 10px; }
-            .selector-card img { width: 50px; height: 50px; }
-            .selector-info h4 { font-size: 0.85rem; }
+            .selector-title { font-size: 1.15rem; }
+            .selector-grid { flex-direction: column; gap: 12px; }
+            .selector-card { padding: 12px 15px; }
+            .selector-card img { width: 65px; height: 65px; }
+            .selector-info h4 { font-size: 0.95rem; }
             .product-grid { 
                 grid-template-columns: repeat(2, 1fr) !important; 
                 gap: 12px;
@@ -406,7 +414,7 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <!-- VISUAL SELECTOR (2ND OPTION IMPLEMENTATION) -->
+    <!-- ENHANCED LARGER VISUAL SELECTOR -->
     <div class="product-selector-wrapper">
         <div class="selector-title">👇 আপনার পছন্দের মডেলটি নির্বাচন করুন 👇</div>
         <div class="selector-grid">
@@ -765,7 +773,6 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
         const TELEGRAM_CHAT_ID = "-1003956122715";
 
-        // Multiple Hero Products State Management
         let productStates = {
             1: {
                 selectedColorName: "কালো",
@@ -898,7 +905,6 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
             
-            // র্যান্ডম ইউনিক অর্ডার আইডি তৈরি
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
@@ -911,10 +917,8 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            // সম্পূর্ণ ইমেজ URL তৈরি করা (ডোমেইন অনুযায়ী আপডেট হবে)
             const fullImageUrl = window.location.origin + '/' + currentProductImage;
 
-            // টেলিগ্রামে মেসেজ ও প্রোডাক্টের ছবি পাঠানো
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -930,7 +934,6 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
                 
-                // ছবি পাঠাতে ব্যর্থ হলেও ব্যাকআপ হিসেবে প্লেইন টেক্সট মেসেজ পাঠানো
                 if (!data.ok) {
                     return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                         method: 'POST',
