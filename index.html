@@ -3,26 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prohonic</title>
+    <title>Watch Store | Prohonic</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
-        
-        header { background-color: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo img { max-height: 50px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo img {
+            max-height: 45px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 70vh;
+            object-fit: contain;
+        }
 
         /* 1-Day Loop Discount Banner */
         .offer-timer-banner {
             background: linear-gradient(135deg, #e63946, #b80d1d);
             color: #fff;
             text-align: center;
-            padding: 12px 10px;
+            padding: 15px 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         .offer-timer-banner h3 {
-            font-size: 16px;
-            margin-bottom: 6px;
+            font-size: 18px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -30,131 +72,258 @@
         .timer-box {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 4px;
+            gap: 12px;
+            margin-top: 5px;
         }
 
         .timer-unit {
             background: rgba(0, 0, 0, 0.3);
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 6px;
-            min-width: 50px;
+            min-width: 55px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .timer-num {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             display: block;
             line-height: 1.2;
         }
 
         .timer-label {
-            font-size: 9px;
+            font-size: 10px;
             text-transform: uppercase;
             opacity: 0.85;
         }
 
-        .hero { display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #fff; align-items: center; gap: 30px; }
-        .hero-image { flex: 1 1 400px; text-align: center; }
-        .hero-image img { width: 100%; max-width: 450px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.2s; }
-        .hero-details { flex: 1 1 400px; }
-        .hero-details h1 { font-size: 2.2rem; margin-bottom: 15px; color: #111; }
-        
-        .price { font-size: 1.8rem; color: #e63946; font-weight: bold; margin-bottom: 15px; }
-        .color-selection { margin-bottom: 20px; }
-        .color-selection p { font-weight: bold; margin-bottom: 8px; }
-        .color-options { display: flex; gap: 12px; }
-        .color-btn { padding: 8px 16px; border: 2px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer; font-weight: bold; }
-        .color-btn.active { border-color: #e63946; background-color: #ffe6e6; color: #e63946; }
+        /* Section Titles */
+        .main-title {
+            text-align: center;
+            margin: 40px 0 10px;
+            font-size: 28px;
+            text-transform: uppercase;
+            color: #111;
+        }
 
-        .description { margin-bottom: 25px; color: #555; }
-        .btn-order-now { display: inline-block; background-color: #e63946; color: #fff; padding: 14px 35px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; transition: 0.3s; border: none; cursor: pointer; text-align: center; }
-        .btn-order-now:hover { background-color: #c82333; }
+        .category-header {
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            padding: 0 15px;
+            border-bottom: 2px solid #111;
+            padding-bottom: 10px;
+        }
 
-        /* Products Section Improvements */
-        .products-section { padding: 50px 5%; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #111; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        
-        .product-card { 
-            background: #fff; 
-            border-radius: 12px; 
-            padding: 15px; 
-            text-align: center; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            transition: all 0.3s ease; 
-            position: relative;
+        .category-header h3 {
+            font-size: 22px;
+            color: #111;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
             overflow: hidden;
-            border: 1px solid #eee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            transition: transform 0.3s ease;
+            position: relative;
         }
-        
-        .product-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-            border-color: #ffd1d1;
+
+        .product-card:hover {
+            transform: translateY(-5px);
         }
-        
-        .product-card-img-wrapper {
-            overflow: hidden;
-            border-radius: 8px;
+
+        /* Coming Soon Card Design */
+        .product-card.coming-soon-card {
+            min-height: 380px;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%);
+            border: 2px dashed #ced4da;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .coming-soon-card .cs-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .coming-soon-card .cs-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff9800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .coming-soon-card .cs-desc {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        /* Product Image Fixed */
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            padding: 0;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-info {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #222;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e63946;
             margin-bottom: 12px;
         }
 
-        .product-card img { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            transition: transform 0.4s ease;
+        /* Image Swatch */
+        .color-selection {
+            margin-bottom: 15px;
         }
 
-        .product-card:hover img {
-            transform: scale(1.06);
-        }
-
-        /* Discount / Sale Badge */
-        .badge-discount {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #e63946;
-            color: #fff;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 20px;
-            z-index: 2;
-            box-shadow: 0 2px 6px rgba(230,57,70,0.4);
-        }
-
-        .product-card h3 { font-size: 1.1rem; margin-bottom: 4px; color: #222; }
-
-        /* Star Rating & Sold Style */
-        .product-rating {
-            color: #ffb400;
+        .color-label {
             font-size: 13px;
+            font-weight: bold;
+            color: #444;
+            display: block;
             margin-bottom: 8px;
         }
-        .product-rating span {
-            color: #777;
-            font-size: 11px;
-            margin-left: 3px;
+
+        .selected-color-name {
+            color: #e63946;
+            font-weight: bold;
         }
 
-        .product-card .card-price { color: #e63946; font-weight: bold; margin-bottom: 12px; font-size: 1.1rem; }
+        .color-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .color-thumb {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            transition: all 0.2s ease;
+        }
+
+        .color-text {
+            font-size: 10px;
+            color: #666;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        .color-item.active .color-thumb {
+            border-color: #e63946;
+            transform: scale(1.1);
+            box-shadow: 0 0 5px rgba(230, 57, 70, 0.4);
+        }
+
+        .color-item.active .color-text {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .btn-order-now {
+            margin-top: auto;
+            display: block;
+            width: 100%;
+            background-color: #e63946;
+            color: #fff;
+            padding: 12px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-order-now:hover {
+            background-color: #c82333;
+        }
 
         /* Modal Styles */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-overlay.active { display: flex; }
-        .order-container { background: #fff; width: 100%; max-width: 500px; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto; }
-        
-        /* Policy Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .order-container {
+            background: #fff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
         .policy-modal-container {
             background: #fff;
             width: 100%;
@@ -192,31 +361,164 @@
             padding-left: 20px;
         }
 
-        .image-viewer-container { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
-        .image-viewer-container img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 8px; }
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; font-weight: bold; color: #888; cursor: pointer; border: none; background: none; }
-        .image-viewer-container .close-btn { top: -40px; right: 0; color: #fff; font-size: 2.2rem; }
+        .image-viewer-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-        .modal-title { font-size: 1.4rem; margin-bottom: 15px; text-align: center; color: #111; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 6px; font-weight: bold; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
-        .delivery-option { display: flex; gap: 15px; margin-top: 5px; }
-        .bill-summary { background: #f1f3f5; padding: 12px 15px; border-radius: 6px; margin: 15px 0; font-size: 0.95rem; }
-        .bill-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
-        .bill-row.total { font-weight: bold; font-size: 1.1rem; color: #e63946; border-top: 1px solid #ccc; padding-top: 5px; margin-top: 5px; }
-        .success-message { display: none; background-color: #d4edda; color: #155724; padding: 20px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 1.1rem; }
+        .image-viewer-container img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
 
-        .visit-store-container { text-align: center; padding: 40px 20px 60px; background-color: #fff; border-top: 1px solid #eee; }
-        .btn-visit-store { display: inline-block; background-color: #111; color: #fff; padding: 16px 45px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: all 0.3s ease; }
-        .btn-visit-store:hover { background-color: #e63946; transform: translateY(-3px); }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
 
-        /* Footer Styles */
+        .image-viewer-container .close-btn {
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2.2rem;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #111;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .delivery-option {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .bill-summary {
+            background: #f1f3f5;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .bill-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .bill-row.total {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #e63946;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background-color: #fff;
+            padding: 50px 15px;
+            margin-top: 40px;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .customer-watch-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            margin-bottom: 12px;
+        }
+
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #111;
+        }
+
+        .stars {
+            color: #ffb400;
+        }
+
+        /* Footer Section */
         footer {
             background-color: #111;
             color: #bbb;
-            padding: 40px 5% 20px;
-            margin-top: 30px;
+            padding: 40px 15px 20px;
+            margin-top: 50px;
         }
 
         .footer-container {
@@ -266,54 +568,91 @@
             color: #777;
         }
 
-        @media (max-width: 992px) { 
-            .product-grid { grid-template-columns: repeat(2, 1fr); } 
-        }
-        
-        @media (max-width: 576px) { 
+        /* Responsive Layout Updates */
+        @media (max-width: 900px) {
             .product-grid { 
-                grid-template-columns: repeat(2, 1fr) !important; 
-                gap: 12px;
-            } 
-            .hero { padding: 20px 5%; } 
-            .product-card { padding: 10px; }
-            .product-card img { height: 140px; }
-            .product-card h3 { font-size: 0.9rem; }
-            .product-card .card-price { font-size: 0.95rem; margin-bottom: 8px; }
-            .offer-timer-banner h3 { font-size: 14px; }
-            .timer-unit { min-width: 42px; padding: 4px 6px; }
-            .timer-num { font-size: 15px; }
-            .timer-label { font-size: 8px; }
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px; 
+            }
+        }
+        @media (max-width: 600px) {
+            .product-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px; 
+                padding: 0 8px;
+            }
+            .product-img {
+                height: 180px;
+            }
+            .product-info {
+                padding: 10px;
+            }
+            .product-title {
+                font-size: 14px;
+            }
+            .product-desc {
+                font-size: 11px;
+                margin-bottom: 6px;
+            }
+            .product-price {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+            .color-thumb {
+                width: 26px;
+                height: 26px;
+            }
+            .color-text {
+                font-size: 8px;
+            }
+            .btn-order-now {
+                padding: 8px 0;
+                font-size: 0.85rem;
+            }
+            .offer-timer-banner h3 {
+                font-size: 15px;
+            }
+            .timer-unit {
+                min-width: 45px;
+                padding: 4px 8px;
+            }
+            .timer-num {
+                font-size: 16px;
+            }
+            .timer-label {
+                font-size: 9px;
+            }
+            .product-card.coming-soon-card {
+                min-height: 220px;
+                padding: 15px 10px;
+            }
+            .coming-soon-card .cs-icon {
+                font-size: 30px;
+                margin-bottom: 8px;
+            }
+            .coming-soon-card .cs-title {
+                font-size: 16px;
+            }
+            .coming-soon-card .cs-desc {
+                font-size: 11px;
+            }
         }
     </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '495458369225762');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="Images/Weblogo.png" id="site-logo" alt="Logo" loading="lazy" decoding="async">
+            <img src="Images/Weblogo.png" id="site-logo" alt="Logo" loading="lazy" decoding="async" onerror="this.style.display='none'">
         </div>
     </header>
 
+    <section class="hero-section">
+        <img src="Images/heroimage.jpg" alt="Hero Banner">
+    </section>
+
     <div class="offer-timer-banner">
-        <h3>🔥 বিশেষ অফার! শেষ হওয়ার আগে অর্ডার করুন 🔥</h3>
+        <h3>🔥 বিশেষ অফার! শেষ হওয়ার আগে অর্ডার করুন 🔥</h3>
         <div class="timer-box">
             <div class="timer-unit">
                 <span class="timer-num" id="hours">23</span>
@@ -330,144 +669,213 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <section class="hero">
-        <div class="hero-image">
-            <img src="Images/Black1.jpg" id="main-product-img" alt="Luxury Watch" onclick="openCurrentHeroView()">
+    <h2 class="main-title">ক্যাটাগরি সমূহ</h2>
+
+    <div class="category-header">
+        <h3>HUBLOT Watches</h3>
+    </div>
+
+    <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+            <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">HUBLOT Classic Fusion</div>
+                <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
+                <div class="product-price">৳ ৯৫০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat1-p1', 'Images/Black1.jpg', 'c1-p1-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/Black1.jpg">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver1.jpg', 'c1-p1-text', 'Silver', this)">
+                            <img class="color-thumb" src="Images/Silver1.jpg">
+                            <span class="color-text">Silver</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver&Black.png', 'c1-p1-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/Silver&Black.png">
+                            <span class="color-text">Silver & Black</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text')">Order Now</button>
+            </div>
         </div>
-        <div class="hero-details">
-            <h1>Hublot Classic Fusion</h1>
-            <div class="price">৳ ৯৫০</div>
-            
-            <div class="color-selection">
-                <p>কালার সিলেক্ট করুন:</p>
-                <div class="color-options">
-                    <button class="color-btn active" onclick="selectColor(this, 'কালো', 'Images/Black1.jpg')">কালো</button>
-                    <button class="color-btn" onclick="selectColor(this, 'সিলভার', 'Images/Silver1.jpg')">সিলভার</button>
-                    <button class="color-btn" onclick="selectColor(this, 'সিলভার-কালো', 'Images/silverandblack.jpg')">সিলভার-কালো</button>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+            <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল এবং টেকসই ওয়াটার-রেজিস্ট্যান্ট ব্ল্যাক রাবার স্ট্র্যাপ।</div>
+                <div class="product-price">৳ ৯৫০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat1-p2', 'Images/black.jpg', 'c1-p2-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/black.jpg">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-gray.jpg', 'c1-p2-text', 'Silver & gray', this)">
+                            <img class="color-thumb" src="Images/silver-gray.jpg">
+                            <span class="color-text">Sil-Gray</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black.jpg', 'c1-p2-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/silver-black.jpg">
+                            <span class="color-text">Sil-Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-blue.jpg', 'c1-p2-text', 'Silver & Blue', this)">
+                            <img class="color-thumb" src="Images/silver-blue.jpg">
+                            <span class="color-text">Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black2.jpg', 'c1-p2-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/silver-black2.jpg">
+                            <span class="color-text">Sil-Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-golden2.jpg', 'c1-p2-text', 'Silver & Golden', this)">
+                            <img class="color-thumb" src="Images/silver-golden2.jpg">
+                            <span class="color-text">Sil-Golden</span>
+                        </div>
+                    </div>
                 </div>
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'c1-p2-text')">Order Now</button>
             </div>
-
-            <div class="description">
-                <p>প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</p>
-            </div>
-
-            <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, selectedColorName, currentHeroImageSrc)">🛒 Order Now</button>
         </div>
-    </section>
 
-    <section class="products-section">
-        <h2 class="section-title">Trending Watches</h2>
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <span class="badge-discount">HOT SALE</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/Black1.jpg" alt="Product 1" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+        <!-- Card 3 -->
+        <div class="product-card">
+            <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">HUBLOT Big Bang Automatic</div>
+                <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
+                <div class="product-price">৳ ৯৫০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/gray.jpg">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/green.jpg', 'c1-p3-text', 'Green', this)">
+                            <img class="color-thumb" src="Images/green.jpg">
+                            <span class="color-text">Green</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/golden.jpg', 'c1-p3-text', 'Golden', this)">
+                            <img class="color-thumb" src="Images/golden.jpg">
+                            <span class="color-text">Golden</span>
+                        </div>
+                    </div>
                 </div>
-                <h3>Hublot Classic Fusion</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(142 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Automatic', 950, 'c1-p3-text')">Order Now</button>
             </div>
-
-            <div class="product-card">
-                <span class="badge-discount">TOP PICK</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/Silver1.jpg" alt="Product 2" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
-                </div>
-                <h3>Hublot Classic Fusion</h3>
-                <div class="product-rating">
-                    ★★★★☆ <span>(89 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">NEW</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/black.jpg" alt="Product 3" loading="lazy" decoding="async" onclick="openQuickView('Images/black.jpg')">
-                </div>
-                <h3>Hublot Classic Fusion Skeleton Tourbillon</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(210 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'কালো', 'Images/black.jpg')">🛒 Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">POPULAR</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/silver-black2.jpg" alt="Product 4" loading="lazy" decoding="async" onclick="openQuickView('Images/silver-black2.jpg')">
-                </div>
-                <h3>Hublot Classic Fusion Skeleton Tourbillon</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(115 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'সিলভার-কালো', 'Images/silver-black2.jpg')">🛒 Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">BEST SELLER</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/gray.jpg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/gray.jpg')">
-                </div>
-                <h3>HUBLOT Big Bang Chronograph</h3>
-                <div class="product-rating">
-                    ★★★★☆ <span>(76 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">HOT</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/green.jpg" alt="Product 6" loading="lazy" decoding="async" onclick="openQuickView('Images/green.jpg')">
-                </div>
-                <h3>HUBLOT Big Bang Chronograph</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(164 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">PREMIUM</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/Black1.jpg" alt="Product 7" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
-                </div>
-                <h3>Hublot Classic Fusion</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(142 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অফিসিয়াল ফর্মাল ওয়াচ', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">HOT SALE</span>
-                <div class="product-card-img-wrapper">
-                    <img src="Images/Silver1.jpg" alt="Product 8" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
-                </div>
-                <h3>Hublot Classic Fusion</h3>
-                <div class="product-rating">
-                    ★★★★☆ <span>(89 Sold)</span>
-                </div>
-                <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('পলিমেড ব্ল্যাক ওয়াচ', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
-            </div>
-
         </div>
-    </section>
+    </div>
 
-    <section class="visit-store-container">
-        <a href="index.html" class="btn-visit-store">Visit Store</a>
+    <div class="category-header">
+        <h3>OMEGA Watches</h3>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img id="cat2-p1" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">ফিটনেস প্রো প্রিমিয়াম</div>
+                <div class="product-desc">হার্ট রেট, স্লিপ ট্র্যাকিং এবং AMOLED ডিসপ্লে।</div>
+                <div class="product-price">৳ ৩,৫০০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat2-p1', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500', 'c2-p1-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat2-p1', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c2-p1-text', 'Silver', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
+                            <span class="color-text">Silver</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="openOrderModal('ফিটনেস প্রো প্রিমিয়াম', 3500, 'c2-p1-text')">Order Now</button>
+            </div>
+        </div>
+
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+    </div>
+
+    <div class="category-header">
+        <h3>৩. স্পোর্টস ও ক্যাজুয়াল (Sports & Casual)</h3>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img id="cat3-p1" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" class="product-img" alt="Casual Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">ক্লাসিক লেদার এডিটর</div>
+                <div class="product-desc">১০০% জেনুইন লেদার এবং স্মুথ ফিনিশিং।</div>
+                <div class="product-price">৳ ৩,২০০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c3-p1-text" class="selected-color-name">Brown</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat3-p1', 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500', 'c3-p1-text', 'Brown', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=100">
+                            <span class="color-text">Brown</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p1', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', 'c3-p1-text', 'Black', this)">
+                            <img class="color-thumb" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100">
+                            <span class="color-text">Black</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="openOrderModal('ক্লাসিক লেদার এডিটর', 3200, 'c3-p1-text')">Order Now</button>
+            </div>
+        </div>
+
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+    </div>
+
+    <section class="reviews-section">
+        <h2 class="main-title" style="margin-top: 0;">কাস্টমার রিভিউ</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=200" class="customer-watch-img" alt="Review">
+                <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
+                <div class="reviewer-name">- আরিয়ান আহমেদ</div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="review-card">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200" class="customer-watch-img" alt="Review">
+                <p>"Golden ওয়াচটি বাস্তবে অনেক প্রিমিয়াম লেগেছে। কোয়ালিটি অনেক ভালো।"</p>
+                <div class="reviewer-name">- তানজিম হোসেন</div>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER SECTION -->
@@ -488,8 +896,8 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             </div>
             <div class="footer-col">
                 <h4>যোগাযোগ</h4>
-                <p style="font-size: 13px; color: #bbb;">📞 হেল্পলাইন: 01700-000000</p>
-                <p style="font-size: 13px; color: #bbb; margin-top: 5px;">✉️ ইমেইল: support@prohonic.com</p>
+                <p style="font-size: 13px; color: #bbb;">📞 হেল্পলাইন: 01338-346890</p>
+                <p style="font-size: 13px; color: #bbb; margin-top: 5px;">✉️ ইমেইল: prohonicofficial@gmail.com</p>
                 <p style="font-size: 13px; color: #bbb; margin-top: 5px;">📍 ঢাকা, বাংলাদেশ</p>
             </div>
         </div>
@@ -512,7 +920,7 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             
             <form id="checkout-form" onsubmit="handleOrder(event)">
                 <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
-                
+            
                 <div class="form-group">
                     <label for="name">আপনার নাম:</label>
                     <input type="text" id="name" placeholder="আপনার পুরো নাম লিখুন" required>
@@ -538,19 +946,17 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
 
                 <div class="bill-summary">
                     <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
-                    <div class="bill-row"><span>কালার:</span><strong id="summary-color">কালো</strong></div>
+                    <div class="bill-row"><span>কালার:</span><strong id="summary-color">Black</strong></div>
                     <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">0</span></span></div>
                     <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">70</span></span></div>
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
 
-                <button type="submit" id="submit-btn" class="btn-order-now" style="width: 100%;">অর্ডার নিশ্চিত করুন</button>
+                <button type="submit" id="submit-btn" class="btn-order-now">অর্ডার নিশ্চিত করুন</button>
             </form>
 
             <div id="success-message" class="success-message">
-                আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে! <br>
-                <span id="order-id-display" style="font-size: 1.2rem; color: #e63946; font-weight: bold; display: block; margin: 10px 0;"></span>
-                আপনাকে আমাদের একজন প্রতিনিধি কল করে অর্ডারটি কনফার্ম করবে।
+                আপনার অর্ডারটি সফলভাবে নিশ্চিত হয়েছে। আপনাকে দ্রুত আমাদের একজন প্রতিনিধি কল করে কনফার্ম করবে। ধন্যবাদ!
             </div>
         </div>
     </div>
@@ -629,9 +1035,9 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             
             <h4>আমাদের ঠিকানা ও হেল্পলাইন:</h4>
             <ul>
-                <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1700-000000</li>
-                <li><strong>ইমেইল:</strong> support@prohonic.com</li>
-                <li><strong>অফিস ঠিকানা:</strong> হাউস #১২, রোড #০৫, ধানমন্ডি, ঢাকা - ১২০৫, বাংলাদেশ।</li>
+                <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1338-346890</li>
+                <li><strong>ইমেইল:</strong> prohonicofficial@gmail.com</li>
+                <li><strong>অফিস ঠিকানা:</strong>ঢাকা, বাংলাদেশ।</li>
                 <li><strong>সাপোর্ট টাইম:</strong> সকাল ৯:০০ টা - রাত ১০:০০ টা (প্রতিদিন)</li>
             </ul>
         </div>
@@ -639,14 +1045,13 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
 
     <script>
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
-        const TELEGRAM_CHAT_ID = "-1003956122715";
+        const TELEGRAM_CHAT_ID = "6210629323";
 
         let currentProductPrice = 0;
-        let selectedColorName = "কালো";
+        let selectedColorName = "Black";
         let currentProductName = "";
-        let currentHeroImageSrc = "Images/Black1.jpg";
-        let currentProductImage = "Images/Black1.jpg";
 
+        // 1-Day Loop Countdown Timer Logic
         function startDailyLoopTimer() {
             function updateTimer() {
                 const now = new Date();
@@ -677,25 +1082,26 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             startDailyLoopTimer();
         };
 
-        function selectColor(element, colorName, imageSrc) {
-            let buttons = document.querySelectorAll('.color-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+        // Swatches Image Change Logic
+        function changeImage(imageId, newSrc, colorTextId, colorName, element) {
+            var imgElement = document.getElementById(imageId);
+            var colorTextElement = document.getElementById(colorTextId);
             
-            selectedColorName = colorName;
-            document.getElementById('summary-color').innerText = colorName;
-            
-            if(imageSrc) {
-                document.getElementById('main-product-img').src = imageSrc;
-                currentHeroImageSrc = imageSrc;
-                currentProductImage = imageSrc;
+            imgElement.style.opacity = '0.3'; 
+            setTimeout(function() {
+                imgElement.src = newSrc;
+                imgElement.style.opacity = '1'; 
+            }, 150);
+            colorTextElement.innerText = colorName;
+
+            var siblings = element.parentElement.children;
+            for (var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('active');
             }
+            element.classList.add('active');
         }
 
-        function openCurrentHeroView() {
-            openQuickView(currentHeroImageSrc);
-        }
-
+        // Quick View Modal Logic
         function openQuickView(imageSrc) {
             document.getElementById('qv-image').src = imageSrc;
             document.getElementById('quickViewModal').classList.add('active');
@@ -705,6 +1111,7 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
+        // Policy Modals Logic
         function openPolicyModal(modalId) {
             document.getElementById(modalId).classList.add('active');
         }
@@ -713,12 +1120,17 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             document.getElementById(modalId).classList.remove('active');
         }
 
-        function openOrderModal(productName, price, colorName = "কালো", imageSrc = "Images/Black1.jpg") {
+        // Order Modal Logic
+        function openOrderModal(productName, price, colorElementId) {
             currentProductName = productName;
             currentProductPrice = price;
-            selectedColorName = colorName;
-            currentProductImage = imageSrc;
             
+            if(colorElementId && document.getElementById(colorElementId)) {
+                selectedColorName = document.getElementById(colorElementId).innerText;
+            } else {
+                selectedColorName = "ডিফোল্ট";
+            }
+
             document.getElementById('summary-product-name').innerText = productName;
             document.getElementById('summary-price').innerText = price;
             document.getElementById('summary-color').innerText = selectedColorName;
@@ -740,6 +1152,7 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             document.getElementById('orderModal').classList.remove('active');
         }
 
+        // Close Modal when clicking outside container
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
             let qvModal = document.getElementById('quickViewModal');
@@ -754,9 +1167,9 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             });
         }
 
+        // Telegram Integration logic
         function handleOrder(event) {
             event.preventDefault();
-            
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
@@ -767,12 +1180,8 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
             const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
-            
-            // র্যান্ডম ইউনিক অর্ডার আইডি তৈরি
-            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
-                            `🆔 *অর্ডার আইডি:* #${orderId}\n` +
                             `📦 *পণ্য:* ${currentProductName}\n` +
                             `🎨 *কালার:* ${selectedColorName}\n` +
                             `👤 *গ্রাহকের নাম:* ${name}\n` +
@@ -781,48 +1190,26 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            // সম্পূর্ণ ইমেজ URL তৈরি করা (ডোমেইন অনুযায়ী আপডেট হবে)
-            const fullImageUrl = window.location.origin + '/' + currentProductImage;
-
-            // টেলিগ্রামে মেসেজ ও প্রোডাক্টের ছবি পাঠানো
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    chat_id: TELEGRAM_CHAT_ID, 
-                    photo: fullImageUrl, 
-                    caption: message, 
-                    parse_mode: 'Markdown' 
-                })
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
             })
             .then(res => res.json())
             .then(data => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                
-                // ছবি পাঠাতে ব্যর্থ হলেও ব্যাকআপ হিসেবে প্লেইন টেক্সট মেসেজ পাঠানো
-                if (!data.ok) {
-                    return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
-                    }).then(r => r.json());
-                }
-                return data;
-            })
-            .then(data => {
                 if (data.ok) {
                     document.getElementById('checkout-form').style.display = 'none';
-                    document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
                 } else {
-                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
+                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
                 }
             })
             .catch(() => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
+                alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
             });
         }
     </script>
