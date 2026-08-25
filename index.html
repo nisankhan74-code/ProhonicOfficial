@@ -1043,16 +1043,15 @@
         </div>
     </div>
 
-   <script>
+    <script>
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
-        const TELEGRAM_CHAT_ID = "-1003956122715";
+        const TELEGRAM_CHAT_ID = "6210629323";
 
         let currentProductPrice = 0;
-        let selectedColorName = "কালো";
+        let selectedColorName = "Black";
         let currentProductName = "";
-        let currentHeroImageSrc = "Images/Black1.jpg";
-        let currentProductImage = "Images/Black1.jpg";
 
+        // 1-Day Loop Countdown Timer Logic
         function startDailyLoopTimer() {
             function updateTimer() {
                 const now = new Date();
@@ -1083,25 +1082,26 @@
             startDailyLoopTimer();
         };
 
-        function selectColor(element, colorName, imageSrc) {
-            let buttons = document.querySelectorAll('.color-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+        // Swatches Image Change Logic
+        function changeImage(imageId, newSrc, colorTextId, colorName, element) {
+            var imgElement = document.getElementById(imageId);
+            var colorTextElement = document.getElementById(colorTextId);
             
-            selectedColorName = colorName;
-            document.getElementById('summary-color').innerText = colorName;
-            
-            if(imageSrc) {
-                document.getElementById('main-product-img').src = imageSrc;
-                currentHeroImageSrc = imageSrc;
-                currentProductImage = imageSrc;
+            imgElement.style.opacity = '0.3'; 
+            setTimeout(function() {
+                imgElement.src = newSrc;
+                imgElement.style.opacity = '1'; 
+            }, 150);
+            colorTextElement.innerText = colorName;
+
+            var siblings = element.parentElement.children;
+            for (var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('active');
             }
+            element.classList.add('active');
         }
 
-        function openCurrentHeroView() {
-            openQuickView(currentHeroImageSrc);
-        }
-
+        // Quick View Modal Logic
         function openQuickView(imageSrc) {
             document.getElementById('qv-image').src = imageSrc;
             document.getElementById('quickViewModal').classList.add('active');
@@ -1111,6 +1111,7 @@
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
+        // Policy Modals Logic
         function openPolicyModal(modalId) {
             document.getElementById(modalId).classList.add('active');
         }
@@ -1119,12 +1120,17 @@
             document.getElementById(modalId).classList.remove('active');
         }
 
-        function openOrderModal(productName, price, colorName = "কালো", imageSrc = "Images/Black1.jpg") {
+        // Order Modal Logic
+        function openOrderModal(productName, price, colorElementId) {
             currentProductName = productName;
             currentProductPrice = price;
-            selectedColorName = colorName;
-            currentProductImage = imageSrc;
             
+            if(colorElementId && document.getElementById(colorElementId)) {
+                selectedColorName = document.getElementById(colorElementId).innerText;
+            } else {
+                selectedColorName = "ডিফোল্ট";
+            }
+
             document.getElementById('summary-product-name').innerText = productName;
             document.getElementById('summary-price').innerText = price;
             document.getElementById('summary-color').innerText = selectedColorName;
@@ -1146,6 +1152,7 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
+        // Close Modal when clicking outside container
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
             let qvModal = document.getElementById('quickViewModal');
@@ -1160,9 +1167,9 @@
             });
         }
 
+        // Telegram Integration logic
         function handleOrder(event) {
             event.preventDefault();
-            
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
@@ -1173,12 +1180,8 @@
             const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
             const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
-            
-            // র্যান্ডম ইউনিক অর্ডার আইডি তৈরি
-            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
-                            `🆔 *অর্ডার আইডি:* #${orderId}\n` +
                             `📦 *পণ্য:* ${currentProductName}\n` +
                             `🎨 *কালার:* ${selectedColorName}\n` +
                             `👤 *গ্রাহকের নাম:* ${name}\n` +
@@ -1187,48 +1190,26 @@
                             `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            // সম্পূর্ণ ইমেজ URL তৈরি করা (ডোমেইন অনুযায়ী আপডেট হবে)
-            const fullImageUrl = window.location.origin + '/' + currentProductImage;
-
-            // টেলিগ্রামে মেসেজ ও প্রোডাক্টের ছবি পাঠানো
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    chat_id: TELEGRAM_CHAT_ID, 
-                    photo: fullImageUrl, 
-                    caption: message, 
-                    parse_mode: 'Markdown' 
-                })
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
             })
             .then(res => res.json())
             .then(data => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                
-                // ছবি পাঠাতে ব্যর্থ হলেও ব্যাকআপ হিসেবে প্লেইন টেক্সট মেসেজ পাঠানো
-                if (!data.ok) {
-                    return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
-                    }).then(r => r.json());
-                }
-                return data;
-            })
-            .then(data => {
                 if (data.ok) {
                     document.getElementById('checkout-form').style.display = 'none';
-                    document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
                 } else {
-                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
+                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
                 }
             })
             .catch(() => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
+                alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
             });
         }
     </script>
