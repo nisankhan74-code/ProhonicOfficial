@@ -55,11 +55,11 @@
             opacity: 0.85;
         }
 
-        /* Model Switcher Buttons */
+        /* Main Product Switcher Buttons */
         .model-selector {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .model-btn {
@@ -248,7 +248,7 @@
             <img src="Images/Black1.jpg" id="main-product-img" alt="Luxury Watch" onclick="openCurrentHeroView()">
         </div>
         <div class="hero-details">
-            <!-- Product Switcher Buttons -->
+            <!-- ২ টি প্রধান প্রোডাক্ট সুইচার -->
             <div class="model-selector">
                 <button class="model-btn active" id="btn-model-1" onclick="switchMainProduct(1)">Classic Fusion</button>
                 <button class="model-btn" id="btn-model-2" onclick="switchMainProduct(2)">Big Bang Chrono</button>
@@ -260,7 +260,7 @@
             <div class="color-selection">
                 <p>কালার সিলেক্ট করুন:</p>
                 <div class="color-options" id="color-options-container">
-                    <!-- Dynamic Buttons Generated via JavaScript -->
+                    <!-- JavaScript এর মাধ্যমে কালার বাটনগুলো লোড হবে -->
                 </div>
             </div>
 
@@ -276,7 +276,7 @@
         <h2 class="section-title">Trending Watches</h2>
         <div class="product-grid">
             
-            <!-- Hublot Classic Fusion 3 Colors -->
+            <!-- Hublot Classic Fusion - 3 Colors -->
             <div class="product-card">
                 <span class="badge-discount">HOT SALE</span>
                 <div class="product-card-img-wrapper">
@@ -316,7 +316,7 @@
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'সিলভার-কালো')">🛒 Order Now</button>
             </div>
 
-            <!-- HUBLOT Big Bang Chronograph 3 Colors -->
+            <!-- HUBLOT Big Bang Chronograph - 3 Colors -->
             <div class="product-card">
                 <span class="badge-discount">NEW</span>
                 <div class="product-card-img-wrapper">
@@ -452,7 +452,7 @@
         let currentProductName = "Hublot Classic Fusion";
         let currentHeroImageSrc = "Images/Black1.jpg";
 
-        // Product Models Data
+        /* প্রধান ২ টি প্রোডাক্টের ডাটাবেজ */
         const productsData = {
             1: {
                 title: "Hublot Classic Fusion",
@@ -474,6 +474,7 @@
             }
         };
 
+        /* মেইন প্রোডাক্ট সুইচার ফাংশন */
         function switchMainProduct(modelId) {
             document.getElementById('btn-model-1').classList.toggle('active', modelId === 1);
             document.getElementById('btn-model-2').classList.toggle('active', modelId === 2);
@@ -483,7 +484,6 @@
             document.getElementById('hero-title').innerText = prod.title;
             document.getElementById('hero-desc').innerText = prod.desc;
 
-            // Render Colors
             const container = document.getElementById('color-options-container');
             container.innerHTML = '';
 
@@ -497,7 +497,6 @@
                 container.appendChild(btn);
             });
 
-            // Set First Color Default
             selectColor(container.children[0], prod.colors[0].name, prod.colors[0].img);
         }
 
@@ -529,7 +528,7 @@
 
         window.onload = function() {
             startDailyLoopTimer();
-            switchMainProduct(1); // Load First Product Default
+            switchMainProduct(1);
         };
 
         function selectColor(element, colorName, imageSrc) {
