@@ -30,8 +30,22 @@
             z-index: 100;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .logo img {
             max-height: 45px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 900;
+            color: #111;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* Hero Section */
@@ -576,6 +590,9 @@
             }
         }
         @media (max-width: 600px) {
+            .logo-text {
+                font-size: 22px;
+            }
             .product-grid { 
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px; 
@@ -644,6 +661,7 @@
     <header>
         <div class="logo">
             <img src="Images/Weblogo.png" id="site-logo" alt="Logo" loading="lazy" decoding="async" onerror="this.style.display='none'">
+            <span class="logo-text">PROHONIC</span>
         </div>
     </header>
 
