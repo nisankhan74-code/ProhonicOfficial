@@ -6,6 +6,7 @@
     <title>Prohonic</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        html { scroll-behavior: smooth; }
         body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
         
         header { background-color: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
@@ -55,7 +56,79 @@
             opacity: 0.85;
         }
 
-        .hero { display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #fff; align-items: center; gap: 30px; }
+        /* 2ND OPTION: VISUAL SELECTOR STYLES */
+        .product-selector-wrapper {
+            background: #ffffff;
+            padding: 25px 5% 15px;
+            text-align: center;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .selector-title {
+            font-size: 1.2rem;
+            color: #111;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .selector-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .selector-card {
+            flex: 1;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .selector-card:hover {
+            border-color: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(230,57,70,0.15);
+        }
+
+        .selector-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .selector-info {
+            text-align: left;
+        }
+
+        .selector-info h4 {
+            font-size: 0.95rem;
+            color: #111;
+            margin-bottom: 3px;
+        }
+
+        .selector-info .badge {
+            display: inline-block;
+            background: #ffe6e6;
+            color: #e63946;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .hero { display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #fff; align-items: center; gap: 30px; border-bottom: 2px solid #f1f1f1; scroll-margin-top: 80px; }
         .hero-image { flex: 1 1 400px; text-align: center; }
         .hero-image img { width: 100%; max-width: 450px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.2s; }
         .hero-details { flex: 1 1 400px; }
@@ -271,6 +344,9 @@
         }
         
         @media (max-width: 576px) { 
+            .selector-grid { flex-direction: column; gap: 10px; }
+            .selector-card img { width: 50px; height: 50px; }
+            .selector-info h4 { font-size: 0.85rem; }
             .product-grid { 
                 grid-template-columns: repeat(2, 1fr) !important; 
                 gap: 12px;
@@ -330,9 +406,31 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <section class="hero">
+    <!-- VISUAL SELECTOR (2ND OPTION IMPLEMENTATION) -->
+    <div class="product-selector-wrapper">
+        <div class="selector-title">👇 আপনার পছন্দের মডেলটি নির্বাচন করুন 👇</div>
+        <div class="selector-grid">
+            <a href="#product1-section" class="selector-card">
+                <img src="Images/Black1.jpg" alt="Classic Fusion">
+                <div class="selector-info">
+                    <h4>Hublot Classic Fusion</h4>
+                    <span class="badge">৩টি কালার উপলব্ধ</span>
+                </div>
+            </a>
+            <a href="#product2-section" class="selector-card">
+                <img src="Images/black.jpg" alt="Skeleton Tourbillon">
+                <div class="selector-info">
+                    <h4>Skeleton Tourbillon</h4>
+                    <span class="badge">৩টি কালার উপলব্ধ</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN PRODUCT 1 -->
+    <section class="hero" id="product1-section">
         <div class="hero-image">
-            <img src="Images/Black1.jpg" id="main-product-img" alt="Luxury Watch" onclick="openCurrentHeroView()">
+            <img src="Images/Black1.jpg" id="main-product-img-1" alt="Hublot Classic Fusion" onclick="openQuickView(this.src)">
         </div>
         <div class="hero-details">
             <h1>Hublot Classic Fusion</h1>
@@ -341,9 +439,9 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             <div class="color-selection">
                 <p>কালার সিলেক্ট করুন:</p>
                 <div class="color-options">
-                    <button class="color-btn active" onclick="selectColor(this, 'কালো', 'Images/Black1.jpg')">কালো</button>
-                    <button class="color-btn" onclick="selectColor(this, 'সিলভার', 'Images/Silver1.jpg')">সিলভার</button>
-                    <button class="color-btn" onclick="selectColor(this, 'সিলভার-কালো', 'Images/silverandblack.jpg')">সিলভার-কালো</button>
+                    <button class="color-btn active" onclick="selectColorForProduct(1, this, 'কালো', 'Images/Black1.jpg')">কালো</button>
+                    <button class="color-btn" onclick="selectColorForProduct(1, this, 'সিলভার', 'Images/Silver1.jpg')">সিলভার</button>
+                    <button class="color-btn" onclick="selectColorForProduct(1, this, 'সিলভার-কালো', 'Images/silverandblack.jpg')">সিলভার-কালো</button>
                 </div>
             </div>
 
@@ -351,7 +449,33 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
                 <p>প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</p>
             </div>
 
-            <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, selectedColorName, currentHeroImageSrc)">🛒 Order Now</button>
+            <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 Order Now</button>
+        </div>
+    </section>
+
+    <!-- MAIN PRODUCT 2 -->
+    <section class="hero" id="product2-section">
+        <div class="hero-image">
+            <img src="Images/black.jpg" id="main-product-img-2" alt="Hublot Classic Fusion Skeleton Tourbillon" onclick="openQuickView(this.src)">
+        </div>
+        <div class="hero-details">
+            <h1>Hublot Classic Fusion Skeleton Tourbillon</h1>
+            <div class="price">৳ ৯৫০</div>
+            
+            <div class="color-selection">
+                <p>কালার সিলেক্ট করুন:</p>
+                <div class="color-options">
+                    <button class="color-btn active" onclick="selectColorForProduct(2, this, 'কালো', 'Images/black.jpg')">কালো</button>
+                    <button class="color-btn" onclick="selectColorForProduct(2, this, 'সিলভার-কালো', 'Images/silver-black2.jpg')">সিলভার-কালো</button>
+                    <button class="color-btn" onclick="selectColorForProduct(2, this, 'গ্রে', 'Images/gray.jpg')">গ্রে</button>
+                </div>
+            </div>
+
+            <div class="description">
+                <p>আকর্ষণীয় স্কেলিটন ডায়াল ডিজাইন, প্রিমিয়াম মেটালিক ফিনিশিং এবং অত্যন্ত টেকসই রাবার স্ট্র্যাপসহ আধুনিক ও স্টাইলিশ ঘড়ি।</p>
+            </div>
+
+            <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 Order Now</button>
         </div>
     </section>
 
@@ -641,11 +765,22 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
         const TELEGRAM_CHAT_ID = "-1003956122715";
 
+        // Multiple Hero Products State Management
+        let productStates = {
+            1: {
+                selectedColorName: "কালো",
+                currentImageSrc: "Images/Black1.jpg"
+            },
+            2: {
+                selectedColorName: "কালো",
+                currentImageSrc: "Images/black.jpg"
+            }
+        };
+
         let currentProductPrice = 0;
         let selectedColorName = "কালো";
         let currentProductName = "";
-        let currentHeroImageSrc = "Images/Black1.jpg";
-        let currentProductImage = "Images/Black1.jpg";
+        let currentProductImage = "";
 
         function startDailyLoopTimer() {
             function updateTimer() {
@@ -677,23 +812,18 @@ src="https://www.facebook.com/tr?id=495458369225762&ev=PageView&noscript=1"
             startDailyLoopTimer();
         };
 
-        function selectColor(element, colorName, imageSrc) {
-            let buttons = document.querySelectorAll('.color-btn');
+        function selectColorForProduct(productId, element, colorName, imageSrc) {
+            let section = document.getElementById(`product${productId}-section`);
+            let buttons = section.querySelectorAll('.color-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
             
-            selectedColorName = colorName;
-            document.getElementById('summary-color').innerText = colorName;
+            productStates[productId].selectedColorName = colorName;
             
             if(imageSrc) {
-                document.getElementById('main-product-img').src = imageSrc;
-                currentHeroImageSrc = imageSrc;
-                currentProductImage = imageSrc;
+                document.getElementById(`main-product-img-${productId}`).src = imageSrc;
+                productStates[productId].currentImageSrc = imageSrc;
             }
-        }
-
-        function openCurrentHeroView() {
-            openQuickView(currentHeroImageSrc);
         }
 
         function openQuickView(imageSrc) {
