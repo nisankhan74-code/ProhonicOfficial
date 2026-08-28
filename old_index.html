@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prohonic</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1276228464542624');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
         html { scroll-behavior: smooth; }
@@ -370,24 +390,6 @@
             .timer-label { font-size: 8px; }
         }
     </style>
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1276228464542624');
-  fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
     <header>
@@ -457,7 +459,7 @@
                 <p>প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</p>
             </div>
 
-            <button class="btn-order-now" onclick="fbq('track', 'Purchase'); openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 Order Now</button>
+            <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 Order Now</button>
         </div>
     </section>
 
@@ -483,7 +485,7 @@
                 <p>আকর্ষণীয় স্কেলিটন ডায়াল ডিজাইন, প্রিমিয়াম মেটালিক ফিনিশিং এবং অত্যন্ত টেকসই রাবার স্ট্র্যাপসহ আধুনিক ও স্টাইলিশ ঘড়ি।</p>
             </div>
 
-           <button class="btn-order-now" onclick="fbq('track', 'Purchase'); openOrderModal('HUBLOT Big Bang Automatic', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 Order Now</button>
+           <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Automatic', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 Order Now</button>
         </div>
     </section>
 
@@ -501,7 +503,7 @@
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
@@ -514,7 +516,7 @@
                     ★★★★☆ <span>(89 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
@@ -527,7 +529,7 @@
                     ★★★★★ <span>(210 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'কালো', 'Images/black.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'কালো', 'Images/black.jpg')">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
@@ -540,7 +542,7 @@
                     ★★★★★ <span>(115 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'সিলভার-কালো', 'Images/silver-black2.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'সিলভার-কালো', 'Images/silver-black2.jpg')">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
@@ -553,7 +555,7 @@
                     ★★★★☆ <span>(76 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
@@ -566,7 +568,7 @@
                     ★★★★★ <span>(164 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
@@ -579,7 +581,7 @@
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('অফিসিয়াল ফর্মাল ওয়াচ', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('অফিসিয়াল ফর্মাল ওয়াচ', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
             </div>
 
             <div class="product-card">
@@ -592,7 +594,7 @@
                     ★★★★☆ <span>(89 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('পলিমেড ব্ল্যাক ওয়াচ', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('পলিমেড ব্ল্যাক ওয়াচ', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
             </div>
 
         </div>
@@ -894,6 +896,13 @@
         function handleOrder(event) {
             event.preventDefault();
             
+            // Meta Purchase Event Trigger
+            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
+            const totalPrice = currentProductPrice + parseInt(deliveryCharge);
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', { value: totalPrice, currency: 'BDT' });
+            }
+
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
@@ -901,9 +910,7 @@
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
             const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
-            const totalPrice = currentProductPrice + parseInt(deliveryCharge);
             
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
