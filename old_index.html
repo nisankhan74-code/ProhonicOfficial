@@ -428,10 +428,10 @@
                 </div>
             </a>
             <a href="#product2-section" class="selector-card">
-                <img src="Images/gray.jpg" alt="HUBLOT Big Bang Automatic">
+                <img src="Images/green.jpg" alt="HUBLOT Big Bang Automatic">
                 <div class="selector-info">
                     <h4>HUBLOT Big Bang Automatic</h4>
-                    <span class="badge">৩টি কালার উপলব্ধ</span>
+                    <span class="badge">২টি কালার উপলব্ধ</span>
                 </div>
             </a>
         </div>
@@ -466,7 +466,7 @@
     <!-- MAIN PRODUCT 2 -->
     <section class="hero" id="product2-section">
         <div class="hero-image">
-            <img src="Images/gray.jpg" id="main-product-img-2" alt="HUBLOT Big Bang Automatic" onclick="openQuickView(this.src)">
+            <img src="Images/green.jpg" id="main-product-img-2" alt="HUBLOT Big Bang Automatic" onclick="openQuickView(this.src)">
         </div>
         <div class="hero-details">
             <h1>HUBLOT Big Bang Automatic</h1>
@@ -475,8 +475,8 @@
             <div class="color-selection">
                 <p>কালার সিলেক্ট করুন:</p>
                 <div class="color-options">
-                    <button class="color-btn active" onclick="selectColorForProduct(2, this, 'গ্রে', 'Images/gray.jpg')">গ্রে</button>
-                    <button class="color-btn" onclick="selectColorForProduct(2, this, 'গ্রিন', 'Images/green.jpg')">গ্রিন</button>
+                    <button class="color-btn" style="opacity: 0.5; cursor: not-allowed; text-decoration: line-through;" disabled>গ্রে (Stock Out)</button>
+                    <button class="color-btn active" onclick="selectColorForProduct(2, this, 'গ্রিন', 'Images/green.jpg')">গ্রিন</button>
                     <button class="color-btn" onclick="selectColorForProduct(2, this, 'গোল্ডেন', 'Images/golden.jpg')">গোল্ডেন </button>
                 </div>
             </div>
@@ -545,8 +545,8 @@
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 950, 'সিলভার-কালো', 'Images/silver-black2.jpg')">🛒 Order Now</button>
             </div>
 
-            <div class="product-card">
-                <span class="badge-discount">BEST SELLER</span>
+            <div class="product-card" style="opacity: 0.7;">
+                <span class="badge-discount" style="background: #777;">STOCK OUT</span>
                 <div class="product-card-img-wrapper">
                     <img src="Images/gray.jpg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/gray.jpg')">
                 </div>
@@ -555,7 +555,7 @@
                     ★★★★☆ <span>(76 Sold)</span>
                 </div>
                 <div class="card-price">৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%; background-color: #888; cursor: not-allowed;" disabled>Stock Out</button>
             </div>
 
             <div class="product-card">
@@ -781,8 +781,8 @@
                 currentImageSrc: "Images/Black1.jpg"
             },
             2: {
-                selectedColorName: "কালো",
-                currentImageSrc: "Images/black.jpg"
+                selectedColorName: "গ্রিন",
+                currentImageSrc: "Images/green.jpg"
             }
         };
 
