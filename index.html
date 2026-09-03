@@ -133,6 +133,10 @@
             color: #111;
         }
 
+        .category-header.text-center {
+            text-align: center;
+        }
+
         /* Product Grid */
         .product-grid {
             max-width: 1200px;
@@ -792,9 +796,9 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                 <div class="color-selection">
                     <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Black', this)">
+                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
                             <img class="color-thumb" src="Images/gray.jpg">
-                            <span class="color-text">Black</span>
+                            <span class="color-text">Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p3', 'Images/green.jpg', 'c1-p3-text', 'Green', this)">
                             <img class="color-thumb" src="Images/green.jpg">
@@ -861,8 +865,8 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <!-- ALL PRODUCTS SECTION -->
-    <div class="category-header">
+    <!-- ALL PRODUCTS SECTION (Center Aligned Header) -->
+    <div class="category-header text-center">
         <h3>All Products</h3>
     </div>
 
@@ -922,6 +926,35 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                     </div>
                 </div>
                 <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'all-p2-text', 'all-p2')">Order Now</button>
+            </div>
+        </div>
+
+        <!-- HUBLOT Big Bang Chronograph (ADDED) -->
+        <div class="product-card">
+            <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-info">
+                <div class="product-title">HUBLOT Big Bang Chronograph</div>
+                <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
+                <div class="product-price">৳ ৯৫০</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="all-p4-text" class="selected-color-name">Gray</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('all-p4', 'Images/gray.jpg', 'all-p4-text', 'Gray', this)">
+                            <img class="color-thumb" src="Images/gray.jpg">
+                            <span class="color-text">Gray</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p4', 'Images/green.jpg', 'all-p4-text', 'Green', this)">
+                            <img class="color-thumb" src="Images/green.jpg">
+                            <span class="color-text">Green</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p4', 'Images/golden.jpg', 'all-p4-text', 'Golden', this)">
+                            <img class="color-thumb" src="Images/golden.jpg">
+                            <span class="color-text">Golden</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'all-p4-text', 'all-p4')">Order Now</button>
             </div>
         </div>
 
@@ -1159,7 +1192,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             <ul>
                 <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1338-346890</li>
                 <li><strong>ইমেইল:</strong> prohonicofficial@gmail.com</li>
-                <li><strong>অফিস ঠিকানা:</strong>ঢাকা, বাংলাদেশ।</li>
+                <li><strong>অফিস ঠিকানা:</strong> ঢাকা, বাংলাদেশ।</li>
                 <li><strong>সাপোর্ট টাইম:</strong> সকাল ৯:০০ টা - রাত ১০:০০ টা (প্রতিদিন)</li>
             </ul>
         </div>
