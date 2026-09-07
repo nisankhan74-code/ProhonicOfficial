@@ -300,7 +300,34 @@
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 6px; font-weight: bold; }
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
-        .delivery-option { display: flex; gap: 15px; margin-top: 5px; }
+        
+        /* FIXED ALIGNMENT FOR DELIVERY OPTIONS */
+        .delivery-option { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            margin-top: 8px; 
+        }
+        .delivery-label { 
+            display: flex !important; 
+            align-items: center !important; 
+            gap: 10px !important; 
+            font-weight: normal !important; 
+            font-size: 0.95rem !important; 
+            cursor: default !important;
+            user-select: none;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+        .delivery-label input[type="radio"] { 
+            width: auto !important; 
+            margin: 0 !important; 
+            cursor: default !important;
+            pointer-events: none;
+        }
+
         .bill-summary { background: #f1f3f5; padding: 12px 15px; border-radius: 6px; margin: 15px 0; font-size: 0.95rem; }
         .bill-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
         .bill-row.total { font-weight: bold; font-size: 1.1rem; color: #e63946; border-top: 1px solid #ccc; padding-top: 5px; margin-top: 5px; }
@@ -658,15 +685,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="address">সম্পূর্ণ ঠিকানা:</label>
-                    <textarea id="address" rows="2" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা" required></textarea>
+                    <label for="address">সম্পূর্ণ ঠিকানা (বাসা, জেলা/উপজেলা সহ):</label>
+                    <textarea id="address" rows="2" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা লিখুন" required oninput="autoDetectDeliveryZone()"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label>ডেলিভারি এলাকা নির্বাচন করুন:</label>
-                    <div class="delivery-option">
-                        <label><input type="radio" name="delivery" value="70" checked onclick="updateTotal()"> ঢাকার ভেতরে (৳৭০)</label>
-                        <label><input type="radio" name="delivery" value="130" onclick="updateTotal()"> ঢাকার বাইরে (৳১৩০)</label>
+                    <label>ডেলিভারি এলাকা (ঠিকানা অনুযায়ী অটো সিলেক্ট হবে):</label>
+                    <div class="delivery-option" onclick="preventManualChange(event)">
+                        <label class="delivery-label">
+                            <input type="radio" name="delivery" id="delivery-inside" value="80"> 
+                            <span>ঢাকার ভেতরে (৳৮০)</span>
+                        </label>
+                        <label class="delivery-label">
+                            <input type="radio" name="delivery" id="delivery-sub" value="120"> 
+                            <span>সাব ঢাকা / ঢাকা উপশহর (৳১২০)</span>
+                        </label>
+                        <label class="delivery-label">
+                            <input type="radio" name="delivery" id="delivery-outside" value="150" checked> 
+                            <span>ঢাকার বাইরে (৳১৫০)</span>
+                        </label>
                     </div>
                 </div>
 
@@ -674,7 +711,7 @@
                     <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
                     <div class="bill-row"><span>কালার:</span><strong id="summary-color">কালো</strong></div>
                     <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">0</span></span></div>
-                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">70</span></span></div>
+                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">150</span></span></div>
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
 
@@ -704,8 +741,9 @@
 
             <h4>ডেলিভারি চার্জ:</h4>
             <ul>
-                <li>ঢাকার ভেতরে ডেলিভারি চার্জ: <strong>৳৭০</strong></li>
-                <li>ঢাকার বাইরে ডেলিভারি চার্জ: <strong>৳১৩০</strong></li>
+                <li>ঢাকার ভেতরে ডেলিভারি চার্জ: <strong>৳৮০</strong></li>
+                <li>সাব ঢাকা (ঢাকা উপশহর) ডেলিভারি চার্জ: <strong>৳১২০</strong></li>
+                <li>ঢাকার বাইরে ডেলিভারি চার্জ: <strong>৳১৫০</strong></li>
             </ul>
 
             <h4>ট্র্যাকিং ও পর্যবেক্ষণ:</h4>
@@ -765,7 +803,7 @@
             <ul>
                 <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1338-346890</li>
                 <li><strong>ইমেইল:</strong> prohonicofficial@gmail.com</li>
-                <li><strong>অফিস ঠিকানা:</strong>ঢাকা, বাংলাদেশ।</li>
+                <li><strong>অফিস ঠিকানা:</strong> ঢাকা, বাংলাদেশ।</li>
                 <li><strong>সাপোর্ট টাইম:</strong> সকাল ৯:০০ টা - রাত ১০:০০ টা (প্রতিদিন)</li>
             </ul>
         </div>
@@ -862,7 +900,7 @@
             document.getElementById('summary-price').innerText = price;
             document.getElementById('summary-color').innerText = selectedColorName;
             
-            updateTotal();
+            autoDetectDeliveryZone();
 
             document.getElementById('orderModal').classList.add('active');
             document.getElementById('checkout-form').style.display = 'block';
@@ -870,9 +908,77 @@
         }
 
         function updateTotal() {
-            let deliveryCharge = parseInt(document.querySelector('input[name="delivery"]:checked').value);
+            let selectedDelivery = document.querySelector('input[name="delivery"]:checked');
+            let deliveryCharge = selectedDelivery ? parseInt(selectedDelivery.value) : 150;
             document.getElementById('summary-delivery').innerText = deliveryCharge;
             document.getElementById('summary-total').innerText = currentProductPrice + deliveryCharge;
+        }
+
+        /* কাস্টমার ম্যানুয়ালি ক্লিক করে অপশন চেঞ্জ করতে পারবে না */
+        function preventManualChange(e) {
+            e.preventDefault();
+        }
+
+        /* বাংলা ও ইংরেজি ভুল বানানসহ (Typo-tolerant) অটো লোকেশন ডিটেকশন */
+        function autoDetectDeliveryZone() {
+            let address = document.getElementById('address').value.toLowerCase().trim();
+
+            if (!address) {
+                document.getElementById('delivery-outside').checked = true;
+                updateTotal();
+                return;
+            }
+
+            // ১. সাব ঢাকা বা ঢাকা উপশহরের সম্ভাব্য সব সঠিক ও ভুল বানান (বাংলা ও ইংরেজি)
+            const subDhakaKeywords = [
+                // কেরানীগঞ্জ
+                'keran', 'kera', 'kerani', 'keranigunj', 'keranigonj', 'kerani ganj', 
+                'কেরানী', 'কেরানি', 'কেড়ানী', 'কেড়ানি', 'কেরান', 'কিরানি',
+                
+                // সাভার / আশুলিয়া / ধামরাই
+                'sava', 'savor', 'sabar', 'shavar', 'sabhari', 'সাভার', 'সাভা', 'সাবার', 'শাবার', 'সবাপর',
+                'ashu', 'ashul', 'asulia', 'ashulia', 'আশুলিয়া', 'আশুুলিয়া', 'আশুলিয়া', 'আশু', 'আশোলিয়া',
+                'dham', 'dhamrai', 'ধামরাই', 'ধাম', 'দামরাই',
+
+                // গাজীপুর / টঙ্গী
+                'gazi', 'gaji', 'gazipor', 'gazipur', 'গাজীপুর', 'গাাজীপুর', 'গাাজী', 'গাঝি', 'গাজিপুর',
+                'tongi', 'tong', 'টঙ্গী', 'টঙ্গি', 'টংগী',
+
+                // নারায়ণগঞ্জ / কাঁচপুর / ফতুল্লা / সিদ্ধিরগঞ্জ
+                'nara', 'naray', 'narayangonj', 'narayanganj', 'নারায়ণগঞ্জ', 'নারায়নগঞ্জ', 'নারায়নগঞ্জ', 'নারায়ন', 'নারা', 'নারায়নগন্জ',
+                'kanch', 'katchpur', 'kanchpur', 'কাঁচপুর', 'কাচপুর', 'কাঁচ', 'কাচ',
+                'fatu', 'fatulla', 'fatullah', 'ফতুল্লা', 'ফতু',
+                'siddhir', 'siddhirgonj', 'সিদ্ধিরগঞ্জ', 'সিদ্ধি', 'সিদ্ধিরগন্জ',
+
+                // ডেমরা / নরসিংদী / মুন্সিগঞ্জ
+                'demra', 'demr', 'ডেমরা', 'ডেমড়া',
+                'narsing', 'narshing', 'narsingdi', 'নরসিংদী', 'নরসিং', 'নরসিংদি',
+                'munshi', 'munsi', 'munsigonj', 'munsiganj', 'মুন্সিগঞ্জ', 'মুন্সীগঞ্জ', 'মুন্সি', 'মুন্সী'
+            ];
+
+            // ২. ঢাকা শহরের সম্ভাব্য সব সঠিক ও ভুল বানান
+            const dhakaKeywords = [
+                'dhaka', 'dhka', 'daka', 'dakaa', 'dhakar', 'dhakaa', 'dakah', 'dhak',
+                'ঢাকা', 'ঢাক', 'ঢাাকা', 'ধাকা', 'ডাকা', 'ঢাকার'
+            ];
+
+            // সাব ঢাকা ম্যাচ চেক
+            let isSubDhaka = subDhakaKeywords.some(keyword => address.includes(keyword));
+
+            // ঢাকার মূল এলাকা ম্যাচ চেক
+            let isDhaka = dhakaKeywords.some(keyword => address.includes(keyword));
+
+            if (isSubDhaka) {
+                document.getElementById('delivery-sub').checked = true;
+            } 
+            else if (isDhaka) {
+                document.getElementById('delivery-inside').checked = true;
+            } 
+            else {
+                document.getElementById('delivery-outside').checked = true;
+            }
+
+            updateTotal();
         }
 
         function closeOrderModal() {
@@ -910,7 +1016,15 @@
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
+            
+            let deliveryZone = "";
+            if (deliveryCharge === "80") {
+                deliveryZone = "ঢাকার ভেতরে";
+            } else if (deliveryCharge === "120") {
+                deliveryZone = "সাব ঢাকা / ঢাকা উপশহর";
+            } else {
+                deliveryZone = "ঢাকার বাইরে";
+            }
             
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
