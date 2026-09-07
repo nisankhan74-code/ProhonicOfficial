@@ -314,7 +314,7 @@
             gap: 10px !important; 
             font-weight: normal !important; 
             font-size: 0.95rem !important; 
-            cursor: default !important;
+            cursor: pointer !important;
             user-select: none;
             background: #f8f9fa;
             padding: 8px 12px;
@@ -324,8 +324,7 @@
         .delivery-label input[type="radio"] { 
             width: auto !important; 
             margin: 0 !important; 
-            cursor: default !important;
-            pointer-events: none;
+            cursor: pointer !important;
         }
 
         .bill-summary { background: #f1f3f5; padding: 12px 15px; border-radius: 6px; margin: 15px 0; font-size: 0.95rem; }
@@ -690,18 +689,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label>ডেলিভারি এলাকা (ঠিকানা অনুযায়ী অটো সিলেক্ট হবে):</label>
-                    <div class="delivery-option" onclick="preventManualChange(event)">
+                    <label>ডেলিভারি এলাকা (ঠিকানা অনুযায়ী অটো সিলেক্ট হবে, প্রয়োজনে পরিবর্তন করতে পারেন):</label>
+                    <div class="delivery-option">
                         <label class="delivery-label">
-                            <input type="radio" name="delivery" id="delivery-inside" value="80"> 
+                            <input type="radio" name="delivery" id="delivery-inside" value="80" onchange="updateTotal()"> 
                             <span>ঢাকার ভেতরে (৳৮০)</span>
                         </label>
                         <label class="delivery-label">
-                            <input type="radio" name="delivery" id="delivery-sub" value="120"> 
+                            <input type="radio" name="delivery" id="delivery-sub" value="120" onchange="updateTotal()"> 
                             <span>সাব ঢাকা / ঢাকা উপশহর (৳১২০)</span>
                         </label>
                         <label class="delivery-label">
-                            <input type="radio" name="delivery" id="delivery-outside" value="150" checked> 
+                            <input type="radio" name="delivery" id="delivery-outside" value="150" checked onchange="updateTotal()"> 
                             <span>ঢাকার বাইরে (৳১৫০)</span>
                         </label>
                     </div>
@@ -914,11 +913,6 @@
             document.getElementById('summary-total').innerText = currentProductPrice + deliveryCharge;
         }
 
-        /* কাস্টমার ম্যানুয়ালি ক্লিক করে অপশন চেঞ্জ করতে পারবে না */
-        function preventManualChange(e) {
-            e.preventDefault();
-        }
-
         /* বাংলা ও ইংরেজি ভুল বানানসহ (Typo-tolerant) অটো লোকেশন ডিটেকশন */
         function autoDetectDeliveryZone() {
             let address = document.getElementById('address').value.toLowerCase().trim();
@@ -965,7 +959,7 @@
             // সাব ঢাকা ম্যাচ চেক
             let isSubDhaka = subDhakaKeywords.some(keyword => address.includes(keyword));
 
-            // ঢাকার মূল এলাকা ম্যাচ চেক
+            //ঢাকার মূল এলাকা ম্যাচ চেক
             let isDhaka = dhakaKeywords.some(keyword => address.includes(keyword));
 
             if (isSubDhaka) {
