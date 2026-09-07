@@ -67,7 +67,7 @@
             object-fit: contain;
         }
 
-        /* 1-Day Loop Discount Banner */
+        /* Discount Banner */
         .offer-timer-banner {
             background: linear-gradient(135deg, #e63946, #b80d1d);
             color: #fff;
@@ -147,7 +147,6 @@
             gap: 25px;
         }
 
-        /* Product Card */
         .product-card {
             background: #fff;
             border-radius: 10px;
@@ -163,7 +162,6 @@
             transform: translateY(-5px);
         }
 
-        /* Coming Soon Card Design */
         .product-card.coming-soon-card {
             min-height: 380px;
             justify-content: center;
@@ -194,12 +192,10 @@
             color: #6c757d;
         }
 
-        /* Product Image Fixed */
         .product-img {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            padding: 0;
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
@@ -233,7 +229,7 @@
             margin-bottom: 12px;
         }
 
-        /* Image Swatch */
+        /* Color Swatches Alignment */
         .color-selection {
             margin-bottom: 15px;
         }
@@ -253,20 +249,23 @@
 
         .color-options {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
+            align-items: flex-start;
         }
 
         .color-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             cursor: pointer;
+            text-align: center;
         }
 
         .color-thumb {
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #ccc;
@@ -275,9 +274,10 @@
 
         .color-text {
             font-size: 10px;
-            color: #666;
-            margin-top: 3px;
+            color: #555;
+            margin-top: 4px;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .color-item.active .color-thumb {
@@ -311,7 +311,7 @@
             background-color: #c82333;
         }
 
-        /* Modal Styles */
+        /* POPUP MODALS */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -319,7 +319,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -330,11 +330,11 @@
             display: flex;
         }
 
-        .order-container {
+        .modal-container {
             background: #fff;
             width: 100%;
             max-width: 500px;
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             position: relative;
@@ -342,13 +342,128 @@
             overflow-y: auto;
         }
 
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #111;
+            border-bottom: 2px solid #e63946;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* Courier Box UI Styling (Red Theme) */
+        .delivery-option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .delivery-radio-label {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 14px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .delivery-radio-label:hover {
+            background-color: #f1f3f5;
+        }
+
+        .delivery-radio-label input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            accent-color: #e63946;
+            cursor: pointer;
+        }
+
+        /* Red border highlight for selected box */
+        .delivery-radio-label:has(input[type="radio"]:checked) {
+            background-color: #ffffff;
+            border-color: #e63946;
+            box-shadow: 0 0 0 1px #e63946;
+        }
+
+        .bill-summary {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px dashed #ced4da;
+            font-size: 0.95rem;
+        }
+
+        .bill-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .bill-row.total {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #e63946;
+            border-top: 1px solid #ddd;
+            padding-top: 8px;
+            margin-top: 8px;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Policy Modal Container */
         .policy-modal-container {
             background: #fff;
             width: 100%;
             max-width: 650px;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
@@ -379,6 +494,7 @@
             padding-left: 20px;
         }
 
+        /* Image Viewer Modal */
         .image-viewer-container {
             position: relative;
             max-width: 90vw;
@@ -395,88 +511,11 @@
             border-radius: 8px;
         }
 
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #888;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
         .image-viewer-container .close-btn {
             top: -40px;
             right: 0;
             color: #fff;
             font-size: 2.2rem;
-        }
-
-        .modal-title {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #111;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-
-        .delivery-option {
-            display: flex;
-            gap: 15px;
-            margin-top: 5px;
-        }
-
-        .bill-summary {
-            background: #f1f3f5;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            font-size: 0.95rem;
-        }
-
-        .bill-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .bill-row.total {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #e63946;
-            border-top: 1px solid #ccc;
-            padding-top: 5px;
-            margin-top: 5px;
-        }
-
-        .success-message {
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1rem;
         }
 
         /* Reviews Section */
@@ -620,11 +659,11 @@
                 margin-bottom: 8px;
             }
             .color-thumb {
-                width: 26px;
-                height: 26px;
+                width: 28px;
+                height: 28px;
             }
             .color-text {
-                font-size: 8px;
+                font-size: 9px;
             }
             .btn-order-now {
                 padding: 8px 0;
@@ -657,25 +696,30 @@
             .coming-soon-card .cs-desc {
                 font-size: 11px;
             }
+            .delivery-radio-label {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
         }
     </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1276228464542624');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1276228464542624');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -740,7 +784,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'cat1-p1')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'cat1-p1', 'Black')">Order Now</button>
             </div>
         </div>
 
@@ -749,7 +793,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
-                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল এবং টেকসই ওয়াটার-রেজিস্ট্যান্ট ব্ল্যাক রাবার স্ট্র্যাপ।</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল।</div>
                 <div class="product-price">৳ ১০৯৯</div>
                 
                 <div class="color-selection">
@@ -759,29 +803,29 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                             <img class="color-thumb" src="Images/black.jpg">
                             <span class="color-text">Black</span>
                         </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-gray.jpg', 'c1-p2-text', 'Silver & gray', this)">
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-gray.jpg', 'c1-p2-text', 'Silver & Gray', this)">
                             <img class="color-thumb" src="Images/silver-gray.jpg">
-                            <span class="color-text">Sil-Gray</span>
+                            <span class="color-text">Silver & Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black.jpg', 'c1-p2-text', 'Silver & Black', this)">
                             <img class="color-thumb" src="Images/silver-black.jpg">
-                            <span class="color-text">Sil-Black</span>
+                            <span class="color-text">Silver & Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-blue.jpg', 'c1-p2-text', 'Silver & Blue', this)">
                             <img class="color-thumb" src="Images/silver-blue.jpg">
-                            <span class="color-text">Blue</span>
+                            <span class="color-text">Silver & Blue</span>
                         </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black2.jpg', 'c1-p2-text', 'Silver & Black', this)">
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black2.jpg', 'c1-p2-text', 'Silver & Black 2', this)">
                             <img class="color-thumb" src="Images/silver-black2.jpg">
-                            <span class="color-text">Sil-Black</span>
+                            <span class="color-text">Silver & Black 2</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-golden2.jpg', 'c1-p2-text', 'Silver & Golden', this)">
                             <img class="color-thumb" src="Images/silver-golden2.jpg">
-                            <span class="color-text">Sil-Golden</span>
+                            <span class="color-text">Silver & Golden</span>
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'c1-p2-text', 'cat1-p2')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'c1-p2-text', 'cat1-p2', 'Black')">Order Now</button>
             </div>
         </div>
 
@@ -810,7 +854,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'cat1-p3')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'cat1-p3', 'Gray')">Order Now</button>
             </div>
         </div>
     </div>
@@ -848,7 +892,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'c2-p1-text', 'cat2-p1')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'c2-p1-text', 'cat2-p1', 'Black')">Order Now</button>
             </div>
         </div>
 
@@ -865,7 +909,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <!-- ALL PRODUCTS SECTION (Center Aligned Header) -->
+    <!-- ALL PRODUCTS SECTION -->
     <div class="category-header text-center">
         <h3>All Products</h3>
     </div>
@@ -896,7 +940,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Classic Fusion', 950, 'all-p1-text', 'all-p1')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'all-p1-text', 'all-p1', 'Black')">Order Now</button>
             </div>
         </div>
 
@@ -905,7 +949,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
-                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল।</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি ঘড়ি।</div>
                 <div class="product-price">৳ ১০৯৯</div>
                 
                 <div class="color-selection">
@@ -915,21 +959,21 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                             <img class="color-thumb" src="Images/black.jpg">
                             <span class="color-text">Black</span>
                         </div>
-                        <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-gray.jpg', 'all-p2-text', 'Silver & gray', this)">
+                        <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-gray.jpg', 'all-p2-text', 'Silver & Gray', this)">
                             <img class="color-thumb" src="Images/silver-gray.jpg">
-                            <span class="color-text">Sil-Gray</span>
+                            <span class="color-text">Silver & Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-black.jpg', 'all-p2-text', 'Silver & Black', this)">
                             <img class="color-thumb" src="Images/silver-black.jpg">
-                            <span class="color-text">Sil-Black</span>
+                            <span class="color-text">Silver & Black</span>
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'all-p2-text', 'all-p2')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'all-p2-text', 'all-p2', 'Black')">Order Now</button>
             </div>
         </div>
 
-        <!-- HUBLOT Big Bang Chronograph (ADDED) -->
+        <!-- HUBLOT Big Bang Chronograph -->
         <div class="product-card">
             <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
@@ -954,7 +998,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'all-p4-text', 'all-p4')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'all-p4-text', 'all-p4', 'Gray')">Order Now</button>
             </div>
         </div>
 
@@ -963,7 +1007,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
-                <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ—ফরমাল ও ডেলি ওয়্যারের জন্য সেরা।</div>
+                <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ।</div>
                 <div class="product-price">৳ ৭৯৯</div>
                 
                 <div class="color-selection">
@@ -983,7 +1027,7 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'all-p3-text', 'all-p3')">Order Now</button>
+                <button class="btn-order-now" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'all-p3-text', 'all-p3', 'Black')">Order Now</button>
             </div>
         </div>
     </div>
@@ -1059,21 +1103,13 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
         </div>
     </footer>
 
-    <!-- MODALS SECTION -->
-    <div class="modal-overlay" id="quickViewModal">
-        <div class="image-viewer-container">
-            <button class="close-btn" onclick="closeQuickView()">&times;</button>
-            <img id="qv-image" src="" alt="Watch Preview">
-        </div>
-    </div>
-
+    <!-- ORDER FORM POPUP MODAL -->
     <div class="modal-overlay" id="orderModal">
-        <div class="order-container">
+        <div class="modal-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+            <h3 class="modal-title">অর্ডার কনফার্ম করুন</h3>
             
             <form id="checkout-form" onsubmit="handleOrder(event)">
-                <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
-            
                 <div class="form-group">
                     <label for="name">আপনার নাম:</label>
                     <input type="text" id="name" placeholder="আপনার পুরো নাম লিখুন" required>
@@ -1086,23 +1122,33 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
 
                 <div class="form-group">
                     <label for="address">সম্পূর্ণ ঠিকানা:</label>
-                    <textarea id="address" rows="2" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা" required></textarea>
+                    <textarea id="address" rows="2" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা" required oninput="autoDetectDeliveryZone()"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label>ডেলিভারি এলাকা নির্বাচন করুন:</label>
-                    <div class="delivery-option">
-                        <label><input type="radio" name="delivery" value="70" checked onclick="updateTotal()"> ঢাকার ভেতরে (৳৭০)</label>
-                        <label><input type="radio" name="delivery" value="130" onclick="updateTotal()"> ঢাকার বাইরে (৳১৩০)</label>
+                    <label>ডেলিভারি এলাকা (ঠিকানা অনুযায়ী অটো সিলেক্ট হবে, প্রয়োজনে পরিবর্তন করতে পারেন):</label>
+                    <div class="delivery-option-group">
+                        <label class="delivery-radio-label">
+                            <input type="radio" id="del-inside" name="delivery" value="80" checked onclick="updateTotal()"> 
+                            <span>ঢাকার ভেতরে (৳৮০)</span>
+                        </label>
+                        <label class="delivery-radio-label">
+                            <input type="radio" id="del-sub" name="delivery" value="120" onclick="updateTotal()"> 
+                            <span>সাব ঢাকা / ঢাকা উপশহর (৳১২০)</span>
+                        </label>
+                        <label class="delivery-radio-label">
+                            <input type="radio" id="del-outside" name="delivery" value="150" onclick="updateTotal()"> 
+                            <span>ঢাকার বাইরে (৳১৫০)</span>
+                        </label>
                     </div>
                 </div>
 
                 <div class="bill-summary">
-                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
+                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">HUBLOT Classic Fusion</strong></div>
                     <div class="bill-row"><span>কালার:</span><strong id="summary-color">Black</strong></div>
-                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">0</span></span></div>
-                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">70</span></span></div>
-                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
+                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">950</span></span></div>
+                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">80</span></span></div>
+                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">1030</span></span></div>
                 </div>
 
                 <button type="submit" id="submit-btn" class="btn-order-now">অর্ডার নিশ্চিত করুন</button>
@@ -1110,13 +1156,20 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
 
             <div id="success-message" class="success-message">
                 আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে! <br>
-                <span id="order-id-display" style="font-size: 1.2rem; color: #e63946; font-weight: bold; display: block; margin: 10px 0;"></span>
+                <span id="order-id-display" style="font-size: 1.1rem; color: #e63946; font-weight: bold; display: block; margin: 10px 0;"></span>
                 আপনাকে আমাদের একজন প্রতিনিধি কল করে অর্ডারটি কনফার্ম করবে।
             </div>
         </div>
     </div>
 
-    <!-- 1. SHIPPING POLICY MODAL -->
+    <!-- OTHER MODALS -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="image-viewer-container">
+            <button class="close-btn" onclick="closeQuickView()">&times;</button>
+            <img id="qv-image" src="" alt="Watch Preview">
+        </div>
+    </div>
+
     <div class="modal-overlay" id="shippingModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('shippingModal')">&times;</button>
@@ -1125,75 +1178,45 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             
             <h4>ডেলিভারি সময়সীমা:</h4>
             <ul>
-                <li><strong>ঢাকার ভেতরে:</strong> অর্ডার কনফার্ম করার ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি করা হয়।</li>
-                <li><strong>ঢাকার বাইরে:</strong> অর্ডার কনফার্ম করার ২ থেকে ৩ কর্মদিবসের মধ্যে ডেলিভারি করা হয়।</li>
+                <li><strong>ঢাকার ভেতরে:</strong> ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি।</li>
+                <li><strong>ঢাকার বাইরে:</strong> ২ থেকে ৩ কর্মদিবসের মধ্যে ডেলিভারি।</li>
             </ul>
 
             <h4>ডেলিভারি চার্জ:</h4>
             <ul>
-                <li>ঢাকার ভেতরে ডেলিভারি চার্জ: <strong>৳৭০</strong></li>
-                <li>ঢাকার বাইরে ডেলিভারি চার্জ: <strong>৳১৩০</strong></li>
+                <li>ঢাকার ভেতরে: <strong>৳৮০</strong></li>
+                <li>সাব ঢাকা: <strong>৳১২০</strong></li>
+                <li>ঢাকার বাইরে: <strong>৳১৫০</strong></li>
             </ul>
-
-            <h4>ট্র্যাকিং ও পর্যবেক্ষণ:</h4>
-            <p>পণ্য কুরিয়ারে হ্যান্ডওভার করার পর ডেলিভারিম্যান আপনার সাথে সরাসরি ফোনে যোগাযোগ করবে। অনুগ্রহ করে ফোন চালু রাখুন।</p>
         </div>
     </div>
 
-    <!-- 2. PAYMENT & COD RULES MODAL -->
     <div class="modal-overlay" id="paymentModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('paymentModal')">&times;</button>
             <h2>Payment Terms & Cash on Delivery Rules</h2>
-            <p>আমাদের শপে কেনাকাটা নিরাপদ ও সহজ করতে ক্যাশ অন ডেলিভারি (COD) সুবিধা রয়েছে।</p>
-            
-            <h4>ক্যাশ অন ডেলিভারি (COD) নিয়মাবলী:</h4>
+            <p>আমাদের শপে ক্যাশ অন ডেলিভারি (COD) সুবিধা রয়েছে।</p>
             <ul>
-                <li>পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করার সুবিধা রয়েছে।</li>
-                <li>ডেলিভারিম্যানের সামনে পার্সেলটি খুলে চেক করার সুযোগ থাকবে।</li>
-            </ul>
-
-            <h4>পেমেন্ট মেথড:</h4>
-            <p>বর্তমানে আমরা নিচের মাধ্যমগুলোতে মূল্য গ্রহণ করি:</p>
-            <ul>
-                <li>ক্যাশ অন ডেলিভারি (হাতে পেয়ে নগদ টাকা পরিশোধ)</li>
-                <li>বিকাশ / নগদ (অর্ডার করার সময় বা ডেলিভারির সময়)</li>
+                <li>পণ্য হাতে পেয়ে চেক করে মূল্য পরিশোধ করার সুবিধা রয়েছে।</li>
             </ul>
         </div>
     </div>
 
-    <!-- 3. RETURN & REFUND POLICY MODAL -->
     <div class="modal-overlay" id="returnModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('returnModal')">&times;</button>
-            <h2>Return & Refund Policy (রিটার্ন ও রিফান্ড পলিসি)</h2>
-            <p>গ্রাহকের সন্তুষ্টি আমাদের প্রধান অগ্রাধিকার। পণ্য গ্রহণের পর কোনো সমস্যা থাকলে নিচের নিয়ম অনুযায়ী রিটার্ন নেওয়া হয়:</p>
-            
-            <h4>রিটার্ন ও চেঞ্জ শর্তাবলী:</h4>
-            <ul>
-                <li>ডেলিভারিম্যানের সামনে পণ্য চেক করার সময় যদি ভাঙা, ভুল কালার বা ত্রুটিপূর্ণ পাওয়া যায়, সাথে সাথেই ফেরত দিতে পারবেন।</li>
-                <li>পণ্য পছন্দ না হলে ডেলিভারিম্যান থাকা অবস্থায় ডেলিভারি চার্জ প্রদান করে পণ্য রিটার্ন করতে হবে।</li>
-                <li>ডেলিভারিম্যান চলে আসার পর ২৪ ঘণ্টার মধ্যে যেকোনো সমস্যার ছবি/ভিডিও আমাদের হেল্পলাইনে পাঠাতে হবে।</li>
-            </ul>
-
-            <h4>রিফান্ড পলিসি:</h4>
-            <p>যদি অগ্রিম টাকা দেওয়া থাকে এবং স্টক না থাকার কারণে আমরা পণ্য পাঠাতে না পারি, তবে ২৪-৪৮ ঘণ্টার মধ্যে সম্পূর্ণ টাকা বিকাশ/নগদে রিফান্ড করা হবে।</p>
+            <h2>Return & Refund Policy</h2>
+            <p>পণ্য গ্রহণের পর কোনো সমস্যা থাকলে ডেলিভারিম্যানের সামনে চেক করে সাথে সাথেই রিটার্ন দিতে পারবেন।</p>
         </div>
     </div>
 
-    <!-- 4. CONTACT INFORMATION MODAL -->
     <div class="modal-overlay" id="contactModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('contactModal')">&times;</button>
-            <h2>Contact Information (যোগাযোগ)</h2>
-            <p>আমাদের সাথে যোগাযোগ করতে বা কোনো প্রশ্ন থাকলে নিচের মাধ্যমে যোগাযোগ করুন:</p>
-            
-            <h4>আমাদের ঠিকানা ও হেল্পলাইন:</h4>
+            <h2>Contact Information</h2>
             <ul>
                 <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1338-346890</li>
                 <li><strong>ইমেইল:</strong> prohonicofficial@gmail.com</li>
-                <li><strong>অফিস ঠিকানা:</strong> ঢাকা, বাংলাদেশ।</li>
-                <li><strong>সাপোর্ট টাইম:</strong> সকাল ৯:০০ টা - রাত ১০:০০ টা (প্রতিদিন)</li>
             </ul>
         </div>
     </div>
@@ -1202,12 +1225,13 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
         const TELEGRAM_CHAT_ID = "-1003956122715";
 
-        let currentProductPrice = 0;
+        let currentProductPrice = 950;
         let selectedColorName = "Black";
-        let currentProductName = "";
-        let currentProductImage = "";
+        let currentProductName = "HUBLOT Classic Fusion";
+        let currentProductImage = "Images/Black1.jpg";
 
-        // 1-Day Loop Countdown Timer Logic
+        let activeColors = {};
+
         function startDailyLoopTimer() {
             function updateTimer() {
                 const now = new Date();
@@ -1238,7 +1262,6 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             startDailyLoopTimer();
         };
 
-        // Swatches Image Change Logic
         function changeImage(imageId, newSrc, colorTextId, colorName, element) {
             var imgElement = document.getElementById(imageId);
             var colorTextElement = document.getElementById(colorTextId);
@@ -1248,7 +1271,12 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                 imgElement.src = newSrc;
                 imgElement.style.opacity = '1'; 
             }, 150);
-            colorTextElement.innerText = colorName;
+            
+            if(colorTextElement) {
+                colorTextElement.innerText = colorName;
+            }
+
+            activeColors[imageId] = colorName;
 
             var siblings = element.parentElement.children;
             for (var i = 0; i < siblings.length; i++) {
@@ -1257,7 +1285,6 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             element.classList.add('active');
         }
 
-        // Quick View Modal Logic
         function openQuickView(imageSrc) {
             document.getElementById('qv-image').src = imageSrc;
             document.getElementById('quickViewModal').classList.add('active');
@@ -1267,7 +1294,6 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
-        // Policy Modals Logic
         function openPolicyModal(modalId) {
             document.getElementById(modalId).classList.add('active');
         }
@@ -1276,15 +1302,20 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             document.getElementById(modalId).classList.remove('active');
         }
 
-        // Order Modal Logic
-        function openOrderModal(productName, price, colorElementId, imgElementId) {
+        function openOrderModal(productName, price, colorElementId, imgElementId, defaultColor) {
+            if (typeof fbq === 'function') {
+                fbq('track', 'InitiateCheckout');
+            }
+
             currentProductName = productName;
             currentProductPrice = price;
             
-            if(colorElementId && document.getElementById(colorElementId)) {
-                selectedColorName = document.getElementById(colorElementId).innerText;
+            if (activeColors[imgElementId]) {
+                selectedColorName = activeColors[imgElementId];
+            } else if (colorElementId && document.getElementById(colorElementId)) {
+                selectedColorName = document.getElementById(colorElementId).innerText.trim();
             } else {
-                selectedColorName = "ডিফোল্ট";
+                selectedColorName = defaultColor || "Black";
             }
 
             if(imgElementId && document.getElementById(imgElementId)) {
@@ -1297,9 +1328,13 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             
             updateTotal();
 
-            document.getElementById('orderModal').classList.add('active');
             document.getElementById('checkout-form').style.display = 'block';
             document.getElementById('success-message').style.display = 'none';
+            document.getElementById('orderModal').classList.add('active');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('active');
         }
 
         function updateTotal() {
@@ -1308,11 +1343,25 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             document.getElementById('summary-total').innerText = currentProductPrice + deliveryCharge;
         }
 
-        function closeOrderModal() {
-            document.getElementById('orderModal').classList.remove('active');
+        function autoDetectDeliveryZone() {
+            const addr = document.getElementById('address').value.toLowerCase();
+            const subDhakaKeywords = ['savar', 'sabar', 'keraniganj', 'dhamrai', 'nawabganj', 'tongi', 'gazipur', 'narayanganj', 'সাভার', 'কেরানীগঞ্জ', 'ধামরাই', 'নবাবগঞ্জ', 'টঙ্গী', 'গাজীপুর', 'নারায়ণগঞ্জ'];
+            
+            if (addr.length < 3) return;
+
+            let isSubDhaka = subDhakaKeywords.some(keyword => addr.includes(keyword));
+
+            if (isSubDhaka) {
+                document.getElementById('del-sub').checked = true;
+            } else if (addr.includes('dhaka') || addr.includes('ঢাকা')) {
+                document.getElementById('del-inside').checked = true;
+            } else {
+                document.getElementById('del-outside').checked = true;
+            }
+            
+            updateTotal();
         }
 
-        // Close Modal when clicking outside container
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
             let qvModal = document.getElementById('quickViewModal');
@@ -1327,14 +1376,12 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             });
         }
 
-        // Telegram Integration logic (With Photo Sending & Backup Fallback)
         function handleOrder(event) {
             event.preventDefault();
 
             const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
 
-            // Meta Purchase Event Trigger
             if (typeof fbq === 'function') {
                 fbq('track', 'Purchase', { value: totalPrice, currency: 'BDT' });
             }
@@ -1346,9 +1393,11 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            const deliveryZone = deliveryCharge === "70" ? "ঢাকার ভেতরে" : "ঢাকার বাইরে";
+            
+            let deliveryZone = "ঢাকার ভেতরে";
+            if (deliveryCharge === "120") deliveryZone = "সাব ঢাকা";
+            else if (deliveryCharge === "150") deliveryZone = "ঢাকার বাইরে";
 
-            // ইউনিক অর্ডার আইডি তৈরি
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
@@ -1366,7 +1415,6 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                 fullImageUrl = window.location.origin + '/' + currentProductImage;
             }
 
-            // টেলিগ্রামে মেসেজ ও প্রোডাক্টের ছবি পাঠানো
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1382,7 +1430,6 @@ src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
                 
-                // ছবি পাঠাতে ব্যর্থ হলে ব্যাকআপ হিসেবে প্লেইন টেক্সট পাঠানো
                 if (!data.ok) {
                     return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                         method: 'POST',
