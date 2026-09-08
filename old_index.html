@@ -176,6 +176,18 @@
         .btn-order-now { display: inline-block; background-color: #e63946; color: #fff; padding: 14px 35px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; transition: 0.3s; border: none; cursor: pointer; text-align: center; }
         .btn-order-now:hover { background-color: #c82333; }
 
+        /* BUTTON SHAKE ANIMATION */
+        @keyframes periodicShake {
+            0%, 100% { transform: translateX(0); }
+            2%, 6% { transform: translateX(-6px) rotate(-2deg); }
+            4%, 8% { transform: translateX(6px) rotate(2deg); }
+            10% { transform: translateX(0); }
+        }
+
+        .btn-order-now:not([disabled]) {
+            animation: periodicShake 3s infinite ease-in-out;
+        }
+
         /* Products Section Improvements */
         .products-section { padding: 50px 5%; }
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #111; }
