@@ -155,7 +155,7 @@
         }
 
         .hero { display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #fff; align-items: center; gap: 30px; border-bottom: 2px solid #f1f1f1; scroll-margin-top: 80px; }
-        .hero-image { flex: 1 1 400px; text-align: center; }
+        .hero-image { flex: 1 1 400px; text-align: center; position: relative; display: inline-block; }
         .hero-image img { width: 100%; max-width: 450px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.2s; }
         .hero-details { flex: 1 1 400px; }
         .hero-details h1 { font-size: 2.2rem; margin-bottom: 15px; color: #111; }
@@ -204,6 +204,7 @@
         }
         
         .product-card-img-wrapper {
+            position: relative;
             overflow: hidden;
             border-radius: 8px;
             margin-bottom: 12px;
@@ -235,6 +236,30 @@
             border-radius: 20px;
             z-index: 2;
             box-shadow: 0 2px 6px rgba(230,57,70,0.4);
+        }
+
+        /* TOP RIGHT CORNER DISCOUNT BADGE */
+        .badge-percent-top-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #28a745;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 10px;
+            border-radius: 20px;
+            z-index: 3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-image .badge-percent-top-right {
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            padding: 6px 14px;
         }
 
         .product-card h3 { font-size: 1.1rem; margin-bottom: 4px; color: #222; }
@@ -491,6 +516,7 @@
     <!-- MAIN PRODUCT 1 -->
     <section class="hero" id="product1-section">
         <div class="hero-image">
+            <span class="badge-percent-top-right">21% OFF</span>
             <img src="Images/Black1.jpg" id="main-product-img-1" alt="Hublot Classic Fusion" onclick="openQuickView(this.src)">
         </div>
         <div class="hero-details">
@@ -523,6 +549,7 @@
     <!-- MAIN PRODUCT 2 -->
     <section class="hero" id="product2-section">
         <div class="hero-image">
+            <span class="badge-percent-top-right">21% OFF</span>
             <img src="Images/gray.jpg" id="main-product-img-2" alt="HUBLOT Big Bang Chronograph" onclick="openQuickView(this.src)">
         </div>
         <div class="hero-details">
@@ -559,6 +586,7 @@
             <div class="product-card">
                 <span class="badge-discount">HOT SALE</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">21% OFF</span>
                     <img src="Images/Black1.jpg" alt="Product 1" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
                 </div>
                 <h3>Hublot Classic Fusion</h3>
@@ -572,6 +600,7 @@
             <div class="product-card">
                 <span class="badge-discount">TOP PICK</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">21% OFF</span>
                     <img src="Images/Silver1.jpg" alt="Product 2" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
                 </div>
                 <h3>Hublot Classic Fusion</h3>
@@ -585,6 +614,7 @@
             <div class="product-card">
                 <span class="badge-discount">NEW</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">21% OFF</span>
                     <img src="Images/black.jpg" alt="Product 3" loading="lazy" decoding="async" onclick="openQuickView('Images/black.jpg')">
                 </div>
                 <h3>Hublot Classic Fusion Skeleton Tourbillon</h3>
@@ -598,6 +628,7 @@
             <div class="product-card">
                 <span class="badge-discount">POPULAR</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">21% OFF</span>
                     <img src="Images/silver-black2.jpg" alt="Product 4" loading="lazy" decoding="async" onclick="openQuickView('Images/silver-black2.jpg')">
                 </div>
                 <h3>Hublot Classic Fusion Skeleton Tourbillon</h3>
@@ -611,6 +642,7 @@
             <div class="product-card">
                 <span class="badge-discount">HOT</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">21% OFF</span>
                     <img src="Images/gray.jpg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/gray.jpg')">
                 </div>
                 <h3>HUBLOT Big Bang Chronograph</h3>
@@ -624,6 +656,7 @@
             <div class="product-card">
                 <span class="badge-discount">HOT</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">21% OFF</span>
                     <img src="Images/green.jpg" alt="Product 6" loading="lazy" decoding="async" onclick="openQuickView('Images/green.jpg')">
                 </div>
                 <h3>HUBLOT Big Bang Chronograph</h3>
@@ -637,6 +670,7 @@
             <div class="product-card">
                 <span class="badge-discount">PREMIUM</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">20% OFF</span>
                     <img src="Images/chai-silver.png" alt="Product 7" loading="lazy" decoding="async" onclick="openQuickView('Images/chai-silver.png')">
                 </div>
                 <h3>BINBOND Business Luxury Men’s</h3>
@@ -650,6 +684,7 @@
             <div class="product-card">
                 <span class="badge-discount">HOT SALE</span>
                 <div class="product-card-img-wrapper">
+                    <span class="badge-percent-top-right">20% OFF</span>
                     <img src="Images/chain-white.png" alt="Product 8" loading="lazy" decoding="async" onclick="openQuickView('Images/chain-white.png')">
                 </div>
                 <h3>BINBOND Business Luxury Men’s</h3>
@@ -714,8 +749,7 @@
                 <!-- NEW DISCOUNT BANNER INSIDE ORDER FORM -->
                 <div class="modal-offer-box">
                     <p>🔥 <strong>আজকের বিশেষ অফার!</strong></p>
-                    <p style="margin: 4px 0;">রেগুলার প্রাইজ: <s style="color: #888;">৳ ১২০০</s></p>
-                    <p>আজকের বিশেষ মূল্য: <span class="offer-price-highlight">৳ <span id="form-discount-price">৯৫০</span></span></p>
+                    <p style="margin: 4px 0;">আজকের বিশেষ মূল্য: <span class="offer-price-highlight">৳ <span id="form-discount-price">৯৫০</span></span></p>
                     <p style="font-size: 0.8rem; color: #28a745; font-weight: bold; margin-top: 4px;">⚡ এখনই অর্ডার করলে স্টক থাকা সাপেক্ষে এই অফারটি পাবেন!</p>
                 </div>
                 
