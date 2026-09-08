@@ -160,7 +160,12 @@
         .hero-details { flex: 1 1 400px; }
         .hero-details h1 { font-size: 2.2rem; margin-bottom: 15px; color: #111; }
         
-        .price { font-size: 1.8rem; color: #e63946; font-weight: bold; margin-bottom: 15px; }
+        /* PRICE DISPLAY STYLES WITH DISCOUNT */
+        .price-container { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .regular-price { font-size: 1.2rem; color: #888; text-decoration: line-through; }
+        .offer-price { font-size: 1.8rem; color: #e63946; font-weight: bold; }
+        .save-badge { background: #d4edda; color: #155724; font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 4px; }
+
         .color-selection { margin-bottom: 20px; }
         .color-selection p { font-weight: bold; margin-bottom: 8px; }
         .color-options { display: flex; gap: 12px; }
@@ -247,12 +252,32 @@
         }
 
         .product-card .card-price { color: #e63946; font-weight: bold; margin-bottom: 12px; font-size: 1.1rem; }
+        .product-card .card-regular-price { text-decoration: line-through; color: #888; font-size: 0.9rem; margin-right: 5px; }
 
         /* Modal Styles */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         .modal-overlay.active { display: flex; }
         .order-container { background: #fff; width: 100%; max-width: 500px; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto; }
         
+        /* ORDER FORM OFFER BOX */
+        .modal-offer-box {
+            background: #fff5f5;
+            border: 1px dashed #e63946;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .modal-offer-box p {
+            font-size: 0.9rem;
+            color: #222;
+        }
+        .modal-offer-box .offer-price-highlight {
+            font-size: 1.3rem;
+            color: #e63946;
+            font-weight: bold;
+        }
+
         /* Policy Modal Styles */
         .policy-modal-container {
             background: #fff;
@@ -296,7 +321,7 @@
         .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; font-weight: bold; color: #888; cursor: pointer; border: none; background: none; }
         .image-viewer-container .close-btn { top: -40px; right: 0; color: #fff; font-size: 2.2rem; }
 
-        .modal-title { font-size: 1.4rem; margin-bottom: 15px; text-align: center; color: #111; }
+        .modal-title { font-size: 1.4rem; margin-bottom: 10px; text-align: center; color: #111; }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 6px; font-weight: bold; }
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
@@ -470,7 +495,13 @@
         </div>
         <div class="hero-details">
             <h1>Hublot Classic Fusion</h1>
-            <div class="price">৳ ৯৫০</div>
+            
+            <!-- DISCOUNT PRICE DISPLAY -->
+            <div class="price-container">
+                <span class="regular-price">৳ ১২০০</span>
+                <span class="offer-price">৳ ৯৫০</span>
+                <span class="save-badge">৳ ২৫০ ছাড়!</span>
+            </div>
             
             <div class="color-selection">
                 <p>কালার সিলেক্ট করুন:</p>
@@ -496,7 +527,13 @@
         </div>
         <div class="hero-details">
             <h1>HUBLOT Big Bang Chronograph</h1>
-            <div class="price">৳ ৯৫০</div>
+            
+            <!-- DISCOUNT PRICE DISPLAY -->
+            <div class="price-container">
+                <span class="regular-price">৳ ১২০০</span>
+                <span class="offer-price">৳ ৯৫০</span>
+                <span class="save-badge">৳ ২৫০ ছাড়!</span>
+            </div>
             
             <div class="color-selection">
                 <p>কালার সিলেক্ট করুন:</p>
@@ -528,7 +565,7 @@
                 <div class="product-rating">
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
-                <div class="card-price">৳ ৯৫০</div>
+                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
             </div>
 
@@ -541,7 +578,7 @@
                 <div class="product-rating">
                     ★★★★★ <span>(89 Sold)</span>
                 </div>
-                <div class="card-price">৳ ৯৫০</div>
+                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
             </div>
 
@@ -554,7 +591,7 @@
                 <div class="product-rating">
                     ★★★★★ <span>(210 Sold)</span>
                 </div>
-                <div class="card-price">৳ ১০৯৯</div>
+                <div class="card-price"><span class="card-regular-price">৳ ১৪০০</span> ৳ ১০৯৯</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%; background-color: #6c757d; cursor: not-allowed;" disabled>❌ Stock Out</button>
             </div>
 
@@ -567,7 +604,7 @@
                 <div class="product-rating">
                     ★★★★★ <span>(115 Sold)</span>
                 </div>
-                <div class="card-price">৳ ১০৯৯</div>
+                <div class="card-price"><span class="card-regular-price">৳ ১৪০০</span> ৳ ১০৯৯</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%; background-color: #6c757d; cursor: not-allowed;" disabled>❌ Stock Out</button>
             </div>
 
@@ -580,7 +617,7 @@
                 <div class="product-rating">
                     ★★★★★ <span>(76 Sold)</span>
                 </div>
-                <div class="card-price">৳ ৯৫০</div>
+                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 Order Now</button>
             </div>
 
@@ -593,7 +630,7 @@
                 <div class="product-rating">
                     ★★★★★ <span>(164 Sold)</span>
                 </div>
-                <div class="card-price">৳ ৯৫০</div>
+                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 Order Now</button>
             </div>
 
@@ -606,7 +643,7 @@
                 <div class="product-rating">
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
-                <div class="card-price">৳ ৭৯৯</div>
+                <div class="card-price"><span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯</div>
                 <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'গ্রেয়', 'Images/chai-silver.png')">🛒 Order Now</button>
             </div>
 
@@ -619,8 +656,8 @@
                 <div class="product-rating">
                     ★★★★★ <span>(89 Sold)</span>
                 </div>
-                <div class="card-price">৳ ৭৯৯</div>
-                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 950, 'ওয়াইট', 'Images/chain-white.png')">🛒 Order Now</button>
+                <div class="card-price"><span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯</div>
+                <button class="btn-order-now" style="padding: 8px 15px; font-size: 0.9rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'ওয়াইট', 'Images/chain-white.png')">🛒 Order Now</button>
             </div>
 
         </div>
@@ -666,12 +703,21 @@
         </div>
     </div>
 
+    <!-- UPDATED ORDER MODAL FORM -->
     <div class="modal-overlay" id="orderModal">
         <div class="order-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
             
             <form id="checkout-form" onsubmit="handleOrder(event)">
                 <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
+                
+                <!-- NEW DISCOUNT BANNER INSIDE ORDER FORM -->
+                <div class="modal-offer-box">
+                    <p>🔥 <strong>আজকের বিশেষ অফার!</strong></p>
+                    <p style="margin: 4px 0;">রেগুলার প্রাইজ: <s style="color: #888;">৳ ১২০০</s></p>
+                    <p>আজকের বিশেষ মূল্য: <span class="offer-price-highlight">৳ <span id="form-discount-price">৯৫০</span></span></p>
+                    <p style="font-size: 0.8rem; color: #28a745; font-weight: bold; margin-top: 4px;">⚡ এখনই অর্ডার করলে স্টক থাকা সাপেক্ষে এই অফারটি পাবেন!</p>
+                </div>
                 
                 <div class="form-group">
                     <label for="name">আপনার নাম:</label>
@@ -709,7 +755,7 @@
                 <div class="bill-summary">
                     <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
                     <div class="bill-row"><span>কালার:</span><strong id="summary-color">কালো</strong></div>
-                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">0</span></span></div>
+                    <div class="bill-row"><span>পণ্যের মূল্য (অফার):</span><span>৳ <span id="summary-price">0</span></span></div>
                     <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">150</span></span></div>
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
@@ -897,6 +943,7 @@
             
             document.getElementById('summary-product-name').innerText = productName;
             document.getElementById('summary-price').innerText = price;
+            document.getElementById('form-discount-price').innerText = price;
             document.getElementById('summary-color').innerText = selectedColorName;
             
             autoDetectDeliveryZone();
