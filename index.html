@@ -721,6 +721,36 @@
             border-top: 1px solid rgba(212, 175, 55, 0.15);
         }
 
+        .reviews-header-box {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .btn-write-review {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #0d0f12;
+            padding: 10px 22px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+            transition: 0.3s;
+        }
+
+        .btn-write-review:hover {
+            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+            transform: translateY(-2px);
+        }
+
         .reviews-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -749,6 +779,7 @@
             border: 2px solid #d4af37;
             box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
             margin-bottom: 14px;
+            cursor: pointer;
         }
 
         .review-card p {
@@ -766,6 +797,7 @@
         .stars {
             color: #d4af37;
             margin-top: 5px;
+            letter-spacing: 2px;
         }
 
         /* Footer Section */
@@ -1313,40 +1345,45 @@
 
     <!-- REVIEWS SECTION -->
     <section class="reviews-section">
-        <h2 class="main-title" style="margin-top: 0;">কাস্টমার রিভিউ</h2>
-        <div class="reviews-container">
+        <div class="reviews-header-box">
+            <h2 class="main-title" style="margin: 0;">কাস্টমার রিভিউ</h2>
+            <button class="btn-write-review" onclick="openReviewModal()">✍️ রিভিউ লিখুন</button>
+        </div>
+        
+        <div class="reviews-container" id="dynamic-reviews-container">
+            <!-- Default Pre-added Reviews -->
             <div class="review-card">
-                <img src="Images/Black1.jpg" class="customer-watch-img" alt="Review">
+                <img src="Images/Black1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
                 <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
                 <div class="reviewer-name">- আরিয়ান আহমেদ</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/golden.jpg" class="customer-watch-img" alt="Review">
+                <img src="Images/golden.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
                 <p>"Golden ওয়াচটি বাস্তবে অনেক প্রিমিয়াম লেগেছে। কোয়ালিটি অনেক ভালো।"</p>
                 <div class="reviewer-name">- তানজিম হোসেন</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/chain-black.png" class="customer-watch-img" alt="Review">
+                <img src="Images/chain-black.png" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
                 <p>"BINBOND ওয়াচটি দারুণ ভাই। মেটাল চেইন এবং ওয়েট একদম অরজিনাল অনূভুতি দেয়।"</p>
                 <div class="reviewer-name">- রাকিব হাসান</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/silver-gray.jpg" class="customer-watch-img" alt="Review">
+                <img src="Images/silver-gray.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
                 <p>"স্ক্যাচ প্রুফ গ্লাস সত্যিই কার্যকরী। প্যাকেজিং অনেক ভালো ছিল, ধন্যবাদ Prohonic!"</p>
                 <div class="reviewer-name">- মোঃ পারভেজ</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/black.jpg" class="customer-watch-img" alt="Review">
+                <img src="Images/black.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
                 <p>"Hublot Skeleton ডায়ালটা একদম জোস! প্রিমিয়াম একটা লুক দেয়।"</p>
                 <div class="reviewer-name">- শামীম ওসমান</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/Silver1.jpg" class="customer-watch-img" alt="Review">
+                <img src="Images/Silver1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
                 <p>"ঢাকার বাইরে থেকেও মাত্র ২ দিনে পার্সেল হাতে পেয়েছি। ক্যাশ অন ডেলিভারিতে চেক করে নিতে পেরে খুব ভালো লাগলো।"</p>
                 <div class="reviewer-name">- সাজ্জাদুল ইসলাম</div>
                 <div class="stars">★★★★★</div>
@@ -1437,6 +1474,46 @@
                 আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে! <br>
                 <span id="order-id-display" style="font-size: 1.1rem; color: #d4af37; font-weight: bold; display: block; margin: 10px 0;"></span>
                 আপনাকে আমাদের একজন প্রতিনিধি কল করে অর্ডারটি কনফার্ম করবে।
+            </div>
+        </div>
+    </div>
+
+    <!-- WRITE REVIEW MODAL (Updated with Formspree Endpoint) -->
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal-container">
+            <button class="close-btn" onclick="closeReviewModal()">&times;</button>
+            <h3 class="modal-title">আপনার মূল্যবান রিভিউ দিন</h3>
+            
+            <form id="review-form" action="https://formspree.io/f/mrpgjkyo" method="POST" enctype="multipart/form-data" onsubmit="handleReviewSubmit(event)">
+                <div class="form-group">
+                    <label for="review-name">আপনার নাম:</label>
+                    <input type="text" id="review-name" name="name" placeholder="আপনার নাম লিখুন" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="review-rating">রেটিং নির্বাচন করুন:</label>
+                    <select id="review-rating" name="rating" required>
+                        <option value="★★★★★">⭐⭐⭐⭐⭐ (৫/৫ - চমৎকার)</option>
+                        <option value="★★★★☆">⭐⭐⭐⭐☆ (৪/৫ - ভালো)</option>
+                        <option value="★★★☆☆">⭐⭐⭐☆☆ (৩/৫ - মোটামুটি)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="review-text">আপনার মন্তব্য:</label>
+                    <textarea id="review-text" name="review" rows="3" placeholder="পণ্য সম্পর্কে আপনার অভিজ্ঞতা শেয়ার করুন..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="review-img-file">ঘড়ির ছবি আপলোড করুন:</label>
+                    <input type="file" id="review-img-file" name="customer_image" accept="image/*" required style="padding: 9px; background: #090a0c;">
+                </div>
+
+                <button type="submit" class="btn-order-now">রিভিউ সাবমিট করুন</button>
+            </form>
+
+            <div id="review-success-msg" class="success-message" style="margin-top: 15px;">
+                আপনার রিভিউটি সফলভাবে সাবমিট হয়েছে! ধন্যবাদ।
             </div>
         </div>
     </div>
@@ -1539,6 +1616,7 @@
 
         window.onload = function() {
             startDailyLoopTimer();
+            loadStoredReviews();
         };
 
         function changeImage(imageId, newSrc, colorTextId, colorName, element) {
@@ -1616,6 +1694,90 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
+        /* Review Modal Control Functions */
+        function openReviewModal() {
+            document.getElementById('reviewModal').classList.add('active');
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.remove('active');
+        }
+
+        function handleReviewSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('review-name').value;
+            const rating = document.getElementById('review-rating').value;
+            const text = document.getElementById('review-text').value;
+            const imageInput = document.getElementById('review-img-file');
+
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const imgDataUrl = e.target.result;
+
+                    const reviewContainer = document.getElementById('dynamic-reviews-container');
+                    const newReviewCard = document.createElement('div');
+                    newReviewCard.className = 'review-card';
+                    newReviewCard.innerHTML = `
+                        <img src="${imgDataUrl}" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                        <p>"${text}"</p>
+                        <div class="reviewer-name">- ${name}</div>
+                        <div class="stars">${rating}</div>
+                    `;
+
+                    reviewContainer.prepend(newReviewCard);
+
+                    let savedReviews = JSON.parse(localStorage.getItem('prohonic_reviews') || '[]');
+                    savedReviews.unshift({ name, rating, text, img: imgDataUrl });
+                    localStorage.setItem('prohonic_reviews', JSON.stringify(savedReviews));
+                }
+                
+                reader.readAsDataURL(imageInput.files[0]);
+            }
+
+            // Submit form to Formspree via fetch to avoid page reload and show success message smoothly
+            const form = document.getElementById('review-form');
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                document.getElementById('review-form').style.display = 'none';
+                document.getElementById('review-success-msg').style.display = 'block';
+
+                setTimeout(() => {
+                    closeReviewModal();
+                    document.getElementById('review-form').reset();
+                    document.getElementById('review-form').style.display = 'block';
+                    document.getElementById('review-success-msg').style.display = 'none';
+                }, 2000);
+            }).catch(error => {
+                alert('রিভিউ সাবমিট করার সময় সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।');
+            });
+        }
+
+        function loadStoredReviews() {
+            let savedReviews = JSON.parse(localStorage.getItem('prohonic_reviews') || '[]');
+            const reviewContainer = document.getElementById('dynamic-reviews-container');
+            
+            savedReviews.forEach(rev => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <img src="${rev.img}" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                    <p>"${rev.text}"</p>
+                    <div class="reviewer-name">- ${rev.name}</div>
+                    <div class="stars">${rev.rating}</div>
+                `;
+                reviewContainer.prepend(card);
+            });
+        }
+
         function updateTotal() {
             let deliveryCharge = parseInt(document.querySelector('input[name="delivery"]:checked').value);
             document.getElementById('summary-delivery').innerText = deliveryCharge;
@@ -1643,10 +1805,12 @@
 
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
+            let reviewModal = document.getElementById('reviewModal');
             let qvModal = document.getElementById('quickViewModal');
             let policyModals = ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'];
 
             if (event.target === orderModal) closeOrderModal();
+            if (event.target === reviewModal) closeReviewModal();
             if (event.target === qvModal) closeQuickView();
             
             policyModals.forEach(id => {
