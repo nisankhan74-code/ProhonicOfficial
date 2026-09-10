@@ -4,6 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch Store | Prohonic</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Prohonic Watch Store - বাংলাদেশে কিনুন প্রিমিয়াম কোয়ালিটির HUBLOT ও BINBOND হাতঘড়ি। ১০০% অরজিনাল প্রোডাক্ট ও ক্যাশ অন ডেলিভারি সুবিধা।">
+    <meta name="keywords" content="Prohonic, Prohonic Watch, Hand Watch Bangladesh, Luxury Watch BD, Hublot Watch BD, Binbond Watch BD">
+    <meta name="author" content="Prohonic Watch Store">
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Watch Store | Prohonic">
+    <meta property="og:description" content="প্রিমিয়াম ও বিশ্বস্ত কোয়ালিটির সব হাতঘড়ি কালেকশন। ক্যাশ অন ডেলিভারি সুবিধা।">
+    <meta property="og:image" content="Images/Weblogo.png">
+
+    <!-- Favicon / Web Logo for Search Engines -->
+    <link rel="icon" type="image/png" href="Images/Weblogo.png">
+    <link rel="apple-touch-icon" href="Images/Weblogo.png">
+
+    <!-- Schema.org Markup for Google Search Results (Contact, Location, Logo Details) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "OnlineStore",
+      "name": "Prohonic Watch Store",
+      "url": "https://prohonic.github.io/", 
+      "logo": "Images/Weblogo.png",
+      "image": "Images/Weblogo.png",
+      "description": "Prohonic - প্রিমিয়াম ও বিশ্বস্ত কোয়ালিটির হাতঘড়ি কালেকশন।",
+      "telephone": "+8801338346890",
+      "email": "prohonicofficial@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dhaka",
+        "addressCountry": "BD"
+      },
+      "priceRange": "৳৳"
+    }
+    </script>
+
     <!-- Google Fonts for Luxury Serif & Modern Sans-serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -843,7 +880,6 @@
             .color-options {
                 gap: 8px;
             }
-            /* Increased touch target size for Mobile Buttons */
             .color-item {
                 padding: 6px 12px 6px 6px;
             }
@@ -915,7 +951,7 @@
 
     <header>
         <div class="logo">
-            <img src="Images/Weblogo.png" id="site-logo" alt="Logo" loading="lazy" decoding="async" onerror="this.style.display='none'">
+            <img src="Images/Weblogo.png" id="site-logo" alt="Prohonic Logo" loading="lazy" decoding="async" onerror="this.style.display='none'">
             <span class="logo-text">PROHONIC</span>
         </div>
     </header>
@@ -971,7 +1007,7 @@
         <!-- Card 1 -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+                <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion Watch" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
@@ -982,15 +1018,15 @@
                     <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p1', 'Images/Black1.jpg', 'c1-p1-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/Black1.jpg">
+                            <img class="color-thumb" src="Images/Black1.jpg" alt="Black">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver1.jpg', 'c1-p1-text', 'Silver', this)">
-                            <img class="color-thumb" src="Images/Silver1.jpg">
+                            <img class="color-thumb" src="Images/Silver1.jpg" alt="Silver">
                             <span class="color-text">Silver</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p1', 'Images/silverandblack.jpg', 'c1-p1-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silverandblack.jpg">
+                            <img class="color-thumb" src="Images/silverandblack.jpg" alt="Silver and Black">
                             <span class="color-text">Silver & Black</span>
                         </div>
                     </div>
@@ -1002,7 +1038,7 @@
         <!-- Card 2 -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+                <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton Watch" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
@@ -1013,27 +1049,27 @@
                     <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p2', 'Images/black.jpg', 'c1-p2-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/black.jpg">
+                            <img class="color-thumb" src="Images/black.jpg" alt="Black">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-gray.jpg', 'c1-p2-text', 'Silver & Gray', this)">
-                            <img class="color-thumb" src="Images/silver-gray.jpg">
+                            <img class="color-thumb" src="Images/silver-gray.jpg" alt="Silver Gray">
                             <span class="color-text">Silver & Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black.jpg', 'c1-p2-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silver-black.jpg">
+                            <img class="color-thumb" src="Images/silver-black.jpg" alt="Silver Black">
                             <span class="color-text">Silver & Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-blue.jpg', 'c1-p2-text', 'Silver & Blue', this)">
-                            <img class="color-thumb" src="Images/silver-blue.jpg">
+                            <img class="color-thumb" src="Images/silver-blue.jpg" alt="Silver Blue">
                             <span class="color-text">Silver & Blue</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black2.jpg', 'c1-p2-text', 'Silver & Black 2', this)">
-                            <img class="color-thumb" src="Images/silver-black2.jpg">
+                            <img class="color-thumb" src="Images/silver-black2.jpg" alt="Silver Black 2">
                             <span class="color-text">Silver & Black 2</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-golden2.jpg', 'c1-p2-text', 'Silver & Golden', this)">
-                            <img class="color-thumb" src="Images/silver-golden2.jpg">
+                            <img class="color-thumb" src="Images/silver-golden2.jpg" alt="Silver Golden">
                             <span class="color-text">Silver & Golden</span>
                         </div>
                     </div>
@@ -1045,7 +1081,7 @@
         <!-- Card 3 -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+                <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph Watch" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Big Bang Chronograph</div>
@@ -1056,15 +1092,15 @@
                     <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
-                            <img class="color-thumb" src="Images/gray.jpg">
+                            <img class="color-thumb" src="Images/gray.jpg" alt="Gray">
                             <span class="color-text">Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p3', 'Images/green.jpg', 'c1-p3-text', 'Green', this)">
-                            <img class="color-thumb" src="Images/green.jpg">
+                            <img class="color-thumb" src="Images/green.jpg" alt="Green">
                             <span class="color-text">Green</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat1-p3', 'Images/golden.jpg', 'c1-p3-text', 'Golden', this)">
-                            <img class="color-thumb" src="Images/golden.jpg">
+                            <img class="color-thumb" src="Images/golden.jpg" alt="Golden">
                             <span class="color-text">Golden</span>
                         </div>
                     </div>
@@ -1084,7 +1120,7 @@
     <div class="product-grid">
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
+                <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men Watch" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
@@ -1095,19 +1131,19 @@
                     <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat2-p1', 'Images/chain-black.png', 'c2-p1-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/chain-black.png">
+                            <img class="color-thumb" src="Images/chain-black.png" alt="Black">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat2-p1', 'Images/chain-white.png', 'c2-p1-text', 'White', this)">
-                            <img class="color-thumb" src="Images/chain-white.png">
+                            <img class="color-thumb" src="Images/chain-white.png" alt="White">
                             <span class="color-text">White</span>
                         </div>
                          <div class="color-item" onclick="changeImage('cat2-p1', 'Images/chai-silver.png', 'c2-p1-text', 'Gray', this)">
-                            <img class="color-thumb" src="Images/chai-silver.png">
+                            <img class="color-thumb" src="Images/chai-silver.png" alt="Gray">
                             <span class="color-text">Gray</span>
                         </div>
                          <div class="color-item" onclick="changeImage('cat2-p1', 'Images/chain-blue.png', 'c2-p1-text', 'Blue', this)">
-                            <img class="color-thumb" src="Images/chain-blue.png">
+                            <img class="color-thumb" src="Images/chain-blue.png" alt="Blue">
                             <span class="color-text">Blue</span>
                         </div>
                     </div>
@@ -1140,7 +1176,7 @@
         <!-- Hublot Classic Fusion -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+                <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
@@ -1151,15 +1187,15 @@
                     <span class="color-label">কালার: <span id="all-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p1', 'Images/Black1.jpg', 'all-p1-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/Black1.jpg">
+                            <img class="color-thumb" src="Images/Black1.jpg" alt="Black">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p1', 'Images/Silver1.jpg', 'all-p1-text', 'Silver', this)">
-                            <img class="color-thumb" src="Images/Silver1.jpg">
+                            <img class="color-thumb" src="Images/Silver1.jpg" alt="Silver">
                             <span class="color-text">Silver</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p1', 'Images/silverandblack.jpg', 'all-p1-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silverandblack.jpg">
+                            <img class="color-thumb" src="Images/silverandblack.jpg" alt="Silver and Black">
                             <span class="color-text">Silver & Black</span>
                         </div>
                     </div>
@@ -1171,7 +1207,7 @@
         <!-- Hublot Skeleton -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+                <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
@@ -1182,27 +1218,27 @@
                     <span class="color-label">কালার: <span id="all-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p2', 'Images/black.jpg', 'all-p2-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/black.jpg">
+                            <img class="color-thumb" src="Images/black.jpg" alt="Black">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-gray.jpg', 'all-p2-text', 'Silver & Gray', this)">
-                            <img class="color-thumb" src="Images/silver-gray.jpg">
+                            <img class="color-thumb" src="Images/silver-gray.jpg" alt="Silver Gray">
                             <span class="color-text">Silver & Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-black.jpg', 'all-p2-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silver-black.jpg">
+                            <img class="color-thumb" src="Images/silver-black.jpg" alt="Silver Black">
                             <span class="color-text">Silver & Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-blue.jpg', 'all-p2-text', 'Silver & Blue', this)">
-                            <img class="color-thumb" src="Images/silver-blue.jpg">
+                            <img class="color-thumb" src="Images/silver-blue.jpg" alt="Silver Blue">
                             <span class="color-text">Silver & Blue</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-black2.jpg', 'all-p2-text', 'Silver & Black 2', this)">
-                            <img class="color-thumb" src="Images/silver-black2.jpg">
+                            <img class="color-thumb" src="Images/silver-black2.jpg" alt="Silver Black 2">
                             <span class="color-text">Silver & Black 2</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-golden2.jpg', 'all-p2-text', 'Silver & Golden', this)">
-                            <img class="color-thumb" src="Images/silver-golden2.jpg">
+                            <img class="color-thumb" src="Images/silver-golden2.jpg" alt="Silver Golden">
                             <span class="color-text">Silver & Golden</span>
                         </div>
                     </div>
@@ -1214,7 +1250,7 @@
         <!-- HUBLOT Big Bang Chronograph -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+                <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Big Bang Chronograph</div>
@@ -1225,15 +1261,15 @@
                     <span class="color-label">কালার: <span id="all-p4-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p4', 'Images/gray.jpg', 'all-p4-text', 'Gray', this)">
-                            <img class="color-thumb" src="Images/gray.jpg">
+                            <img class="color-thumb" src="Images/gray.jpg" alt="Gray">
                             <span class="color-text">Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p4', 'Images/green.jpg', 'all-p4-text', 'Green', this)">
-                            <img class="color-thumb" src="Images/green.jpg">
+                            <img class="color-thumb" src="Images/green.jpg" alt="Green">
                             <span class="color-text">Green</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p4', 'Images/golden.jpg', 'all-p4-text', 'Golden', this)">
-                            <img class="color-thumb" src="Images/golden.jpg">
+                            <img class="color-thumb" src="Images/golden.jpg" alt="Golden">
                             <span class="color-text">Golden</span>
                         </div>
                     </div>
@@ -1245,7 +1281,7 @@
         <!-- Binbond Business Luxury -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+                <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men" onclick="openQuickView(this.src)">
             </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
@@ -1256,15 +1292,15 @@
                     <span class="color-label">কালার: <span id="all-p3-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p3', 'Images/chain-black.png', 'all-p3-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/chain-black.png">
+                            <img class="color-thumb" src="Images/chain-black.png" alt="Black">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p3', 'Images/chain-white.png', 'all-p3-text', 'White', this)">
-                            <img class="color-thumb" src="Images/chain-white.png">
+                            <img class="color-thumb" src="Images/chain-white.png" alt="White">
                             <span class="color-text">White</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p3', 'Images/chain-blue.png', 'all-p3-text', 'Blue', this)">
-                            <img class="color-thumb" src="Images/chain-blue.png">
+                            <img class="color-thumb" src="Images/chain-blue.png" alt="Blue">
                             <span class="color-text">Blue</span>
                         </div>
                     </div>
