@@ -1478,21 +1478,21 @@
         </div>
     </div>
 
-    <!-- WRITE REVIEW MODAL (Updated with Formspree Endpoint) -->
+    <!-- WRITE REVIEW MODAL -->
     <div class="modal-overlay" id="reviewModal">
         <div class="modal-container">
             <button class="close-btn" onclick="closeReviewModal()">&times;</button>
             <h3 class="modal-title">আপনার মূল্যবান রিভিউ দিন</h3>
             
-            <form id="review-form" action="https://formspree.io/f/mrpgjkyo" method="POST" enctype="multipart/form-data" onsubmit="handleReviewSubmit(event)">
+            <form id="review-form" onsubmit="handleReviewSubmit(event)">
                 <div class="form-group">
                     <label for="review-name">আপনার নাম:</label>
-                    <input type="text" id="review-name" name="name" placeholder="আপনার নাম লিখুন" required>
+                    <input type="text" id="review-name" placeholder="আপনার নাম লিখুন" required>
                 </div>
 
                 <div class="form-group">
                     <label for="review-rating">রেটিং নির্বাচন করুন:</label>
-                    <select id="review-rating" name="rating" required>
+                    <select id="review-rating" required>
                         <option value="★★★★★">⭐⭐⭐⭐⭐ (৫/৫ - চমৎকার)</option>
                         <option value="★★★★☆">⭐⭐⭐⭐☆ (৪/৫ - ভালো)</option>
                         <option value="★★★☆☆">⭐⭐⭐☆☆ (৩/৫ - মোটামুটি)</option>
@@ -1501,19 +1501,19 @@
 
                 <div class="form-group">
                     <label for="review-text">আপনার মন্তব্য:</label>
-                    <textarea id="review-text" name="review" rows="3" placeholder="পণ্য সম্পর্কে আপনার অভিজ্ঞতা শেয়ার করুন..." required></textarea>
+                    <textarea id="review-text" rows="3" placeholder="পণ্য সম্পর্কে আপনার অভিজ্ঞতা শেয়ার করুন..." required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="review-img-file">ঘড়ির ছবি আপলোড করুন:</label>
-                    <input type="file" id="review-img-file" name="customer_image" accept="image/*" required style="padding: 9px; background: #090a0c;">
+                    <input type="file" id="review-img-file" accept="image/*" required style="padding: 9px; background: #090a0c;">
                 </div>
 
-                <button type="submit" class="btn-order-now">রিভিউ সাবমিট করুন</button>
+                <button type="submit" id="review-submit-btn" class="btn-order-now">রিভিউ সাবমিট করুন</button>
             </form>
 
             <div id="review-success-msg" class="success-message" style="margin-top: 15px;">
-                আপনার রিভিউটি সফলভাবে সাবমিট হয়েছে! ধন্যবাদ।
+                আপনার রিভিউটি সফলভাবে সাবমিট হয়েছে! যাচাই করার পর এটি ওয়েবসাইটে প্রকাশ করা হবে। ধন্যবাদ।
             </div>
         </div>
     </div>
@@ -1616,7 +1616,6 @@
 
         window.onload = function() {
             startDailyLoopTimer();
-            loadStoredReviews();
         };
 
         function changeImage(imageId, newSrc, colorTextId, colorName, element) {
@@ -1705,10 +1704,15 @@
 
         function handleReviewSubmit(event) {
             event.preventDefault();
+
             const name = document.getElementById('review-name').value;
             const rating = document.getElementById('review-rating').value;
             const text = document.getElementById('review-text').value;
             const imageInput = document.getElementById('review-img-file');
+
+            const submitBtn = document.getElementById('review-submit-btn');
+            submitBtn.innerText = "সাবমিট হচ্ছে...";
+            submitBtn.disabled = true;
 
             if (imageInput.files && imageInput.files[0]) {
                 const reader = new FileReader();
@@ -1716,66 +1720,59 @@
                 reader.onload = function(e) {
                     const imgDataUrl = e.target.result;
 
-                    const reviewContainer = document.getElementById('dynamic-reviews-container');
-                    const newReviewCard = document.createElement('div');
-                    newReviewCard.className = 'review-card';
-                    newReviewCard.innerHTML = `
-                        <img src="${imgDataUrl}" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
-                        <p>"${text}"</p>
-                        <div class="reviewer-name">- ${name}</div>
-                        <div class="stars">${rating}</div>
-                    `;
+                    const reviewMessage = `💬 *নতুন কাস্টমার রিভিউ এসেছে!* 💬\n\n` +
+                                          `👤 *নাম:* ${name}\n` +
+                                          `⭐ *রেটিং:* ${rating}\n` +
+                                          `📝 *মন্তব্য:* "${text}"`;
 
-                    reviewContainer.prepend(newReviewCard);
+                    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            chat_id: TELEGRAM_CHAT_ID, 
+                            photo: imgDataUrl, 
+                            caption: reviewMessage, 
+                            parse_mode: 'Markdown' 
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        submitBtn.innerText = "রিভিউ সাবমিট করুন";
+                        submitBtn.disabled = false;
+                        
+                        if (!data.ok) {
+                            return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: reviewMessage, parse_mode: 'Markdown' })
+                            }).then(r => r.json());
+                        }
+                        return data;
+                    })
+                    .then(data => {
+                        if (data.ok || (data && data.ok)) {
+                            document.getElementById('review-form').style.display = 'none';
+                            document.getElementById('review-success-msg').style.display = 'block';
 
-                    let savedReviews = JSON.parse(localStorage.getItem('prohonic_reviews') || '[]');
-                    savedReviews.unshift({ name, rating, text, img: imgDataUrl });
-                    localStorage.setItem('prohonic_reviews', JSON.stringify(savedReviews));
+                            setTimeout(() => {
+                                closeReviewModal();
+                                document.getElementById('review-form').reset();
+                                document.getElementById('review-form').style.display = 'block';
+                                document.getElementById('review-success-msg').style.display = 'none';
+                            }, 3000);
+                        } else {
+                            alert('রিভিউ সাবমিট করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
+                        }
+                    })
+                    .catch(() => {
+                        submitBtn.innerText = "রিভিউ সাবমিট করুন";
+                        submitBtn.disabled = false;
+                        alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
+                    });
                 }
                 
                 reader.readAsDataURL(imageInput.files[0]);
             }
-
-            // Submit form to Formspree via fetch to avoid page reload and show success message smoothly
-            const form = document.getElementById('review-form');
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                document.getElementById('review-form').style.display = 'none';
-                document.getElementById('review-success-msg').style.display = 'block';
-
-                setTimeout(() => {
-                    closeReviewModal();
-                    document.getElementById('review-form').reset();
-                    document.getElementById('review-form').style.display = 'block';
-                    document.getElementById('review-success-msg').style.display = 'none';
-                }, 2000);
-            }).catch(error => {
-                alert('রিভিউ সাবমিট করার সময় সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।');
-            });
-        }
-
-        function loadStoredReviews() {
-            let savedReviews = JSON.parse(localStorage.getItem('prohonic_reviews') || '[]');
-            const reviewContainer = document.getElementById('dynamic-reviews-container');
-            
-            savedReviews.forEach(rev => {
-                const card = document.createElement('div');
-                card.className = 'review-card';
-                card.innerHTML = `
-                    <img src="${rev.img}" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
-                    <p>"${rev.text}"</p>
-                    <div class="reviewer-name">- ${rev.name}</div>
-                    <div class="stars">${rev.rating}</div>
-                `;
-                reviewContainer.prepend(card);
-            });
         }
 
         function updateTotal() {
