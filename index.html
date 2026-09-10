@@ -323,7 +323,7 @@
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
-        /* Color Swatches Clean UI */
+        /* Color Swatches UI - Desktop */
         .color-selection {
             margin-bottom: 20px;
             background: rgba(0, 0, 0, 0.4);
@@ -333,7 +333,7 @@
         }
 
         .color-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             color: #aaa;
             display: block;
@@ -349,19 +349,20 @@
 
         .color-options {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
             align-items: center;
         }
 
+        /* Enlarged & Bolder Color Buttons */
         .color-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             cursor: pointer;
-            padding: 4px 10px 4px 4px;
+            padding: 6px 14px 6px 6px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             background: #111317;
             transition: all 0.25s ease;
         }
@@ -372,15 +373,15 @@
         }
 
         .color-thumb {
-            width: 22px;
-            height: 22px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1px solid #444;
+            border: 1px solid #555;
         }
 
         .color-text {
-            font-size: 11px;
+            font-size: 12px;
             color: #ccc;
             font-weight: 600;
             white-space: nowrap;
@@ -388,8 +389,8 @@
 
         .color-item.active {
             border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.18);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
+            background: rgba(212, 175, 55, 0.22);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
         }
 
         .color-item.active .color-text {
@@ -786,7 +787,7 @@
             color: #666;
         }
 
-        /* Responsive Layout Updates */
+        /* Responsive Layout & Mobile Button Enhancements */
         @media (max-width: 900px) {
             .product-grid { 
                 grid-template-columns: repeat(2, 1fr);
@@ -836,18 +837,23 @@
                 margin-bottom: 10px;
             }
             .color-selection {
-                padding: 8px;
-                margin-bottom: 12px;
+                padding: 10px 12px;
+                margin-bottom: 14px;
             }
+            .color-options {
+                gap: 8px;
+            }
+            /* Increased touch target size for Mobile Buttons */
             .color-item {
-                padding: 2px 6px 2px 2px;
+                padding: 6px 12px 6px 6px;
             }
             .color-thumb {
-                width: 18px;
-                height: 18px;
+                width: 24px;
+                height: 24px;
             }
             .color-text {
-                font-size: 9px;
+                font-size: 11px;
+                font-weight: 700;
             }
             .btn-order-now {
                 padding: 11px 0;
@@ -954,7 +960,7 @@
 
     <h2 class="main-title">ক্যাটাগরি সমূহ</h2>
 
-    <!-- Clean Category Title 1 -->
+    <!-- Category Title 1 -->
     <div class="category-header">
         <div class="category-title-badge">
             <h3>HUBLOT Edition | লাক্সারি ওয়াচ কালেকশন</h3>
@@ -1068,7 +1074,7 @@
         </div>
     </div>
 
-    <!-- Clean Category Title 2 -->
+    <!-- Category Title 2 -->
     <div class="category-header">
         <div class="category-title-badge">
             <h3>BINBOND Series | প্রিমিয়াম জেন্টলমেন ওয়াচ</h3>
