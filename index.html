@@ -1714,64 +1714,73 @@
             submitBtn.innerText = "সাবমিট হচ্ছে...";
             submitBtn.disabled = true;
 
+            const reviewMessage = `💬 *নতুন কাস্টমার রিভিউ এসেছে!* 💬\n\n` +
+                                  `👤 *নাম:* ${name}\n` +
+                                  `⭐ *রেটিং:* ${rating}\n` +
+                                  `📝 *মন্তব্য:* "${text}"`;
+
             if (imageInput.files && imageInput.files[0]) {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    const imgDataUrl = e.target.result;
+                const formData = new FormData();
+                formData.append('chat_id', TELEGRAM_CHAT_ID);
+                formData.append('photo', imageInput.files[0]);
+                formData.append('caption', reviewMessage);
+                formData.append('parse_mode', 'Markdown');
 
-                    const reviewMessage = `💬 *নতুন কাস্টমার রিভিউ এসেছে!* 💬\n\n` +
-                                          `👤 *নাম:* ${name}\n` +
-                                          `⭐ *রেটিং:* ${rating}\n` +
-                                          `📝 *মন্তব্য:* "${text}"`;
+                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    submitBtn.innerText = "রিভিউ সাবমিট করুন";
+                    submitBtn.disabled = false;
+                    
+                    if (data.ok) {
+                        document.getElementById('review-form').style.display = 'none';
+                        document.getElementById('review-success-msg').style.display = 'block';
 
-                    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            chat_id: TELEGRAM_CHAT_ID, 
-                            photo: imgDataUrl, 
-                            caption: reviewMessage, 
-                            parse_mode: 'Markdown' 
-                        })
+                        setTimeout(() => {
+                            closeReviewModal();
+                            document.getElementById('review-form').reset();
+                            document.getElementById('review-form').style.display = 'block';
+                            document.getElementById('review-success-msg').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        alert('রিভিউ সাবমিট করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
+                    }
+                })
+                .catch(() => {
+                    submitBtn.innerText = "রিভিউ সাবমিট করুন";
+                    submitBtn.disabled = false;
+                    alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
+                });
+            } else {
+                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        chat_id: TELEGRAM_CHAT_ID, 
+                        text: reviewMessage, 
+                        parse_mode: 'Markdown' 
                     })
-                    .then(res => res.json())
-                    .then(data => {
-                        submitBtn.innerText = "রিভিউ সাবমিট করুন";
-                        submitBtn.disabled = false;
-                        
-                        if (!data.ok) {
-                            return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: reviewMessage, parse_mode: 'Markdown' })
-                            }).then(r => r.json());
-                        }
-                        return data;
-                    })
-                    .then(data => {
-                        if (data.ok || (data && data.ok)) {
-                            document.getElementById('review-form').style.display = 'none';
-                            document.getElementById('review-success-msg').style.display = 'block';
+                })
+                .then(res => res.json())
+                .then(data => {
+                    submitBtn.innerText = "রিভিউ সাবমিট করুন";
+                    submitBtn.disabled = false;
+                    
+                    if (data.ok) {
+                        document.getElementById('review-form').style.display = 'none';
+                        document.getElementById('review-success-msg').style.display = 'block';
 
-                            setTimeout(() => {
-                                closeReviewModal();
-                                document.getElementById('review-form').reset();
-                                document.getElementById('review-form').style.display = 'block';
-                                document.getElementById('review-success-msg').style.display = 'none';
-                            }, 3000);
-                        } else {
-                            alert('রিভিউ সাবমিট করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
-                        }
-                    })
-                    .catch(() => {
-                        submitBtn.innerText = "রিভিউ সাবমিট করুন";
-                        submitBtn.disabled = false;
-                        alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
-                    });
-                }
-                
-                reader.readAsDataURL(imageInput.files[0]);
+                        setTimeout(() => {
+                            closeReviewModal();
+                            document.getElementById('review-form').reset();
+                            document.getElementById('review-form').style.display = 'block';
+                            document.getElementById('review-success-msg').style.display = 'none';
+                        }, 3000);
+                    }
+                });
             }
         }
 
