@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #f8f9fa;
+            background-color: #f4f6f8;
             color: #333;
             line-height: 1.6;
         }
@@ -147,19 +147,23 @@
             gap: 25px;
         }
 
+        /* Modern Product Card */
         .product-card {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+            border-color: #e0e0e0;
         }
 
         .product-card.coming-soon-card {
@@ -192,123 +196,158 @@
             color: #6c757d;
         }
 
-        .product-img {
+        /* Image Styling with Hover Zoom */
+        .product-img-wrapper {
             width: 100%;
             height: 250px;
+            overflow: hidden;
+            background-color: #fafafa;
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
             cursor: pointer;
-            transition: opacity 0.3s ease;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
         }
 
         .product-info {
-            padding: 18px;
+            padding: 20px 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .product-title {
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 17px;
+            font-weight: 700;
             margin-bottom: 6px;
-            color: #222;
+            color: #1a1a1a;
+            line-height: 1.3;
         }
 
         .product-desc {
-            font-size: 13px;
+            font-size: 12.5px;
             color: #666;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .product-price {
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 21px;
+            font-weight: 800;
             color: #e63946;
-            margin-bottom: 12px;
-        }
-
-        /* Color Swatches Alignment */
-        .color-selection {
             margin-bottom: 15px;
         }
 
+        /* Color Swatches Clean UI */
+        .color-selection {
+            margin-bottom: 18px;
+            background: #fdfdfd;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #f0f0f0;
+        }
+
         .color-label {
-            font-size: 13px;
-            font-weight: bold;
-            color: #444;
+            font-size: 12px;
+            font-weight: 600;
+            color: #555;
             display: block;
             margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .selected-color-name {
             color: #e63946;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         .color-options {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            align-items: flex-start;
+            align-items: center;
         }
 
         .color-item {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 6px;
             cursor: pointer;
-            text-align: center;
-        }
-
-        .color-thumb {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ccc;
+            padding: 3px 8px 3px 4px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            background: #fff;
             transition: all 0.2s ease;
         }
 
+        .color-item:hover {
+            border-color: #e63946;
+            background: #fff5f5;
+        }
+
+        .color-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+
         .color-text {
-            font-size: 10px;
-            color: #555;
-            margin-top: 4px;
+            font-size: 11px;
+            color: #444;
             font-weight: 600;
             white-space: nowrap;
         }
 
-        .color-item.active .color-thumb {
+        .color-item.active {
             border-color: #e63946;
-            transform: scale(1.1);
-            box-shadow: 0 0 5px rgba(230, 57, 70, 0.4);
+            background: #fff5f5;
+            box-shadow: 0 0 0 1px #e63946;
         }
 
         .color-item.active .color-text {
             color: #e63946;
-            font-weight: bold;
+            font-weight: 700;
         }
 
+        /* Button Styling */
         .btn-order-now {
             margin-top: auto;
             display: block;
             width: 100%;
-            background-color: #e63946;
+            background: linear-gradient(135deg, #e63946, #c82333);
             color: #fff;
             padding: 12px 0;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 6px;
-            transition: 0.3s;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             text-align: center;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(230, 57, 70, 0.2);
         }
 
         .btn-order-now:hover {
-            background-color: #c82333;
+            background: linear-gradient(135deg, #c82333, #a71d2a);
+            box-shadow: 0 6px 14px rgba(230, 57, 70, 0.35);
+            transform: translateY(-1px);
         }
 
         /* POPUP MODALS */
@@ -415,7 +454,6 @@
             cursor: pointer;
         }
 
-        /* Red border highlight for selected box */
         .delivery-radio-label:has(input[type="radio"]:checked) {
             background-color: #ffffff;
             border-color: #e63946;
@@ -641,32 +679,39 @@
                 gap: 10px; 
                 padding: 0 8px;
             }
-            .product-img {
-                height: 180px;
+            .product-img-wrapper {
+                height: 170px;
             }
             .product-info {
-                padding: 10px;
+                padding: 12px 10px;
             }
             .product-title {
-                font-size: 14px;
+                font-size: 13.5px;
             }
             .product-desc {
                 font-size: 11px;
-                margin-bottom: 6px;
+                margin-bottom: 8px;
             }
             .product-price {
                 font-size: 16px;
-                margin-bottom: 8px;
+                margin-bottom: 10px;
+            }
+            .color-selection {
+                padding: 6px;
+                margin-bottom: 12px;
+            }
+            .color-item {
+                padding: 2px 6px 2px 2px;
             }
             .color-thumb {
-                width: 28px;
-                height: 28px;
+                width: 20px;
+                height: 20px;
             }
             .color-text {
                 font-size: 9px;
             }
             .btn-order-now {
-                padding: 8px 0;
+                padding: 9px 0;
                 font-size: 0.85rem;
             }
             .offer-timer-banner h3 {
@@ -761,7 +806,9 @@
     <div class="product-grid">
         <!-- Card 1 -->
         <div class="product-card">
-            <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
                 <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
@@ -790,7 +837,9 @@
 
         <!-- Card 2 -->
         <div class="product-card">
-            <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল।</div>
@@ -831,7 +880,9 @@
 
         <!-- Card 3 -->
         <div class="product-card">
-            <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Big Bang Chronograph</div>
                 <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
@@ -865,7 +916,9 @@
 
     <div class="product-grid">
         <div class="product-card">
-            <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="Smart Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
                 <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ—ফরমাল ও ডেলি ওয়্যারের জন্য সেরা।</div>
@@ -917,7 +970,9 @@
     <div class="product-grid">
         <!-- Hublot Classic Fusion -->
         <div class="product-card">
-            <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
                 <div class="product-desc">ওয়াটারপ্রুফ কেসিং এবং স্ক্র্যাচ-প্রুফ গ্লাস।</div>
@@ -946,7 +1001,9 @@
 
         <!-- Hublot Skeleton -->
         <div class="product-card">
-            <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি ঘড়ি।</div>
@@ -975,7 +1032,9 @@
 
         <!-- HUBLOT Big Bang Chronograph -->
         <div class="product-card">
-            <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Big Bang Chronograph</div>
                 <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
@@ -1004,7 +1063,9 @@
 
         <!-- Binbond Business Luxury -->
         <div class="product-card">
-            <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            <div class="product-img-wrapper">
+                <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="Watch" onclick="openQuickView(this.src)">
+            </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
                 <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ।</div>
