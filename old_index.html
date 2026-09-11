@@ -130,7 +130,7 @@
             color: var(--text-muted);
         }
 
-        /* SHOWCASE & VIDEO SECTION STYLES */
+        /* SHOWCASE & COMPACT YOUTUBE SHORTS SECTION STYLES */
         .showcase-video-section {
             padding: 40px 5%;
             background: var(--bg-main);
@@ -147,21 +147,24 @@
         }
 
         .video-container {
-            max-width: 750px;
+            max-width: 340px; /* সামান্য চওড়া বাড়ানো হলো */
             margin: 0 auto 25px;
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             border: 2px solid var(--border-color);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background: #000;
+            position: relative;
+            height: 380px; /* উচ্চতা আগের চেয়ে কিছুটা বাড়িয়ে মানানসই করা হলো */
         }
 
-        .video-container video, .video-container iframe {
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            max-height: 420px;
-            display: block;
-            object-fit: cover;
+            height: 100%;
+            border: none;
         }
 
         /* WATCH DETAILS BOX (WHAT'S INCLUDED) */
@@ -722,15 +725,16 @@
         </div>
     </div>
 
-    <!-- SHOWCASE & VIDEO SECTION -->
+    <!-- SHOWCASE & YOUTUBE SHORTS SECTION -->
     <section class="showcase-video-section">
         <h2 class="center-showcase-title">প্রিমিয়াম হুব্লট ক্রোনোগ্রাফ এবং ক্লাসিক ফিউশন ঘড়ি</h2>
         
         <div class="video-container">
-            <video autoplay muted loop playsinline controls>
-                <source src="https://drive.google.com/uc?export=download&id=1bSRUZLAY3EB08673c4HdcFXvxKPCAd6x" type="video/mp4">
-                আপনার ব্রাউজার ভিডিও ট্যাগ সমর্থন করে না।
-            </video>
+            <iframe src="https://www.youtube.com/embed/B34BrZLJClg" 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
         </div>
 
         <div style="margin-top: 25px;">
