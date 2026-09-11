@@ -130,12 +130,88 @@
             color: var(--text-muted);
         }
 
+        /* SHOWCASE & VIDEO SECTION STYLES */
+        .showcase-video-section {
+            padding: 40px 5%;
+            background: var(--bg-main);
+            text-align: center;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .center-showcase-title {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .video-container {
+            max-width: 750px;
+            margin: 0 auto 25px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            background: #000;
+        }
+
+        .video-container video, .video-container iframe {
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* WATCH DETAILS BOX (WHAT'S INCLUDED) */
+        .watch-details-box {
+            max-width: 800px;
+            margin: 25px auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px 30px;
+            text-align: left;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .watch-details-box h3 {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 10px;
+        }
+
+        .watch-details-box ul {
+            list-style: none;
+        }
+
+        .watch-details-box ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .watch-details-box ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
         /* ENHANCED VISUAL SELECTOR STYLES */
         .product-selector-wrapper {
             background: var(--bg-main);
             padding: 35px 5% 30px;
             text-align: center;
             border-bottom: 1px dashed var(--border-color);
+            scroll-margin-top: 80px;
         }
 
         .selector-title {
@@ -277,6 +353,7 @@
             cursor: pointer; 
             text-align: center; 
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25);
+            text-decoration: none;
         }
         .btn-order-now:hover { 
             transform: translateY(-2px);
@@ -613,6 +690,7 @@
             .timer-unit { min-width: 45px; padding: 4px 8px; }
             .timer-num { font-size: 16px; }
             .timer-label { font-size: 9px; }
+            .center-showcase-title { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -644,8 +722,37 @@
         </div>
     </div>
 
-    <!-- ENHANCED LARGER VISUAL SELECTOR -->
-    <div class="product-selector-wrapper">
+    <!-- SHOWCASE & VIDEO SECTION -->
+    <section class="showcase-video-section">
+        <h2 class="center-showcase-title">প্রিমিয়াম হুব্লট ক্রোনোগ্রাফ এবং ক্লাসিক ফিউশন ঘড়ি</h2>
+        
+        <div class="video-container">
+            <video controls autoplay muted loop playsinline>
+                <source src="Images/watch-video.mp4" type="video/mp4">
+                আপনার ব্রাউজার ভিডিও ট্যাগ সমর্থন করে না।
+            </video>
+        </div>
+
+        <div style="margin-top: 25px;">
+            <a href="#product-selector-section" class="btn-order-now">অর্ডার করুন</a>
+        </div>
+    </section>
+
+    <!-- WATCH DETAILS & PACKAGE CONTENTS SECTION -->
+    <section class="showcase-video-section" style="padding-top: 10px;">
+        <div class="watch-details-box">
+            <h3>📦 ঘড়ির সাথে আপনারা যা যা পাচ্ছেন:</h3>
+            <ul>
+                <li><strong>১টি প্রিমিয়াম হুব্লট ক্লাসিক ফিউশন অথবা বিগ ব্যাং ক্রোনোগ্রাফ ঘড়ি।</strong></li>
+                <li><strong>ব্র্যান্ডের আকর্ষণীয় প্রিমিয়াম ওয়াচ গিফট বক্স (Box)।</strong></li>
+                <li><strong>১ বছরের সার্ভিস ওয়ারেন্টি কার্ড।</strong></li>
+                <li>নিখুঁত কোয়ার্টজ মুভমেন্ট ও লাক্সারি ফিনিশিং।</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 2 MODEL SELECTOR SECTION -->
+    <div class="product-selector-wrapper" id="product-selector-section">
         <div class="selector-title">👇 আপনার পছন্দের মডেলটি নির্বাচন করুন 👇</div>
         <div class="selector-grid">
             <a href="#product1-section" class="selector-card">
@@ -674,7 +781,6 @@
         <div class="hero-details">
             <h1>Hublot Classic Fusion</h1>
             
-            <!-- DISCOUNT PRICE DISPLAY -->
             <div class="price-container">
                 <span class="regular-price">৳ ১২০০</span>
                 <span class="offer-price">৳ ৯৫০</span>
@@ -694,7 +800,7 @@
                 <p>প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</p>
             </div>
 
-            <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 Order Now</button>
+            <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
         </div>
     </section>
 
@@ -707,7 +813,6 @@
         <div class="hero-details">
             <h1>HUBLOT Big Bang Chronograph</h1>
             
-            <!-- DISCOUNT PRICE DISPLAY -->
             <div class="price-container">
                 <span class="regular-price">৳ ১২০০</span>
                 <span class="offer-price">৳ ৯৫০</span>
@@ -727,7 +832,7 @@
                 <p>আকর্ষণীয় ক্রোনোগ্রাফ ডাইনামিক ডায়াল ডিজাইন, প্রিমিয়াম মেটালিক ফিনিশিং এবং অত্যন্ত টেকসই ট্রেন্ডি স্ট্র্যাপসহ একটি আধুনিক ও স্টাইলিশ ওয়াচ।</p>
             </div>
 
-           <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 Order Now</button>
+           <button class="btn-order-now" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
         </div>
     </section>
 
@@ -746,7 +851,7 @@
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -760,7 +865,7 @@
                     ★★★★★ <span>(89 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -802,7 +907,7 @@
                     ★★★★★ <span>(76 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -816,7 +921,7 @@
                     ★★★★★ <span>(164 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -830,7 +935,7 @@
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'গ্রেয়', 'Images/chai-silver.png')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'গ্রেয়', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -844,7 +949,7 @@
                     ★★★★★ <span>(89 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'ওয়াইট', 'Images/chain-white.png')">🛒 Order Now</button>
+                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="fbq('track', 'InitiateCheckout'); openOrderModal('BINBOND Business Luxury Men’s', 799, 'ওয়াইট', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
             </div>
 
         </div>
@@ -890,7 +995,7 @@
         </div>
     </div>
 
-    <!-- UPDATED ORDER MODAL FORM -->
+    <!-- ORDER MODAL FORM -->
     <div class="modal-overlay" id="orderModal">
         <div class="order-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
@@ -898,7 +1003,6 @@
             <form id="checkout-form" onsubmit="handleOrder(event)">
                 <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
                 
-                <!-- NEW DISCOUNT BANNER INSIDE ORDER FORM -->
                 <div class="modal-offer-box">
                     <p>🔥 <strong>আজকের বিশেষ অফার!</strong></p>
                     <p style="margin: 4px 0;">আজকের বিশেষ মূল্য: <span class="offer-price-highlight">৳ <span id="form-discount-price">৯৫০</span></span></p>
@@ -932,8 +1036,8 @@
                             <span>সাব ঢাকা / ঢাকা উপশহর (৳১২০)</span>
                         </label>
                         <label class="delivery-label">
-                            <input type="radio" name="delivery" id="delivery-outside" value="150" checked onchange="updateTotal()"> 
-                            <span>ঢাকার বাইরে (৳১৫০)</span>
+                            <input type="radio" name="delivery" id="delivery-outside" value="130" checked onchange="updateTotal()"> 
+                            <span>ঢাকার বাইরে (৳১৩০)</span>
                         </label>
                     </div>
                 </div>
@@ -942,7 +1046,7 @@
                     <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
                     <div class="bill-row"><span>কালার:</span><strong id="summary-color">কালো</strong></div>
                     <div class="bill-row"><span>পণ্যের মূল্য (অফার):</span><span>৳ <span id="summary-price">0</span></span></div>
-                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">150</span></span></div>
+                    <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">130</span></span></div>
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
 
@@ -974,7 +1078,7 @@
             <ul>
                 <li>ঢাকার ভেতরে ডেলিভারি চার্জ: <strong>৳৮০</strong></li>
                 <li>সাব ঢাকা (ঢাকা উপশহর) ডেলিভারি চার্জ: <strong>৳১২০</strong></li>
-                <li>ঢাকার বাইরে ডেলিভারি চার্জ: <strong>৳১৫০</strong></li>
+                <li>ঢাকার বাইরে ডেলিভারি চার্জ: <strong>৳১৩০</strong></li>
             </ul>
 
             <h4>ট্র্যাকিং ও পর্যবেক্ষণ:</h4>
@@ -1107,6 +1211,7 @@
         function openQuickView(imageSrc) {
             document.getElementById('qv-image').src = imageSrc;
             document.getElementById('quickViewModal').classList.add('active');
+            history.pushState({ modalOpen: true }, '');
         }
 
         function closeQuickView() {
@@ -1115,6 +1220,7 @@
 
         function openPolicyModal(modalId) {
             document.getElementById(modalId).classList.add('active');
+            history.pushState({ modalOpen: true }, '');
         }
 
         function closePolicyModal(modalId) {
@@ -1137,16 +1243,44 @@
             document.getElementById('orderModal').classList.add('active');
             document.getElementById('checkout-form').style.display = 'block';
             document.getElementById('success-message').style.display = 'none';
+            history.pushState({ modalOpen: true }, '');
         }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('active');
+        }
+
+        window.addEventListener('popstate', function(event) {
+            let orderModal = document.getElementById('orderModal');
+            let qvModal = document.getElementById('quickViewModal');
+            let policyModals = ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'];
+
+            let isAnyModalOpen = false;
+
+            if (orderModal.classList.contains('active')) {
+                closeOrderModal();
+                isAnyModalOpen = true;
+            }
+            if (qvModal.classList.contains('active')) {
+                closeQuickView();
+                isAnyModalOpen = true;
+            }
+            policyModals.forEach(id => {
+                let modal = document.getElementById(id);
+                if (modal.classList.contains('active')) {
+                    closePolicyModal(id);
+                    isAnyModalOpen = true;
+                }
+            });
+        });
 
         function updateTotal() {
             let selectedDelivery = document.querySelector('input[name="delivery"]:checked');
-            let deliveryCharge = selectedDelivery ? parseInt(selectedDelivery.value) : 150;
+            let deliveryCharge = selectedDelivery ? parseInt(selectedDelivery.value) : 130;
             document.getElementById('summary-delivery').innerText = deliveryCharge;
             document.getElementById('summary-total').innerText = currentProductPrice + deliveryCharge;
         }
 
-        /* বাংলা ও ইংরেজি ভুল বানানসহ (Typo-tolerant) অটো লোকেশন ডিটেকশন */
         function autoDetectDeliveryZone() {
             let address = document.getElementById('address').value.toLowerCase().trim();
 
@@ -1156,43 +1290,29 @@
                 return;
             }
 
-            // ১. সাব ঢাকা বা ঢাকা উপশহরের সম্ভাব্য সব সঠিক ও ভুল বানান (বাংলা ও ইংরেজি)
             const subDhakaKeywords = [
-                // কেরানীগঞ্জ
                 'keran', 'kera', 'kerani', 'keranigunj', 'keranigonj', 'kerani ganj', 
                 'কেরানী', 'কেরানি', 'কেড়ানী', 'কেড়ানি', 'কেরান', 'কিরানি',
-                
-                // সাভার / আশুলিয়া / ধামরাই
                 'sava', 'savor', 'sabar', 'shavar', 'sabhari', 'সাভার', 'সাভা', 'সাবার', 'শাবার', 'সবাপর',
                 'ashu', 'ashul', 'asulia', 'ashulia', 'আশুলিয়া', 'আশুুলিয়া', 'আশুলিয়া', 'আশু', 'আশোলিয়া',
                 'dham', 'dhamrai', 'ধামরাই', 'ধাম', 'দামরাই',
-
-                // গাজীপুর / টঙ্গী
                 'gazi', 'gaji', 'gazipor', 'gazipur', 'গাজীপুর', 'গাাজীপুর', 'গাাজী', 'গাঝি', 'গাজিপুর',
                 'tongi', 'tong', 'টঙ্গী', 'টঙ্গি', 'টংগী',
-
-                // নারায়ণগঞ্জ / কাঁচপুর / ফতুল্লা / সিদ্ধিরগঞ্জ
                 'nara', 'naray', 'narayangonj', 'narayanganj', 'নারায়ণগঞ্জ', 'নারায়নগঞ্জ', 'নারায়নগঞ্জ', 'নারায়ন', 'নারা', 'নারায়নগন্জ',
                 'kanch', 'katchpur', 'kanchpur', 'কাঁচপুর', 'কাচপুর', 'কাঁচ', 'কাচ',
                 'fatu', 'fatulla', 'fatullah', 'ফতুল্লা', 'ফতু',
                 'siddhir', 'siddhirgonj', 'সিদ্ধিরগঞ্জ', 'সিদ্ধি', 'সিদ্ধিরগন্জ',
-
-                // ডেমরা / নরসিংদী / মুন্সিগঞ্জ
                 'demra', 'demr', 'ডেমরা', 'ডেমড়া',
                 'narsing', 'narshing', 'narsingdi', 'নরসিংদী', 'নরসিং', 'নরসিংদি',
                 'munshi', 'munsi', 'munsigonj', 'munsiganj', 'মুন্সিগঞ্জ', 'মুন্সীগঞ্জ', 'মুন্সি', 'মুন্সী'
             ];
 
-            // ২. ঢাকা শহরের সম্ভাব্য সব সঠিক ও ভুল বানান
             const dhakaKeywords = [
                 'dhaka', 'dhka', 'daka', 'dakaa', 'dhakar', 'dhakaa', 'dakah', 'dhak',
                 'ঢাকা', 'ঢাক', 'ঢাাকা', 'ধাকা', 'ডাকা', 'ঢাকার'
             ];
 
-            // সাব ঢাকা ম্যাচ চেক
             let isSubDhaka = subDhakaKeywords.some(keyword => address.includes(keyword));
-
-            //ঢাকার মূল এলাকা ম্যাচ চেক
             let isDhaka = dhakaKeywords.some(keyword => address.includes(keyword));
 
             if (isSubDhaka) {
@@ -1208,28 +1328,23 @@
             updateTotal();
         }
 
-        function closeOrderModal() {
-            document.getElementById('orderModal').classList.remove('active');
-        }
-
         window.onclick = function(event) {
             let orderModal = document.getElementById('orderModal');
             let qvModal = document.getElementById('quickViewModal');
             let policyModals = ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'];
 
-            if (event.target === orderModal) closeOrderModal();
-            if (event.target === qvModal) closeQuickView();
+            if (event.target === orderModal) { closeOrderModal(); history.back(); }
+            if (event.target === qvModal) { closeQuickView(); history.back(); }
             
             policyModals.forEach(id => {
                 let modal = document.getElementById(id);
-                if (event.target === modal) closePolicyModal(id);
+                if (event.target === modal) { closePolicyModal(id); history.back(); }
             });
         }
 
         function handleOrder(event) {
             event.preventDefault();
             
-            // Meta Purchase Event Trigger
             const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
             if (typeof fbq === 'function') {
