@@ -1427,13 +1427,22 @@
                 submitBtn.disabled = false;
                 
                 if (data.ok) {
-                    // ✅ কেবল সফলভাবে অর্ডার সাবমিট হলেই Meta-তে Purchase যাবে
+                    // ✅ Advanced Matching সহ Purchase ইভেন্ট ট্র্যাকিং
                     if (typeof fbq === 'function') {
+                        // বাংলাদেশ কোড 880 যুক্ত করে ফোন নম্বর পাঠানো
+                        let cleanPhone = phone.replace(/[^0-9]/g, '');
+                        if (cleanPhone.startsWith('01')) {
+                            cleanPhone = '880' + cleanPhone.substring(1);
+                        }
+
                         fbq('track', 'Purchase', { 
                             value: totalPrice, 
                             currency: 'BDT',
                             content_name: currentProductName,
                             order_id: orderId 
+                        }, {
+                            ph: cleanPhone,
+                            fn: name
                         });
                     }
 
