@@ -587,7 +587,7 @@
             border-radius: 8px;
             border: 1px solid var(--border-light);
             color: var(--text-main);
-            transition: border-color 0.2s;
+            transition: all 0.3s ease;
         }
         .delivery-label:hover { border-color: var(--border-color); }
         .delivery-label input[type="radio"] { 
@@ -595,6 +595,15 @@
             margin: 0 !important; 
             cursor: pointer !important;
             accent-color: var(--accent-gold);
+        }
+
+        /* FADE EFFECT FOR DISABLED DELIVERY OPTIONS */
+        .delivery-label input[type="radio"]:disabled + span,
+        .delivery-label:has(input[type="radio"]:disabled) {
+            opacity: 0.35;
+            cursor: not-allowed !important;
+            filter: grayscale(80%);
+            border-color: rgba(255, 255, 255, 0.03);
         }
 
         .bill-summary { background: var(--bg-main); border: 1px solid var(--border-light); padding: 15px; border-radius: 10px; margin: 18px 0; font-size: 0.95rem; }
@@ -1044,7 +1053,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>ডেলিভারি এলাকা (ঠিকানা অনুযায়ী অটো সিলেক্ট হবে, প্রয়োজনে পরিবর্তন করতে পারেন):</label>
+                    <label>ডেলিভারি এলাকা (ঠিকানা অনুযায়ী অটো সিলেক্ট ও লক হবে):</label>
                     <div class="delivery-option">
                         <label class="delivery-label">
                             <input type="radio" name="delivery" id="delivery-inside" value="80" onchange="updateTotal()"> 
@@ -1307,8 +1316,15 @@
         function autoDetectDeliveryZone() {
             let address = document.getElementById('address').value.toLowerCase().trim();
 
+            let insideRadio = document.getElementById('delivery-inside');
+            let subRadio = document.getElementById('delivery-sub');
+            let outsideRadio = document.getElementById('delivery-outside');
+
             if (!address) {
-                document.getElementById('delivery-outside').checked = true;
+                outsideRadio.checked = true;
+                insideRadio.disabled = false;
+                subRadio.disabled = false;
+                outsideRadio.disabled = false;
                 updateTotal();
                 return;
             }
@@ -1339,13 +1355,22 @@
             let isDhaka = dhakaKeywords.some(keyword => address.includes(keyword));
 
             if (isSubDhaka) {
-                document.getElementById('delivery-sub').checked = true;
+                subRadio.checked = true;
+                insideRadio.disabled = true;
+                subRadio.disabled = false;
+                outsideRadio.disabled = true;
             } 
             else if (isDhaka) {
-                document.getElementById('delivery-inside').checked = true;
+                insideRadio.checked = true;
+                insideRadio.disabled = false;
+                subRadio.disabled = true;
+                outsideRadio.disabled = true;
             } 
             else {
-                document.getElementById('delivery-outside').checked = true;
+                outsideRadio.checked = true;
+                insideRadio.disabled = true;
+                subRadio.disabled = true;
+                outsideRadio.disabled = false;
             }
 
             updateTotal();
@@ -1375,7 +1400,9 @@
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
+            
+            const checkedDelivery = document.querySelector('input[name="delivery"]:checked');
+            const deliveryCharge = checkedDelivery ? checkedDelivery.value : "130";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
 
             let deliveryZone = "";
@@ -1429,7 +1456,6 @@
                 if (data.ok) {
                     // ✅ Advanced Matching সহ Purchase ইভেন্ট ট্র্যাকিং
                     if (typeof fbq === 'function') {
-                        // বাংলাদেশ কোড 880 যুক্ত করে ফোন নম্বর পাঠানো
                         let cleanPhone = phone.replace(/[^0-9]/g, '');
                         if (cleanPhone.startsWith('01')) {
                             cleanPhone = '880' + cleanPhone.substring(1);
@@ -1456,7 +1482,7 @@
             .catch(() => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
+                alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
             });
         }
     </script>
