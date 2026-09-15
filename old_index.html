@@ -39,6 +39,8 @@
             --border-light: rgba(255, 255, 255, 0.08);
             --danger-red: #ff4d4d;
             --success-green: #2ecc71;
+            --whatsapp-green: #25D366;
+            --messenger-blue: #0084FF;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
@@ -343,25 +345,62 @@
         }
 
         .description { margin-bottom: 25px; color: var(--text-muted); font-size: 1rem; }
+
+        /* ACTION BUTTONS & SOCIAL BUTTONS STYLING (UPDATED SLIM VERSION) */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
         
         .btn-order-now { 
-            display: inline-block; 
+            display: inline-flex; 
+            align-items: center;
+            justify-content: center;
             background: var(--accent-gold-gradient); 
             color: #000; 
-            padding: 15px 38px; 
-            font-size: 1.15rem; 
+            padding: 9px 20px; 
+            font-size: 0.95rem; 
             font-weight: bold; 
-            border-radius: 8px; 
+            border-radius: 6px; 
             transition: all 0.3s ease; 
             border: none; 
             cursor: pointer; 
             text-align: center; 
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
             text-decoration: none;
+            flex: 1 1 auto;
         }
         .btn-order-now:hover { 
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            flex: 1 1 auto;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+        .btn-social:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+        }
+        .btn-messenger {
+            background-color: var(--messenger-blue);
         }
 
         /* BUTTON SHAKE ANIMATION */
@@ -704,6 +743,7 @@
             .timer-num { font-size: 16px; }
             .timer-label { font-size: 9px; }
             .center-showcase-title { font-size: 1.3rem; }
+            .action-buttons { flex-direction: row; flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -748,7 +788,7 @@
         </div>
 
         <div style="margin-top: 25px;">
-            <a href="#product-selector-section" class="btn-order-now">অর্ডার করুন</a>
+            <a href="#product-selector-section" class="btn-order-now" style="display: inline-flex; width: auto; padding: 10px 25px;">অর্ডার করুন</a>
         </div>
     </section>
 
@@ -828,7 +868,11 @@
                 <p>প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</p>
             </div>
 
-            <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
+            <div class="action-buttons">
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
+                <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
+                <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
+            </div>
         </div>
     </section>
 
@@ -860,7 +904,11 @@
                 <p>আকর্ষণীয় ক্রোনোগ্রাফ ডাইনামিক ডায়াল ডিজাইন, প্রিমিয়াম মেটালিক ফিনিশিং এবং অত্যন্ত টেকসই ট্রেন্ডি স্ট্র্যাপসহ একটি আধুনিক ও স্টাইলিশ ওয়াচ।</p>
             </div>
 
-           <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
+            <div class="action-buttons">
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
+                <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
+                <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
+            </div>
         </div>
     </section>
 
@@ -879,7 +927,7 @@
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -893,7 +941,7 @@
                     ★★★★★ <span>(89 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -907,7 +955,7 @@
                     ★★★★★ <span>(210 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১৪০০</span> ৳ ১০৯৯</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%; background: #3a3f4d; color: #888; cursor: not-allowed; box-shadow: none;" disabled>❌ Stock Out</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%; background: #3a3f4d; color: #888; cursor: not-allowed; box-shadow: none;" disabled>❌ Stock Out</button>
             </div>
 
             <div class="product-card">
@@ -921,7 +969,7 @@
                     ★★★★★ <span>(115 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১৪০০</span> ৳ ১০৯৯</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%; background: #3a3f4d; color: #888; cursor: not-allowed; box-shadow: none;" disabled>❌ Stock Out</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%; background: #3a3f4d; color: #888; cursor: not-allowed; box-shadow: none;" disabled>❌ Stock Out</button>
             </div>
 
             <div class="product-card">
@@ -935,7 +983,7 @@
                     ★★★★★ <span>(76 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -949,7 +997,7 @@
                     ★★★★★ <span>(164 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -963,7 +1011,7 @@
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'গ্রেয়', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'গ্রেয়', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <div class="product-card">
@@ -977,7 +1025,7 @@
                     ★★★★★ <span>(89 Sold)</span>
                 </div>
                 <div class="card-price"><span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯</div>
-                <button class="btn-order-now" style="padding: 10px 15px; font-size: 0.95rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'ওয়াইট', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'ওয়াইট', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
             </div>
 
         </div>
@@ -1078,7 +1126,7 @@
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
 
-                <button type="submit" id="submit-btn" class="btn-order-now" style="width: 100%;">অর্ডার নিশ্চিত করুন</button>
+                <button type="submit" id="submit-btn" class="btn-order-now" style="width: 100%; padding: 12px;">অর্ডার নিশ্চিত করুন</button>
             </form>
 
             <div id="success-message" class="success-message">
@@ -1261,7 +1309,6 @@
             selectedColorName = colorName;
             currentProductImage = imageSrc;
 
-            // Track InitiateCheckout when user opens order form
             if (typeof fbq === 'function') {
                 fbq('track', 'InitiateCheckout', {
                     content_name: productName,
@@ -1454,7 +1501,6 @@
                 submitBtn.disabled = false;
                 
                 if (data.ok) {
-                    // ✅ Advanced Matching সহ Purchase ইভেন্ট ট্র্যাকিং
                     if (typeof fbq === 'function') {
                         let cleanPhone = phone.replace(/[^0-9]/g, '');
                         if (cleanPhone.startsWith('01')) {
