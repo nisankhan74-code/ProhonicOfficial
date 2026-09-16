@@ -346,12 +346,11 @@
 
         .description { margin-bottom: 25px; color: var(--text-muted); font-size: 1rem; }
 
-        /* ACTION BUTTONS & SOCIAL BUTTONS STYLING (UPDATED SLIM VERSION) */
+        /* ACTION BUTTONS & SOCIAL BUTTONS STYLING */
         .action-buttons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
+            flex-direction: column;
+            gap: 12px;
         }
         
         .btn-order-now { 
@@ -360,21 +359,27 @@
             justify-content: center;
             background: var(--accent-gold-gradient); 
             color: #000; 
-            padding: 9px 20px; 
-            font-size: 0.95rem; 
+            padding: 12px 24px; 
+            font-size: 1.1rem; 
             font-weight: bold; 
-            border-radius: 6px; 
+            border-radius: 8px; 
             transition: all 0.3s ease; 
             border: none; 
             cursor: pointer; 
             text-align: center; 
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
             text-decoration: none;
-            flex: 1 1 auto;
+            width: 100%;
         }
         .btn-order-now:hover { 
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+        }
+
+        .social-buttons-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
         }
 
         .btn-social {
@@ -389,7 +394,7 @@
             text-decoration: none;
             color: #fff;
             transition: all 0.3s ease;
-            flex: 1 1 auto;
+            flex: 1;
             box-shadow: 0 3px 10px rgba(0,0,0,0.25);
         }
         .btn-social:hover {
@@ -743,7 +748,6 @@
             .timer-num { font-size: 16px; }
             .timer-label { font-size: 9px; }
             .center-showcase-title { font-size: 1.3rem; }
-            .action-buttons { flex-direction: row; flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -870,8 +874,10 @@
 
             <div class="action-buttons">
                 <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
-                <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
-                <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
+                <div class="social-buttons-row">
+                    <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
+                    <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
+                </div>
             </div>
         </div>
     </section>
@@ -906,8 +912,10 @@
 
             <div class="action-buttons">
                 <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
-                <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
-                <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
+                <div class="social-buttons-row">
+                    <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
+                    <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
+                </div>
             </div>
         </div>
     </section>
