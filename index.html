@@ -61,7 +61,6 @@
             line-height: 1.6;
         }
 
-        /* High-End Luxury Typography */
         .luxury-font {
             font-family: 'Cinzel', serif !important;
         }
@@ -103,7 +102,6 @@
             text-transform: uppercase;
         }
 
-        /* Hero Section */
         .hero-section {
             width: 100%;
             position: relative;
@@ -123,7 +121,6 @@
             object-fit: contain;
         }
 
-        /* Trust Badges Bar */
         .trust-badges {
             display: flex;
             justify-content: center;
@@ -148,7 +145,6 @@
             font-size: 18px;
         }
 
-        /* Discount Banner */
         .offer-timer-banner {
             background: linear-gradient(135deg, #2b080c, #ab1a27, #60050d);
             color: #fff;
@@ -199,7 +195,6 @@
             color: #ddd;
         }
 
-        /* Section Titles */
         .main-title {
             text-align: center;
             margin: 50px 0 20px;
@@ -212,7 +207,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Category Header Style */
         .category-header {
             max-width: 1200px;
             margin: 45px auto 25px;
@@ -243,7 +237,6 @@
             justify-content: center;
         }
 
-        /* Product Grid */
         .product-grid {
             max-width: 1200px;
             margin: 0 auto 40px;
@@ -253,7 +246,6 @@
             gap: 30px;
         }
 
-        /* Modern Product Card */
         .product-card {
             background: linear-gradient(145deg, #14171d, #0d0f12);
             border-radius: 16px;
@@ -264,6 +256,7 @@
             flex-direction: column;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
+            cursor: pointer;
         }
 
         .product-card:hover {
@@ -280,6 +273,7 @@
             border: 2px dashed rgba(212, 175, 55, 0.25);
             text-align: center;
             padding: 30px 20px;
+            cursor: default;
         }
 
         .coming-soon-card .cs-icon {
@@ -317,7 +311,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            cursor: pointer;
             transition: transform 0.5s ease, opacity 0.3s ease;
         }
 
@@ -519,6 +512,104 @@
             border: 1px solid rgba(212, 175, 55, 0.4);
         }
 
+        /* Product Quick View Popup Modal */
+        .quick-view-container {
+            background: #14171d;
+            color: #fff;
+            width: 100%;
+            max-width: 850px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .qv-left-img-box {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            max-height: 400px;
+            background: #050608;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .qv-left-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .qv-right-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .qv-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .qv-desc {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .qv-price {
+            font-size: 26px;
+            font-weight: 800;
+            font-family: 'Cinzel', serif;
+            color: #f3e5ab;
+            margin-bottom: 18px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quantity-btn {
+            background: #232730;
+            border: 1px solid #d4af37;
+            color: #fff;
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quantity-btn:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        .quantity-val {
+            font-size: 18px;
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+
         .close-btn {
             position: absolute;
             top: 15px;
@@ -530,6 +621,7 @@
             border: none;
             background: none;
             transition: color 0.2s ease;
+            z-index: 10;
         }
 
         .close-btn:hover {
@@ -574,7 +666,6 @@
             box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
         }
 
-        /* Courier Box UI Styling */
         .delivery-option-group {
             display: flex;
             flex-direction: column;
@@ -651,7 +742,6 @@
             font-weight: bold;
         }
 
-        /* Policy Modal Container */
         .policy-modal-container {
             background: #14171d;
             color: #ccc;
@@ -691,7 +781,6 @@
             padding-left: 20px;
         }
 
-        /* Image Viewer Modal */
         .image-viewer-container {
             position: relative;
             max-width: 90vw;
@@ -717,7 +806,6 @@
             font-size: 2.2rem;
         }
 
-        /* Reviews Section */
         .reviews-section {
             background-color: #0d0f12;
             padding: 60px 15px;
@@ -804,7 +892,6 @@
             letter-spacing: 2px;
         }
 
-        /* Footer Section */
         footer {
             background-color: #050608;
             color: #888;
@@ -861,11 +948,18 @@
             color: #666;
         }
 
-        /* Responsive Layout */
         @media (max-width: 900px) {
             .product-grid { 
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px; 
+            }
+        }
+        @media (max-width: 768px) {
+            .quick-view-container {
+                grid-template-columns: 1fr;
+            }
+            .qv-left-img-box {
+                max-height: 250px;
             }
         }
         @media (max-width: 600px) {
@@ -982,7 +1076,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1276228464542624&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -997,7 +1090,6 @@
         <img src="Images/Heroimage3.jpg" alt="Hero Banner">
     </section>
 
-    <!-- Trust Badges Section -->
     <div class="trust-badges">
         <div class="badge-item">
             <span class="badge-icon">🛡️</span>
@@ -1033,7 +1125,59 @@
 
     <h2 class="main-title">ক্যাটাগরি সমূহ</h2>
 
-    <!-- 1ST SECTION: HUBLOT WATCH CATEGORY -->
+    <!-- 1ST SECTION: ROLEX WATCH CATEGORY -->
+    <div class="category-header">
+        <div class="category-title-badge">
+            <h3>ROLEX Series | রয়্যাল লাক্সারি এডিশন</h3>
+        </div>
+    </div>
+
+    <div class="product-grid">
+        <!-- Rolex Available Card -->
+        <div class="product-card" onclick="openProductQuickView(this, event)">
+            <div class="product-img-wrapper">
+                <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Rolex Day-Date Luxury Watch</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
+                <div class="product-price" data-price="999"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
+                
+                <div class="color-selection" onclick="event.stopPropagation()">
+                    <span class="color-label">কালার: <span id="c3-p1-text" class="selected-color-name">White</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat3-p1', 'Images/R1.png', 'c3-p1-text', 'White', this)">
+                            <img class="color-thumb" src="Images/R1.png" alt="White">
+                            <span class="color-text">White</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R2.png', 'c3-p1-text', 'Blue', this)">
+                            <img class="color-thumb" src="Images/R2.png" alt="Blue">
+                            <span class="color-text">Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R3.png', 'c3-p1-text', 'Emerald', this)">
+                            <img class="color-thumb" src="Images/R3.png" alt="Emerald">
+                            <span class="color-text">Emerald</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Rolex Day-Date Luxury Watch', 999, 'c3-p1-text', 'cat3-p1', 'White')">Order Now</button>
+            </div>
+        </div>
+
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+    </div>
+
+    <!-- 2ND SECTION: HUBLOT WATCH CATEGORY -->
     <div class="category-header">
         <div class="category-title-badge">
             <h3>HUBLOT Edition | লাক্সারি ওয়াচ কালেকশন</h3>
@@ -1042,16 +1186,16 @@
 
     <div class="product-grid">
         <!-- Card 1 -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion Watch" onclick="openQuickView(this.src)">
+                <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion Watch">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
                 <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
-                <div class="product-price">৳ ৯৫০</div>
+                <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p1', 'Images/Black1.jpg', 'c1-p1-text', 'Black', this)">
@@ -1068,21 +1212,21 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'cat1-p1', 'Black')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'cat1-p1', 'Black')">Order Now</button>
             </div>
         </div>
 
         <!-- Card 2 -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton Watch" onclick="openQuickView(this.src)">
+                <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton Watch">
             </div>
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল।</div>
-                <div class="product-price">৳ ১০৯৯</div>
+                <div class="product-price" data-price="1099">৳ ১০৯৯</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p2', 'Images/black.jpg', 'c1-p2-text', 'Black', this)">
@@ -1111,21 +1255,21 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'c1-p2-text', 'cat1-p2', 'Black')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'c1-p2-text', 'cat1-p2', 'Black')">Order Now</button>
             </div>
         </div>
 
         <!-- Card 3 -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph Watch" onclick="openQuickView(this.src)">
+                <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph Watch">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Big Bang Chronograph</div>
                 <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
-                <div class="product-price">৳ ৯৫০</div>
+                <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
@@ -1142,62 +1286,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'cat1-p3', 'Gray')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'cat1-p3', 'Gray')">Order Now</button>
             </div>
-        </div>
-    </div>
-
-    <!-- 2ND SECTION: ROLEX WATCH CATEGORY -->
-    <div class="category-header">
-        <div class="category-title-badge">
-            <h3>ROLEX Series | রয়্যাল লাক্সারি এডিশন</h3>
-        </div>
-    </div>
-
-    <div class="product-grid">
-        <!-- Rolex Available Card -->
-        <div class="product-card">
-            <div class="product-img-wrapper">
-                <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" onclick="openQuickView(this.src)">
-            </div>
-            <div class="product-info">
-                <div class="product-title">Rolex Day-Date Luxury Watch</div>
-                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
-                <div class="product-price"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
-                
-                <div class="color-selection">
-                    <span class="color-label">কালার: <span id="c3-p1-text" class="selected-color-name">White</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat3-p1', 'Images/R1.png', 'c3-p1-text', 'White', this)">
-                            <img class="color-thumb" src="Images/R1.png" alt="White">
-                            <span class="color-text">White</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R2.png', 'c3-p1-text', 'Blue', this)">
-                            <img class="color-thumb" src="Images/R2.png" alt="Blue">
-                            <span class="color-text">Blue</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R3.png', 'c3-p1-text', 'Emerald', this)">
-                            <img class="color-thumb" src="Images/R3.png" alt="Emerald">
-                            <span class="color-text">Emerald</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="openOrderModal('Rolex Day-Date Luxury Watch', 999, 'c3-p1-text', 'cat3-p1', 'White')">Order Now</button>
-            </div>
-        </div>
-
-        <!-- Rolex Coming Soon Card 1 -->
-        <div class="product-card coming-soon-card">
-            <div class="cs-icon">⏳</div>
-            <div class="cs-title">Coming Soon</div>
-            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
-        </div>
-
-        <!-- Rolex Coming Soon Card 2 -->
-        <div class="product-card coming-soon-card">
-            <div class="cs-icon">⏳</div>
-            <div class="cs-title">Coming Soon</div>
-            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
         </div>
     </div>
 
@@ -1209,16 +1299,16 @@
     </div>
 
     <div class="product-grid">
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men Watch" onclick="openQuickView(this.src)">
+                <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men Watch">
             </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
                 <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ—ফরমাল ও ডেলি ওয়্যারের জন্য সেরা।</div>
-                <div class="product-price">৳ ৭৯৯</div>
+                <div class="product-price" data-price="799">৳ ৭৯৯</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat2-p1', 'Images/chain-black.png', 'c2-p1-text', 'Black', this)">
@@ -1239,7 +1329,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'c2-p1-text', 'cat2-p1', 'Black')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('BINBOND Business Luxury Men’s', 799, 'c2-p1-text', 'cat2-p1', 'Black')">Order Now</button>
             </div>
         </div>
 
@@ -1265,16 +1355,16 @@
 
     <div class="product-grid">
         <!-- Rolex Day-Date Luxury Watch -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" onclick="openQuickView(this.src)">
+                <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch">
             </div>
             <div class="product-info">
                 <div class="product-title">Rolex Day-Date Luxury Watch</div>
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
-                <div class="product-price"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
+                <div class="product-price" data-price="999"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="all-p5-text" class="selected-color-name">White</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p5', 'Images/R1.png', 'all-p5-text', 'White', this)">
@@ -1291,21 +1381,21 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('Rolex Day-Date Luxury Watch', 999, 'all-p5-text', 'all-p5', 'White')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Rolex Day-Date Luxury Watch', 999, 'all-p5-text', 'all-p5', 'White')">Order Now</button>
             </div>
         </div>
 
         <!-- Hublot Classic Fusion -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion" onclick="openQuickView(this.src)">
+                <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
                 <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
-                <div class="product-price">৳ ৯৫০</div>
+                <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="all-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p1', 'Images/Black1.jpg', 'all-p1-text', 'Black', this)">
@@ -1322,21 +1412,21 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Classic Fusion', 950, 'all-p1-text', 'all-p1', 'Black')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Classic Fusion', 950, 'all-p1-text', 'all-p1', 'Black')">Order Now</button>
             </div>
         </div>
 
         <!-- Hublot Skeleton -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton" onclick="openQuickView(this.src)">
+                <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton">
             </div>
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি ঘড়ি।</div>
-                <div class="product-price">৳ ১০৯৯</div>
+                <div class="product-price" data-price="1099">৳ ১০৯৯</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="all-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p2', 'Images/black.jpg', 'all-p2-text', 'Black', this)">
@@ -1365,21 +1455,21 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'all-p2-text', 'all-p2', 'Black')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'all-p2-text', 'all-p2', 'Black')">Order Now</button>
             </div>
         </div>
 
         <!-- HUBLOT Big Bang Chronograph -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph" onclick="openQuickView(this.src)">
+                <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Big Bang Chronograph</div>
                 <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
-                <div class="product-price">৳ ৯৫০</div>
+                <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="all-p4-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p4', 'Images/gray.jpg', 'all-p4-text', 'Gray', this)">
@@ -1396,21 +1486,21 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'all-p4-text', 'all-p4', 'Gray')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'all-p4-text', 'all-p4', 'Gray')">Order Now</button>
             </div>
         </div>
 
         <!-- Binbond Business Luxury -->
-        <div class="product-card">
+        <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men" onclick="openQuickView(this.src)">
+                <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men">
             </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
                 <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ।</div>
-                <div class="product-price">৳ ৭৯৯</div>
+                <div class="product-price" data-price="799">৳ ৭৯৯</div>
                 
-                <div class="color-selection">
+                <div class="color-selection" onclick="event.stopPropagation()">
                     <span class="color-label">কালার: <span id="all-p3-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p3', 'Images/chain-black.png', 'all-p3-text', 'Black', this)">
@@ -1427,7 +1517,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'all-p3-text', 'all-p3', 'Black')">Order Now</button>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('BINBOND Business Luxury Men’s', 799, 'all-p3-text', 'all-p3', 'Black')">Order Now</button>
             </div>
         </div>
     </div>
@@ -1440,7 +1530,6 @@
         </div>
         
         <div class="reviews-container" id="dynamic-reviews-container">
-            <!-- Default Pre-added Reviews -->
             <div class="review-card">
                 <img src="Images/Black1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
                 <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
@@ -1508,6 +1597,39 @@
         </div>
     </footer>
 
+    <!-- PRODUCT QUICK VIEW POPUP MODAL -->
+    <div class="modal-overlay" id="productQuickViewModal">
+        <div class="quick-view-container">
+            <button class="close-btn" onclick="closeProductQuickView()">&times;</button>
+            
+            <div class="qv-left-img-box">
+                <img id="qv-product-img" src="" alt="Product Image">
+            </div>
+
+            <div class="qv-right-info">
+                <h2 id="qv-product-title" class="qv-title"></h2>
+                <div id="qv-product-desc" class="qv-desc"></div>
+                <div id="qv-product-price" class="qv-price"></div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>পরিমাণ (Quantity):</label>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                        <span id="qv-quantity-val" class="quantity-val">1</span>
+                        <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>কালার সিলেক্ট করুন:</label>
+                    <div id="qv-color-container" class="color-options" style="margin-top: 8px;"></div>
+                </div>
+
+                <button class="btn-order-now" style="margin-top: 20px;" onclick="proceedToOrderFromQV()">Order Now</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ORDER FORM POPUP MODAL -->
     <div class="modal-overlay" id="orderModal">
         <div class="modal-container">
@@ -1551,6 +1673,7 @@
                 <div class="bill-summary">
                     <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name" style="color:#fff;">Rolex Day-Date Luxury Watch</strong></div>
                     <div class="bill-row"><span>কালার:</span><strong id="summary-color" style="color:#fff;">White</strong></div>
+                    <div class="bill-row"><span>পরিমাণ:</span><strong id="summary-qty" style="color:#fff;">1টি</strong></div>
                     <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">999</span></span></div>
                     <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">80</span></span></div>
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">1079</span></span></div>
@@ -1674,6 +1797,7 @@
         let selectedColorName = "White";
         let currentProductName = "Rolex Day-Date Luxury Watch";
         let currentProductImage = "Images/R1.png";
+        let currentQuantity = 1;
 
         let activeColors = {};
 
@@ -1711,11 +1835,13 @@
             var imgElement = document.getElementById(imageId);
             var colorTextElement = document.getElementById(colorTextId);
             
-            imgElement.style.opacity = '0.3'; 
-            setTimeout(function() {
-                imgElement.src = newSrc;
-                imgElement.style.opacity = '1'; 
-            }, 150);
+            if(imgElement) {
+                imgElement.style.opacity = '0.3'; 
+                setTimeout(function() {
+                    imgElement.src = newSrc;
+                    imgElement.style.opacity = '1'; 
+                }, 150);
+            }
             
             if(colorTextElement) {
                 colorTextElement.innerText = colorName;
@@ -1723,11 +1849,79 @@
 
             activeColors[imageId] = colorName;
 
-            var siblings = element.parentElement.children;
-            for (var i = 0; i < siblings.length; i++) {
-                siblings[i].classList.remove('active');
+            if(element && element.parentElement) {
+                var siblings = element.parentElement.children;
+                for (var i = 0; i < siblings.length; i++) {
+                    siblings[i].classList.remove('active');
+                }
+                element.classList.add('active');
             }
-            element.classList.add('active');
+        }
+
+        /* PRODUCT QUICK VIEW MODAL LOGIC */
+        function openProductQuickView(cardElement, event) {
+            currentQuantity = 1;
+            document.getElementById('qv-quantity-val').innerText = currentQuantity;
+
+            const title = cardElement.querySelector('.product-title').innerText;
+            const desc = cardElement.querySelector('.product-desc').innerText;
+            const imgElement = cardElement.querySelector('.product-img');
+            const imgSrc = imgElement.src;
+            const priceElem = cardElement.querySelector('.product-price');
+            const priceAttr = priceElem.getAttribute('data-price');
+            
+            currentProductName = title;
+            currentProductPrice = parseInt(priceAttr || 999);
+            currentProductImage = imgSrc;
+
+            document.getElementById('qv-product-title').innerText = title;
+            document.getElementById('qv-product-desc').innerText = desc;
+            document.getElementById('qv-product-price').innerHTML = priceElem.innerHTML;
+            document.getElementById('qv-product-img').src = imgSrc;
+
+            const colorOptionsContainer = cardElement.querySelector('.color-options');
+            const qvColorContainer = document.getElementById('qv-color-container');
+            qvColorContainer.innerHTML = '';
+
+            if(colorOptionsContainer) {
+                const colors = colorOptionsContainer.children;
+                for(let i=0; i<colors.length; i++) {
+                    let clone = colors[i].cloneNode(true);
+                    let colorName = clone.querySelector('.color-text').innerText;
+                    let thumbSrc = clone.querySelector('.color-thumb').src;
+                    
+                    if(clone.classList.contains('active')) {
+                        selectedColorName = colorName;
+                    }
+
+                    clone.onclick = function() {
+                        let sibs = qvColorContainer.children;
+                        for(let j=0; j<sibs.length; j++) sibs[j].classList.remove('active');
+                        clone.classList.add('active');
+                        selectedColorName = colorName;
+                        document.getElementById('qv-product-img').src = thumbSrc;
+                        currentProductImage = thumbSrc;
+                    };
+                    qvColorContainer.appendChild(clone);
+                }
+            }
+
+            document.getElementById('productQuickViewModal').classList.add('active');
+        }
+
+        function closeProductQuickView() {
+            document.getElementById('productQuickViewModal').classList.remove('active');
+        }
+
+        function updateQuantity(change) {
+            currentQuantity += change;
+            if(currentQuantity < 1) currentQuantity = 1;
+            document.getElementById('qv-quantity-val').innerText = currentQuantity;
+        }
+
+        function proceedToOrderFromQV() {
+            closeProductQuickView();
+            openOrderModal(currentProductName, currentProductPrice, null, null, selectedColorName);
         }
 
         function openQuickView(imageSrc) {
@@ -1755,11 +1949,9 @@
             currentProductName = productName;
             currentProductPrice = price;
             
-            if (activeColors[imgElementId]) {
-                selectedColorName = activeColors[imgElementId];
-            } else if (colorElementId && document.getElementById(colorElementId)) {
+            if (colorElementId && document.getElementById(colorElementId)) {
                 selectedColorName = document.getElementById(colorElementId).innerText.trim();
-            } else {
+            } else if (!selectedColorName) {
                 selectedColorName = defaultColor || "Black";
             }
 
@@ -1768,8 +1960,9 @@
             }
 
             document.getElementById('summary-product-name').innerText = productName;
-            document.getElementById('summary-price').innerText = price;
+            document.getElementById('summary-price').innerText = price * currentQuantity;
             document.getElementById('summary-color').innerText = selectedColorName;
+            document.getElementById('summary-qty').innerText = currentQuantity + " টি";
             
             updateTotal();
 
@@ -1782,7 +1975,6 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
-        /* Review Modal Control Functions */
         function openReviewModal() {
             document.getElementById('reviewModal').classList.add('active');
         }
@@ -1875,8 +2067,9 @@
 
         function updateTotal() {
             let deliveryCharge = parseInt(document.querySelector('input[name="delivery"]:checked').value);
+            let productTotal = currentProductPrice * currentQuantity;
             document.getElementById('summary-delivery').innerText = deliveryCharge;
-            document.getElementById('summary-total').innerText = currentProductPrice + deliveryCharge;
+            document.getElementById('summary-total').innerText = productTotal + deliveryCharge;
         }
 
         function autoDetectDeliveryZone() {
@@ -1896,6 +2089,99 @@
                 document.getElementById('del-outside').checked = true;
             }
             updateTotal();
+        }
+
+        function handleOrder(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
+            const total = (parseInt(currentProductPrice) * currentQuantity) + parseInt(deliveryCharge);
+            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
+
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে...";
+            submitBtn.disabled = true;
+
+            let deliveryAreaText = "ঢাকার ভেতরে";
+            if (deliveryCharge === "120") deliveryAreaText = "সাব ঢাকা";
+            if (deliveryCharge === "130") deliveryAreaText = "ঢাকার বাইরে";
+
+            const orderMessage = `🛒 *নতুন অর্ডার এসেছে!* 🛒\n\n` +
+                                 `🆔 *অর্ডার আইডি:* \`${orderId}\`\n` +
+                                 `📦 *পণ্য:* ${currentProductName}\n` +
+                                 `🎨 *কালার:* ${selectedColorName}\n` +
+                                 `🔢 *পরিমাণ:* ${currentQuantity} টি\n` +
+                                 `💰 *মূল্য:* ৳${currentProductPrice * currentQuantity}\n` +
+                                 `🚚 *ডেলিভারি চার্জ:* ৳${deliveryCharge} (${deliveryAreaText})\n` +
+                                 `💵 *সর্বমোট বিল:* ৳${total}\n\n` +
+                                 `👤 *কাস্টমারের নাম:* ${name}\n` +
+                                 `📞 *ফোন নম্বর:* \`${phone}\`\n` +
+                                 `📍 *ঠিকানা:* ${address}`;
+
+            if (currentProductImage) {
+                const absoluteImgUrl = new URL(currentProductImage, window.location.href).href;
+                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        photo: absoluteImgUrl,
+                        caption: orderMessage,
+                        parse_mode: 'Markdown'
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.ok) sendTextMessageOrder(orderMessage, orderId);
+                    else showSuccessMessage(orderId);
+                })
+                .catch(() => sendTextMessageOrder(orderMessage, orderId));
+            } else {
+                sendTextMessageOrder(orderMessage, orderId);
+            }
+        }
+
+        function sendTextMessageOrder(message, orderId) {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) showSuccessMessage(orderId);
+                else {
+                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।');
+                    resetSubmitBtn();
+                }
+            })
+            .catch(() => {
+                alert('নেটওয়ার্ক সমস্যা! দয়া করে ইন্টারনেট কানেকশন চেক করুন।');
+                resetSubmitBtn();
+            });
+        }
+
+        function showSuccessMessage(orderId) {
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', { value: parseInt(document.getElementById('summary-total').innerText), currency: 'BDT' });
+            }
+            document.getElementById('checkout-form').style.display = 'none';
+            document.getElementById('order-id-display').innerText = "অর্ডার নম্বর: " + orderId;
+            document.getElementById('success-message').style.display = 'block';
+            resetSubmitBtn();
+        }
+
+        function resetSubmitBtn() {
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+            submitBtn.disabled = false;
         }
     </script>
 </body>
