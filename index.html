@@ -6,8 +6,8 @@
     <title>Watch Store | Prohonic</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Prohonic Watch Store - বাংলাদেশে কিনুন প্রিমিয়াম কোয়ালিটির HUBLOT ও BINBOND হাতঘড়ি। ১০০% অরজিনাল প্রোডাক্ট ও ক্যাশ অন ডেলিভারি সুবিধা।">
-    <meta name="keywords" content="Prohonic, Prohonic Watch, Hand Watch Bangladesh, Luxury Watch BD, Hublot Watch BD, Binbond Watch BD">
+    <meta name="description" content="Prohonic Watch Store - বাংলাদেশে কিনুন প্রিমিয়াম কোয়ালিটির ROLEX, HUBLOT ও BINBOND হাতঘড়ি। ১০০% অরজিনাল প্রোডাক্ট ও ক্যাশ অন ডেলিভারি সুবিধা।">
+    <meta name="keywords" content="Prohonic, Prohonic Watch, Hand Watch Bangladesh, Luxury Watch BD, Rolex Watch BD, Hublot Watch BD, Binbond Watch BD">
     <meta name="author" content="Prohonic Watch Store">
 
     <!-- Open Graph / Social Media Preview -->
@@ -17,11 +17,11 @@
     <meta property="og:image" content="https://prohonic.com/Images/Weblogo.png">
     <meta property="og:url" content="https://prohonic.com/">
 
-    <!-- Favicon / Web Logo for Search Engines (Updated with Absolute URLs) -->
+    <!-- Favicon / Web Logo for Search Engines -->
     <link rel="icon" type="image/png" href="https://prohonic.com/Images/Weblogo.png">
     <link rel="apple-touch-icon" href="https://prohonic.com/Images/Weblogo.png">
 
-    <!-- Schema.org Markup for Google Search Results (Updated for Custom Domain) -->
+    <!-- Schema.org Markup for Google Search Results -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,7 +42,7 @@
     }
     </script>
 
-    <!-- Google Fonts for Luxury Serif & Modern Sans-serif -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
@@ -253,7 +253,7 @@
             gap: 30px;
         }
 
-        /* Modern Product Card with Luxury Glow */
+        /* Modern Product Card */
         .product-card {
             background: linear-gradient(145deg, #14171d, #0d0f12);
             border-radius: 16px;
@@ -304,7 +304,6 @@
             color: #888;
         }
 
-        /* Image Styling with Hover Zoom */
         .product-img-wrapper {
             width: 100%;
             height: 270px;
@@ -361,7 +360,14 @@
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
-        /* Color Swatches UI - Desktop */
+        .regular-price {
+            font-size: 16px;
+            color: #888;
+            text-decoration: line-through;
+            margin-right: 8px;
+            font-weight: 400;
+        }
+
         .color-selection {
             margin-bottom: 20px;
             background: rgba(0, 0, 0, 0.4);
@@ -392,7 +398,6 @@
             align-items: center;
         }
 
-        /* Enlarged & Bolder Color Buttons */
         .color-item {
             display: flex;
             align-items: center;
@@ -436,7 +441,6 @@
             font-weight: 700;
         }
 
-        /* Order Button with Metallic Shine Effect */
         .btn-order-now {
             margin-top: auto;
             display: block;
@@ -857,7 +861,7 @@
             color: #666;
         }
 
-        /* Responsive Layout & Mobile Button Enhancements */
+        /* Responsive Layout */
         @media (max-width: 900px) {
             .product-grid { 
                 grid-template-columns: repeat(2, 1fr);
@@ -1029,7 +1033,61 @@
 
     <h2 class="main-title">ক্যাটাগরি সমূহ</h2>
 
-    <!-- Category Title 1 -->
+    <!-- 1ST SECTION: ROLEX WATCH CATEGORY -->
+    <div class="category-header">
+        <div class="category-title-badge">
+            <h3>ROLEX Series | রয়্যাল লাক্সারি এডিশন</h3>
+        </div>
+    </div>
+
+    <div class="product-grid">
+        <!-- Rolex Available Card -->
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" onclick="openQuickView(this.src)">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Rolex Day-Date Luxury Watch</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
+                <div class="product-price"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c3-p1-text" class="selected-color-name">White</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat3-p1', 'Images/R1.png', 'c3-p1-text', 'White', this)">
+                            <img class="color-thumb" src="Images/R1.png" alt="White">
+                            <span class="color-text">White</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R2.png', 'c3-p1-text', 'Blue', this)">
+                            <img class="color-thumb" src="Images/R2.png" alt="Blue">
+                            <span class="color-text">Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R3.png', 'c3-p1-text', 'Emerald', this)">
+                            <img class="color-thumb" src="Images/R3.png" alt="Emerald">
+                            <span class="color-text">Emerald</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="openOrderModal('Rolex Day-Date Luxury Watch', 999, 'c3-p1-text', 'cat3-p1', 'White')">Order Now</button>
+            </div>
+        </div>
+
+        <!-- Rolex Coming Soon Card 1 -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+
+        <!-- Rolex Coming Soon Card 2 -->
+        <div class="product-card coming-soon-card">
+            <div class="cs-icon">⏳</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        </div>
+    </div>
+
+    <!-- 2ND SECTION: HUBLOT WATCH CATEGORY -->
     <div class="category-header">
         <div class="category-title-badge">
             <h3>HUBLOT Edition | লাক্সারি ওয়াচ কালেকশন</h3>
@@ -1143,7 +1201,7 @@
         </div>
     </div>
 
-    <!-- Category Title 2 -->
+    <!-- 3RD SECTION: BINBOND WATCH CATEGORY -->
     <div class="category-header">
         <div class="category-title-badge">
             <h3>BINBOND Series | প্রিমিয়াম জেন্টলমেন ওয়াচ</h3>
@@ -1206,6 +1264,37 @@
     </div>
 
     <div class="product-grid">
+        <!-- Rolex Day-Date Luxury Watch -->
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" onclick="openQuickView(this.src)">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Rolex Day-Date Luxury Watch</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
+                <div class="product-price"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
+                
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="all-p5-text" class="selected-color-name">White</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('all-p5', 'Images/R1.png', 'all-p5-text', 'White', this)">
+                            <img class="color-thumb" src="Images/R1.png" alt="White">
+                            <span class="color-text">White</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p5', 'Images/R2.png', 'all-p5-text', 'Blue', this)">
+                            <img class="color-thumb" src="Images/R2.png" alt="Blue">
+                            <span class="color-text">Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p5', 'Images/R3.png', 'all-p5-text', 'Emerald', this)">
+                            <img class="color-thumb" src="Images/R3.png" alt="Emerald">
+                            <span class="color-text">Emerald</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="openOrderModal('Rolex Day-Date Luxury Watch', 999, 'all-p5-text', 'all-p5', 'White')">Order Now</button>
+            </div>
+        </div>
+
         <!-- Hublot Classic Fusion -->
         <div class="product-card">
             <div class="product-img-wrapper">
@@ -1453,18 +1542,18 @@
                             <span>সাব ঢাকা / ঢাকা উপশহর (৳১২০)</span>
                         </label>
                         <label class="delivery-radio-label">
-                            <input type="radio" id="del-outside" name="delivery" value="150" onclick="updateTotal()"> 
-                            <span>ঢাকার বাইরে (৳১৫০)</span>
+                            <input type="radio" id="del-outside" name="delivery" value="130" onclick="updateTotal()"> 
+                            <span>ঢাকার বাইরে (৳১৩০)</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="bill-summary">
-                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name" style="color:#fff;">HUBLOT Classic Fusion</strong></div>
-                    <div class="bill-row"><span>কালার:</span><strong id="summary-color" style="color:#fff;">Black</strong></div>
-                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">950</span></span></div>
+                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name" style="color:#fff;">Rolex Day-Date Luxury Watch</strong></div>
+                    <div class="bill-row"><span>কালার:</span><strong id="summary-color" style="color:#fff;">White</strong></div>
+                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">999</span></span></div>
                     <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">80</span></span></div>
-                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">1030</span></span></div>
+                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">1079</span></span></div>
                 </div>
 
                 <button type="submit" id="submit-btn" class="btn-order-now">অর্ডার নিশ্চিত করুন</button>
@@ -1542,7 +1631,7 @@
             <ul>
                 <li>ঢাকার ভেতরে: <strong>৳৮০</strong></li>
                 <li>সাব ঢাকা: <strong>৳১২০</strong></li>
-                <li>ঢাকার বাইরে: <strong>৳১৫০</strong></li>
+                <li>ঢাকার বাইরে: <strong>৳১৩০</strong></li>
             </ul>
         </div>
     </div>
@@ -1581,10 +1670,10 @@
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
         const TELEGRAM_CHAT_ID = "-1003956122715";
 
-        let currentProductPrice = 950;
-        let selectedColorName = "Black";
-        let currentProductName = "HUBLOT Classic Fusion";
-        let currentProductImage = "Images/Black1.jpg";
+        let currentProductPrice = 999;
+        let selectedColorName = "White";
+        let currentProductName = "Rolex Day-Date Luxury Watch";
+        let currentProductImage = "Images/R1.png";
 
         let activeColors = {};
 
@@ -1797,111 +1886,108 @@
             if (addr.length < 3) return;
 
             let isSubDhaka = subDhakaKeywords.some(keyword => addr.includes(keyword));
+            let isInsideDhaka = addr.includes('dhaka') || addr.includes('ঢাকা');
 
             if (isSubDhaka) {
                 document.getElementById('del-sub').checked = true;
-            } else if (addr.includes('dhaka') || addr.includes('ঢাকা')) {
+            } else if (isInsideDhaka) {
                 document.getElementById('del-inside').checked = true;
             } else {
                 document.getElementById('del-outside').checked = true;
             }
-            
             updateTotal();
-        }
-
-        window.onclick = function(event) {
-            let orderModal = document.getElementById('orderModal');
-            let reviewModal = document.getElementById('reviewModal');
-            let qvModal = document.getElementById('quickViewModal');
-            let policyModals = ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'];
-
-            if (event.target === orderModal) closeOrderModal();
-            if (event.target === reviewModal) closeReviewModal();
-            if (event.target === qvModal) closeQuickView();
-            
-            policyModals.forEach(id => {
-                let modal = document.getElementById(id);
-                if (event.target === modal) closePolicyModal(id);
-            });
         }
 
         function handleOrder(event) {
             event.preventDefault();
 
-            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
-            const totalPrice = currentProductPrice + parseInt(deliveryCharge);
-
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', { value: totalPrice, currency: 'BDT' });
-            }
-
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.innerText = "প্রসেসিং হচ্ছে...";
-            submitBtn.disabled = true;
-
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            
-            let deliveryZone = "ঢাকার ভেতরে";
-            if (deliveryCharge === "120") deliveryZone = "সাব ঢাকা";
-            else if (deliveryCharge === "150") deliveryZone = "ঢাকার বাইরে";
-
+            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
+            const total = parseInt(currentProductPrice) + parseInt(deliveryCharge);
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
-            const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
-                            `🆔 *অর্ডার আইডি:* #${orderId}\n` +
-                            `📦 *পণ্য:* ${currentProductName}\n` +
-                            `🎨 *কালার:* ${selectedColorName}\n` +
-                            `👤 *গ্রাহকের নাম:* ${name}\n` +
-                            `📞 *ফোন নম্বর:* ${phone}\n` +
-                            `🏠 *ঠিকানা:* ${address}\n` +
-                            `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
-                            `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে...";
+            submitBtn.disabled = true;
 
-            let fullImageUrl = currentProductImage;
-            if (!currentProductImage.startsWith('http://') && !currentProductImage.startsWith('https://')) {
-                fullImageUrl = window.location.origin + '/' + currentProductImage;
+            let deliveryAreaText = "ঢাকার ভেতরে";
+            if (deliveryCharge === "120") deliveryAreaText = "সাব ঢাকা";
+            if (deliveryCharge === "130") deliveryAreaText = "ঢাকার বাইরে";
+
+            const orderMessage = `🛒 *নতুন অর্ডার এসেছে!* 🛒\n\n` +
+                                 `🆔 *অর্ডার আইডি:* \`${orderId}\`\n` +
+                                 `📦 *পণ্য:* ${currentProductName}\n` +
+                                 `🎨 *কালার:* ${selectedColorName}\n` +
+                                 `💰 *মূল্য:* ৳${currentProductPrice}\n` +
+                                 `🚚 *ডেলিভারি চার্জ:* ৳${deliveryCharge} (${deliveryAreaText})\n` +
+                                 `💵 *সর্বমোট বিল:* ৳${total}\n\n` +
+                                 `👤 *কাস্টমারের নাম:* ${name}\n` +
+                                 `📞 *ফোন নম্বর:* \`${phone}\`\n` +
+                                 `📍 *ঠিকানা:* ${address}`;
+
+            if (currentProductImage) {
+                const absoluteImgUrl = new URL(currentProductImage, window.location.href).href;
+                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        photo: absoluteImgUrl,
+                        caption: orderMessage,
+                        parse_mode: 'Markdown'
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.ok) sendTextMessageOrder(orderMessage, orderId);
+                    else showSuccessMessage(orderId);
+                })
+                .catch(() => sendTextMessageOrder(orderMessage, orderId));
+            } else {
+                sendTextMessageOrder(orderMessage, orderId);
             }
+        }
 
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+        function sendTextMessageOrder(message, orderId) {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    chat_id: TELEGRAM_CHAT_ID, 
-                    photo: fullImageUrl, 
-                    caption: message, 
-                    parse_mode: 'Markdown' 
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
                 })
             })
             .then(res => res.json())
             .then(data => {
-                submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-                submitBtn.disabled = false;
-                
-                if (!data.ok) {
-                    return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
-                    }).then(r => r.json());
-                }
-                return data;
-            })
-            .then(data => {
-                if (data.ok) {
-                    document.getElementById('checkout-form').style.display = 'none';
-                    document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
-                    document.getElementById('success-message').style.display = 'block';
-                } else {
-                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+                if (data.ok) showSuccessMessage(orderId);
+                else {
+                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।');
+                    resetSubmitBtn();
                 }
             })
             .catch(() => {
-                submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-                submitBtn.disabled = false;
-                alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
+                alert('নেটওয়ার্ক সমস্যা! দয়া করে ইন্টারনেট কানেকশন চেক করুন।');
+                resetSubmitBtn();
             });
+        }
+
+        function showSuccessMessage(orderId) {
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', { value: parseInt(document.getElementById('summary-total').innerText), currency: 'BDT' });
+            }
+            document.getElementById('checkout-form').style.display = 'none';
+            document.getElementById('order-id-display').innerText = "অর্ডার নম্বর: " + orderId;
+            document.getElementById('success-message').style.display = 'block';
+            resetSubmitBtn();
+        }
+
+        function resetSubmitBtn() {
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+            submitBtn.disabled = false;
         }
     </script>
 </body>
