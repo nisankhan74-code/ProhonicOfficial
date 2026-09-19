@@ -45,21 +45,28 @@
     <!-- Optimized Google Fonts Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Hind+Siliguri:wght@400;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Hardware Acceleration and Performance Base Rules */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #090a0c;
             color: #e0e0e0;
             line-height: 1.6;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
         }
 
         .luxury-font {
@@ -77,8 +84,9 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            will-change: transform;
         }
 
         .logo {
@@ -255,9 +263,10 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease, border-color 0.25s ease;
             position: relative;
-            cursor: default;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .product-card:hover {
@@ -298,12 +307,37 @@
             color: #888;
         }
 
+        /* Product Image Click Preview Feature Styling */
         .product-img-wrapper {
             width: 100%;
             height: 270px;
             overflow: hidden;
             background-color: #050608;
             position: relative;
+            cursor: pointer;
+        }
+
+        .product-img-wrapper::after {
+            content: '🔍 জুম করে দেখুন';
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #f3e5ab;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            opacity: 0.85;
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+
+        .product-img-wrapper:hover::after {
+            opacity: 1;
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            font-weight: bold;
         }
 
         .product-img {
@@ -311,11 +345,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s ease;
+            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
         }
 
-        .product-card:hover .product-img {
-            transform: scale(1.05);
+        .product-img-wrapper:hover .product-img {
+            transform: scale(1.08);
         }
 
         .product-info {
@@ -505,7 +540,7 @@
             font-size: 0.95rem;
             font-weight: 800;
             border-radius: 8px;
-            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
             text-align: center;
@@ -530,7 +565,7 @@
             font-size: 0.95rem;
             font-weight: 700;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             border: 1px solid #d4af37;
             cursor: pointer;
             text-align: center;
@@ -543,28 +578,33 @@
             transform: translateY(-2px);
         }
 
-        /* POPUP MODALS */
+        /* POPUP MODALS WITH ULTRA SMOOTH ANIMATION */
         .modal-overlay {
-            display: none;
+            display: flex;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.88);
+            background: rgba(0, 0, 0, 0.90);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease-in-out;
+            will-change: opacity;
         }
 
         .modal-overlay.active {
-            display: flex;
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        .modal-container {
+        .modal-container, .feature-modal-container, .policy-modal-container {
             background: #14171d;
             color: #fff;
             width: 100%;
@@ -576,21 +616,19 @@
             max-height: 90vh;
             overflow-y: auto;
             border: 1px solid rgba(212, 175, 55, 0.4);
+            transform: scale(0.92);
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            will-change: transform;
         }
 
-        /* Product Feature Only Modal */
+        .modal-overlay.active .modal-container,
+        .modal-overlay.active .feature-modal-container,
+        .modal-overlay.active .policy-modal-container {
+            transform: scale(1);
+        }
+
         .feature-modal-container {
-            background: #14171d;
-            color: #fff;
-            width: 100%;
             max-width: 550px;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
-            position: relative;
-            max-height: 85vh;
-            overflow-y: auto;
-            border: 1px solid rgba(212, 175, 55, 0.4);
         }
 
         .qv-features {
@@ -766,17 +804,8 @@
         }
 
         .policy-modal-container {
-            background: #14171d;
-            color: #ccc;
-            width: 100%;
             max-width: 650px;
-            padding: 30px;
-            border-radius: 16px;
-            position: relative;
-            max-height: 85vh;
-            overflow-y: auto;
             line-height: 1.7;
-            border: 1px solid rgba(212, 175, 55, 0.4);
         }
 
         .policy-modal-container h2 {
@@ -804,6 +833,7 @@
             padding-left: 20px;
         }
 
+        /* Enhanced High-Res Image Preview Lightbox Modal */
         .image-viewer-container {
             position: relative;
             max-width: 90vw;
@@ -811,22 +841,44 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         .image-viewer-container img {
             max-width: 100%;
-            max-height: 85vh;
+            max-height: 80vh;
             object-fit: contain;
             border-radius: 12px;
             border: 1px solid rgba(212, 175, 55, 0.5);
             box-shadow: 0 10px 40px rgba(0,0,0,0.95);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            will-change: transform;
+        }
+
+        .modal-overlay.active .image-viewer-container img {
+            transform: scale(1);
         }
 
         .image-viewer-container .close-btn {
-            top: -40px;
+            position: absolute;
+            top: -45px;
             right: 0;
             color: #fff;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .lightbox-hint {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #f3e5ab;
+            letter-spacing: 1px;
+            text-align: center;
+            background: rgba(0,0,0,0.6);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         .reviews-section {
@@ -858,7 +910,7 @@
             cursor: pointer;
             text-transform: uppercase;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
-            transition: 0.3s;
+            transition: 0.25s;
         }
 
         .btn-write-review:hover {
@@ -895,6 +947,11 @@
             box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
             margin-bottom: 14px;
             cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .customer-watch-img:hover {
+            transform: scale(1.1);
         }
 
         .review-card p {
@@ -1115,13 +1172,13 @@
 
     <header>
         <div class="logo">
-            <img src="Images/Weblogo.png" id="site-logo" alt="Prohonic Logo" loading="lazy" decoding="async" onerror="this.style.display='none'">
+            <img src="Images/Weblogo.png" id="site-logo" alt="Prohonic Logo" loading="eager" decoding="async" onerror="this.style.display='none'">
             <span class="logo-text">PROHONIC</span>
         </div>
     </header>
 
     <section class="hero-section">
-        <img src="Images/Heroimage3.jpg" alt="Hero Banner" fetchpriority="high">
+        <img src="Images/Heroimage3.jpg" alt="Hero Banner" fetchpriority="high" decoding="async">
     </section>
 
     <div class="trust-badges">
@@ -1169,7 +1226,7 @@
     <div class="product-grid">
         <!-- Card 1 -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('cat1-p1')">
                 <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1177,7 +1234,6 @@
                 <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
                 <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <!-- Price er niche Quantity Option -->
                 <div class="card-quantity-wrapper">
                     <span class="card-qty-label">পরিমাণ (Quantity):</span>
                     <div class="card-qty-controls">
@@ -1213,7 +1269,7 @@
 
         <!-- Card 2 -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('cat1-p2')">
                 <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1268,7 +1324,7 @@
 
         <!-- Card 3 -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('cat1-p3')">
                 <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1320,7 +1376,7 @@
     <div class="product-grid">
         <!-- Rolex Available Card -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('cat3-p1')">
                 <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1383,7 +1439,7 @@
 
     <div class="product-grid">
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('cat2-p1')">
                 <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1451,7 +1507,7 @@
     <div class="product-grid">
         <!-- Hublot Classic Fusion -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('all-p1')">
                 <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1494,7 +1550,7 @@
 
         <!-- Rolex Day-Date Luxury Watch -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('all-p5')">
                 <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1537,7 +1593,7 @@
 
         <!-- Hublot Skeleton -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('all-p2')">
                 <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1592,7 +1648,7 @@
 
         <!-- HUBLOT Big Bang Chronograph -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('all-p4')">
                 <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1635,7 +1691,7 @@
 
         <!-- Binbond Business Luxury -->
         <div class="product-card">
-            <div class="product-img-wrapper">
+            <div class="product-img-wrapper" onclick="previewProductImage('all-p3')">
                 <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
@@ -1686,37 +1742,37 @@
         
         <div class="reviews-container" id="dynamic-reviews-container">
             <div class="review-card">
-                <img src="Images/Black1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
+                <img src="Images/Black1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy" decoding="async">
                 <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
                 <div class="reviewer-name">- আরিয়ান আহমেদ</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/golden.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
+                <img src="Images/golden.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy" decoding="async">
                 <p>"Golden ওয়াচটি বাস্তবে অনেক প্রিমিয়াম লেগেছে। কোয়ালিটি অনেক ভালো।"</p>
                 <div class="reviewer-name">- তানজিম হোসেন</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/chain-black.png" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
+                <img src="Images/chain-black.png" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy" decoding="async">
                 <p>"BINBOND ওয়াচটি দারুণ ভাই। মেটাল চেইন এবং ওয়েট একদম অরজিনাল অনূভুতি দেয়।"</p>
                 <div class="reviewer-name">- রাকিব হাসান</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/silver-gray.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
+                <img src="Images/silver-gray.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy" decoding="async">
                 <p>"স্ক্যাচ প্রুফ গ্লাস সত্যিই কার্যকরী। প্যাকেজিং অনেক ভালো ছিল, ধন্যবাদ Prohonic!"</p>
                 <div class="reviewer-name">- মোঃ পারভেজ</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/black.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
+                <img src="Images/black.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy" decoding="async">
                 <p>"Hublot Skeleton ডায়ালটা একদম জোস! প্রিমিয়াম একটা লুক দেয়।"</p>
                 <div class="reviewer-name">- শামীম ওসমান</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/Silver1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
+                <img src="Images/Silver1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy" decoding="async">
                 <p>"ঢাকার বাইরে থেকেও মাত্র ২ দিনে পার্সেল হাতে পেয়েছি। ক্যাশ অন ডেলিভারিতে চেক করে নিতে পেরে খুব ভালো লাগলো।"</p>
                 <div class="reviewer-name">- সাজ্জাদুল ইসলাম</div>
                 <div class="stars">★★★★★</div>
@@ -1753,7 +1809,7 @@
     </footer>
 
     <!-- PRODUCT FEATURE POPUP MODAL (SHUDHU GUNOGOTOMAN POPUP) -->
-    <div class="modal-overlay" id="productFeatureModal">
+    <div class="modal-overlay" id="productFeatureModal" onclick="handleOverlayClick(event, 'productFeatureModal')">
         <div class="feature-modal-container">
             <button class="close-btn" onclick="closeProductFeatureModal()">&times;</button>
             <h3 class="modal-title" id="feature-modal-title">পণ্যের গুণগতমান</h3>
@@ -1762,7 +1818,7 @@
     </div>
 
     <!-- ORDER FORM POPUP MODAL -->
-    <div class="modal-overlay" id="orderModal">
+    <div class="modal-overlay" id="orderModal" onclick="handleOverlayClick(event, 'orderModal')">
         <div class="modal-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
             <h3 class="modal-title">অর্ডার কনফার্ম করুন</h3>
@@ -1822,7 +1878,7 @@
     </div>
 
     <!-- WRITE REVIEW MODAL -->
-    <div class="modal-overlay" id="reviewModal">
+    <div class="modal-overlay" id="reviewModal" onclick="handleOverlayClick(event, 'reviewModal')">
         <div class="modal-container">
             <button class="close-btn" onclick="closeReviewModal()">&times;</button>
             <h3 class="modal-title">আপনার মূল্যবান রিভিউ দিন</h3>
@@ -1861,15 +1917,17 @@
         </div>
     </div>
 
-    <!-- OTHER MODALS -->
-    <div class="modal-overlay" id="quickViewModal">
+    <!-- LIGHTBOX IMAGE PREVIEW MODAL -->
+    <div class="modal-overlay" id="quickViewModal" onclick="handleOverlayClick(event, 'quickViewModal')">
         <div class="image-viewer-container">
             <button class="close-btn" onclick="closeQuickView()">&times;</button>
             <img id="qv-image" src="" alt="Watch Preview">
+            <div class="lightbox-hint">Prohonic High Resolution Preview</div>
         </div>
     </div>
 
-    <div class="modal-overlay" id="shippingModal">
+    <!-- POLICY MODALS -->
+    <div class="modal-overlay" id="shippingModal" onclick="handleOverlayClick(event, 'shippingModal')">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('shippingModal')">&times;</button>
             <h2>Shipping Policy</h2>
@@ -1882,7 +1940,7 @@
         </div>
     </div>
 
-    <div class="modal-overlay" id="paymentModal">
+    <div class="modal-overlay" id="paymentModal" onclick="handleOverlayClick(event, 'paymentModal')">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('paymentModal')">&times;</button>
             <h2>Payment & COD Rules</h2>
@@ -1894,7 +1952,7 @@
         </div>
     </div>
 
-    <div class="modal-overlay" id="returnModal">
+    <div class="modal-overlay" id="returnModal" onclick="handleOverlayClick(event, 'returnModal')">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('returnModal')">&times;</button>
             <h2>Return & Refund Policy</h2>
@@ -1906,7 +1964,7 @@
         </div>
     </div>
 
-    <div class="modal-overlay" id="contactModal">
+    <div class="modal-overlay" id="contactModal" onclick="handleOverlayClick(event, 'contactModal')">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('contactModal')">&times;</button>
             <h2>Contact Information</h2>
@@ -1920,6 +1978,17 @@
     <script>
         let currentProduct = {};
 
+        // Helper to close modal when clicking on overlay background
+        function handleOverlayClick(event, modalId) {
+            if (event.target.id === modalId) {
+                if (modalId === 'quickViewModal') closeQuickView();
+                else if (modalId === 'orderModal') closeOrderModal();
+                else if (modalId === 'productFeatureModal') closeProductFeatureModal();
+                else if (modalId === 'reviewModal') closeReviewModal();
+                else closePolicyModal(modalId);
+            }
+        }
+
         // Change Quantity on Card
         function changeCardQuantity(btnElement, delta) {
             let qtyValSpan = btnElement.parentElement.querySelector('.card-qty-val');
@@ -1931,7 +2000,10 @@
 
         // Image change function
         function changeImage(imgId, newSrc, textId, colorName, element) {
-            document.getElementById(imgId).src = newSrc;
+            const imgElement = document.getElementById(imgId);
+            if(imgElement) {
+                imgElement.src = newSrc;
+            }
             if(textId) {
                 document.getElementById(textId).innerText = colorName;
             }
@@ -1939,6 +2011,14 @@
                 let options = element.parentElement.querySelectorAll('.color-item');
                 options.forEach(opt => opt.classList.remove('active'));
                 element.classList.add('active');
+            }
+        }
+
+        // Feature: Click product card image to open high-res preview modal
+        function previewProductImage(imgId) {
+            const img = document.getElementById(imgId);
+            if (img && img.src) {
+                openQuickView(img.src);
             }
         }
 
@@ -1969,10 +2049,12 @@
 
             document.getElementById('feature-modal-content').innerHTML = featuresHTML;
             document.getElementById('productFeatureModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeProductFeatureModal() {
             document.getElementById('productFeatureModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
         // Open Order Form Modal Directly from Card
@@ -2008,10 +2090,12 @@
 
             updateTotal();
             document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeOrderModal() {
             document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
         function updateTotal() {
@@ -2051,7 +2135,7 @@
                 document.getElementById('success-message').style.display = 'block';
                 submitBtn.innerText = 'অর্ডার নিশ্চিত করুন';
                 submitBtn.disabled = false;
-            }, 1000);
+            }, 800);
         }
 
         // Review Modal Handlers
@@ -2059,10 +2143,12 @@
             document.getElementById('reviewModal').classList.add('active');
             document.getElementById('review-form').style.display = 'block';
             document.getElementById('review-success-msg').style.display = 'none';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeReviewModal() {
             document.getElementById('reviewModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
         function handleReviewSubmit(e) {
@@ -2071,25 +2157,41 @@
             document.getElementById('review-success-msg').style.display = 'block';
         }
 
-        // Image Preview & Policy Modals
+        // Image Preview Lightbox Logic
         function openQuickView(src) {
-            document.getElementById('qv-image').src = src;
+            const qvImg = document.getElementById('qv-image');
+            qvImg.src = src;
             document.getElementById('quickViewModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeQuickView() {
             document.getElementById('quickViewModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
         function openPolicyModal(id) {
             document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closePolicyModal(id) {
             document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
-        // Timer Countdown
+        // Keyboard Escape Key listener to close active modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeQuickView();
+                closeOrderModal();
+                closeProductFeatureModal();
+                closeReviewModal();
+                ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'].forEach(id => closePolicyModal(id));
+            }
+        });
+
+        // Optimized Timer Countdown
         function startTimer() {
             let h = 23, m = 59, s = 59;
             setInterval(() => {
@@ -2107,7 +2209,10 @@
                 document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
             }, 1000);
         }
-        startTimer();
+
+        window.addEventListener('load', function() {
+            startTimer();
+        });
     </script>
 </body>
 </html>
