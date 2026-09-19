@@ -6,8 +6,8 @@
     <title>Watch Store | Prohonic</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Prohonic Watch Store - বাংলাদেশে কিনুন প্রিমিয়াম কোয়ালিটির ROLEX, HUBLOT ও BINBOND হাতঘড়ি। ১০০% অরজিনাল প্রোডাক্ট ও ক্যাশ অন ডেলিভারি সুবিধা।">
-    <meta name="keywords" content="Prohonic, Prohonic Watch, Hand Watch Bangladesh, Luxury Watch BD, Rolex Watch BD, Hublot Watch BD, Binbond Watch BD">
+    <meta name="description" content="Prohonic Watch Store - বাংলাদেশে কিনুন প্রিমিয়াম কোয়ালিটির HUBLOT, ROLEX ও BINBOND হাতঘড়ি। ১০০% অরজিনাল প্রোডাক্ট ও ক্যাশ অন ডেলিভারি সুবিধা।">
+    <meta name="keywords" content="Prohonic, Prohonic Watch, Hand Watch Bangladesh, Luxury Watch BD, Hublot Watch BD, Rolex Watch BD, Binbond Watch BD">
     <meta name="author" content="Prohonic Watch Store">
 
     <!-- Open Graph / Social Media Preview -->
@@ -17,11 +17,11 @@
     <meta property="og:image" content="https://prohonic.com/Images/Weblogo.png">
     <meta property="og:url" content="https://prohonic.com/">
 
-    <!-- Favicon / Web Logo for Search Engines -->
+    <!-- Favicon / Web Logo -->
     <link rel="icon" type="image/png" href="https://prohonic.com/Images/Weblogo.png">
     <link rel="apple-touch-icon" href="https://prohonic.com/Images/Weblogo.png">
 
-    <!-- Schema.org Markup for Google Search Results -->
+    <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,9 +42,10 @@
     }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Optimized Google Fonts Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Hind+Siliguri:wght@400;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -66,18 +67,18 @@
         }
 
         header {
-            background: rgba(12, 14, 18, 0.85);
+            background: rgba(12, 14, 18, 0.92);
             padding: 16px 5%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .logo {
@@ -254,13 +255,14 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
             cursor: pointer;
+            will-change: transform;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: 0 15px 35px rgba(212, 175, 55, 0.22);
             border-color: rgba(212, 175, 55, 0.5);
         }
@@ -311,11 +313,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease, opacity 0.3s ease;
+            transition: transform 0.4s ease, opacity 0.3s ease;
         }
 
         .product-card:hover .product-img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
         .product-info {
@@ -400,7 +402,7 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             background: #111317;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
         }
 
         .color-item:hover {
@@ -444,7 +446,7 @@
             font-size: 1rem;
             font-weight: 800;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
             text-align: center;
@@ -453,22 +455,6 @@
             text-transform: uppercase;
             position: relative;
             overflow: hidden;
-        }
-
-        .btn-order-now::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(60deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(30deg);
-            transition: 0.6s;
-        }
-
-        .btn-order-now:hover::after {
-            left: 100%;
         }
 
         .btn-order-now:hover {
@@ -490,8 +476,8 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .modal-overlay.active {
@@ -1087,7 +1073,7 @@
     </header>
 
     <section class="hero-section">
-        <img src="Images/Heroimage3.jpg" alt="Hero Banner">
+        <img src="Images/Heroimage3.jpg" alt="Hero Banner" fetchpriority="high">
     </section>
 
     <div class="trust-badges">
@@ -1125,7 +1111,121 @@
 
     <h2 class="main-title">ক্যাটাগরি সমূহ</h2>
 
-    <!-- 1ST SECTION: ROLEX WATCH CATEGORY -->
+    <!-- 1ST SECTION: HUBLOT WATCH CATEGORY -->
+    <div class="category-header">
+        <div class="category-title-badge">
+            <h3>HUBLOT Edition | লাক্সারি ওয়াচ কালেকশন</h3>
+        </div>
+    </div>
+
+    <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card" onclick="openProductQuickView(this, event)">
+            <div class="product-img-wrapper">
+                <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion Watch" loading="lazy" decoding="async">
+            </div>
+            <div class="product-info">
+                <div class="product-title">HUBLOT Classic Fusion</div>
+                <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
+                <div class="product-price" data-price="950">৳ ৯৫০</div>
+                
+                <div class="color-selection" onclick="event.stopPropagation()">
+                    <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat1-p1', 'Images/Black1.jpg', 'c1-p1-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/Black1.jpg" alt="Black" loading="lazy">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver1.jpg', 'c1-p1-text', 'Silver', this)">
+                            <img class="color-thumb" src="Images/Silver1.jpg" alt="Silver" loading="lazy">
+                            <span class="color-text">Silver</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/silverandblack.jpg', 'c1-p1-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/silverandblack.jpg" alt="Silver and Black" loading="lazy">
+                            <span class="color-text">Silver & Black</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'cat1-p1', 'Black')">Order Now</button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card" onclick="openProductQuickView(this, event)">
+            <div class="product-img-wrapper">
+                <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton Watch" loading="lazy" decoding="async">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল।</div>
+                <div class="product-price" data-price="1099">৳ ১০৯৯</div>
+                
+                <div class="color-selection" onclick="event.stopPropagation()">
+                    <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat1-p2', 'Images/black.jpg', 'c1-p2-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/black.jpg" alt="Black" loading="lazy">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-gray.jpg', 'c1-p2-text', 'Silver & Gray', this)">
+                            <img class="color-thumb" src="Images/silver-gray.jpg" alt="Silver Gray" loading="lazy">
+                            <span class="color-text">Silver & Gray</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black.jpg', 'c1-p2-text', 'Silver & Black', this)">
+                            <img class="color-thumb" src="Images/silver-black.jpg" alt="Silver Black" loading="lazy">
+                            <span class="color-text">Silver & Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-blue.jpg', 'c1-p2-text', 'Silver & Blue', this)">
+                            <img class="color-thumb" src="Images/silver-blue.jpg" alt="Silver Blue" loading="lazy">
+                            <span class="color-text">Silver & Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black2.jpg', 'c1-p2-text', 'Silver & Black 2', this)">
+                            <img class="color-thumb" src="Images/silver-black2.jpg" alt="Silver Black 2" loading="lazy">
+                            <span class="color-text">Silver & Black 2</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-golden2.jpg', 'c1-p2-text', 'Silver & Golden', this)">
+                            <img class="color-thumb" src="Images/silver-golden2.jpg" alt="Silver Golden" loading="lazy">
+                            <span class="color-text">Silver & Golden</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'c1-p2-text', 'cat1-p2', 'Black')">Order Now</button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card" onclick="openProductQuickView(this, event)">
+            <div class="product-img-wrapper">
+                <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph Watch" loading="lazy" decoding="async">
+            </div>
+            <div class="product-info">
+                <div class="product-title">HUBLOT Big Bang Chronograph</div>
+                <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
+                <div class="product-price" data-price="950">৳ ৯৫০</div>
+                
+                <div class="color-selection" onclick="event.stopPropagation()">
+                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
+                            <img class="color-thumb" src="Images/gray.jpg" alt="Gray" loading="lazy">
+                            <span class="color-text">Gray</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/green.jpg', 'c1-p3-text', 'Green', this)">
+                            <img class="color-thumb" src="Images/green.jpg" alt="Green" loading="lazy">
+                            <span class="color-text">Green</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/golden.jpg', 'c1-p3-text', 'Golden', this)">
+                            <img class="color-thumb" src="Images/golden.jpg" alt="Golden" loading="lazy">
+                            <span class="color-text">Golden</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'cat1-p3', 'Gray')">Order Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2ND SECTION: ROLEX WATCH CATEGORY -->
     <div class="category-header">
         <div class="category-title-badge">
             <h3>ROLEX Series | রয়্যাল লাক্সারি এডিশন</h3>
@@ -1136,7 +1236,7 @@
         <!-- Rolex Available Card -->
         <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch">
+                <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
                 <div class="product-title">Rolex Day-Date Luxury Watch</div>
@@ -1147,15 +1247,15 @@
                     <span class="color-label">কালার: <span id="c3-p1-text" class="selected-color-name">White</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat3-p1', 'Images/R1.png', 'c3-p1-text', 'White', this)">
-                            <img class="color-thumb" src="Images/R1.png" alt="White">
+                            <img class="color-thumb" src="Images/R1.png" alt="White" loading="lazy">
                             <span class="color-text">White</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R2.png', 'c3-p1-text', 'Blue', this)">
-                            <img class="color-thumb" src="Images/R2.png" alt="Blue">
+                            <img class="color-thumb" src="Images/R2.png" alt="Blue" loading="lazy">
                             <span class="color-text">Blue</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat3-p1', 'Images/R3.png', 'c3-p1-text', 'Emerald', this)">
-                            <img class="color-thumb" src="Images/R3.png" alt="Emerald">
+                            <img class="color-thumb" src="Images/R3.png" alt="Emerald" loading="lazy">
                             <span class="color-text">Emerald</span>
                         </div>
                     </div>
@@ -1177,120 +1277,6 @@
         </div>
     </div>
 
-    <!-- 2ND SECTION: HUBLOT WATCH CATEGORY -->
-    <div class="category-header">
-        <div class="category-title-badge">
-            <h3>HUBLOT Edition | লাক্সারি ওয়াচ কালেকশন</h3>
-        </div>
-    </div>
-
-    <div class="product-grid">
-        <!-- Card 1 -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
-            <div class="product-img-wrapper">
-                <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion Watch">
-            </div>
-            <div class="product-info">
-                <div class="product-title">HUBLOT Classic Fusion</div>
-                <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
-                <div class="product-price" data-price="950">৳ ৯৫০</div>
-                
-                <div class="color-selection" onclick="event.stopPropagation()">
-                    <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat1-p1', 'Images/Black1.jpg', 'c1-p1-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/Black1.jpg" alt="Black">
-                            <span class="color-text">Black</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/Silver1.jpg', 'c1-p1-text', 'Silver', this)">
-                            <img class="color-thumb" src="Images/Silver1.jpg" alt="Silver">
-                            <span class="color-text">Silver</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p1', 'Images/silverandblack.jpg', 'c1-p1-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silverandblack.jpg" alt="Silver and Black">
-                            <span class="color-text">Silver & Black</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'cat1-p1', 'Black')">Order Now</button>
-            </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
-            <div class="product-img-wrapper">
-                <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton Watch">
-            </div>
-            <div class="product-info">
-                <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
-                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল।</div>
-                <div class="product-price" data-price="1099">৳ ১০৯৯</div>
-                
-                <div class="color-selection" onclick="event.stopPropagation()">
-                    <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat1-p2', 'Images/black.jpg', 'c1-p2-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/black.jpg" alt="Black">
-                            <span class="color-text">Black</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-gray.jpg', 'c1-p2-text', 'Silver & Gray', this)">
-                            <img class="color-thumb" src="Images/silver-gray.jpg" alt="Silver Gray">
-                            <span class="color-text">Silver & Gray</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black.jpg', 'c1-p2-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silver-black.jpg" alt="Silver Black">
-                            <span class="color-text">Silver & Black</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-blue.jpg', 'c1-p2-text', 'Silver & Blue', this)">
-                            <img class="color-thumb" src="Images/silver-blue.jpg" alt="Silver Blue">
-                            <span class="color-text">Silver & Blue</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-black2.jpg', 'c1-p2-text', 'Silver & Black 2', this)">
-                            <img class="color-thumb" src="Images/silver-black2.jpg" alt="Silver Black 2">
-                            <span class="color-text">Silver & Black 2</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p2', 'Images/silver-golden2.jpg', 'c1-p2-text', 'Silver & Golden', this)">
-                            <img class="color-thumb" src="Images/silver-golden2.jpg" alt="Silver Golden">
-                            <span class="color-text">Silver & Golden</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'c1-p2-text', 'cat1-p2', 'Black')">Order Now</button>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
-            <div class="product-img-wrapper">
-                <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph Watch">
-            </div>
-            <div class="product-info">
-                <div class="product-title">HUBLOT Big Bang Chronograph</div>
-                <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
-                <div class="product-price" data-price="950">৳ ৯৫০</div>
-                
-                <div class="color-selection" onclick="event.stopPropagation()">
-                    <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
-                            <img class="color-thumb" src="Images/gray.jpg" alt="Gray">
-                            <span class="color-text">Gray</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/green.jpg', 'c1-p3-text', 'Green', this)">
-                            <img class="color-thumb" src="Images/green.jpg" alt="Green">
-                            <span class="color-text">Green</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('cat1-p3', 'Images/golden.jpg', 'c1-p3-text', 'Golden', this)">
-                            <img class="color-thumb" src="Images/golden.jpg" alt="Golden">
-                            <span class="color-text">Golden</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'cat1-p3', 'Gray')">Order Now</button>
-            </div>
-        </div>
-    </div>
-
     <!-- 3RD SECTION: BINBOND WATCH CATEGORY -->
     <div class="category-header">
         <div class="category-title-badge">
@@ -1301,7 +1287,7 @@
     <div class="product-grid">
         <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men Watch">
+                <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men Watch" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
@@ -1312,19 +1298,19 @@
                     <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat2-p1', 'Images/chain-black.png', 'c2-p1-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/chain-black.png" alt="Black">
+                            <img class="color-thumb" src="Images/chain-black.png" alt="Black" loading="lazy">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('cat2-p1', 'Images/chain-white.png', 'c2-p1-text', 'White', this)">
-                            <img class="color-thumb" src="Images/chain-white.png" alt="White">
+                            <img class="color-thumb" src="Images/chain-white.png" alt="White" loading="lazy">
                             <span class="color-text">White</span>
                         </div>
                          <div class="color-item" onclick="changeImage('cat2-p1', 'Images/chai-silver.png', 'c2-p1-text', 'Gray', this)">
-                            <img class="color-thumb" src="Images/chai-silver.png" alt="Gray">
+                            <img class="color-thumb" src="Images/chai-silver.png" alt="Gray" loading="lazy">
                             <span class="color-text">Gray</span>
                         </div>
                          <div class="color-item" onclick="changeImage('cat2-p1', 'Images/chain-blue.png', 'c2-p1-text', 'Blue', this)">
-                            <img class="color-thumb" src="Images/chain-blue.png" alt="Blue">
+                            <img class="color-thumb" src="Images/chain-blue.png" alt="Blue" loading="lazy">
                             <span class="color-text">Blue</span>
                         </div>
                     </div>
@@ -1354,41 +1340,10 @@
     </div>
 
     <div class="product-grid">
-        <!-- Rolex Day-Date Luxury Watch -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
-            <div class="product-img-wrapper">
-                <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch">
-            </div>
-            <div class="product-info">
-                <div class="product-title">Rolex Day-Date Luxury Watch</div>
-                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
-                <div class="product-price" data-price="999"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
-                
-                <div class="color-selection" onclick="event.stopPropagation()">
-                    <span class="color-label">কালার: <span id="all-p5-text" class="selected-color-name">White</span></span>
-                    <div class="color-options">
-                        <div class="color-item active" onclick="changeImage('all-p5', 'Images/R1.png', 'all-p5-text', 'White', this)">
-                            <img class="color-thumb" src="Images/R1.png" alt="White">
-                            <span class="color-text">White</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('all-p5', 'Images/R2.png', 'all-p5-text', 'Blue', this)">
-                            <img class="color-thumb" src="Images/R2.png" alt="Blue">
-                            <span class="color-text">Blue</span>
-                        </div>
-                        <div class="color-item" onclick="changeImage('all-p5', 'Images/R3.png', 'all-p5-text', 'Emerald', this)">
-                            <img class="color-thumb" src="Images/R3.png" alt="Emerald">
-                            <span class="color-text">Emerald</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Rolex Day-Date Luxury Watch', 999, 'all-p5-text', 'all-p5', 'White')">Order Now</button>
-            </div>
-        </div>
-
         <!-- Hublot Classic Fusion -->
         <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion">
+                <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Classic Fusion</div>
@@ -1399,15 +1354,15 @@
                     <span class="color-label">কালার: <span id="all-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p1', 'Images/Black1.jpg', 'all-p1-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/Black1.jpg" alt="Black">
+                            <img class="color-thumb" src="Images/Black1.jpg" alt="Black" loading="lazy">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p1', 'Images/Silver1.jpg', 'all-p1-text', 'Silver', this)">
-                            <img class="color-thumb" src="Images/Silver1.jpg" alt="Silver">
+                            <img class="color-thumb" src="Images/Silver1.jpg" alt="Silver" loading="lazy">
                             <span class="color-text">Silver</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p1', 'Images/silverandblack.jpg', 'all-p1-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silverandblack.jpg" alt="Silver and Black">
+                            <img class="color-thumb" src="Images/silverandblack.jpg" alt="Silver and Black" loading="lazy">
                             <span class="color-text">Silver & Black</span>
                         </div>
                     </div>
@@ -1416,10 +1371,41 @@
             </div>
         </div>
 
+        <!-- Rolex Day-Date Luxury Watch -->
+        <div class="product-card" onclick="openProductQuickView(this, event)">
+            <div class="product-img-wrapper">
+                <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Rolex Day-Date Luxury Watch</div>
+                <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
+                <div class="product-price" data-price="999"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
+                
+                <div class="color-selection" onclick="event.stopPropagation()">
+                    <span class="color-label">কালার: <span id="all-p5-text" class="selected-color-name">White</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('all-p5', 'Images/R1.png', 'all-p5-text', 'White', this)">
+                            <img class="color-thumb" src="Images/R1.png" alt="White" loading="lazy">
+                            <span class="color-text">White</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p5', 'Images/R2.png', 'all-p5-text', 'Blue', this)">
+                            <img class="color-thumb" src="Images/R2.png" alt="Blue" loading="lazy">
+                            <span class="color-text">Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p5', 'Images/R3.png', 'all-p5-text', 'Emerald', this)">
+                            <img class="color-thumb" src="Images/R3.png" alt="Emerald" loading="lazy">
+                            <span class="color-text">Emerald</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Rolex Day-Date Luxury Watch', 999, 'all-p5-text', 'all-p5', 'White')">Order Now</button>
+            </div>
+        </div>
+
         <!-- Hublot Skeleton -->
         <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton">
+                <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
                 <div class="product-title">Hublot Classic Fusion Skeleton Tourbillon</div>
@@ -1430,27 +1416,27 @@
                     <span class="color-label">কালার: <span id="all-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p2', 'Images/black.jpg', 'all-p2-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/black.jpg" alt="Black">
+                            <img class="color-thumb" src="Images/black.jpg" alt="Black" loading="lazy">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-gray.jpg', 'all-p2-text', 'Silver & Gray', this)">
-                            <img class="color-thumb" src="Images/silver-gray.jpg" alt="Silver Gray">
+                            <img class="color-thumb" src="Images/silver-gray.jpg" alt="Silver Gray" loading="lazy">
                             <span class="color-text">Silver & Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-black.jpg', 'all-p2-text', 'Silver & Black', this)">
-                            <img class="color-thumb" src="Images/silver-black.jpg" alt="Silver Black">
+                            <img class="color-thumb" src="Images/silver-black.jpg" alt="Silver Black" loading="lazy">
                             <span class="color-text">Silver & Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-blue.jpg', 'all-p2-text', 'Silver & Blue', this)">
-                            <img class="color-thumb" src="Images/silver-blue.jpg" alt="Silver Blue">
+                            <img class="color-thumb" src="Images/silver-blue.jpg" alt="Silver Blue" loading="lazy">
                             <span class="color-text">Silver & Blue</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-black2.jpg', 'all-p2-text', 'Silver & Black 2', this)">
-                            <img class="color-thumb" src="Images/silver-black2.jpg" alt="Silver Black 2">
+                            <img class="color-thumb" src="Images/silver-black2.jpg" alt="Silver Black 2" loading="lazy">
                             <span class="color-text">Silver & Black 2</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p2', 'Images/silver-golden2.jpg', 'all-p2-text', 'Silver & Golden', this)">
-                            <img class="color-thumb" src="Images/silver-golden2.jpg" alt="Silver Golden">
+                            <img class="color-thumb" src="Images/silver-golden2.jpg" alt="Silver Golden" loading="lazy">
                             <span class="color-text">Silver & Golden</span>
                         </div>
                     </div>
@@ -1462,7 +1448,7 @@
         <!-- HUBLOT Big Bang Chronograph -->
         <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph">
+                <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
                 <div class="product-title">HUBLOT Big Bang Chronograph</div>
@@ -1473,15 +1459,15 @@
                     <span class="color-label">কালার: <span id="all-p4-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p4', 'Images/gray.jpg', 'all-p4-text', 'Gray', this)">
-                            <img class="color-thumb" src="Images/gray.jpg" alt="Gray">
+                            <img class="color-thumb" src="Images/gray.jpg" alt="Gray" loading="lazy">
                             <span class="color-text">Gray</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p4', 'Images/green.jpg', 'all-p4-text', 'Green', this)">
-                            <img class="color-thumb" src="Images/green.jpg" alt="Green">
+                            <img class="color-thumb" src="Images/green.jpg" alt="Green" loading="lazy">
                             <span class="color-text">Green</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p4', 'Images/golden.jpg', 'all-p4-text', 'Golden', this)">
-                            <img class="color-thumb" src="Images/golden.jpg" alt="Golden">
+                            <img class="color-thumb" src="Images/golden.jpg" alt="Golden" loading="lazy">
                             <span class="color-text">Golden</span>
                         </div>
                     </div>
@@ -1493,7 +1479,7 @@
         <!-- Binbond Business Luxury -->
         <div class="product-card" onclick="openProductQuickView(this, event)">
             <div class="product-img-wrapper">
-                <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men">
+                <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
                 <div class="product-title">BINBOND Business Luxury Men’s</div>
@@ -1504,15 +1490,15 @@
                     <span class="color-label">কালার: <span id="all-p3-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p3', 'Images/chain-black.png', 'all-p3-text', 'Black', this)">
-                            <img class="color-thumb" src="Images/chain-black.png" alt="Black">
+                            <img class="color-thumb" src="Images/chain-black.png" alt="Black" loading="lazy">
                             <span class="color-text">Black</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p3', 'Images/chain-white.png', 'all-p3-text', 'White', this)">
-                            <img class="color-thumb" src="Images/chain-white.png" alt="White">
+                            <img class="color-thumb" src="Images/chain-white.png" alt="White" loading="lazy">
                             <span class="color-text">White</span>
                         </div>
                         <div class="color-item" onclick="changeImage('all-p3', 'Images/chain-blue.png', 'all-p3-text', 'Blue', this)">
-                            <img class="color-thumb" src="Images/chain-blue.png" alt="Blue">
+                            <img class="color-thumb" src="Images/chain-blue.png" alt="Blue" loading="lazy">
                             <span class="color-text">Blue</span>
                         </div>
                     </div>
@@ -1531,37 +1517,37 @@
         
         <div class="reviews-container" id="dynamic-reviews-container">
             <div class="review-card">
-                <img src="Images/Black1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                <img src="Images/Black1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
                 <p>"ছবিতে ক্লিক করে কালার দেখার সিস্টেমটি খুব দারুণ। ডেলিভারিও খুব দ্রুত পেয়েছি!"</p>
                 <div class="reviewer-name">- আরিয়ান আহমেদ</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/golden.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                <img src="Images/golden.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
                 <p>"Golden ওয়াচটি বাস্তবে অনেক প্রিমিয়াম লেগেছে। কোয়ালিটি অনেক ভালো।"</p>
                 <div class="reviewer-name">- তানজিম হোসেন</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/chain-black.png" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                <img src="Images/chain-black.png" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
                 <p>"BINBOND ওয়াচটি দারুণ ভাই। মেটাল চেইন এবং ওয়েট একদম অরজিনাল অনূভুতি দেয়।"</p>
                 <div class="reviewer-name">- রাকিব হাসান</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/silver-gray.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                <img src="Images/silver-gray.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
                 <p>"স্ক্যাচ প্রুফ গ্লাস সত্যিই কার্যকরী। প্যাকেজিং অনেক ভালো ছিল, ধন্যবাদ Prohonic!"</p>
                 <div class="reviewer-name">- মোঃ পারভেজ</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/black.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                <img src="Images/black.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
                 <p>"Hublot Skeleton ডায়ালটা একদম জোস! প্রিমিয়াম একটা লুক দেয়।"</p>
                 <div class="reviewer-name">- শামীম ওসমান</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="review-card">
-                <img src="Images/Silver1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)">
+                <img src="Images/Silver1.jpg" class="customer-watch-img" alt="Review" onclick="openQuickView(this.src)" loading="lazy">
                 <p>"ঢাকার বাইরে থেকেও মাত্র ২ দিনে পার্সেল হাতে পেয়েছি। ক্যাশ অন ডেলিভারিতে চেক করে নিতে পেরে খুব ভালো লাগলো।"</p>
                 <div class="reviewer-name">- সাজ্জাদুল ইসলাম</div>
                 <div class="stars">★★★★★</div>
@@ -1671,12 +1657,12 @@
                 </div>
 
                 <div class="bill-summary">
-                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name" style="color:#fff;">Rolex Day-Date Luxury Watch</strong></div>
-                    <div class="bill-row"><span>কালার:</span><strong id="summary-color" style="color:#fff;">White</strong></div>
+                    <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name" style="color:#fff;">HUBLOT Classic Fusion</strong></div>
+                    <div class="bill-row"><span>কালার:</span><strong id="summary-color" style="color:#fff;">Black</strong></div>
                     <div class="bill-row"><span>পরিমাণ:</span><strong id="summary-qty" style="color:#fff;">1টি</strong></div>
-                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">999</span></span></div>
+                    <div class="bill-row"><span>পণ্যের দাম:</span><span>৳ <span id="summary-price">950</span></span></div>
                     <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">80</span></span></div>
-                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">1079</span></span></div>
+                    <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">1030</span></span></div>
                 </div>
 
                 <button type="submit" id="submit-btn" class="btn-order-now">অর্ডার নিশ্চিত করুন</button>
@@ -1793,10 +1779,10 @@
         const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
         const TELEGRAM_CHAT_ID = "-1003956122715";
 
-        let currentProductPrice = 999;
-        let selectedColorName = "White";
-        let currentProductName = "Rolex Day-Date Luxury Watch";
-        let currentProductImage = "Images/R1.png";
+        let currentProductPrice = 950;
+        let selectedColorName = "Black";
+        let currentProductName = "HUBLOT Classic Fusion";
+        let currentProductImage = "Images/Black1.jpg";
         let currentQuantity = 1;
 
         let activeColors = {};
@@ -1871,7 +1857,7 @@
             const priceAttr = priceElem.getAttribute('data-price');
             
             currentProductName = title;
-            currentProductPrice = parseInt(priceAttr || 999);
+            currentProductPrice = parseInt(priceAttr || 950);
             currentProductImage = imgSrc;
 
             document.getElementById('qv-product-title').innerText = title;
