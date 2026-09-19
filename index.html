@@ -2022,22 +2022,29 @@
             }
         }
 
-        // Open Product Feature Modal Only
+        // Open Product Feature Modal Only (গুণগতমান দেখুন)
         function openProductFeatureModal(cardElement) {
             let title = cardElement.querySelector('.product-title').innerText;
             
             document.getElementById('feature-modal-title').innerText = title + ' - গুণগতমান ও বৈশিষ্ট্য';
 
             let featuresHTML = '<h4>মূল বৈশিষ্ট্যসমূহ:</h4><ul>';
-            if (title.includes('HUBLOT')) {
-                featuresHTML += '<li>১০০% প্রিমিয়াম স্টেইনলেস স্টিল ও স্ক্র্যাচ-প্রুফ গ্লাস।</li>';
-                featuresHTML += '<li>হাই-কোয়ালিটি কোয়ার্টজ মুভমেন্ট যা সঠিক সময় নিশ্চিত করে।</li>';
-                featuresHTML += '<li>ওয়াটার রেজিস্ট্যান্ট ও সফট আরামদায়ক সিলিকন/রাবার স্ট্র্যাপ।</li>';
-            } else if (title.includes('Rolex')) {
-                featuresHTML += '<li>রয়্যাল ডিজাইন ও স্যাফায়ার ক্রিস্টাল স্ক্র্যাচপ্রুফ গ্লাস।</li>';
-                featuresHTML += '<li>হেভি মেটাল চেইন ও রয়্যাল ফিনিশিং।</li>';
-                featuresHTML += '<li>লং-লাস্টিং ব্যাটারি লাইফ ও অটো-ডেট ডিসপ্লে।</li>';
-            } else if (title.includes('BINBOND')) {
+            if (title.toLowerCase().includes('hublot')) {
+                featuresHTML += '<li>কেস ম্যাটেরিয়াল: প্রিমিয়াম গ্রেড অ্যালয় কেস এবং স্টেইনলেস স্টিল ব্যাক কভার।</li>';
+                featuresHTML += '<li>স্ট্র্যাপ ম্যাটেরিয়াল: প্রিমিয়াম সফট সিলিকন / রাবার স্ট্র্যাপ (দীর্ঘস্থায়ী ও আরামদায়ক)।</li>';
+                featuresHTML += '<li>গ্লাস: স্ক্র্যাচ-রেজিস্ট্যান্স হার্ড মিনারেল ক্রিস্টাল গ্লাস।</li>';
+                featuresHTML += '<li>মুভমেন্ট: হাই-প্রিসিশন জাপানিজ কোয়ার্টজ মুভমেন্ট।</li>';
+                featuresHTML += '<li>ওয়াটার রেজিস্ট্যান্স: ডেইলি লাইফ ওয়াটার রেজিস্ট্যান্ট (হাত ধোয়া বা বৃষ্টির পানির ছিটা থেকে সুরক্ষিত)।</li>';
+                featuresHTML += '<li>ওজন ও সাইজ: হালকা এবং হাতে ফিট হওয়ার উপযোগী (প্রায় ১০০-১০ গ্রাম)।</li>';
+            } else if (title.toLowerCase().includes('rolex')) {
+                featuresHTML += '<li>রেডিয়াম ডায়াল (Luminous Hands): অন্ধকারে সময় স্পষ্ট দেখার জন্য হ্যান্ডস ও মার্করে রেডিয়াম/লুমিনাস সুবিধা।</li>';
+                featuresHTML += '<li>১০০% ওয়াটার প্রুফ: হাত ধোয়া বা পানিতে ভেজার ক্ষেত্রে সম্পূর্ণ সুরক্ষিত।</li>';
+                featuresHTML += '<li>টু-টোন ফিনিশিং: আকর্ষণীয় সিলভার ও গোল্ডেন কম্বিনেশনের বডি ও স্ট্র্যাপ।</li>';
+                featuresHTML += '<li>হানিফ্লেক ডায়াল: ডায়ালে ইউনিক ষড়ভুজ টেক্সচার্ড ডিজাইন।</li>';
+                featuresHTML += '<li>ডেট ডিসপ্লে: ৩টার জায়গায় তারিখ স্পষ্টভাবে দেখার ম্যাগনিফায়িং লেন্স।</li>';
+                featuresHTML += '<li>ফ্লুটেড বেজেল: গোল্ডেন রঙের খাঁজকাটা বেজেল, যা প্রিমিয়াম লুক দেয়।</li>';
+                featuresHTML += '<li>সিগনেচার ট্যাগ: সাথে ব্র্যান্ডের গ্রিন অ্যান্ড গোল্ডেন হ্যাং ট্যাগ।</li>';
+            } else if (title.toLowerCase().includes('binbond')) {
                 featuresHTML += '<li>বিজনেস লাক্সারি ক্লাসিক মেটালিক বডি।</li>';
                 featuresHTML += '<li>ওয়াটারপ্রুফ কেসিং ও ওয়াটারপ্রুফ মেটাল স্ট্র্যাপ।</li>';
                 featuresHTML += '<li>দৈনন্দিন ও ফরমাল ব্যবহারের জন্য দীর্ঘস্থায়ী টেকসই ওয়াচ।</li>';
