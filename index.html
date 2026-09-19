@@ -257,14 +257,13 @@
             flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
-            cursor: pointer;
-            will-change: transform;
+            cursor: default;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.22);
-            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
         }
 
         .product-card.coming-soon-card {
@@ -275,7 +274,6 @@
             border: 2px dashed rgba(212, 175, 55, 0.25);
             text-align: center;
             padding: 30px 20px;
-            cursor: default;
         }
 
         .coming-soon-card .cs-icon {
@@ -313,7 +311,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s ease, opacity 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .product-card:hover .product-img {
@@ -351,7 +349,7 @@
             font-weight: 800;
             font-family: 'Cinzel', serif;
             color: #f3e5ab;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
@@ -361,6 +359,60 @@
             text-decoration: line-through;
             margin-right: 8px;
             font-weight: 400;
+        }
+
+        /* Card Quantity Selector */
+        .card-quantity-wrapper {
+            margin-bottom: 16px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-qty-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        .card-qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-qty-btn {
+            background: #232730;
+            border: 1px solid #d4af37;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-qty-btn:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        .card-qty-val {
+            font-size: 16px;
+            font-weight: bold;
+            color: #f3e5ab;
+            min-width: 24px;
+            text-align: center;
         }
 
         .color-selection {
@@ -436,23 +488,29 @@
             font-weight: 700;
         }
 
-        .btn-order-now {
+        .product-action-btns {
             margin-top: auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-order-now {
+            flex: 1;
             display: block;
             width: 100%;
             background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
             color: #0d0f12;
-            padding: 14px 0;
-            font-size: 1rem;
+            padding: 12px 0;
+            font-size: 0.95rem;
             font-weight: 800;
             border-radius: 8px;
             transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
             text-align: center;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
-            text-transform: uppercase;
             position: relative;
             overflow: hidden;
         }
@@ -460,6 +518,28 @@
         .btn-order-now:hover {
             background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
             box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-view-details {
+            flex: 1;
+            display: block;
+            background: transparent;
+            color: #d4af37;
+            padding: 12px 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid #d4af37;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-view-details:hover {
+            background: rgba(212, 175, 55, 0.15);
+            color: #f3e5ab;
             transform: translateY(-2px);
         }
 
@@ -498,79 +578,37 @@
             border: 1px solid rgba(212, 175, 55, 0.4);
         }
 
-        /* Product Quick View Popup Modal */
-        .quick-view-container {
+        /* Product Feature Only Modal */
+        .feature-modal-container {
             background: #14171d;
             color: #fff;
             width: 100%;
-            max-width: 850px;
+            max-width: 550px;
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.9);
             position: relative;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
             border: 1px solid rgba(212, 175, 55, 0.4);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
         }
 
-        .qv-left-img-box {
-            width: 100%;
-            height: 100%;
-            min-height: 300px;
-            max-height: 400px;
-            background: #050608;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .qv-left-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .qv-right-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .qv-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .qv-desc {
-            font-size: 13px;
-            color: #aaa;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        /* QUICK VIEW FEATURE SECTION STYLES */
         .qv-features {
             margin-bottom: 15px;
-            padding: 12px;
+            padding: 15px;
             background: rgba(0, 0, 0, 0.4);
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .qv-features h4 {
             color: #d4af37;
-            font-size: 14px;
-            margin-bottom: 8px;
+            font-size: 16px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+            padding-bottom: 6px;
         }
 
         .qv-features ul {
@@ -579,60 +617,20 @@
         }
 
         .qv-features li {
-            font-size: 13px;
+            font-size: 14px;
             color: #ccc;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
-            gap: 8px;
+            gap: 10px;
             line-height: 1.5;
         }
 
         .qv-features li::before {
             content: "✔";
             color: #d4af37;
-            font-size: 12px;
-            margin-top: 2px;
-        }
-
-        .qv-price {
-            font-size: 26px;
-            font-weight: 800;
-            font-family: 'Cinzel', serif;
-            color: #f3e5ab;
-            margin-bottom: 18px;
-        }
-
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .quantity-btn {
-            background: #232730;
-            border: 1px solid #d4af37;
-            color: #fff;
-            width: 35px;
-            height: 35px;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .quantity-btn:hover {
-            background: #d4af37;
-            color: #000;
-        }
-
-        .quantity-val {
-            font-size: 18px;
-            font-weight: bold;
-            min-width: 30px;
-            text-align: center;
+            font-size: 14px;
+            margin-top: 1px;
         }
 
         .close-btn {
@@ -979,14 +977,6 @@
                 gap: 15px; 
             }
         }
-        @media (max-width: 768px) {
-            .quick-view-container {
-                grid-template-columns: 1fr;
-            }
-            .qv-left-img-box {
-                max-height: 250px;
-            }
-        }
         @media (max-width: 600px) {
             .logo-text {
                 font-size: 20px;
@@ -1029,6 +1019,21 @@
                 font-size: 18px;
                 margin-bottom: 10px;
             }
+            .card-quantity-wrapper {
+                padding: 8px 10px;
+                margin-bottom: 12px;
+            }
+            .card-qty-label {
+                font-size: 11px;
+            }
+            .card-qty-btn {
+                width: 26px;
+                height: 26px;
+                font-size: 14px;
+            }
+            .card-qty-val {
+                font-size: 14px;
+            }
             .color-selection {
                 padding: 10px 12px;
                 margin-bottom: 14px;
@@ -1047,9 +1052,13 @@
                 font-size: 11px;
                 font-weight: 700;
             }
-            .btn-order-now {
-                padding: 11px 0;
-                font-size: 0.85rem;
+            .product-action-btns {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn-order-now, .btn-view-details {
+                padding: 10px 0;
+                font-size: 0.8rem;
             }
             .offer-timer-banner h3 {
                 font-size: 14px;
@@ -1159,7 +1168,7 @@
 
     <div class="product-grid">
         <!-- Card 1 -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="cat1-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion Watch" loading="lazy" decoding="async">
             </div>
@@ -1168,7 +1177,17 @@
                 <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
                 <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <!-- Price er niche Quantity Option -->
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="c1-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p1', 'Images/Black1.jpg', 'c1-p1-text', 'Black', this)">
@@ -1185,12 +1204,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Classic Fusion', 950, 'c1-p1-text', 'cat1-p1', 'Black')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'c1-p1-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
         <!-- Card 2 -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="cat1-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton Watch" loading="lazy" decoding="async">
             </div>
@@ -1199,7 +1221,16 @@
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি এই ঘড়িটিতে রয়েছে আকর্ষণীয় স্কেলিটন ডায়াল।</div>
                 <div class="product-price" data-price="1099">৳ ১০৯৯</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="c1-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p2', 'Images/black.jpg', 'c1-p2-text', 'Black', this)">
@@ -1228,12 +1259,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'c1-p2-text', 'cat1-p2', 'Black')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'c1-p2-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
         <!-- Card 3 -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="cat1-p3" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph Watch" loading="lazy" decoding="async">
             </div>
@@ -1242,7 +1276,16 @@
                 <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
                 <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="c1-p3-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat1-p3', 'Images/gray.jpg', 'c1-p3-text', 'Gray', this)">
@@ -1259,7 +1302,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'c1-p3-text', 'cat1-p3', 'Gray')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'c1-p3-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1273,7 +1319,7 @@
 
     <div class="product-grid">
         <!-- Rolex Available Card -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
             </div>
@@ -1282,7 +1328,16 @@
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
                 <div class="product-price" data-price="999"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="c3-p1-text" class="selected-color-name">White</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat3-p1', 'Images/R1.png', 'c3-p1-text', 'White', this)">
@@ -1299,7 +1354,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Rolex Day-Date Luxury Watch', 999, 'c3-p1-text', 'cat3-p1', 'White')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'c3-p1-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
@@ -1324,7 +1382,7 @@
     </div>
 
     <div class="product-grid">
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="cat2-p1" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men Watch" loading="lazy" decoding="async">
             </div>
@@ -1333,7 +1391,16 @@
                 <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ—ফরমাল ও ডেলি ওয়্যারের জন্য সেরা।</div>
                 <div class="product-price" data-price="799">৳ ৭৯৯</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="c2-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('cat2-p1', 'Images/chain-black.png', 'c2-p1-text', 'Black', this)">
@@ -1354,7 +1421,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('BINBOND Business Luxury Men’s', 799, 'c2-p1-text', 'cat2-p1', 'Black')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'c2-p1-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
@@ -1380,7 +1450,7 @@
 
     <div class="product-grid">
         <!-- Hublot Classic Fusion -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion" loading="lazy" decoding="async">
             </div>
@@ -1389,7 +1459,16 @@
                 <div class="product-desc">প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</div>
                 <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="all-p1-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p1', 'Images/Black1.jpg', 'all-p1-text', 'Black', this)">
@@ -1406,12 +1485,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Classic Fusion', 950, 'all-p1-text', 'all-p1', 'Black')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'all-p1-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
         <!-- Rolex Day-Date Luxury Watch -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
             </div>
@@ -1420,7 +1502,16 @@
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল চেইন, স্যাফায়ার ক্রিস্টাল গ্লাস এবং সিগনেচার মেটালিক ফিনিশিং সহ রোলেক্সের রয়্যাল ক্লাসিক ওয়াচ।</div>
                 <div class="product-price" data-price="999"><span class="regular-price">৳ ১২০০</span>৳ ৯৯৯</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="all-p5-text" class="selected-color-name">White</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p5', 'Images/R1.png', 'all-p5-text', 'White', this)">
@@ -1437,12 +1528,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Rolex Day-Date Luxury Watch', 999, 'all-p5-text', 'all-p5', 'White')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'all-p5-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
         <!-- Hublot Skeleton -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton" loading="lazy" decoding="async">
             </div>
@@ -1451,7 +1545,16 @@
                 <div class="product-desc">প্রিমিয়াম স্টেইনলেস স্টিল কেস ও স্ক্র্যাচ-রেজিস্ট্যান্ট স্যাফায়ার ক্রিস্টাল গ্লাসে তৈরি ঘড়ি।</div>
                 <div class="product-price" data-price="1099">৳ ১০৯৯</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="all-p2-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p2', 'Images/black.jpg', 'all-p2-text', 'Black', this)">
@@ -1480,12 +1583,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('Hublot Classic Fusion Skeleton Tourbillon', 1099, 'all-p2-text', 'all-p2', 'Black')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'all-p2-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
         <!-- HUBLOT Big Bang Chronograph -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph" loading="lazy" decoding="async">
             </div>
@@ -1494,7 +1600,16 @@
                 <div class="product-desc">প্রিমিয়াম ক্রোনোগ্রাফ ফিচার, ওয়াটারপ্রুফ বডি এবং গর্জিয়াস মেটালিক ফিনিশিং।</div>
                 <div class="product-price" data-price="950">৳ ৯৫০</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="all-p4-text" class="selected-color-name">Gray</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p4', 'Images/gray.jpg', 'all-p4-text', 'Gray', this)">
@@ -1511,12 +1626,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('HUBLOT Big Bang Chronograph', 950, 'all-p4-text', 'all-p4', 'Gray')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'all-p4-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
 
         <!-- Binbond Business Luxury -->
-        <div class="product-card" onclick="openProductQuickView(this, event)">
+        <div class="product-card">
             <div class="product-img-wrapper">
                 <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men" loading="lazy" decoding="async">
             </div>
@@ -1525,7 +1643,16 @@
                 <div class="product-desc">প্রিমিয়াম মেটালিক ফিনিশিং ও ডেট ডিসপ্লেসহ BINBOND-এর এলিগ্যান্ট ক্লাসিক ওয়াচ।</div>
                 <div class="product-price" data-price="799">৳ ৭৯৯</div>
                 
-                <div class="color-selection" onclick="event.stopPropagation()">
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
                     <span class="color-label">কালার: <span id="all-p3-text" class="selected-color-name">Black</span></span>
                     <div class="color-options">
                         <div class="color-item active" onclick="changeImage('all-p3', 'Images/chain-black.png', 'all-p3-text', 'Black', this)">
@@ -1542,7 +1669,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-order-now" onclick="event.stopPropagation(); openOrderModal('BINBOND Business Luxury Men’s', 799, 'all-p3-text', 'all-p3', 'Black')">Order Now</button>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'all-p3-text')">অর্ডার করুন</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1622,40 +1752,12 @@
         </div>
     </footer>
 
-    <!-- PRODUCT QUICK VIEW POPUP MODAL -->
-    <div class="modal-overlay" id="productQuickViewModal">
-        <div class="quick-view-container">
-            <button class="close-btn" onclick="closeProductQuickView()">&times;</button>
-            
-            <div class="qv-left-img-box">
-                <img id="qv-product-img" src="" alt="Product Image">
-            </div>
-
-            <div class="qv-right-info">
-                <h2 id="qv-product-title" class="qv-title"></h2>
-                <div id="qv-product-desc" class="qv-desc"></div>
-                
-                <!-- Dynamic Product Feature Section -->
-                <div id="qv-product-features" class="qv-features"></div>
-
-                <div id="qv-product-price" class="qv-price"></div>
-
-                <div class="form-group" style="margin-bottom: 15px;">
-                    <label>পরিমাণ (Quantity):</label>
-                    <div class="quantity-control">
-                        <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
-                        <span id="qv-quantity-val" class="quantity-val">1</span>
-                        <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>কালার সিলেক্ট করুন:</label>
-                    <div id="qv-color-container" class="color-options" style="margin-top: 8px;"></div>
-                </div>
-
-                <button class="btn-order-now" style="margin-top: 20px;" onclick="proceedToOrderFromQV()">Order Now</button>
-            </div>
+    <!-- PRODUCT FEATURE POPUP MODAL (SHUDHU GUNOGOTOMAN POPUP) -->
+    <div class="modal-overlay" id="productFeatureModal">
+        <div class="feature-modal-container">
+            <button class="close-btn" onclick="closeProductFeatureModal()">&times;</button>
+            <h3 class="modal-title" id="feature-modal-title">পণ্যের গুণগতমান</h3>
+            <div id="feature-modal-content" class="qv-features"></div>
         </div>
     </div>
 
@@ -1770,20 +1872,12 @@
     <div class="modal-overlay" id="shippingModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('shippingModal')">&times;</button>
-            <h2>Shipping Policy (শিপিং পলিসি)</h2>
-            <p>আমাদের শপ থেকে পণ্য অর্ডারের ক্ষেত্রে ডেলিভারি সংক্রান্ত নিয়মাবলী নিচে দেওয়া হলো:</p>
-            
-            <h4>ডেলিভারি সময়সীমা:</h4>
+            <h2>Shipping Policy</h2>
+            <p>আমাদের শিপিং ব্যবস্থা অত্যন্ত দ্রুত এবং নিরাপদ।</p>
             <ul>
-                <li><strong>ঢাকার ভেতরে:</strong> ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি।</li>
-                <li><strong>ঢাকার বাইরে:</strong> ২ থেকে ৩ কর্মদিবসের মধ্যে ডেলিভারি।</li>
-            </ul>
-
-            <h4>ডেলিভারি চার্জ:</h4>
-            <ul>
-                <li>ঢাকার ভেতরে: <strong>৳৮০</strong></li>
-                <li>সাব ঢাকা: <strong>৳১২০</strong></li>
-                <li>ঢাকার বাইরে: <strong>৳১৩০</strong></li>
+                <li>ঢাকার ভেতরে ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ক্যাশ অন ডেলিভারি দেওয়া হয়।</li>
+                <li>ঢাকার বাইরে এবং সাব-ঢাকায় ২ থেকে ৩ কার্যদিবসের মধ্যে ডেলিভারি দেওয়া হয়।</li>
+                <li>ডেলিভারিম্যান এর সামনে পার্সেলটি চেক করে দেখার সুযোগ রয়েছে।</li>
             </ul>
         </div>
     </div>
@@ -1791,10 +1885,11 @@
     <div class="modal-overlay" id="paymentModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('paymentModal')">&times;</button>
-            <h2>Payment Terms & Cash on Delivery Rules</h2>
-            <p>আমাদের শপে ক্যাশ অন ডেলিভারি (COD) সুবিধা রয়েছে।</p>
+            <h2>Payment & COD Rules</h2>
+            <p>আমরা নিরাপদ পেমেন্ট নিশ্চিত করতে ক্যাশ অন ডেলিভারি গ্রহণ করি।</p>
             <ul>
-                <li>পণ্য হাতে পেয়ে চেক করে মূল্য পরিশোধ করার সুবিধা রয়েছে।</li>
+                <li>পণ্য হাতে পাওয়ার পর মূল্য পরিশোধ করার সুবিধা।</li>
+                <li>ডেলিভারি চার্জ অগ্রিম দেওয়ার প্রয়োজন নেই (শর্ত প্রযোজ্য)।</li>
             </ul>
         </div>
     </div>
@@ -1803,7 +1898,11 @@
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('returnModal')">&times;</button>
             <h2>Return & Refund Policy</h2>
-            <p>পণ্য গ্রহণের পর কোনো সমস্যা থাকলে ডেলিভারিম্যানের সামনে চেক করে সাথে সাথেই রিটার্ন দিতে পারবেন।</p>
+            <p>পণ্য গ্রহণের সময় কোনো ধরনের সমস্যা বা ত্রুটি থাকলে সাথে সাথেই রিটার্ন করতে পারবেন।</p>
+            <ul>
+                <li>ডেলিভারিম্যানের সামনে ঘড়িটি চেক করুন, কোনো সমস্যা থাকলে সাথে সাথে ফেরত দিন।</li>
+                <li>গ্রাহক সন্তুষ্টি অনুযায়ী সহজ রিপ্লেসমেন্ট পলিসি প্রযোজ্য।</li>
+            </ul>
         </div>
     </div>
 
@@ -1811,224 +1910,103 @@
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('contactModal')">&times;</button>
             <h2>Contact Information</h2>
-            <ul>
-                <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1338-346890</li>
-                <li><strong>ইমেইল:</strong> prohonicofficial@gmail.com</li>
-            </ul>
+            <p>যে কোনো অনুসন্ধানের জন্য আমাদের সাথে যোগাযোগ করতে পারেন:</p>
+            <p>📞 হেল্পলাইন: 01338-346890</p>
+            <p>✉️ ইমেইল: prohonicofficial@gmail.com</p>
+            <p>📍 ঢাকা, বাংলাদেশ</p>
         </div>
     </div>
 
     <script>
-        const TELEGRAM_BOT_TOKEN = "8979192201:AAGk35Y_qb8nSZyDHnUlJ-X-vCr_jF2YRrA";
-        const TELEGRAM_CHAT_ID = "-1003956122715";
+        let currentProduct = {};
 
-        let currentProductPrice = 950;
-        let selectedColorName = "Black";
-        let currentProductName = "HUBLOT Classic Fusion";
-        let currentProductImage = "Images/Black1.jpg";
-        let currentQuantity = 1;
-
-        let activeColors = {};
-
-        function startDailyLoopTimer() {
-            function updateTimer() {
-                const now = new Date();
-                const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-                const diff = endOfDay - now;
-
-                if (diff <= 0) {
-                    document.getElementById("hours").innerText = "23";
-                    document.getElementById("minutes").innerText = "59";
-                    document.getElementById("seconds").innerText = "59";
-                    return;
-                }
-
-                const hrs = Math.floor(diff / (1000 * 60 * 60));
-                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById("hours").innerText = hrs < 10 ? "0" + hrs : hrs;
-                document.getElementById("minutes").innerText = mins < 10 ? "0" + mins : mins;
-                document.getElementById("seconds").innerText = secs < 10 ? "0" + secs : secs;
-            }
-
-            updateTimer();
-            setInterval(updateTimer, 1000);
+        // Change Quantity on Card
+        function changeCardQuantity(btnElement, delta) {
+            let qtyValSpan = btnElement.parentElement.querySelector('.card-qty-val');
+            let currentQty = parseInt(qtyValSpan.innerText) || 1;
+            currentQty += delta;
+            if (currentQty < 1) currentQty = 1;
+            qtyValSpan.innerText = currentQty;
         }
 
-        window.onload = function() {
-            startDailyLoopTimer();
-        };
-
-        function changeImage(imageId, newSrc, colorTextId, colorName, element) {
-            var imgElement = document.getElementById(imageId);
-            var colorTextElement = document.getElementById(colorTextId);
-            
-            if(imgElement) {
-                imgElement.style.opacity = '0.3'; 
-                setTimeout(function() {
-                    imgElement.src = newSrc;
-                    imgElement.style.opacity = '1'; 
-                }, 150);
+        // Image change function
+        function changeImage(imgId, newSrc, textId, colorName, element) {
+            document.getElementById(imgId).src = newSrc;
+            if(textId) {
+                document.getElementById(textId).innerText = colorName;
             }
-            
-            if(colorTextElement) {
-                colorTextElement.innerText = colorName;
-            }
-
-            activeColors[imageId] = colorName;
-
-            if(element && element.parentElement) {
-                var siblings = element.parentElement.children;
-                for (var i = 0; i < siblings.length; i++) {
-                    siblings[i].classList.remove('active');
-                }
+            if(element) {
+                let options = element.parentElement.querySelectorAll('.color-item');
+                options.forEach(opt => opt.classList.remove('active'));
                 element.classList.add('active');
             }
         }
 
-        /* PRODUCT QUICK VIEW MODAL LOGIC WITH PRODUCT FEATURES */
-        function openProductQuickView(cardElement, event) {
-            currentQuantity = 1;
-            document.getElementById('qv-quantity-val').innerText = currentQuantity;
-
-            const title = cardElement.querySelector('.product-title').innerText;
-            const desc = cardElement.querySelector('.product-desc').innerText;
-            const imgElement = cardElement.querySelector('.product-img');
-            const imgSrc = imgElement.src;
-            const priceElem = cardElement.querySelector('.product-price');
-            const priceAttr = priceElem.getAttribute('data-price');
+        // Open Product Feature Modal Only
+        function openProductFeatureModal(cardElement) {
+            let title = cardElement.querySelector('.product-title').innerText;
             
-            currentProductName = title;
-            currentProductPrice = parseInt(priceAttr || 950);
-            currentProductImage = imgSrc;
+            document.getElementById('feature-modal-title').innerText = title + ' - গুণগতমান ও বৈশিষ্ট্য';
 
-            document.getElementById('qv-product-title').innerText = title;
-            document.getElementById('qv-product-desc').innerText = desc;
-            document.getElementById('qv-product-price').innerHTML = priceElem.innerHTML;
-            document.getElementById('qv-product-img').src = imgSrc;
-
-            /* PRODUCT FEATURE GENERATION LOGIC */
-            const featuresContainer = document.getElementById('qv-product-features');
-            let featuresHTML = '<h4>Product Features:</h4><ul>';
-
-            const titleLower = title.toLowerCase();
-
-            if (titleLower.includes('rolex')) {
-                featuresHTML += `
-                    <li>100% water proof</li>
-                    <li>stainless steel</li>
-                    <li>butterfly lock</li>
-                `;
-            } else if (titleLower.includes('hublot')) {
-                featuresHTML += `
-                    <li>কেস ম্যাটেরিয়াল: প্রিমিয়াম গ্রেড অ্যালয় কেস এবং স্টেইনলেস স্টিল ব্যাক কভার।</li>
-                    <li>স্ট্র্যাপ ম্যাটেরিয়াল: প্রিমিয়াম সফট সিলিকন / রাবার স্ট্র্যাপ (দীর্ঘস্থায়ী ও আরামদায়ক)।</li>
-                    <li>গ্লাস: স্ক্র্যাচ-রেজিস্ট্যান্স হার্ড মিনারেল ক্রিস্টাল গ্লাস।</li>
-                    <li>মুভমেন্ট: হাই-প্রিসিশন জাপানিজ কোয়ার্টজ মুভমেন্ট।</li>
-                    <li>ওয়াটার রেজিস্ট্যান্স: ডেইলি লাইফ ওয়াটার রেজিস্ট্যান্ট (হাত ধোয়া বা বৃষ্টির পানির ছিটা থেকে সুরক্ষিত)।</li>
-                    <li>ওজন ও সাইজ: হালকা এবং হাতে ফিট হওয়ার উপযোগী (প্রায় ১০০-১১০ গ্রাম)।</li>
-                `;
+            let featuresHTML = '<h4>মূল বৈশিষ্ট্যসমূহ:</h4><ul>';
+            if (title.includes('HUBLOT')) {
+                featuresHTML += '<li>১০০% প্রিমিয়াম স্টেইনলেস স্টিল ও স্ক্র্যাচ-প্রুফ গ্লাস।</li>';
+                featuresHTML += '<li>হাই-কোয়ালিটি কোয়ার্টজ মুভমেন্ট যা সঠিক সময় নিশ্চিত করে।</li>';
+                featuresHTML += '<li>ওয়াটার রেজিস্ট্যান্ট ও সফট আরামদায়ক সিলিকন/রাবার স্ট্র্যাপ।</li>';
+            } else if (title.includes('Rolex')) {
+                featuresHTML += '<li>রয়্যাল ডিজাইন ও স্যাফায়ার ক্রিস্টাল স্ক্র্যাচপ্রুফ গ্লাস।</li>';
+                featuresHTML += '<li>হেভি মেটাল চেইন ও রয়্যাল ফিনিশিং।</li>';
+                featuresHTML += '<li>লং-লাস্টিং ব্যাটারি লাইফ ও অটো-ডেট ডিসপ্লে।</li>';
+            } else if (title.includes('BINBOND')) {
+                featuresHTML += '<li>বিজনেস লাক্সারি ক্লাসিক মেটালিক বডি।</li>';
+                featuresHTML += '<li>ওয়াটারপ্রুফ কেসিং ও ওয়াটারপ্রুফ মেটাল স্ট্র্যাপ।</li>';
+                featuresHTML += '<li>দৈনন্দিন ও ফরমাল ব্যবহারের জন্য দীর্ঘস্থায়ী টেকসই ওয়াচ।</li>';
             } else {
-                featuresHTML += `
-                    <li>প্রিমিয়াম মেটালিক ফিনিশিং বডি।</li>
-                    <li>নির্ভুল সময় গণনার জন্য কোয়ার্টজ মুভমেন্ট।</li>
-                    <li>ডেইলি লাইফ ওয়াটার রেজিস্ট্যান্ট।</li>
-                `;
+                featuresHTML += '<li>অরিজিনাল কোয়ালিটি নিশ্চিতকৃত পণ্য।</li>';
+                featuresHTML += '<li>দীর্ঘস্থায়ী স্থায়িত্ব ও আকর্ষণীয় লাক্সারি ফিনিশিং।</li>';
             }
-
             featuresHTML += '</ul>';
-            featuresContainer.innerHTML = featuresHTML;
 
-            const colorOptionsContainer = cardElement.querySelector('.color-options');
-            const qvColorContainer = document.getElementById('qv-color-container');
-            qvColorContainer.innerHTML = '';
-
-            if(colorOptionsContainer) {
-                const colors = colorOptionsContainer.children;
-                for(let i=0; i<colors.length; i++) {
-                    let clone = colors[i].cloneNode(true);
-                    let colorName = clone.querySelector('.color-text').innerText;
-                    let thumbSrc = clone.querySelector('.color-thumb').src;
-                    
-                    if(clone.classList.contains('active')) {
-                        selectedColorName = colorName;
-                    }
-
-                    clone.onclick = function() {
-                        let sibs = qvColorContainer.children;
-                        for(let j=0; j<sibs.length; j++) sibs[j].classList.remove('active');
-                        clone.classList.add('active');
-                        selectedColorName = colorName;
-                        document.getElementById('qv-product-img').src = thumbSrc;
-                        currentProductImage = thumbSrc;
-                    };
-                    qvColorContainer.appendChild(clone);
-                }
-            }
-
-            document.getElementById('productQuickViewModal').classList.add('active');
+            document.getElementById('feature-modal-content').innerHTML = featuresHTML;
+            document.getElementById('productFeatureModal').classList.add('active');
         }
 
-        function closeProductQuickView() {
-            document.getElementById('productQuickViewModal').classList.remove('active');
+        function closeProductFeatureModal() {
+            document.getElementById('productFeatureModal').classList.remove('active');
         }
 
-        function updateQuantity(change) {
-            currentQuantity += change;
-            if(currentQuantity < 1) currentQuantity = 1;
-            document.getElementById('qv-quantity-val').innerText = currentQuantity;
-        }
-
-        function proceedToOrderFromQV() {
-            closeProductQuickView();
-            openOrderModal(currentProductName, currentProductPrice, null, null, selectedColorName);
-        }
-
-        function openQuickView(imageSrc) {
-            document.getElementById('qv-image').src = imageSrc;
-            document.getElementById('quickViewModal').classList.add('active');
-        }
-
-        function closeQuickView() {
-            document.getElementById('quickViewModal').classList.remove('active');
-        }
-
-        function openPolicyModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-        }
-
-        function closePolicyModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-        }
-
-        function openOrderModal(productName, price, colorElementId, imgElementId, defaultColor) {
-            if (typeof fbq === 'function') {
-                fbq('track', 'InitiateCheckout');
-            }
-
-            currentProductName = productName;
-            currentProductPrice = price;
+        // Open Order Form Modal Directly from Card
+        function openOrderModalFromCard(cardElement, colorElementId) {
+            let title = cardElement.querySelector('.product-title').innerText;
+            let rawPrice = cardElement.querySelector('.product-price').getAttribute('data-price');
+            let price = parseInt(rawPrice);
+            let qty = parseInt(cardElement.querySelector('.card-qty-val').innerText) || 1;
+            let selectedColor = 'Black';
             
-            if (colorElementId && document.getElementById(colorElementId)) {
-                selectedColorName = document.getElementById(colorElementId).innerText.trim();
-            } else if (!selectedColorName) {
-                selectedColorName = defaultColor || "Black";
+            if(colorElementId && document.getElementById(colorElementId)) {
+                selectedColor = document.getElementById(colorElementId).innerText;
             }
 
-            if(imgElementId && document.getElementById(imgElementId)) {
-                currentProductImage = document.getElementById(imgElementId).getAttribute('src');
-            }
+            openOrderModal(title, price, selectedColor, qty);
+        }
+
+        function openOrderModal(productName, price, selectedColor = 'Black', qty = 1) {
+            currentProduct = {
+                title: productName,
+                price: price,
+                selectedColor: selectedColor,
+                qty: qty
+            };
 
             document.getElementById('summary-product-name').innerText = productName;
-            document.getElementById('summary-price').innerText = price * currentQuantity;
-            document.getElementById('summary-color').innerText = selectedColorName;
-            document.getElementById('summary-qty').innerText = currentQuantity + " টি";
+            document.getElementById('summary-color').innerText = selectedColor;
+            document.getElementById('summary-qty').innerText = qty + 'টি';
+            document.getElementById('summary-price').innerText = price * qty;
             
-            updateTotal();
-
             document.getElementById('checkout-form').style.display = 'block';
             document.getElementById('success-message').style.display = 'none';
+
+            updateTotal();
             document.getElementById('orderModal').classList.add('active');
         }
 
@@ -2036,214 +2014,100 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
+        function updateTotal() {
+            let deliveryCharge = parseInt(document.querySelector('input[name="delivery"]:checked').value);
+            let productTotalPrice = currentProduct.price * (currentProduct.qty || 1);
+            let total = productTotalPrice + deliveryCharge;
+
+            document.getElementById('summary-delivery').innerText = deliveryCharge;
+            document.getElementById('summary-total').innerText = total;
+        }
+
+        function autoDetectDeliveryZone() {
+            let addr = document.getElementById('address').value.toLowerCase();
+            if(!addr) return;
+
+            let outsideKeywords = ['chittagong', 'chatogram', 'sylhet', 'rajshahi', 'khulna', 'barisal', 'rangpur', 'mymensingh', 'comilla', 'cumilla', 'gazipur', 'narayanganj', 'bogra', 'bogura', 'feni', 'noakhali'];
+            
+            let isOutside = outsideKeywords.some(keyword => addr.includes(keyword));
+            if(isOutside) {
+                document.getElementById('del-outside').checked = true;
+            } else {
+                document.getElementById('del-inside').checked = true;
+            }
+            updateTotal();
+        }
+
+        function handleOrder(e) {
+            e.preventDefault();
+            let submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = 'অর্ডার প্রসেস হচ্ছে...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                let orderId = 'PRH-' + Math.floor(100000 + Math.random() * 900000);
+                document.getElementById('order-id-display').innerText = 'অর্ডার আইডি: #' + orderId;
+                document.getElementById('checkout-form').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                submitBtn.innerText = 'অর্ডার নিশ্চিত করুন';
+                submitBtn.disabled = false;
+            }, 1000);
+        }
+
+        // Review Modal Handlers
         function openReviewModal() {
             document.getElementById('reviewModal').classList.add('active');
+            document.getElementById('review-form').style.display = 'block';
+            document.getElementById('review-success-msg').style.display = 'none';
         }
 
         function closeReviewModal() {
             document.getElementById('reviewModal').classList.remove('active');
         }
 
-        function handleReviewSubmit(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('review-name').value;
-            const rating = document.getElementById('review-rating').value;
-            const text = document.getElementById('review-text').value;
-            const imageInput = document.getElementById('review-img-file');
-
-            const submitBtn = document.getElementById('review-submit-btn');
-            submitBtn.innerText = "সাবমিট হচ্ছে...";
-            submitBtn.disabled = true;
-
-            const reviewMessage = `💬 *নতুন কাস্টমার রিভিউ এসেছে!* 💬\n\n` +
-                                  `👤 *নাম:* ${name}\n` +
-                                  `⭐ *রেটিং:* ${rating}\n` +
-                                  `📝 *মন্তব্য:* "${text}"`;
-
-            if (imageInput.files && imageInput.files[0]) {
-                const formData = new FormData();
-                formData.append('chat_id', TELEGRAM_CHAT_ID);
-                formData.append('photo', imageInput.files[0]);
-                formData.append('caption', reviewMessage);
-                formData.append('parse_mode', 'Markdown');
-
-                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    submitBtn.innerText = "রিভিউ সাবমিট করুন";
-                    submitBtn.disabled = false;
-                    
-                    if (data.ok) {
-                        document.getElementById('review-form').style.display = 'none';
-                        document.getElementById('review-success-msg').style.display = 'block';
-
-                        setTimeout(() => {
-                            closeReviewModal();
-                            document.getElementById('review-form').reset();
-                            document.getElementById('review-form').style.display = 'block';
-                            document.getElementById('review-success-msg').style.display = 'none';
-                        }, 3000);
-                    } else {
-                        alert('রিভিউ সাবমিট করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
-                    }
-                })
-                .catch(() => {
-                    submitBtn.innerText = "রিভিউ সাবমিট করুন";
-                    submitBtn.disabled = false;
-                    alert('নেটওয়ার্ক সমস্যা! ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।');
-                });
-            } else {
-                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        chat_id: TELEGRAM_CHAT_ID, 
-                        text: reviewMessage, 
-                        parse_mode: 'Markdown' 
-                    })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    submitBtn.innerText = "রিভিউ সাবমিট করুন";
-                    submitBtn.disabled = false;
-                    
-                    if (data.ok) {
-                        document.getElementById('review-form').style.display = 'none';
-                        document.getElementById('review-success-msg').style.display = 'block';
-
-                        setTimeout(() => {
-                            closeReviewModal();
-                            document.getElementById('review-form').reset();
-                            document.getElementById('review-form').style.display = 'block';
-                            document.getElementById('review-success-msg').style.display = 'none';
-                        }, 3000);
-                    }
-                });
-            }
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            document.getElementById('review-form').style.display = 'none';
+            document.getElementById('review-success-msg').style.display = 'block';
         }
 
-        function updateTotal() {
-            let deliveryCharge = parseInt(document.querySelector('input[name="delivery"]:checked').value);
-            let productTotal = currentProductPrice * currentQuantity;
-            document.getElementById('summary-delivery').innerText = deliveryCharge;
-            document.getElementById('summary-total').innerText = productTotal + deliveryCharge;
+        // Image Preview & Policy Modals
+        function openQuickView(src) {
+            document.getElementById('qv-image').src = src;
+            document.getElementById('quickViewModal').classList.add('active');
         }
 
-        function autoDetectDeliveryZone() {
-            const addr = document.getElementById('address').value.toLowerCase();
-            const subDhakaKeywords = ['savar', 'sabar', 'keraniganj', 'dhamrai', 'nawabganj', 'tongi', 'gazipur', 'narayanganj', 'সাভার', 'কেরানীগঞ্জ', 'ধামরাই', 'নবাবগঞ্জ', 'টঙ্গী', 'গাজীপুর', 'নারায়ণগঞ্জ'];
-            
-            if (addr.length < 3) return;
-
-            let isSubDhaka = subDhakaKeywords.some(keyword => addr.includes(keyword));
-            let isInsideDhaka = addr.includes('dhaka') || addr.includes('ঢাকা');
-
-            if (isSubDhaka) {
-                document.getElementById('del-sub').checked = true;
-            } else if (isInsideDhaka) {
-                document.getElementById('del-inside').checked = true;
-            } else {
-                document.getElementById('del-outside').checked = true;
-            }
-            updateTotal();
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.remove('active');
         }
 
-        function handleOrder(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const deliveryCharge = document.querySelector('input[name="delivery"]:checked').value;
-            const total = (parseInt(currentProductPrice) * currentQuantity) + parseInt(deliveryCharge);
-            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
-
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে...";
-            submitBtn.disabled = true;
-
-            let deliveryAreaText = "ঢাকার ভেতরে";
-            if (deliveryCharge === "120") deliveryAreaText = "সাব ঢাকা";
-            if (deliveryCharge === "130") deliveryAreaText = "ঢাকার বাইরে";
-
-            const orderMessage = `🛒 *নতুন অর্ডার এসেছে!* 🛒\n\n` +
-                                 `🆔 *অর্ডার আইডি:* \`${orderId}\`\n` +
-                                 `📦 *পণ্য:* ${currentProductName}\n` +
-                                 `🎨 *কালার:* ${selectedColorName}\n` +
-                                 `🔢 *পরিমাণ:* ${currentQuantity} টি\n` +
-                                 `💰 *মূল্য:* ৳${currentProductPrice * currentQuantity}\n` +
-                                 `🚚 *ডেলিভারি চার্জ:* ৳${deliveryCharge} (${deliveryAreaText})\n` +
-                                 `💵 *সর্বমোট বিল:* ৳${total}\n\n` +
-                                 `👤 *কাস্টমারের নাম:* ${name}\n` +
-                                 `📞 *ফোন নম্বর:* \`${phone}\`\n` +
-                                 `📍 *ঠিকানা:* ${address}`;
-
-            if (currentProductImage) {
-                const absoluteImgUrl = new URL(currentProductImage, window.location.href).href;
-                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        photo: absoluteImgUrl,
-                        caption: orderMessage,
-                        parse_mode: 'Markdown'
-                    })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (!data.ok) sendTextMessageOrder(orderMessage, orderId);
-                    else showSuccessMessage(orderId);
-                })
-                .catch(() => sendTextMessageOrder(orderMessage, orderId));
-            } else {
-                sendTextMessageOrder(orderMessage, orderId);
-            }
+        function openPolicyModal(id) {
+            document.getElementById(id).classList.add('active');
         }
 
-        function sendTextMessageOrder(message, orderId) {
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.ok) showSuccessMessage(orderId);
+        function closePolicyModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // Timer Countdown
+        function startTimer() {
+            let h = 23, m = 59, s = 59;
+            setInterval(() => {
+                if (s > 0) s--;
                 else {
-                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।');
-                    resetSubmitBtn();
+                    s = 59;
+                    if (m > 0) m--;
+                    else {
+                        m = 59;
+                        if (h > 0) h--;
+                    }
                 }
-            })
-            .catch(() => {
-                alert('নেটওয়ার্ক সমস্যা! দয়া করে ইন্টারনেট কানেকশন চেক করুন।');
-                resetSubmitBtn();
-            });
+                document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+                document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+                document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+            }, 1000);
         }
-
-        function showSuccessMessage(orderId) {
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', { value: parseInt(document.getElementById('summary-total').innerText), currency: 'BDT' });
-            }
-            document.getElementById('checkout-form').style.display = 'none';
-            document.getElementById('order-id-display').innerText = "অর্ডার নম্বর: " + orderId;
-            document.getElementById('success-message').style.display = 'block';
-            resetSubmitBtn();
-        }
-
-        function resetSubmitBtn() {
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-            submitBtn.disabled = false;
-        }
+        startTimer();
     </script>
 </body>
 </html>
