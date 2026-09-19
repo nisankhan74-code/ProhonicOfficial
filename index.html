@@ -556,6 +556,45 @@
             line-height: 1.6;
         }
 
+        /* QUICK VIEW FEATURE SECTION STYLES */
+        .qv-features {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .qv-features h4 {
+            color: #d4af37;
+            font-size: 14px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .qv-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .qv-features li {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.5;
+        }
+
+        .qv-features li::before {
+            content: "✔";
+            color: #d4af37;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
         .qv-price {
             font-size: 26px;
             font-weight: 800;
@@ -1595,6 +1634,10 @@
             <div class="qv-right-info">
                 <h2 id="qv-product-title" class="qv-title"></h2>
                 <div id="qv-product-desc" class="qv-desc"></div>
+                
+                <!-- Dynamic Product Feature Section -->
+                <div id="qv-product-features" class="qv-features"></div>
+
                 <div id="qv-product-price" class="qv-price"></div>
 
                 <div class="form-group" style="margin-bottom: 15px;">
@@ -1844,7 +1887,7 @@
             }
         }
 
-        /* PRODUCT QUICK VIEW MODAL LOGIC */
+        /* PRODUCT QUICK VIEW MODAL LOGIC WITH PRODUCT FEATURES */
         function openProductQuickView(cardElement, event) {
             currentQuantity = 1;
             document.getElementById('qv-quantity-val').innerText = currentQuantity;
@@ -1864,6 +1907,38 @@
             document.getElementById('qv-product-desc').innerText = desc;
             document.getElementById('qv-product-price').innerHTML = priceElem.innerHTML;
             document.getElementById('qv-product-img').src = imgSrc;
+
+            /* PRODUCT FEATURE GENERATION LOGIC */
+            const featuresContainer = document.getElementById('qv-product-features');
+            let featuresHTML = '<h4>Product Features:</h4><ul>';
+
+            const titleLower = title.toLowerCase();
+
+            if (titleLower.includes('rolex')) {
+                featuresHTML += `
+                    <li>100% water proof</li>
+                    <li>stainless steel</li>
+                    <li>butterfly lock</li>
+                `;
+            } else if (titleLower.includes('hublot')) {
+                featuresHTML += `
+                    <li>কেস ম্যাটেরিয়াল: প্রিমিয়াম গ্রেড অ্যালয় কেস এবং স্টেইনলেস স্টিল ব্যাক কভার।</li>
+                    <li>স্ট্র্যাপ ম্যাটেরিয়াল: প্রিমিয়াম সফট সিলিকন / রাবার স্ট্র্যাপ (দীর্ঘস্থায়ী ও আরামদায়ক)।</li>
+                    <li>গ্লাস: স্ক্র্যাচ-রেজিস্ট্যান্স হার্ড মিনারেল ক্রিস্টাল গ্লাস।</li>
+                    <li>মুভমেন্ট: হাই-প্রিসিশন জাপানিজ কোয়ার্টজ মুভমেন্ট।</li>
+                    <li>ওয়াটার রেজিস্ট্যান্স: ডেইলি লাইফ ওয়াটার রেজিস্ট্যান্ট (হাত ধোয়া বা বৃষ্টির পানির ছিটা থেকে সুরক্ষিত)।</li>
+                    <li>ওজন ও সাইজ: হালকা এবং হাতে ফিট হওয়ার উপযোগী (প্রায় ১০০-১১০ গ্রাম)।</li>
+                `;
+            } else {
+                featuresHTML += `
+                    <li>প্রিমিয়াম মেটালিক ফিনিশিং বডি।</li>
+                    <li>নির্ভুল সময় গণনার জন্য কোয়ার্টজ মুভমেন্ট।</li>
+                    <li>ডেইলি লাইফ ওয়াটার রেজিস্ট্যান্ট।</li>
+                `;
+            }
+
+            featuresHTML += '</ul>';
+            featuresContainer.innerHTML = featuresHTML;
 
             const colorOptionsContainer = cardElement.querySelector('.color-options');
             const qvColorContainer = document.getElementById('qv-color-container');
