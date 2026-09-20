@@ -84,7 +84,6 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-            /* Backdrop blur removed for mobile/PC scrolling lag reduction */
             will-change: transform;
             transform: translateZ(0);
         }
@@ -307,7 +306,6 @@
             color: #888;
         }
 
-        /* Product Image Click Preview Feature Styling Optimized */
         .product-img-wrapper {
             width: 100%;
             height: 270px;
@@ -390,7 +388,6 @@
             font-weight: 400;
         }
 
-        /* Card Quantity Selector */
         .card-quantity-wrapper {
             margin-bottom: 16px;
             background: rgba(0, 0, 0, 0.4);
@@ -570,7 +567,6 @@
             transform: translateY(-1px);
         }
 
-        /* POPUP MODALS OPTIMIZED */
         .modal-overlay {
             display: flex;
             position: fixed;
@@ -811,7 +807,6 @@
             padding-left: 20px;
         }
 
-        /* Lightbox Image Preview Lightbox Modal */
         .image-viewer-container {
             position: relative;
             max-width: 90vw;
@@ -1334,7 +1329,6 @@
     </div>
 
     <div class="product-grid">
-        <!-- Rolex Available Card -->
         <div class="product-card">
             <div class="product-img-wrapper" onclick="previewProductImage('cat3-p1')">
                 <img id="cat3-p1" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
@@ -1465,7 +1459,6 @@
     </div>
 
     <div class="product-grid">
-        <!-- Hublot Classic Fusion -->
         <div class="product-card">
             <div class="product-img-wrapper" onclick="previewProductImage('all-p1')">
                 <img id="all-p1" src="Images/Black1.jpg" class="product-img" alt="HUBLOT Classic Fusion" loading="lazy" decoding="async">
@@ -1508,7 +1501,6 @@
             </div>
         </div>
 
-        <!-- Rolex Day-Date Luxury Watch -->
         <div class="product-card">
             <div class="product-img-wrapper" onclick="previewProductImage('all-p5')">
                 <img id="all-p5" src="Images/R1.png" class="product-img" alt="Rolex Day-Date Luxury Watch" loading="lazy" decoding="async">
@@ -1551,7 +1543,6 @@
             </div>
         </div>
 
-        <!-- Hublot Skeleton -->
         <div class="product-card">
             <div class="product-img-wrapper" onclick="previewProductImage('all-p2')">
                 <img id="all-p2" src="Images/black.jpg" class="product-img" alt="Hublot Skeleton" loading="lazy" decoding="async">
@@ -1606,7 +1597,6 @@
             </div>
         </div>
 
-        <!-- HUBLOT Big Bang Chronograph -->
         <div class="product-card">
             <div class="product-img-wrapper" onclick="previewProductImage('all-p4')">
                 <img id="all-p4" src="Images/gray.jpg" class="product-img" alt="HUBLOT Big Bang Chronograph" loading="lazy" decoding="async">
@@ -1649,7 +1639,6 @@
             </div>
         </div>
 
-        <!-- Binbond Business Luxury -->
         <div class="product-card">
             <div class="product-img-wrapper" onclick="previewProductImage('all-p3')">
                 <img id="all-p3" src="Images/chain-black.png" class="product-img" alt="BINBOND Business Luxury Men" loading="lazy" decoding="async">
@@ -1937,14 +1926,47 @@
 
     <script>
         let currentProduct = {};
+        let activeModalId = null;
+
+        // Mobile Back Button Fix (Prevents exiting website when pop-up is open)
+        function openModalCustom(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                activeModalId = modalId;
+                history.pushState({ modalOpen: true }, '');
+            }
+        }
+
+        function closeModalCustom(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                if (activeModalId === modalId) {
+                    activeModalId = null;
+                    if (window.history.state && window.history.state.modalOpen) {
+                        history.back();
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('popstate', function(event) {
+            if (activeModalId) {
+                const modal = document.getElementById(activeModalId);
+                if (modal) {
+                    modal.classList.remove('active');
+                }
+                document.body.style.overflow = 'auto';
+                activeModalId = null;
+            }
+        });
 
         function handleOverlayClick(event, modalId) {
             if (event.target.id === modalId) {
-                if (modalId === 'quickViewModal') closeQuickView();
-                else if (modalId === 'orderModal') closeOrderModal();
-                else if (modalId === 'productFeatureModal') closeProductFeatureModal();
-                else if (modalId === 'reviewModal') closeReviewModal();
-                else closePolicyModal(modalId);
+                closeModalCustom(modalId);
             }
         }
 
@@ -1980,7 +2002,6 @@
 
         function openProductFeatureModal(cardElement) {
             let title = cardElement.querySelector('.product-title').innerText;
-            
             document.getElementById('feature-modal-title').innerText = title + ' - গুণগতমান ও বৈশিষ্ট্য';
 
             let featuresHTML = '<h4>মূল বৈশিষ্ট্যসমূহ:</h4><ul>';
@@ -2010,13 +2031,11 @@
             featuresHTML += '</ul>';
 
             document.getElementById('feature-modal-content').innerHTML = featuresHTML;
-            document.getElementById('productFeatureModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModalCustom('productFeatureModal');
         }
 
         function closeProductFeatureModal() {
-            document.getElementById('productFeatureModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            closeModalCustom('productFeatureModal');
         }
 
         function openOrderModalFromCard(cardElement, colorElementId) {
@@ -2050,13 +2069,11 @@
             document.getElementById('success-message').style.display = 'none';
 
             updateTotal();
-            document.getElementById('orderModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModalCustom('orderModal');
         }
 
         function closeOrderModal() {
-            document.getElementById('orderModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            closeModalCustom('orderModal');
         }
 
         function updateTotal() {
@@ -2100,15 +2117,13 @@
         }
 
         function openReviewModal() {
-            document.getElementById('reviewModal').classList.add('active');
             document.getElementById('review-form').style.display = 'block';
             document.getElementById('review-success-msg').style.display = 'none';
-            document.body.style.overflow = 'hidden';
+            openModalCustom('reviewModal');
         }
 
         function closeReviewModal() {
-            document.getElementById('reviewModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            closeModalCustom('reviewModal');
         }
 
         function handleReviewSubmit(e) {
@@ -2120,47 +2135,44 @@
         function openQuickView(src) {
             const qvImg = document.getElementById('qv-image');
             qvImg.src = src;
-            document.getElementById('quickViewModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModalCustom('quickViewModal');
         }
 
         function closeQuickView() {
-            document.getElementById('quickViewModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            closeModalCustom('quickViewModal');
         }
 
         function openPolicyModal(id) {
-            document.getElementById(id).classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModalCustom(id);
         }
 
         function closePolicyModal(id) {
-            document.getElementById(id).classList.remove('active');
-            document.body.style.overflow = 'auto';
+            closeModalCustom(id);
         }
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeQuickView();
-                closeOrderModal();
-                closeProductFeatureModal();
-                closeReviewModal();
-                ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'].forEach(id => closePolicyModal(id));
-            }
-        });
-
+        // Persistent 1-Day Loop Timer using LocalStorage
         function startTimer() {
-            let h = 23, m = 59, s = 59;
+            const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+            let endTime = localStorage.getItem('prohonic_timer_end');
+            
+            if (!endTime || Date.now() > parseInt(endTime)) {
+                endTime = Date.now() + ONE_DAY_MS;
+                localStorage.setItem('prohonic_timer_end', endTime);
+            }
+
             setInterval(() => {
-                if (s > 0) s--;
-                else {
-                    s = 59;
-                    if (m > 0) m--;
-                    else {
-                        m = 59;
-                        if (h > 0) h--;
-                    }
+                let remainingTime = parseInt(endTime) - Date.now();
+                if (remainingTime <= 0) {
+                    endTime = Date.now() + ONE_DAY_MS;
+                    localStorage.setItem('prohonic_timer_end', endTime);
+                    remainingTime = ONE_DAY_MS;
                 }
+
+                let totalSeconds = Math.floor(remainingTime / 1000);
+                let h = Math.floor(totalSeconds / 3600);
+                let m = Math.floor((totalSeconds % 3600) / 60);
+                let s = totalSeconds % 60;
+
                 document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
                 document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
                 document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
