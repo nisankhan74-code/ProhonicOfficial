@@ -2150,33 +2150,36 @@
             closeModalCustom(id);
         }
 
-        // Persistent 1-Day Loop Timer using LocalStorage
+        // Updated 24-hour midnight countdown loop timer
         function startTimer() {
-            const ONE_DAY_MS = 24 * 60 * 60 * 1000;
-            let endTime = localStorage.getItem('prohonic_timer_end');
-            
-            if (!endTime || Date.now() > parseInt(endTime)) {
-                endTime = Date.now() + ONE_DAY_MS;
-                localStorage.setItem('prohonic_timer_end', endTime);
+            function updateCountdown() {
+                const now = new Date();
+                
+                // Set target to next midnight (12:00:00 AM)
+                const target = new Date();
+                target.setHours(24, 0, 0, 0); 
+                
+                let diff = target - now;
+                
+                if (diff < 0) {
+                    diff += 24 * 60 * 60 * 1000;
+                }
+                
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / 1000 / 60) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+                
+                const hoursElem = document.getElementById('hours');
+                const minutesElem = document.getElementById('minutes');
+                const secondsElem = document.getElementById('seconds');
+                
+                if (hoursElem) hoursElem.innerText = String(hours).padStart(2, '0');
+                if (minutesElem) minutesElem.innerText = String(minutes).padStart(2, '0');
+                if (secondsElem) secondsElem.innerText = String(seconds).padStart(2, '0');
             }
 
-            setInterval(() => {
-                let remainingTime = parseInt(endTime) - Date.now();
-                if (remainingTime <= 0) {
-                    endTime = Date.now() + ONE_DAY_MS;
-                    localStorage.setItem('prohonic_timer_end', endTime);
-                    remainingTime = ONE_DAY_MS;
-                }
-
-                let totalSeconds = Math.floor(remainingTime / 1000);
-                let h = Math.floor(totalSeconds / 3600);
-                let m = Math.floor((totalSeconds % 3600) / 60);
-                let s = totalSeconds % 60;
-
-                document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
-                document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
-                document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
-            }, 1000);
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         }
 
         window.addEventListener('load', function() {
