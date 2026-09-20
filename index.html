@@ -74,7 +74,7 @@
         }
 
         header {
-            background: rgba(12, 14, 18, 0.92);
+            background: rgba(12, 14, 18, 0.98);
             padding: 16px 5%;
             display: flex;
             justify-content: center;
@@ -84,9 +84,9 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            /* Backdrop blur removed for mobile/PC scrolling lag reduction */
             will-change: transform;
+            transform: translateZ(0);
         }
 
         .logo {
@@ -263,15 +263,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
-            transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             position: relative;
             will-change: transform;
             transform: translateZ(0);
         }
 
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.15);
             border-color: rgba(212, 175, 55, 0.4);
         }
 
@@ -307,7 +307,7 @@
             color: #888;
         }
 
-        /* Product Image Click Preview Feature Styling */
+        /* Product Image Click Preview Feature Styling Optimized */
         .product-img-wrapper {
             width: 100%;
             height: 270px;
@@ -315,6 +315,7 @@
             background-color: #050608;
             position: relative;
             cursor: pointer;
+            transform: translateZ(0);
         }
 
         .product-img-wrapper::after {
@@ -329,15 +330,7 @@
             border-radius: 20px;
             border: 1px solid rgba(212, 175, 55, 0.5);
             opacity: 0.85;
-            transition: all 0.2s ease;
             pointer-events: none;
-        }
-
-        .product-img-wrapper:hover::after {
-            opacity: 1;
-            background: rgba(212, 175, 55, 0.9);
-            color: #000;
-            font-weight: bold;
         }
 
         .product-img {
@@ -345,12 +338,13 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.25s ease;
             will-change: transform;
+            transform: translateZ(0);
         }
 
         .product-img-wrapper:hover .product-img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
         .product-info {
@@ -431,7 +425,6 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -489,7 +482,7 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             background: #111317;
-            transition: all 0.2s ease;
+            transition: border-color 0.15s ease, background 0.15s ease;
         }
 
         .color-item:hover {
@@ -515,7 +508,7 @@
         .color-item.active {
             border-color: #d4af37;
             background: rgba(212, 175, 55, 0.22);
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
         }
 
         .color-item.active .color-text {
@@ -540,7 +533,7 @@
             font-size: 0.95rem;
             font-weight: 800;
             border-radius: 8px;
-            transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.15s ease;
             border: none;
             cursor: pointer;
             text-align: center;
@@ -551,9 +544,8 @@
         }
 
         .btn-order-now:hover {
-            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
-            transform: translateY(-2px);
+            opacity: 0.9;
+            transform: translateY(-1px);
         }
 
         .btn-view-details {
@@ -565,7 +557,7 @@
             font-size: 0.95rem;
             font-weight: 700;
             border-radius: 8px;
-            transition: all 0.25s ease;
+            transition: background 0.2s ease, transform 0.15s ease;
             border: 1px solid #d4af37;
             cursor: pointer;
             text-align: center;
@@ -575,10 +567,10 @@
         .btn-view-details:hover {
             background: rgba(212, 175, 55, 0.15);
             color: #f3e5ab;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
-        /* POPUP MODALS WITH ULTRA SMOOTH ANIMATION */
+        /* POPUP MODALS OPTIMIZED */
         .modal-overlay {
             display: flex;
             position: fixed;
@@ -586,16 +578,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.90);
+            background: rgba(0, 0, 0, 0.85);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease-in-out;
+            transition: opacity 0.2s ease;
             will-change: opacity;
         }
 
@@ -616,15 +606,7 @@
             max-height: 90vh;
             overflow-y: auto;
             border: 1px solid rgba(212, 175, 55, 0.4);
-            transform: scale(0.92);
-            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             will-change: transform;
-        }
-
-        .modal-overlay.active .modal-container,
-        .modal-overlay.active .feature-modal-container,
-        .modal-overlay.active .policy-modal-container {
-            transform: scale(1);
         }
 
         .feature-modal-container {
@@ -681,7 +663,6 @@
             cursor: pointer;
             border: none;
             background: none;
-            transition: color 0.2s ease;
             z-index: 10;
         }
 
@@ -718,7 +699,6 @@
             border-radius: 8px;
             font-size: 0.95rem;
             color: #fff;
-            transition: border-color 0.3s ease;
         }
 
         .form-group input:focus, .form-group textarea:focus {
@@ -742,7 +722,6 @@
             border-radius: 8px;
             padding: 14px 16px;
             cursor: pointer;
-            transition: all 0.2s ease-in-out;
             font-size: 14px;
             font-weight: 600;
             color: #ddd;
@@ -763,7 +742,6 @@
         .delivery-radio-label:has(input[type="radio"]:checked) {
             background-color: rgba(212, 175, 55, 0.08);
             border-color: #d4af37;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
         .bill-summary {
@@ -833,7 +811,7 @@
             padding-left: 20px;
         }
 
-        /* Enhanced High-Res Image Preview Lightbox Modal */
+        /* Lightbox Image Preview Lightbox Modal */
         .image-viewer-container {
             position: relative;
             max-width: 90vw;
@@ -851,13 +829,7 @@
             border-radius: 12px;
             border: 1px solid rgba(212, 175, 55, 0.5);
             box-shadow: 0 10px 40px rgba(0,0,0,0.95);
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             will-change: transform;
-        }
-
-        .modal-overlay.active .image-viewer-container img {
-            transform: scale(1);
         }
 
         .image-viewer-container .close-btn {
@@ -910,12 +882,6 @@
             cursor: pointer;
             text-transform: uppercase;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
-            transition: 0.25s;
-        }
-
-        .btn-write-review:hover {
-            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
-            transform: translateY(-2px);
         }
 
         .reviews-container {
@@ -947,11 +913,6 @@
             box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
             margin-bottom: 14px;
             cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .customer-watch-img:hover {
-            transform: scale(1.1);
         }
 
         .review-card p {
@@ -1010,7 +971,6 @@
             color: #aaa;
             text-decoration: none;
             font-size: 14px;
-            transition: color 0.2s ease;
             cursor: pointer;
         }
 
@@ -1808,7 +1768,7 @@
         </div>
     </footer>
 
-    <!-- PRODUCT FEATURE POPUP MODAL (SHUDHU GUNOGOTOMAN POPUP) -->
+    <!-- PRODUCT FEATURE POPUP MODAL -->
     <div class="modal-overlay" id="productFeatureModal" onclick="handleOverlayClick(event, 'productFeatureModal')">
         <div class="feature-modal-container">
             <button class="close-btn" onclick="closeProductFeatureModal()">&times;</button>
@@ -1978,7 +1938,6 @@
     <script>
         let currentProduct = {};
 
-        // Helper to close modal when clicking on overlay background
         function handleOverlayClick(event, modalId) {
             if (event.target.id === modalId) {
                 if (modalId === 'quickViewModal') closeQuickView();
@@ -1989,7 +1948,6 @@
             }
         }
 
-        // Change Quantity on Card
         function changeCardQuantity(btnElement, delta) {
             let qtyValSpan = btnElement.parentElement.querySelector('.card-qty-val');
             let currentQty = parseInt(qtyValSpan.innerText) || 1;
@@ -1998,7 +1956,6 @@
             qtyValSpan.innerText = currentQty;
         }
 
-        // Image change function
         function changeImage(imgId, newSrc, textId, colorName, element) {
             const imgElement = document.getElementById(imgId);
             if(imgElement) {
@@ -2014,7 +1971,6 @@
             }
         }
 
-        // Feature: Click product card image to open high-res preview modal
         function previewProductImage(imgId) {
             const img = document.getElementById(imgId);
             if (img && img.src) {
@@ -2022,7 +1978,6 @@
             }
         }
 
-        // Open Product Feature Modal Only (গুণগতমান দেখুন)
         function openProductFeatureModal(cardElement) {
             let title = cardElement.querySelector('.product-title').innerText;
             
@@ -2041,7 +1996,7 @@
                 featuresHTML += '<li>১০০% ওয়াটার প্রুফ: হাত ধোয়া বা পানিতে ভেজার ক্ষেত্রে সম্পূর্ণ সুরক্ষিত।</li>';
                 featuresHTML += '<li>টু-টোন ফিনিশিং: আকর্ষণীয় সিলভার ও গোল্ডেন কম্বিনেশনের বডি ও স্ট্র্যাপ।</li>';
                 featuresHTML += '<li>হানিফ্লেক ডায়াল: ডায়ালে ইউনিক ষড়ভুজ টেক্সচার্ড ডিজাইন।</li>';
-                featuresHTML += '<li>ডেট ডিসপ্লে: ৩টার জায়গায় তারিখ স্পষ্টভাবে দেখার ম্যাগনিফায়িং লেন্স।</li>';
+                featuresHTML += '<li>ডেট ডিসপ্লে: ৩টার জায়গায় তারিখ স্পষ্টভাবে দেখার ম্যাগনিফাইং লেন্স।</li>';
                 featuresHTML += '<li>ফ্লুটেড বেজেল: গোল্ডেন রঙের খাঁজকাটা বেজেল, যা প্রিমিয়াম লুক দেয়।</li>';
                 featuresHTML += '<li>সিগনেচার ট্যাগ: সাথে ব্র্যান্ডের গ্রিন অ্যান্ড গোল্ডেন হ্যাং ট্যাগ।</li>';
             } else if (title.toLowerCase().includes('binbond')) {
@@ -2064,7 +2019,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Open Order Form Modal Directly from Card
         function openOrderModalFromCard(cardElement, colorElementId) {
             let title = cardElement.querySelector('.product-title').innerText;
             let rawPrice = cardElement.querySelector('.product-price').getAttribute('data-price');
@@ -2145,7 +2099,6 @@
             }, 800);
         }
 
-        // Review Modal Handlers
         function openReviewModal() {
             document.getElementById('reviewModal').classList.add('active');
             document.getElementById('review-form').style.display = 'block';
@@ -2164,7 +2117,6 @@
             document.getElementById('review-success-msg').style.display = 'block';
         }
 
-        // Image Preview Lightbox Logic
         function openQuickView(src) {
             const qvImg = document.getElementById('qv-image');
             qvImg.src = src;
@@ -2187,7 +2139,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Keyboard Escape Key listener to close active modals
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeQuickView();
@@ -2198,7 +2149,6 @@
             }
         });
 
-        // Optimized Timer Countdown
         function startTimer() {
             let h = 23, m = 59, s = 59;
             setInterval(() => {
