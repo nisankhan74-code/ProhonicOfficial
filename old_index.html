@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prohonic</title>
+
+    <!-- Open Graph Meta Tags for Facebook Catalog & Sharing -->
+    <meta property="og:title" content="Prohonic Watch Store">
+    <meta property="og:description" content="প্রিমিয়াম এবং বিশ্বস্ত কোয়ালিটির সব হাতঘড়ি।">
+    <meta property="og:image" content="https://www.prohonic.com/Images/Black1.jpg">
+    <meta property="og:url" content="https://www.prohonic.com/old_index.html">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -47,7 +53,6 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
         
-        /* CENTERED HEADER STYLES */
         header { 
             background: rgba(11, 13, 18, 0.95); 
             padding: 15px 5%; 
@@ -85,7 +90,6 @@
             text-transform: uppercase;
         }
 
-        /* 1-Day Loop Discount Banner */
         .offer-timer-banner {
             background: linear-gradient(135deg, #1f1a0a, #3d300a);
             color: var(--accent-gold-light);
@@ -133,7 +137,6 @@
             color: var(--text-muted);
         }
 
-        /* SHOWCASE & COMPACT YOUTUBE SHORTS SECTION STYLES */
         .showcase-video-section {
             padding: 40px 5%;
             background: var(--bg-main);
@@ -170,7 +173,6 @@
             border: none;
         }
 
-        /* WATCH DETAILS BOX (WHAT'S INCLUDED) */
         .watch-details-box {
             max-width: 800px;
             margin: 25px auto;
@@ -211,7 +213,6 @@
             font-weight: bold;
         }
 
-        /* ENHANCED VISUAL SELECTOR STYLES */
         .product-selector-wrapper {
             background: var(--bg-main);
             padding: 35px 5% 30px;
@@ -316,7 +317,6 @@
         .hero-details { flex: 1 1 400px; }
         .hero-details h1 { font-size: 2.2rem; margin-bottom: 15px; color: #fff; letter-spacing: 0.5px; }
         
-        /* PRICE DISPLAY STYLES WITH DISCOUNT */
         .price-container { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
         .regular-price { font-size: 1.2rem; color: var(--text-muted); text-decoration: line-through; }
         .offer-price { font-size: 2rem; color: var(--accent-gold); font-weight: bold; }
@@ -346,7 +346,6 @@
 
         .description { margin-bottom: 25px; color: var(--text-muted); font-size: 1rem; }
 
-        /* ACTION BUTTONS & SOCIAL BUTTONS STYLING */
         .action-buttons {
             display: flex;
             flex-direction: column;
@@ -401,14 +400,9 @@
             transform: translateY(-2px);
             filter: brightness(1.1);
         }
-        .btn-whatsapp {
-            background-color: var(--whatsapp-green);
-        }
-        .btn-messenger {
-            background-color: var(--messenger-blue);
-        }
+        .btn-whatsapp { background-color: var(--whatsapp-green); }
+        .btn-messenger { background-color: var(--messenger-blue); }
 
-        /* BUTTON SHAKE ANIMATION */
         @keyframes periodicShake {
             0%, 100% { transform: translateX(0); }
             2%, 6% { transform: translateX(-6px) rotate(-2deg); }
@@ -420,7 +414,6 @@
             animation: periodicShake 4s infinite ease-in-out;
         }
 
-        /* Products Section Improvements */
         .products-section { padding: 60px 5%; }
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 35px; color: var(--accent-gold); letter-spacing: 0.5px; }
         
@@ -464,11 +457,8 @@
             transition: transform 0.4s ease;
         }
 
-        .product-card:hover img {
-            transform: scale(1.06);
-        }
+        .product-card:hover img { transform: scale(1.06); }
 
-        /* Discount / Sale Badge */
         .badge-discount {
             position: absolute;
             top: 12px;
@@ -483,7 +473,6 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.4);
         }
 
-        /* TOP RIGHT CORNER DISCOUNT BADGE */
         .badge-percent-top-right {
             position: absolute;
             top: 10px;
@@ -508,7 +497,6 @@
 
         .product-card h3 { font-size: 1.1rem; margin-bottom: 6px; color: #fff; }
 
-        /* Star Rating & Sold Style */
         .product-rating {
             color: var(--accent-gold);
             font-size: 13px;
@@ -523,12 +511,10 @@
         .product-card .card-price { color: var(--accent-gold); font-weight: bold; margin-bottom: 14px; font-size: 1.2rem; }
         .product-card .card-regular-price { text-decoration: line-through; color: var(--text-muted); font-size: 0.95rem; margin-right: 6px; }
 
-        /* Modal Styles */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         .modal-overlay.active { display: flex; }
         .order-container { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); width: 100%; max-width: 500px; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position: relative; max-height: 90vh; overflow-y: auto; }
         
-        /* ORDER FORM OFFER BOX */
         .modal-offer-box {
             background: rgba(212, 175, 55, 0.08);
             border: 1px dashed var(--accent-gold);
@@ -537,17 +523,9 @@
             margin-bottom: 18px;
             text-align: center;
         }
-        .modal-offer-box p {
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-        .modal-offer-box .offer-price-highlight {
-            font-size: 1.4rem;
-            color: var(--accent-gold);
-            font-weight: bold;
-        }
+        .modal-offer-box p { font-size: 0.95rem; color: var(--text-main); }
+        .modal-offer-box .offer-price-highlight { font-size: 1.4rem; color: var(--accent-gold); font-weight: bold; }
 
-        /* Policy Modal Styles */
         .policy-modal-container {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -583,9 +561,7 @@
             margin-bottom: 10px;
         }
 
-        .policy-modal-container ul {
-            padding-left: 20px;
-        }
+        .policy-modal-container ul { padding-left: 20px; }
 
         .image-viewer-container { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
         .image-viewer-container img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color); }
@@ -611,13 +587,7 @@
             border-color: var(--accent-gold);
         }
         
-        /* FIXED ALIGNMENT FOR DELIVERY OPTIONS */
-        .delivery-option { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 10px; 
-            margin-top: 8px; 
-        }
+        .delivery-option { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
         .delivery-label { 
             display: flex !important; 
             align-items: center !important; 
@@ -641,7 +611,6 @@
             accent-color: var(--accent-gold);
         }
 
-        /* FADE EFFECT FOR DISABLED DELIVERY OPTIONS */
         .delivery-label input[type="radio"]:disabled + span,
         .delivery-label:has(input[type="radio"]:disabled) {
             opacity: 0.35;
@@ -676,7 +645,6 @@
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
         }
 
-        /* Footer Styles */
         footer {
             background-color: #06070a;
             color: var(--text-muted);
@@ -722,10 +690,7 @@
             color: var(--text-muted);
         }
 
-        @media (max-width: 992px) { 
-            .product-grid { grid-template-columns: repeat(2, 1fr); } 
-        }
-        
+        @media (max-width: 992px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 576px) { 
             .brand-name { font-size: 1.4rem; }
             .logo img { max-height: 38px; }
@@ -734,10 +699,7 @@
             .selector-card { padding: 12px 15px; }
             .selector-card img { width: 65px; height: 65px; }
             .selector-info h4 { font-size: 0.95rem; }
-            .product-grid { 
-                grid-template-columns: repeat(2, 1fr) !important; 
-                gap: 12px;
-            } 
+            .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; } 
             .hero { padding: 25px 5%; } 
             .product-card { padding: 10px; }
             .product-card img { height: 140px; }
@@ -844,16 +806,20 @@
         </div>
     </div>
 
-    <!-- MAIN PRODUCT 1 -->
-    <section class="hero" id="product1-section">
+    <!-- MAIN PRODUCT 1 (Added Meta Microdata for Content ID fy813v89qb) -->
+    <section class="hero" id="product1-section" itemscope itemtype="https://schema.org/Product">
+        <meta itemprop="productID" content="fy813v89qb">
         <div class="hero-image">
             <span class="badge-percent-top-right">21% OFF</span>
-            <img src="Images/Black1.jpg" id="main-product-img-1" alt="Hublot Classic Fusion" onclick="openQuickView(this.src)">
+            <img src="Images/Black1.jpg" id="main-product-img-1" alt="Hublot Classic Fusion" onclick="openQuickView(this.src)" itemprop="image">
         </div>
         <div class="hero-details">
-            <h1>Hublot Classic Fusion</h1>
+            <h1 itemprop="name">Hublot Classic Fusion</h1>
             
-            <div class="price-container">
+            <div class="price-container" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="BDT">
+                <meta itemprop="price" content="950">
+                <link itemprop="availability" href="https://schema.org/InStock">
                 <span class="regular-price">৳ ১২০০</span>
                 <span class="offer-price">৳ ৯৫০</span>
                 <span class="save-badge">৳ ২৫০ ছাড়!</span>
@@ -868,7 +834,7 @@
                 </div>
             </div>
 
-            <div class="description">
+            <div class="description" itemprop="description">
                 <p>প্রিমিয়াম স্টিল কেস, মজবুত মিনারেল গ্লাস এবং টেকসই সফট সিলেবল রাবার স্ট্র্যাপের লাক্সারি ওয়াচ; এতে রয়েছে ডেট ডিসপ্লে সহ নির্ভুল কোয়ার্টজ মুভমেন্ট।</p>
             </div>
 
@@ -882,16 +848,20 @@
         </div>
     </section>
 
-    <!-- MAIN PRODUCT 2 -->
-    <section class="hero" id="product2-section">
+    <!-- MAIN PRODUCT 2 (Added Meta Microdata for Content ID ub91liftmrf) -->
+    <section class="hero" id="product2-section" itemscope itemtype="https://schema.org/Product">
+        <meta itemprop="productID" content="ub91liftmrf">
         <div class="hero-image">
             <span class="badge-percent-top-right">21% OFF</span>
-            <img src="Images/gray.jpg" id="main-product-img-2" alt="HUBLOT Big Bang Chronograph" onclick="openQuickView(this.src)">
+            <img src="Images/gray.jpg" id="main-product-img-2" alt="HUBLOT Big Bang Chronograph" onclick="openQuickView(this.src)" itemprop="image">
         </div>
         <div class="hero-details">
-            <h1>HUBLOT Big Bang Chronograph</h1>
+            <h1 itemprop="name">HUBLOT Big Bang Chronograph</h1>
             
-            <div class="price-container">
+            <div class="price-container" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="BDT">
+                <meta itemprop="price" content="950">
+                <link itemprop="availability" href="https://schema.org/InStock">
                 <span class="regular-price">৳ ১২০০</span>
                 <span class="offer-price">৳ ৯৫০</span>
                 <span class="save-badge">৳ ২৫০ ছাড়!</span>
@@ -906,7 +876,7 @@
                 </div>
             </div>
 
-            <div class="description">
+            <div class="description" itemprop="description">
                 <p>আকর্ষণীয় ক্রোনোগ্রাফ ডাইনামিক ডায়াল ডিজাইন, প্রিমিয়াম মেটালিক ফিনিশিং এবং অত্যন্ত টেকসই ট্রেন্ডি স্ট্র্যাপসহ একটি আধুনিক ও স্টাইলিশ ওয়াচ।</p>
             </div>
 
@@ -920,91 +890,65 @@
         </div>
     </section>
 
+    <!-- TRENDING PRODUCTS SECTION (Added Microdata for Content IDs: p9var213c8, d4lapigu42, xlc3vgzta8) -->
     <section class="products-section">
         <h2 class="section-title">Trending Watches</h2>
         <div class="product-grid">
             
-            <div class="product-card">
+            <div class="product-card" itemscope itemtype="https://schema.org/Product">
+                <meta itemprop="productID" content="p9var213c8">
                 <span class="badge-discount">HOT SALE</span>
                 <div class="product-card-img-wrapper">
                     <span class="badge-percent-top-right">21% OFF</span>
-                    <img src="Images/Black1.jpg" alt="Product 1" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')">
+                    <img src="Images/Black1.jpg" alt="Product 1" loading="lazy" decoding="async" onclick="openQuickView('Images/Black1.jpg')" itemprop="image">
                 </div>
-                <h3>Hublot Classic Fusion</h3>
+                <h3 itemprop="name">Hublot Classic Fusion</h3>
                 <div class="product-rating">
                     ★★★★★ <span>(142 Sold)</span>
                 </div>
-                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
+                <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BDT">
+                    <meta itemprop="price" content="950">
+                    <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
+                </div>
                 <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
-            <div class="product-card">
-                <span class="badge-discount">TOP PICK</span>
-                <div class="product-card-img-wrapper">
-                    <span class="badge-percent-top-right">21% OFF</span>
-                    <img src="Images/Silver1.jpg" alt="Product 2" loading="lazy" decoding="async" onclick="openQuickView('Images/Silver1.jpg')">
-                </div>
-                <h3>Hublot Classic Fusion</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(89 Sold)</span>
-                </div>
-                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">NEW</span>
-                <div class="product-card-img-wrapper">
-                    <span class="badge-percent-top-right">17% OFF</span>
-                    <img src="Images/R1.png" alt="Product 3" loading="lazy" decoding="async" onclick="openQuickView('Images/R1.png')">
-                </div>
-                <h3>Rolex Land-Dweller</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(210 Sold)</span>
-                </div>
-                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৯৯</div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'ব্ল্যাক', 'Images/R1.png')">🛒 অর্ডার করুন</button>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-discount">POPULAR</span>
-                <div class="product-card-img-wrapper">
-                    <span class="badge-percent-top-right">17% OFF</span>
-                    <img src="Images/R2.png" alt="Product 4" loading="lazy" decoding="async" onclick="openQuickView('Images/R2.png')">
-                </div>
-                <h3>Rolex Land-Dweller</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(115 Sold)</span>
-                </div>
-                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৯৯</div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'সিলভার-ব্ল্যাক', 'Images/R2.png')">🛒 অর্ডার করুন</button>
-            </div>
-
-            <div class="product-card">
+            <div class="product-card" itemscope itemtype="https://schema.org/Product">
+                <meta itemprop="productID" content="d4lapigu42">
                 <span class="badge-discount">HOT</span>
                 <div class="product-card-img-wrapper">
                     <span class="badge-percent-top-right">21% OFF</span>
-                    <img src="Images/gray.jpg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/gray.jpg')">
+                    <img src="Images/gray.jpg" alt="Product 5" loading="lazy" decoding="async" onclick="openQuickView('Images/gray.jpg')" itemprop="image">
                 </div>
-                <h3>HUBLOT Big Bang Chronograph</h3>
+                <h3 itemprop="name">HUBLOT Big Bang Chronograph</h3>
                 <div class="product-rating">
                     ★★★★★ <span>(76 Sold)</span>
                 </div>
-                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
+                <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BDT">
+                    <meta itemprop="price" content="950">
+                    <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
+                </div>
                 <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" itemscope itemtype="https://schema.org/Product">
+                <meta itemprop="productID" content="xlc3vgzta8">
                 <span class="badge-discount">HOT</span>
                 <div class="product-card-img-wrapper">
                     <span class="badge-percent-top-right">21% OFF</span>
-                    <img src="Images/green.jpg" alt="Product 6" loading="lazy" decoding="async" onclick="openQuickView('Images/green.jpg')">
+                    <img src="Images/green.jpg" alt="Product 6" loading="lazy" decoding="async" onclick="openQuickView('Images/green.jpg')" itemprop="image">
                 </div>
-                <h3>HUBLOT Big Bang Chronograph</h3>
+                <h3 itemprop="name">HUBLOT Big Bang Chronograph</h3>
                 <div class="product-rating">
                     ★★★★★ <span>(164 Sold)</span>
                 </div>
-                <div class="card-price"><span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০</div>
+                <div class="card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BDT">
+                    <meta itemprop="price" content="950">
+                    <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
+                </div>
                 <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
@@ -1022,20 +966,6 @@
                 <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'গ্রেয়', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
             </div>
 
-            <div class="product-card">
-                <span class="badge-discount">HOT SALE</span>
-                <div class="product-card-img-wrapper">
-                    <span class="badge-percent-top-right">20% OFF</span>
-                    <img src="Images/chain-white.png" alt="Product 8" loading="lazy" decoding="async" onclick="openQuickView('Images/chain-white.png')">
-                </div>
-                <h3>BINBOND Business Luxury Men’s</h3>
-                <div class="product-rating">
-                    ★★★★★ <span>(89 Sold)</span>
-                </div>
-                <div class="card-price"><span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯</div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'ওয়াইট', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
-            </div>
-
         </div>
     </section>
 
@@ -1043,7 +973,6 @@
         <a href="index.html" class="btn-visit-store">Visit Store</a>
     </section>
 
-    <!-- FOOTER SECTION -->
     <footer>
         <div class="footer-container">
             <div class="footer-col">
@@ -1145,86 +1074,41 @@
         </div>
     </div>
 
-    <!-- 1. SHIPPING POLICY MODAL -->
+    <!-- POLICY MODALS -->
     <div class="modal-overlay" id="shippingModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('shippingModal')">&times;</button>
             <h2>Shipping Policy (শিপিং পলিসি)</h2>
             <p>আমাদের শপ থেকে পণ্য অর্ডারের ক্ষেত্রে ডেলিভারি সংক্রান্ত নিয়মাবলী নিচে দেওয়া হলো:</p>
-            
             <h4>ডেলিভারি সময়সীমা:</h4>
             <ul>
-                <li><strong>ঢাকার ভেতরে:</strong> অর্ডার কনফার্ম করার ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি করা হয়।</li>
-                <li><strong>ঢাকার বাইরে:</strong> অর্ডার কনফার্ম করার ২ থেকে ৩ কর্মদিবসের মধ্যে ডেলিভারি করা হয়।</li>
+                <li><strong>ঢাকার ভেতরে:</strong> ২৪ থেকে ৪৮ ঘণ্টার মধ্যে।</li>
+                <li><strong>ঢাকার বাইরে:</strong> ২ থেকে ৩ কর্মদিবসের মধ্যে।</li>
             </ul>
-
-            <h4>ডেলিভারি চার্জ:</h4>
-            <ul>
-                <li>ঢাকার ভেতরে ডেলিভারি চার্জ: <strong>৳৮০</strong></li>
-                <li>সাব ঢাকা (ঢাকা উপশহর) ডেলিভারি চার্জ: <strong>৳১২০</strong></li>
-                <li>ঢাকার বাইরে ডেলিভারি চার্জ: <strong>৳১৩০</strong></li>
-            </ul>
-
-            <h4>ট্র্যাকিং ও পর্যবেক্ষণ:</h4>
-            <p>পণ্য কুরিয়ারে হ্যান্ডওভার করার পর ডেলিভারিম্যান আপনার সাথে সরাসরি ফোনে যোগাযোগ করবে। অনুগ্রহ করে ফোন চালু রাখুন।</p>
         </div>
     </div>
 
-    <!-- 2. PAYMENT & COD RULES MODAL -->
     <div class="modal-overlay" id="paymentModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('paymentModal')">&times;</button>
             <h2>Payment Terms & Cash on Delivery Rules</h2>
-            <p>আমাদের শপে কেনাকাটা নিরাপদ ও সহজ করতে ক্যাশ অন ডেলিভারি (COD) সুবিধা রয়েছে।</p>
-            
-            <h4>ক্যাশ অন ডেলিভারি (COD) নিয়মাবলী:</h4>
-            <ul>
-                <li>পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করার সুবিধা রয়েছে।</li>
-                <li>ডেলিভারিম্যানের সামনে পার্সেলটি খুলে চেক করার সুযোগ থাকবে।</li>
-            </ul>
-
-            <h4>পেমেন্ট মেথড:</h4>
-            <p>বর্তমানে আমরা নিচের মাধ্যমগুলোতে মূল্য গ্রহণ করি:</p>
-            <ul>
-                <li>ক্যাশ অন ডেলিভারি (হাতে পেয়ে নগদ টাকা পরিশোধ)</li>
-                <li>বিকাশ / নগদ (অর্ডার করার সময় বা ডেলিভারির সময়)</li>
-            </ul>
+            <p>ক্যাশ অন ডেলিভারি (COD) সুবিধা রয়েছে। পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করতে পারবেন।</p>
         </div>
     </div>
 
-    <!-- 3. RETURN & REFUND POLICY MODAL -->
     <div class="modal-overlay" id="returnModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('returnModal')">&times;</button>
-            <h2>Return & Refund Policy (রিটার্ন ও রিফান্ড পলিসি)</h2>
-            <p>গ্রাহকের সন্তুষ্টি আমাদের প্রধান অগ্রাধিকার। পণ্য গ্রহণের পর কোনো সমস্যা থাকলে নিচের নিয়ম অনুযায়ী রিটার্ন নেওয়া হয়:</p>
-            
-            <h4>রিটার্ন ও চেঞ্জ শর্তাবলী:</h4>
-            <ul>
-                <li>ডেলিভারিম্যানের সামনে পণ্য চেক করার সময় যদি ভাঙা, ভুল কালার বা ত্রুটিপূর্ণ পাওয়া যায়, সাথে সাথেই ফেরত দিতে পারবেন।</li>
-                <li>পণ্য পছন্দ না হলে ডেলিভারিম্যান থাকা অবস্থায় ডেলিভারি চার্জ প্রদান করে পণ্য রিটার্ন করতে হবে।</li>
-                <li>ডেলিভারিম্যান চলে আসার পর ২৪ ঘণ্টার মধ্যে যেকোনো সমস্যার ছবি/ভিডিও আমাদের হেল্পলাইনে পাঠাতে হবে।</li>
-            </ul>
-
-            <h4>রিফান্ড পলিসি:</h4>
-            <p>যদি অগ্রিম টাকা দেওয়া থাকে এবং স্টক না থাকার কারণে আমরা পণ্য পাঠাতে না পারি, তবে ২৪-৪৮ ঘণ্টার মধ্যে সম্পূর্ণ টাকা বিকাশ/নগদে রিফান্ড করা হবে।</p>
+            <h2>Return & Refund Policy</h2>
+            <p>ডেলিভারিম্যানের সামনে পণ্য চেক করে পছন্দ না হলে বা ত্রুটি থাকলে রিটার্ন করতে পারবেন।</p>
         </div>
     </div>
 
-    <!-- 4. CONTACT INFORMATION MODAL -->
     <div class="modal-overlay" id="contactModal">
         <div class="policy-modal-container">
             <button class="close-btn" onclick="closePolicyModal('contactModal')">&times;</button>
-            <h2>Contact Information (যোগাযোগ)</h2>
-            <p>আমাদের সাথে যোগাযোগ করতে বা কোনো প্রশ্ন থাকলে নিচের মাধ্যমে যোগাযোগ করুন:</p>
-            
-            <h4>আমাদের ঠিকানা ও হেল্পলাইন:</h4>
-            <ul>
-                <li><strong>মোবাইল / হোয়াটসঅ্যাপ:</strong> +880 1338-346890</li>
-                <li><strong>ইমেইল:</strong> prohonicofficial@gmail.com</li>
-                <li><strong>অফিস ঠিকানা:</strong> ঢাকা, বাংলাদেশ।</li>
-                <li><strong>সাপোর্ট টাইম:</strong> সকাল ৯:০০ টা - রাত ১০:০০ টা (প্রতিদিন)</li>
-            </ul>
+            <h2>Contact Information</h2>
+            <p>মোবাইল / হোয়াটসঅ্যাপ: +880 1338-346890</p>
         </div>
     </div>
 
@@ -1233,14 +1117,8 @@
         const TELEGRAM_CHAT_ID = "-1003956122715";
 
         let productStates = {
-            1: {
-                selectedColorName: "কালো",
-                currentImageSrc: "Images/Black1.jpg"
-            },
-            2: {
-                selectedColorName: "গ্রে",
-                currentImageSrc: "Images/gray.jpg"
-            }
+            1: { selectedColorName: "কালো", currentImageSrc: "Images/Black1.jpg" },
+            2: { selectedColorName: "গ্রে", currentImageSrc: "Images/gray.jpg" }
         };
 
         let currentProductPrice = 0;
@@ -1269,23 +1147,18 @@
                 document.getElementById("minutes").innerText = mins < 10 ? "0" + mins : mins;
                 document.getElementById("seconds").innerText = secs < 10 ? "0" + secs : secs;
             }
-
             updateTimer();
             setInterval(updateTimer, 1000);
         }
 
-        window.onload = function() {
-            startDailyLoopTimer();
-        };
+        window.onload = function() { startDailyLoopTimer(); };
 
         function selectColorForProduct(productId, element, colorName, imageSrc) {
             let section = document.getElementById(`product${productId}-section`);
             let buttons = section.querySelectorAll('.color-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
-            
             productStates[productId].selectedColorName = colorName;
-            
             if(imageSrc) {
                 document.getElementById(`main-product-img-${productId}`).src = imageSrc;
                 productStates[productId].currentImageSrc = imageSrc;
@@ -1298,18 +1171,9 @@
             history.pushState({ modalOpen: true }, '');
         }
 
-        function closeQuickView() {
-            document.getElementById('quickViewModal').classList.remove('active');
-        }
-
-        function openPolicyModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-            history.pushState({ modalOpen: true }, '');
-        }
-
-        function closePolicyModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-        }
+        function closeQuickView() { document.getElementById('quickViewModal').classList.remove('active'); }
+        function openPolicyModal(modalId) { document.getElementById(modalId).classList.add('active'); history.pushState({ modalOpen: true }, ''); }
+        function closePolicyModal(modalId) { document.getElementById(modalId).classList.remove('active'); }
 
         function openOrderModal(productName, price, colorName = "কালো", imageSrc = "Images/Black1.jpg") {
             currentProductName = productName;
@@ -1318,11 +1182,7 @@
             currentProductImage = imageSrc;
 
             if (typeof fbq === 'function') {
-                fbq('track', 'InitiateCheckout', {
-                    content_name: productName,
-                    value: price,
-                    currency: 'BDT'
-                });
+                fbq('track', 'InitiateCheckout', { content_name: productName, value: price, currency: 'BDT' });
             }
             
             document.getElementById('summary-product-name').innerText = productName;
@@ -1338,26 +1198,13 @@
             history.pushState({ modalOpen: true }, '');
         }
 
-        function closeOrderModal() {
-            document.getElementById('orderModal').classList.remove('active');
-        }
+        function closeOrderModal() { document.getElementById('orderModal').classList.remove('active'); }
 
         window.addEventListener('popstate', function(event) {
-            let orderModal = document.getElementById('orderModal');
-            let qvModal = document.getElementById('quickViewModal');
-            let policyModals = ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'];
-
-            if (orderModal.classList.contains('active')) {
-                closeOrderModal();
-            }
-            if (qvModal.classList.contains('active')) {
-                closeQuickView();
-            }
-            policyModals.forEach(id => {
-                let modal = document.getElementById(id);
-                if (modal.classList.contains('active')) {
-                    closePolicyModal(id);
-                }
+            if (document.getElementById('orderModal').classList.contains('active')) closeOrderModal();
+            if (document.getElementById('quickViewModal').classList.contains('active')) closeQuickView();
+            ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'].forEach(id => {
+                if (document.getElementById(id).classList.contains('active')) closePolicyModal(id);
             });
         });
 
@@ -1370,7 +1217,6 @@
 
         function autoDetectDeliveryZone() {
             let address = document.getElementById('address').value.toLowerCase().trim();
-
             let insideRadio = document.getElementById('delivery-inside');
             let subRadio = document.getElementById('delivery-sub');
             let outsideRadio = document.getElementById('delivery-outside');
@@ -1384,27 +1230,8 @@
                 return;
             }
 
-            const subDhakaKeywords = [
-                'keran', 'kera', 'kerani', 'keranigunj', 'keranigonj', 'kerani ganj', 
-                'কেরানী', 'কেরানি', 'কেড়ানী', 'কেড়ানি', 'কেরান', 'কিরানি',
-                'sava', 'savor', 'sabar', 'shavar', 'sabhari', 'সাভার', 'সাভা', 'সাবার', 'শাবার', 'সবাপর',
-                'ashu', 'ashul', 'asulia', 'ashulia', 'আশুলিয়া', 'আশুুলিয়া', 'আশুলিয়া', 'আশু', 'আশোলিয়া',
-                'dham', 'dhamrai', 'ধামরাই', 'ধাম', 'দামরাই',
-                'gazi', 'gaji', 'gazipor', 'gazipur', 'গাজীপুর', 'গাাজীপুর', 'গাাজী', 'গাঝি', 'গাজিপুর',
-                'tongi', 'tong', 'টঙ্গী', 'টঙ্গি', 'টংগী',
-                'nara', 'naray', 'narayangonj', 'narayanganj', 'নারায়ণগঞ্জ', 'নারায়নগঞ্জ', 'নারায়নগঞ্জ', 'নারায়ন', 'নারা', 'নারায়নগন্জ',
-                'kanch', 'katchpur', 'kanchpur', 'কাঁচপুর', 'কাচপুর', 'কাঁচ', 'কাচ',
-                'fatu', 'fatulla', 'fatullah', 'ফতুল্লা', 'ফতু',
-                'siddhir', 'siddhirgonj', 'সিদ্ধিরগঞ্জ', 'সিদ্ধি', 'সিদ্ধিরগন্জ',
-                'demra', 'demr', 'ডেমরা', 'ডেমড়া',
-                'narsing', 'narshing', 'narsingdi', 'নরসিংদী', 'নরসিং', 'নরসিংদি',
-                'munshi', 'munsi', 'munsigonj', 'munsiganj', 'মুন্সিগঞ্জ', 'মুন্সীগঞ্জ', 'মুন্সি', 'মুন্সী'
-            ];
-
-            const dhakaKeywords = [
-                'dhaka', 'dhka', 'daka', 'dakaa', 'dhakar', 'dhakaa', 'dakah', 'dhak',
-                'ঢাকা', 'ঢাক', 'ঢাাকা', 'ধাকা', 'ডাকা', 'ঢাকার'
-            ];
+            const subDhakaKeywords = ['keran', 'sava', 'ashu', 'dham', 'gazi', 'tongi', 'nara', 'kanch', 'fatu', 'siddhir', 'demra', 'narsing', 'munshi', 'কেরানী', 'সাভার', 'আশুলিয়া', 'ধামরাই', 'গাজীপুর', 'টঙ্গী', 'নারায়ণগঞ্জ', 'সিদ্ধিরগঞ্জ', 'ডেমরা', 'নরসিংদী', 'মুন্সিগঞ্জ'];
+            const dhakaKeywords = ['dhaka', 'dhka', 'daka', 'ঢাকা', 'ঢাক'];
 
             let isSubDhaka = subDhakaKeywords.some(keyword => address.includes(keyword));
             let isDhaka = dhakaKeywords.some(keyword => address.includes(keyword));
@@ -1414,40 +1241,22 @@
                 insideRadio.disabled = true;
                 subRadio.disabled = false;
                 outsideRadio.disabled = true;
-            } 
-            else if (isDhaka) {
+            } else if (isDhaka) {
                 insideRadio.checked = true;
                 insideRadio.disabled = false;
                 subRadio.disabled = true;
                 outsideRadio.disabled = true;
-            } 
-            else {
+            } else {
                 outsideRadio.checked = true;
                 insideRadio.disabled = true;
                 subRadio.disabled = true;
                 outsideRadio.disabled = false;
             }
-
             updateTotal();
-        }
-
-        window.onclick = function(event) {
-            let orderModal = document.getElementById('orderModal');
-            let qvModal = document.getElementById('quickViewModal');
-            let policyModals = ['shippingModal', 'paymentModal', 'returnModal', 'contactModal'];
-
-            if (event.target === orderModal) { closeOrderModal(); history.back(); }
-            if (event.target === qvModal) { closeQuickView(); history.back(); }
-            
-            policyModals.forEach(id => {
-                let modal = document.getElementById(id);
-                if (event.target === modal) { closePolicyModal(id); history.back(); }
-            });
         }
 
         function handleOrder(event) {
             event.preventDefault();
-            
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
@@ -1455,20 +1264,9 @@
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            
             const checkedDelivery = document.querySelector('input[name="delivery"]:checked');
             const deliveryCharge = checkedDelivery ? checkedDelivery.value : "130";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
-
-            let deliveryZone = "";
-            if (deliveryCharge === "80") {
-                deliveryZone = "ঢাকার ভেতরে";
-            } else if (deliveryCharge === "120") {
-                deliveryZone = "সাব ঢাকা / ঢাকা উপশহর";
-            } else {
-                deliveryZone = "ঢাকার বাইরে";
-            }
-            
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
@@ -1478,7 +1276,6 @@
                             `👤 *গ্রাহকের নাম:* ${name}\n` +
                             `📞 *ফোন নম্বর:* ${phone}\n` +
                             `🏠 *ঠিকানা:* ${address}\n` +
-                            `🚚 *ডেলিভারি এলাকা:* ${deliveryZone} (৳${deliveryCharge})\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
             const fullImageUrl = window.location.origin + '/' + currentProductImage;
@@ -1486,46 +1283,16 @@
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    chat_id: TELEGRAM_CHAT_ID, 
-                    photo: fullImageUrl, 
-                    caption: message, 
-                    parse_mode: 'Markdown' 
-                })
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, photo: fullImageUrl, caption: message, parse_mode: 'Markdown' })
             })
             .then(res => res.json())
             .then(data => {
-                if (!data.ok) {
-                    return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
-                    }).then(r => r.json());
-                }
-                return data;
-            })
-            .then(data => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                
                 if (data.ok) {
                     if (typeof fbq === 'function') {
-                        let cleanPhone = phone.replace(/[^0-9]/g, '');
-                        if (cleanPhone.startsWith('01')) {
-                            cleanPhone = '880' + cleanPhone.substring(1);
-                        }
-
-                        fbq('track', 'Purchase', { 
-                            value: totalPrice, 
-                            currency: 'BDT',
-                            content_name: currentProductName,
-                            order_id: orderId 
-                        }, {
-                            ph: cleanPhone,
-                            fn: name
-                        });
+                        fbq('track', 'Purchase', { value: totalPrice, currency: 'BDT', content_name: currentProductName, order_id: orderId });
                     }
-
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
