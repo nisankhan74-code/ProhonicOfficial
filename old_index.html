@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://www.prohonic.com/Images/Black1.jpg">
     <meta property="og:url" content="https://www.prohonic.com/old_index.html">
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code with Manual Advanced Matching support -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -22,6 +22,7 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       
+      // Initial Pixel setup
       fbq('init', '1276228464542624');
       fbq('track', 'PageView');
     </script>
@@ -1380,7 +1381,18 @@
                 submitBtn.disabled = false;
                 if (data.ok) {
                     if (typeof fbq === 'function') {
-                        fbq('track', 'Purchase', { value: totalPrice, currency: 'BDT', content_name: currentProductName, order_id: orderId });
+                        // Pass user matching details dynamically for Meta Manual Advanced Matching
+                        fbq('init', '1276228464542624', {
+                            ph: phone,
+                            fn: name
+                        });
+
+                        fbq('track', 'Purchase', { 
+                            value: totalPrice, 
+                            currency: 'BDT', 
+                            content_name: currentProductName, 
+                            order_id: orderId 
+                        });
                     }
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
