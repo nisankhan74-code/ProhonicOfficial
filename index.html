@@ -1438,10 +1438,50 @@
             </div>
         </div>
 
-        <div class="product-card coming-soon-card">
-            <div class="cs-icon">⏳</div>
-            <div class="cs-title">Coming Soon</div>
-            <div class="cs-desc">নতুন স্টক শীঘ্রই আসছে</div>
+        <div class="product-card">
+            <div class="product-img-wrapper" onclick="previewProductImage('cat2-p2')">
+                <img id="cat2-p2" src="Images/RL1.jpg" class="product-img" alt="BINBOND Premium Leather Watch" loading="lazy" decoding="async">
+            </div>
+            <div class="product-info">
+                <div class="product-title">BINBOND Premium Leather Watch</div>
+                <div class="product-desc">গ্লসি কাটিং বেজেল, টেক্সচার্ড ডায়াল ও ডেট ডিসপ্লে সমৃদ্ধ এই প্রিমিয়াম লেদার ওয়াচটি যেকোনো ফরমাল বা ক্যাজুয়াল লুকে এনে দেবে এক অনবদ্য আভিজাত্য।</div>
+                <div class="product-price" data-price="799">৳ ৭৯৯</div>
+                
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="c2-p2-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('cat2-p2', 'Images/RL1.jpg', 'c2-p2-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/RL1.jpg" alt="Black" loading="lazy">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat2-p2', 'Images/RL2.jpg', 'c2-p2-text', 'Blue', this)">
+                            <img class="color-thumb" src="Images/RL2.jpg" alt="Blue" loading="lazy">
+                            <span class="color-text">Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat2-p2', 'Images/RL3.jpg', 'c2-p2-text', 'Gray', this)">
+                            <img class="color-thumb" src="Images/RL3.jpg" alt="Gray" loading="lazy">
+                            <span class="color-text">Gray</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('cat2-p2', 'Images/RL4.jpg', 'c2-p2-text', 'White', this)">
+                            <img class="color-thumb" src="Images/RL4.jpg" alt="White" loading="lazy">
+                            <span class="color-text">White</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'c2-p2-text')">অর্ডার করুন</button>
+                </div>
+            </div>
         </div>
 
         <div class="product-card coming-soon-card">
