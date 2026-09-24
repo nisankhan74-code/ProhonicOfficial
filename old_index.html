@@ -1381,18 +1381,13 @@
                 submitBtn.disabled = false;
                 if (data.ok) {
                     if (typeof fbq === 'function') {
-                        // Pass user matching details dynamically for Meta Manual Advanced Matching
-                        fbq('init', '1276228464542624', {
-                            ph: phone,
-                            fn: name
-                        });
-
+                        // Track single purchase event with unique eventID for deduplication
                         fbq('track', 'Purchase', { 
                             value: totalPrice, 
                             currency: 'BDT', 
                             content_name: currentProductName, 
                             order_id: orderId 
-                        });
+                        }, { eventID: orderId });
                     }
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
