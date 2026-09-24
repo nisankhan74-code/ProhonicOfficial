@@ -1720,6 +1720,53 @@
                 </div>
             </div>
         </div>
+
+        <!-- Added BINBOND Leather Watch Card -->
+        <div class="product-card">
+            <div class="product-img-wrapper" onclick="previewProductImage('all-p6')">
+                <img id="all-p6" src="Images/RL1.jpg" class="product-img" alt="BINBOND Premium Leather Watch" loading="lazy" decoding="async">
+            </div>
+            <div class="product-info">
+                <div class="product-title">BINBOND Premium Leather Watch</div>
+                <div class="product-desc">গ্লসি কাটিং বেজেল, টেক্সচার্ড ডায়াল ও ডেট ডিসপ্লে সমৃদ্ধ এই প্রিমিয়াম লেদার ওয়াচটি যেকোনো ফরমাল বা ক্যাজুয়াল লুকে এনে দেবে এক অনবদ্য আভিজাত্য।</div>
+                <div class="product-price" data-price="799">৳ ৭৯৯</div>
+                
+                <div class="card-quantity-wrapper">
+                    <span class="card-qty-label">পরিমাণ (Quantity):</span>
+                    <div class="card-qty-controls">
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, -1)">-</button>
+                        <span class="card-qty-val">1</span>
+                        <button class="card-qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="color-selection">
+                    <span class="color-label">কালার: <span id="all-p6-text" class="selected-color-name">Black</span></span>
+                    <div class="color-options">
+                        <div class="color-item active" onclick="changeImage('all-p6', 'Images/RL1.jpg', 'all-p6-text', 'Black', this)">
+                            <img class="color-thumb" src="Images/RL1.jpg" alt="Black" loading="lazy">
+                            <span class="color-text">Black</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p6', 'Images/RL2.jpg', 'all-p6-text', 'Blue', this)">
+                            <img class="color-thumb" src="Images/RL2.jpg" alt="Blue" loading="lazy">
+                            <span class="color-text">Blue</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p6', 'Images/RL3.jpg', 'all-p6-text', 'Gray', this)">
+                            <img class="color-thumb" src="Images/RL3.jpg" alt="Gray" loading="lazy">
+                            <span class="color-text">Gray</span>
+                        </div>
+                        <div class="color-item" onclick="changeImage('all-p6', 'Images/RL4.jpg', 'all-p6-text', 'White', this)">
+                            <img class="color-thumb" src="Images/RL4.jpg" alt="White" loading="lazy">
+                            <span class="color-text">White</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-action-btns">
+                    <button class="btn-view-details" onclick="openProductFeatureModal(this.closest('.product-card'))">গুণগতমান দেখুন</button>
+                    <button class="btn-order-now" onclick="openOrderModalFromCard(this.closest('.product-card'), 'all-p6-text')">অর্ডার করুন</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- REVIEWS SECTION -->
@@ -2165,66 +2212,6 @@
         function closeReviewModal() {
             closeModalCustom('reviewModal');
         }
-
-        function handleReviewSubmit(e) {
-            e.preventDefault();
-            document.getElementById('review-form').style.display = 'none';
-            document.getElementById('review-success-msg').style.display = 'block';
-        }
-
-        function openQuickView(src) {
-            const qvImg = document.getElementById('qv-image');
-            qvImg.src = src;
-            openModalCustom('quickViewModal');
-        }
-
-        function closeQuickView() {
-            closeModalCustom('quickViewModal');
-        }
-
-        function openPolicyModal(id) {
-            openModalCustom(id);
-        }
-
-        function closePolicyModal(id) {
-            closeModalCustom(id);
-        }
-
-        // Updated 24-hour midnight countdown loop timer
-        function startTimer() {
-            function updateCountdown() {
-                const now = new Date();
-                
-                // Set target to next midnight (12:00:00 AM)
-                const target = new Date();
-                target.setHours(24, 0, 0, 0); 
-                
-                let diff = target - now;
-                
-                if (diff < 0) {
-                    diff += 24 * 60 * 60 * 1000;
-                }
-                
-                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((diff / 1000 / 60) % 60);
-                const seconds = Math.floor((diff / 1000) % 60);
-                
-                const hoursElem = document.getElementById('hours');
-                const minutesElem = document.getElementById('minutes');
-                const secondsElem = document.getElementById('seconds');
-                
-                if (hoursElem) hoursElem.innerText = String(hours).padStart(2, '0');
-                if (minutesElem) minutesElem.innerText = String(minutes).padStart(2, '0');
-                if (secondsElem) secondsElem.innerText = String(seconds).padStart(2, '0');
-            }
-
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-        }
-
-        window.addEventListener('load', function() {
-            startTimer();
-        });
     </script>
 </body>
 </html>
