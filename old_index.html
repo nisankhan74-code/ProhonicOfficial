@@ -1215,6 +1215,7 @@
         let selectedColorName = "কালো";
         let currentProductName = "";
         let currentProductImage = "";
+        let isSubmitting = false;
 
         function startDailyLoopTimer() {
             function updateTimer() {
@@ -1347,6 +1348,9 @@
 
         function handleOrder(event) {
             event.preventDefault();
+            if (isSubmitting) return;
+
+            isSubmitting = true;
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
@@ -1377,11 +1381,8 @@
             })
             .then(res => res.json())
             .then(data => {
-                submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-                submitBtn.disabled = false;
                 if (data.ok) {
                     if (typeof fbq === 'function') {
-                        // Track single purchase event with unique eventID for deduplication
                         fbq('track', 'Purchase', { 
                             value: totalPrice, 
                             currency: 'BDT', 
@@ -1394,11 +1395,15 @@
                     document.getElementById('success-message').style.display = 'block';
                 } else {
                     alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
+                    submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+                    submitBtn.disabled = false;
+                    isSubmitting = false;
                 }
             })
             .catch(() => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
+                isSubmitting = false;
                 alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
             });
         }
