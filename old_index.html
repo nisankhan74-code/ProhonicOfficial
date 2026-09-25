@@ -1384,7 +1384,7 @@
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
-                    // sessionStorage Guard: নিশ্চিত করছে একটি অর্ডার আইডি মাত্র ১ বারই ট্র্যাক হবে
+                    // Purchase Event Tracking with Event Deduplication
                     if (typeof fbq === 'function' && !sessionStorage.getItem('tracked_' + orderId)) {
                         fbq('track', 'Purchase', { 
                             value: totalPrice, 
