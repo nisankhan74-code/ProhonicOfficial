@@ -1097,12 +1097,12 @@
         </div>
     </div>
 
-    <!-- ORDER MODAL FORM -->
+    <!-- ORDER MODAL FORM (REMOVED FORM TAG TO PREVENT AUTO-SUBMIT LOOPS) -->
     <div class="modal-overlay" id="orderModal">
         <div class="order-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
             
-            <form id="checkout-form" onsubmit="return false;">
+            <div id="checkout-form-container">
                 <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
                 
                 <div class="modal-offer-box">
@@ -1153,7 +1153,7 @@
                 </div>
 
                 <button type="button" id="submit-btn" class="btn-order-now" style="width: 100%; padding: 12px;" onclick="handleOrder(event)">অর্ডার নিশ্চিত করুন</button>
-            </form>
+            </div>
 
             <div id="success-message" class="success-message">
                 আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে! <br>
@@ -1214,7 +1214,9 @@
         let selectedColorName = "Option 1";
         let currentProductName = "";
         let currentProductImage = "";
-        let isSubmitting = false;
+        
+        // Window level strict submission lock
+        window.orderInProcess = false;
 
         function startDailyLoopTimer() {
             function updateTimer() {
@@ -1270,6 +1272,7 @@
             currentProductPrice = price;
             selectedColorName = colorName;
             currentProductImage = imageSrc;
+            window.orderInProcess = false;
 
             if (typeof fbq === 'function') {
                 fbq('track', 'InitiateCheckout', { content_name: productName, value: price, currency: 'BDT' });
@@ -1283,7 +1286,7 @@
             autoDetectDeliveryZone();
 
             document.getElementById('orderModal').classList.add('active');
-            document.getElementById('checkout-form').style.display = 'block';
+            document.getElementById('checkout-form-container').style.display = 'block';
             document.getElementById('success-message').style.display = 'none';
             history.pushState({ modalOpen: true }, '');
         }
@@ -1349,11 +1352,12 @@
             if (e) {
                 e.preventDefault();
                 e.stopPropagation();
+                if(e.stopImmediatePropagation) e.stopImmediatePropagation();
             }
 
-            // DOUBLE SUBMISSION LOCK
-            if (isSubmitting) return false;
-            isSubmitting = true;
+            // RIGID LOCKING
+            if (window.orderInProcess === true) return false;
+            window.orderInProcess = true;
 
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -1361,7 +1365,7 @@
 
             if (!name || !phone || !address || phone.length < 11) {
                 alert("দয়া করে নাম, সম্পূর্ণ ঠিকানা এবং সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন।");
-                isSubmitting = false;
+                window.orderInProcess = false;
                 return false;
             }
 
@@ -1374,7 +1378,7 @@
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
             const orderId = "PR-" + Date.now();
 
-            // Meta Pixel Track Purchase
+            // Pixel Tracking
             if (typeof fbq === 'function' && !window['purchase_tracked_' + orderId]) {
                 window['purchase_tracked_' + orderId] = true;
                 fbq('track', 'Purchase', { 
@@ -1394,8 +1398,36 @@
                             `🏠 *ঠিকানা:* ${address}\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
+            const sendTextMessageOnly = () => {
+                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        document.getElementById('checkout-form-container').style.display = 'none';
+                        document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
+                        document.getElementById('success-message').style.display = 'block';
+                    } else {
+                        alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
+                        submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+                        submitBtn.disabled = false;
+                        window.orderInProcess = false;
+                    }
+                })
+                .catch(() => {
+                    submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+                    submitBtn.disabled = false;
+                    window.orderInProcess = false;
+                    alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
+                });
+            };
+
             const fullImageUrl = window.location.origin + '/' + currentProductImage;
 
+            // Try sending photo first, if failed fall back to text message
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1404,21 +1436,15 @@
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
-                    document.getElementById('checkout-form').style.display = 'none';
+                    document.getElementById('checkout-form-container').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
                 } else {
-                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
-                    submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-                    submitBtn.disabled = false;
-                    isSubmitting = false;
+                    sendTextMessageOnly();
                 }
             })
             .catch(() => {
-                submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-                submitBtn.disabled = false;
-                isSubmitting = false;
-                alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
+                sendTextMessageOnly();
             });
 
             return false;
