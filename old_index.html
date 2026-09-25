@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://www.prohonic.com/Images/Black1.jpg">
     <meta property="og:url" content="https://www.prohonic.com/old_index.html">
 
-    <!-- Meta Pixel Code with Manual Advanced Matching support -->
+    <!-- Meta Pixel Code with Automatic Event Tracking Disabled -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,6 +24,8 @@
       
       // Initial Pixel setup
       fbq('init', '1276228464542624');
+      // Automatic Click & Event Detection Off (Double Fire বন্ধ করার জন্য)
+      fbq('set', 'autoConfig', 'false', '1276228464542624'); 
       fbq('track', 'PageView');
     </script>
     <noscript>
@@ -1382,14 +1384,18 @@
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
-                    if (typeof fbq === 'function') {
+                    // sessionStorage Guard: নিশ্চিত করছে একটি অর্ডার আইডি মাত্র ১ বারই ট্র্যাক হবে
+                    if (typeof fbq === 'function' && !sessionStorage.getItem('tracked_' + orderId)) {
                         fbq('track', 'Purchase', { 
                             value: totalPrice, 
                             currency: 'BDT', 
                             content_name: currentProductName, 
                             order_id: orderId 
                         }, { eventID: orderId });
+
+                        sessionStorage.setItem('tracked_' + orderId, 'true');
                     }
+
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
