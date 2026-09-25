@@ -22,6 +22,7 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       
+      // Auto Config False to stop duplicate auto-detected events
       fbq('set', 'autoConfig', 'false', '1276228464542624');
       fbq('init', '1276228464542624');
       fbq('track', 'PageView');
@@ -1097,7 +1098,7 @@
         </div>
     </div>
 
-    <!-- ORDER MODAL FORM (REMOVED FORM TAG TO PREVENT AUTO-SUBMIT LOOPS) -->
+    <!-- ORDER MODAL -->
     <div class="modal-overlay" id="orderModal">
         <div class="order-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
@@ -1215,8 +1216,7 @@
         let currentProductName = "";
         let currentProductImage = "";
         
-        // Window level strict submission lock
-        window.orderInProcess = false;
+        let isOrderSubmitting = false;
 
         function startDailyLoopTimer() {
             function updateTimer() {
@@ -1272,8 +1272,9 @@
             currentProductPrice = price;
             selectedColorName = colorName;
             currentProductImage = imageSrc;
-            window.orderInProcess = false;
+            isOrderSubmitting = false;
 
+            // Trigger InitiateCheckout once when modal opens
             if (typeof fbq === 'function') {
                 fbq('track', 'InitiateCheckout', { content_name: productName, value: price, currency: 'BDT' });
             }
@@ -1349,15 +1350,11 @@
         }
 
         function handleOrder(e) {
-            if (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if(e.stopImmediatePropagation) e.stopImmediatePropagation();
-            }
+            if (e) e.preventDefault();
 
-            // RIGID LOCKING
-            if (window.orderInProcess === true) return false;
-            window.orderInProcess = true;
+            // Guard against duplicate clicks
+            if (isOrderSubmitting) return;
+            isOrderSubmitting = true;
 
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -1365,8 +1362,8 @@
 
             if (!name || !phone || !address || phone.length < 11) {
                 alert("দয়া করে নাম, সম্পূর্ণ ঠিকানা এবং সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন।");
-                window.orderInProcess = false;
-                return false;
+                isOrderSubmitting = false;
+                return;
             }
 
             const submitBtn = document.getElementById('submit-btn');
@@ -1378,17 +1375,6 @@
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
             const orderId = "PR-" + Date.now();
 
-            // Pixel Tracking
-            if (typeof fbq === 'function' && !window['purchase_tracked_' + orderId]) {
-                window['purchase_tracked_' + orderId] = true;
-                fbq('track', 'Purchase', { 
-                    value: totalPrice, 
-                    currency: 'BDT', 
-                    content_name: currentProductName, 
-                    order_id: orderId 
-                }, { eventID: orderId });
-            }
-
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
                             `🆔 *অর্ডার আইডি:* #${orderId}\n` +
                             `📦 *পণ্য:* ${currentProductName}\n` +
@@ -1398,56 +1384,44 @@
                             `🏠 *ঠিকানা:* ${address}\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            const sendTextMessageOnly = () => {
-                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.ok) {
-                        document.getElementById('checkout-form-container').style.display = 'none';
-                        document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
-                        document.getElementById('success-message').style.display = 'block';
-                    } else {
-                        alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
-                        submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-                        submitBtn.disabled = false;
-                        window.orderInProcess = false;
-                    }
-                })
-                .catch(() => {
-                    submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
-                    submitBtn.disabled = false;
-                    window.orderInProcess = false;
-                    alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
-                });
-            };
-
-            const fullImageUrl = window.location.origin + '/' + currentProductImage;
-
-            // Try sending photo first, if failed fall back to text message
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, photo: fullImageUrl, caption: message, parse_mode: 'Markdown' })
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
             })
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
+                    // Send Meta Pixel Purchase event ONCE after successful submission
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Purchase', { 
+                            value: totalPrice, 
+                            currency: 'BDT', 
+                            content_name: currentProductName, 
+                            order_id: orderId 
+                        });
+                    }
+
                     document.getElementById('checkout-form-container').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
                 } else {
-                    sendTextMessageOnly();
+                    alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
+                    submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+                    submitBtn.disabled = false;
+                    isOrderSubmitting = false;
                 }
             })
             .catch(() => {
-                sendTextMessageOnly();
+                submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
+                submitBtn.disabled = false;
+                isOrderSubmitting = false;
+                alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
             });
-
-            return false;
         }
     </script>
 </body>
