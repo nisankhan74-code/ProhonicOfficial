@@ -7,11 +7,11 @@
 
     <!-- Open Graph Meta Tags for Facebook Catalog & Sharing -->
     <meta property="og:title" content="Prohonic Watch Store">
-    <meta property="og:description" content="প্রিমিয়াম এবং বিশ্বস্ত কোয়ালিটির সব হাতঘড়ি।">
+    <meta property="og:description" content="প্রিমিয়াম এবং বিশ্বস্ত কোয়ালিটির সব হাতঘড়ি।">
     <meta property="og:image" content="https://www.prohonic.com/Images/Black1.jpg">
     <meta property="og:url" content="https://www.prohonic.com/old_index.html">
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code with Manual Advanced Matching support -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -22,8 +22,7 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       
-      // Auto Config False to stop duplicate auto-detected events
-      fbq('set', 'autoConfig', 'false', '1276228464542624');
+      // Initial Pixel setup
       fbq('init', '1276228464542624');
       fbq('track', 'PageView');
     </script>
@@ -726,7 +725,7 @@
     </header>
 
     <div class="offer-timer-banner">
-        <h3>🔥 বিশেষ অফার! শেষ হওয়ার আগে অর্ডার করুন 🔥</h3>
+        <h3>🔥 বিশেষ অফার! শেষ হওয়ার আগে অর্ডার করুন 🔥</h3>
         <div class="timer-box">
             <div class="timer-unit">
                 <span class="timer-num" id="hours">23</span>
@@ -795,20 +794,20 @@
                 <img src="Images/Black1.jpg" alt="Classic Fusion">
                 <div class="selector-info">
                     <h4>Hublot Classic Fusion</h4>
-                    <span class="badge">৩টি অপশন উপলব্ধ</span>
+                    <span class="badge">৩টি কালার উপলব্ধ</span>
                 </div>
             </a>
             <a href="#product2-section" class="selector-card">
                 <img src="Images/gray.jpg" alt="HUBLOT Big Bang Chronograph">
                 <div class="selector-info">
                     <h4>HUBLOT Big Bang Chronograph</h4>
-                    <span class="badge">৩টি অপশন উপলব্ধ</span>
+                    <span class="badge">৩টি কালার উপলব্ধ</span>
                 </div>
             </a>
         </div>
     </div>
 
-    <!-- MAIN PRODUCT 1 -->
+    <!-- MAIN PRODUCT 1 (Added Meta Microdata for Content ID fy813v89qb) -->
     <section class="hero" id="product1-section" itemscope itemtype="https://schema.org/Product">
         <meta itemprop="productID" content="fy813v89qb">
         <div class="hero-image">
@@ -828,11 +827,11 @@
             </div>
             
             <div class="color-selection">
-                <p>অপশন সিলেক্ট করুন:</p>
+                <p>কালার সিলেক্ট করুন:</p>
                 <div class="color-options">
-                    <button type="button" class="color-btn active" onclick="selectColorForProduct(1, this, 'Option 1', 'Images/Black1.jpg')">Option 1</button>
-                    <button type="button" class="color-btn" onclick="selectColorForProduct(1, this, 'Option 2', 'Images/Silver1.jpg')">Option 2</button>
-                    <button type="button" class="color-btn" onclick="selectColorForProduct(1, this, 'Option 3', 'Images/silverandblack.jpg')">Option 3</button>
+                    <button class="color-btn active" onclick="selectColorForProduct(1, this, 'কালো', 'Images/Black1.jpg')">কালো</button>
+                    <button class="color-btn" onclick="selectColorForProduct(1, this, 'সিলভার', 'Images/Silver1.jpg')">সিলভার</button>
+                    <button class="color-btn" onclick="selectColorForProduct(1, this, 'সিলভার-কালো', 'Images/silverandblack.jpg')">সিলভার-কালো</button>
                 </div>
             </div>
 
@@ -841,7 +840,7 @@
             </div>
 
             <div class="action-buttons">
-                <button type="button" class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
                 <div class="social-buttons-row">
                     <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
                     <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
@@ -850,7 +849,7 @@
         </div>
     </section>
 
-    <!-- MAIN PRODUCT 2 -->
+    <!-- MAIN PRODUCT 2 (Added Meta Microdata for Content ID ub91liftmrf) -->
     <section class="hero" id="product2-section" itemscope itemtype="https://schema.org/Product">
         <meta itemprop="productID" content="ub91liftmrf">
         <div class="hero-image">
@@ -870,11 +869,11 @@
             </div>
             
             <div class="color-selection">
-                <p>অপশন সিলেক্ট করুন:</p>
+                <p>কালার সিলেক্ট করুন:</p>
                 <div class="color-options">
-                    <button type="button" class="color-btn active" onclick="selectColorForProduct(2, this, 'Option 1', 'Images/gray.jpg')">Option 1</button>
-                    <button type="button" class="color-btn" onclick="selectColorForProduct(2, this, 'Option 2', 'Images/green.jpg')">Option 2</button>
-                    <button type="button" class="color-btn" onclick="selectColorForProduct(2, this, 'Option 3', 'Images/golden.jpg')">Option 3 </button>
+                    <button class="color-btn active" onclick="selectColorForProduct(2, this, 'গ্রে', 'Images/gray.jpg')">গ্রে</button>
+                    <button class="color-btn" onclick="selectColorForProduct(2, this, 'গ্রিন', 'Images/green.jpg')">গ্রিন</button>
+                    <button class="color-btn" onclick="selectColorForProduct(2, this, 'গোল্ডেন', 'Images/golden.jpg')">গোল্ডেন </button>
                 </div>
             </div>
 
@@ -883,7 +882,7 @@
             </div>
 
             <div class="action-buttons">
-                <button type="button" class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
                 <div class="social-buttons-row">
                     <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
                     <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
@@ -892,7 +891,8 @@
         </div>
     </section>
 
-    <section class="products-section">
+    
+   <section class="products-section">
         <h2 class="section-title">Trending Watches</h2>
         <div class="product-grid">
             
@@ -913,7 +913,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'Option 1', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'কালো', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 2 -->
@@ -933,7 +933,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'Option 2', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'সিলভার', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 3 -->
@@ -953,7 +953,7 @@
                     <meta itemprop="price" content="999">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৯৯
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'Option 1', 'Images/R1.png')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'ব্ল্যাক', 'Images/R1.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 4 -->
@@ -973,7 +973,7 @@
                     <meta itemprop="price" content="999">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৯৯
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'Option 2', 'Images/R2.png')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'সিলভার-ব্ল্যাক', 'Images/R2.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 5 -->
@@ -993,7 +993,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'Option 1', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রে', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 6 -->
@@ -1013,7 +1013,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'Option 2', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'গ্রিন', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 7 -->
@@ -1033,7 +1033,7 @@
                     <meta itemprop="price" content="799">
                     <span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'Option 1', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'গ্রেয়', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 8 -->
@@ -1053,7 +1053,7 @@
                     <meta itemprop="price" content="799">
                     <span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯
                 </div>
-                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'Option 2', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
+                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'ওয়াইট', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
             </div>
 
         </div>
@@ -1098,12 +1098,12 @@
         </div>
     </div>
 
-    <!-- ORDER MODAL -->
+    <!-- ORDER MODAL FORM -->
     <div class="modal-overlay" id="orderModal">
         <div class="order-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
             
-            <div id="checkout-form-container">
+            <form id="checkout-form" onsubmit="handleOrder(event)">
                 <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
                 
                 <div class="modal-offer-box">
@@ -1147,14 +1147,14 @@
 
                 <div class="bill-summary">
                     <div class="bill-row"><span>পণ্যের নাম:</span><strong id="summary-product-name">-</strong></div>
-                    <div class="bill-row"><span>টাইপ:</span><strong id="summary-color">Option 1</strong></div>
+                    <div class="bill-row"><span>কালার:</span><strong id="summary-color">কালো</strong></div>
                     <div class="bill-row"><span>পণ্যের মূল্য (অফার):</span><span>৳ <span id="summary-price">0</span></span></div>
                     <div class="bill-row"><span>ডেলিভারি চার্জ:</span><span>৳ <span id="summary-delivery">130</span></span></div>
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
 
-                <button type="button" id="submit-btn" class="btn-order-now" style="width: 100%; padding: 12px;" onclick="handleOrder(event)">অর্ডার নিশ্চিত করুন</button>
-            </div>
+                <button type="submit" id="submit-btn" class="btn-order-now" style="width: 100%; padding: 12px;">অর্ডার নিশ্চিত করুন</button>
+            </form>
 
             <div id="success-message" class="success-message">
                 আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে! <br>
@@ -1207,16 +1207,15 @@
         const TELEGRAM_CHAT_ID = "-1003956122715";
 
         let productStates = {
-            1: { selectedColorName: "Option 1", currentImageSrc: "Images/Black1.jpg" },
-            2: { selectedColorName: "Option 1", currentImageSrc: "Images/gray.jpg" }
+            1: { selectedColorName: "কালো", currentImageSrc: "Images/Black1.jpg" },
+            2: { selectedColorName: "গ্রে", currentImageSrc: "Images/gray.jpg" }
         };
 
         let currentProductPrice = 0;
-        let selectedColorName = "Option 1";
+        let selectedColorName = "কালো";
         let currentProductName = "";
         let currentProductImage = "";
-        
-        let isOrderSubmitting = false;
+        let isSubmitting = false;
 
         function startDailyLoopTimer() {
             function updateTimer() {
@@ -1267,14 +1266,12 @@
         function openPolicyModal(modalId) { document.getElementById(modalId).classList.add('active'); history.pushState({ modalOpen: true }, ''); }
         function closePolicyModal(modalId) { document.getElementById(modalId).classList.remove('active'); }
 
-        function openOrderModal(productName, price, colorName = "Option 1", imageSrc = "Images/Black1.jpg") {
+        function openOrderModal(productName, price, colorName = "কালো", imageSrc = "Images/Black1.jpg") {
             currentProductName = productName;
             currentProductPrice = price;
             selectedColorName = colorName;
             currentProductImage = imageSrc;
-            isOrderSubmitting = false;
 
-            // Trigger InitiateCheckout once when modal opens
             if (typeof fbq === 'function') {
                 fbq('track', 'InitiateCheckout', { content_name: productName, value: price, currency: 'BDT' });
             }
@@ -1287,7 +1284,7 @@
             autoDetectDeliveryZone();
 
             document.getElementById('orderModal').classList.add('active');
-            document.getElementById('checkout-form-container').style.display = 'block';
+            document.getElementById('checkout-form').style.display = 'block';
             document.getElementById('success-message').style.display = 'none';
             history.pushState({ modalOpen: true }, '');
         }
@@ -1349,77 +1346,64 @@
             updateTotal();
         }
 
-        function handleOrder(e) {
-            if (e) e.preventDefault();
+        function handleOrder(event) {
+            event.preventDefault();
+            if (isSubmitting) return;
 
-            // Guard against duplicate clicks
-            if (isOrderSubmitting) return;
-            isOrderSubmitting = true;
-
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const address = document.getElementById('address').value.trim();
-
-            if (!name || !phone || !address || phone.length < 11) {
-                alert("দয়া করে নাম, সম্পূর্ণ ঠিকানা এবং সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন।");
-                isOrderSubmitting = false;
-                return;
-            }
-
+            isSubmitting = true;
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
 
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
             const checkedDelivery = document.querySelector('input[name="delivery"]:checked');
             const deliveryCharge = checkedDelivery ? checkedDelivery.value : "130";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
-            const orderId = "PR-" + Date.now();
+            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
                             `🆔 *অর্ডার আইডি:* #${orderId}\n` +
                             `📦 *পণ্য:* ${currentProductName}\n` +
-                            `🎨 *অপশন:* ${selectedColorName}\n` +
+                            `🎨 *কালার:* ${selectedColorName}\n` +
                             `👤 *গ্রাহকের নাম:* ${name}\n` +
                             `📞 *ফোন নম্বর:* ${phone}\n` +
                             `🏠 *ঠিকানা:* ${address}\n` +
                             `💰 *সর্বমোট বিল:* ৳${totalPrice}`;
 
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            const fullImageUrl = window.location.origin + '/' + currentProductImage;
+
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, photo: fullImageUrl, caption: message, parse_mode: 'Markdown' })
             })
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
-                    // Send Meta Pixel Purchase event ONCE after successful submission
                     if (typeof fbq === 'function') {
                         fbq('track', 'Purchase', { 
                             value: totalPrice, 
                             currency: 'BDT', 
                             content_name: currentProductName, 
                             order_id: orderId 
-                        });
+                        }, { eventID: orderId });
                     }
-
-                    document.getElementById('checkout-form-container').style.display = 'none';
+                    document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
                 } else {
                     alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে।');
                     submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                     submitBtn.disabled = false;
-                    isOrderSubmitting = false;
+                    isSubmitting = false;
                 }
             })
             .catch(() => {
                 submitBtn.innerText = "অর্ডার নিশ্চিত করুন";
                 submitBtn.disabled = false;
-                isOrderSubmitting = false;
+                isSubmitting = false;
                 alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
             });
         }
