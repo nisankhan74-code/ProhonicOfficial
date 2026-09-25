@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://www.prohonic.com/Images/Black1.jpg">
     <meta property="og:url" content="https://www.prohonic.com/old_index.html">
 
-    <!-- Meta Pixel Code with Automatic Event Tracking Disabled -->
+    <!-- Meta Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -22,7 +22,6 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       
-      // Pixel Init with Auto Config False (Directly inside init)
       fbq('set', 'autoConfig', 'false', '1276228464542624');
       fbq('init', '1276228464542624');
       fbq('track', 'PageView');
@@ -1103,7 +1102,7 @@
         <div class="order-container">
             <button class="close-btn" onclick="closeOrderModal()">&times;</button>
             
-            <form id="checkout-form" onsubmit="handleOrder(event)">
+            <form id="checkout-form" onsubmit="return false;">
                 <h3 class="modal-title">অর্ডার নিশ্চিত করতে তথ্য দিন</h3>
                 
                 <div class="modal-offer-box">
@@ -1153,7 +1152,7 @@
                     <div class="bill-row total"><span>সর্বমোট বিল:</span><span>৳ <span id="summary-total">0</span></span></div>
                 </div>
 
-                <button type="submit" id="submit-btn" class="btn-order-now" style="width: 100%; padding: 12px;">অর্ডার নিশ্চিত করুন</button>
+                <button type="button" id="submit-btn" class="btn-order-now" style="width: 100%; padding: 12px;" onclick="handleOrder(event)">অর্ডার নিশ্চিত করুন</button>
             </form>
 
             <div id="success-message" class="success-message">
@@ -1346,24 +1345,36 @@
             updateTotal();
         }
 
-        function handleOrder(event) {
-            event.preventDefault();
-            if (isSubmitting) return;
+        function handleOrder(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
 
+            // DOUBLE SUBMISSION LOCK
+            if (isSubmitting) return false;
             isSubmitting = true;
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+
+            if (!name || !phone || !address || phone.length < 11) {
+                alert("দয়া করে নাম, সম্পূর্ণ ঠিকানা এবং সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন।");
+                isSubmitting = false;
+                return false;
+            }
+
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.innerText = "প্রসেসিং হচ্ছে...";
             submitBtn.disabled = true;
 
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
             const checkedDelivery = document.querySelector('input[name="delivery"]:checked');
             const deliveryCharge = checkedDelivery ? checkedDelivery.value : "130";
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
-            const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
+            const orderId = "PR-" + Date.now();
 
-            // TRACK PURCHASE FIRST (Sync Execution)
+            // Meta Pixel Track Purchase
             if (typeof fbq === 'function' && !window['purchase_tracked_' + orderId]) {
                 window['purchase_tracked_' + orderId] = true;
                 fbq('track', 'Purchase', { 
@@ -1409,6 +1420,8 @@
                 isSubmitting = false;
                 alert('নেটওয়ার্ক সমস্যা! পরে চেষ্টা করুন।');
             });
+
+            return false;
         }
     </script>
 </body>
