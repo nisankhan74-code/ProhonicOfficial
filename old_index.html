@@ -22,10 +22,9 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       
-      // Initial Pixel setup
+      // Pixel Init with Auto Config False (Directly inside init)
+      fbq('set', 'autoConfig', 'false', '1276228464542624');
       fbq('init', '1276228464542624');
-      // Automatic Click & Event Detection Off (Double Fire বন্ধ করার জন্য)
-      fbq('set', 'autoConfig', 'false', '1276228464542624'); 
       fbq('track', 'PageView');
     </script>
     <noscript>
@@ -831,9 +830,9 @@
             <div class="color-selection">
                 <p>অপশন সিলেক্ট করুন:</p>
                 <div class="color-options">
-                    <button class="color-btn active" onclick="selectColorForProduct(1, this, 'Option 1', 'Images/Black1.jpg')">Option 1</button>
-                    <button class="color-btn" onclick="selectColorForProduct(1, this, 'Option 2', 'Images/Silver1.jpg')">Option 2</button>
-                    <button class="color-btn" onclick="selectColorForProduct(1, this, 'Option 3', 'Images/silverandblack.jpg')">Option 3</button>
+                    <button type="button" class="color-btn active" onclick="selectColorForProduct(1, this, 'Option 1', 'Images/Black1.jpg')">Option 1</button>
+                    <button type="button" class="color-btn" onclick="selectColorForProduct(1, this, 'Option 2', 'Images/Silver1.jpg')">Option 2</button>
+                    <button type="button" class="color-btn" onclick="selectColorForProduct(1, this, 'Option 3', 'Images/silverandblack.jpg')">Option 3</button>
                 </div>
             </div>
 
@@ -842,7 +841,7 @@
             </div>
 
             <div class="action-buttons">
-                <button class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" onclick="openOrderModal('Hublot Classic Fusion', 950, productStates[1].selectedColorName, productStates[1].currentImageSrc)">🛒 অর্ডার করুন</button>
                 <div class="social-buttons-row">
                     <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
                     <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
@@ -873,9 +872,9 @@
             <div class="color-selection">
                 <p>অপশন সিলেক্ট করুন:</p>
                 <div class="color-options">
-                    <button class="color-btn active" onclick="selectColorForProduct(2, this, 'Option 1', 'Images/gray.jpg')">Option 1</button>
-                    <button class="color-btn" onclick="selectColorForProduct(2, this, 'Option 2', 'Images/green.jpg')">Option 2</button>
-                    <button class="color-btn" onclick="selectColorForProduct(2, this, 'Option 3', 'Images/golden.jpg')">Option 3 </button>
+                    <button type="button" class="color-btn active" onclick="selectColorForProduct(2, this, 'Option 1', 'Images/gray.jpg')">Option 1</button>
+                    <button type="button" class="color-btn" onclick="selectColorForProduct(2, this, 'Option 2', 'Images/green.jpg')">Option 2</button>
+                    <button type="button" class="color-btn" onclick="selectColorForProduct(2, this, 'Option 3', 'Images/golden.jpg')">Option 3 </button>
                 </div>
             </div>
 
@@ -884,7 +883,7 @@
             </div>
 
             <div class="action-buttons">
-                <button class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, productStates[2].selectedColorName, productStates[2].currentImageSrc)">🛒 অর্ডার করুন</button>
                 <div class="social-buttons-row">
                     <a href="https://wa.me/message/X22H5RSENGURH1" target="_blank" class="btn-social btn-whatsapp">💬 WhatsApp</a>
                     <a href="https://m.me/prohonic" target="_blank" class="btn-social btn-messenger">⚡ Messenger</a>
@@ -893,8 +892,7 @@
         </div>
     </section>
 
-    
-   <section class="products-section">
+    <section class="products-section">
         <h2 class="section-title">Trending Watches</h2>
         <div class="product-grid">
             
@@ -915,7 +913,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'Option 1', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'Option 1', 'Images/Black1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 2 -->
@@ -935,7 +933,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'Option 2', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Hublot Classic Fusion', 950, 'Option 2', 'Images/Silver1.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 3 -->
@@ -955,7 +953,7 @@
                     <meta itemprop="price" content="999">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৯৯
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'Option 1', 'Images/R1.png')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'Option 1', 'Images/R1.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 4 -->
@@ -975,7 +973,7 @@
                     <meta itemprop="price" content="999">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৯৯
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'Option 2', 'Images/R2.png')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('Rolex Land-Dweller', 999, 'Option 2', 'Images/R2.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 5 -->
@@ -995,7 +993,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'Option 1', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'Option 1', 'Images/gray.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 6 -->
@@ -1015,7 +1013,7 @@
                     <meta itemprop="price" content="950">
                     <span class="card-regular-price">৳ ১২০০</span> ৳ ৯৫০
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'Option 2', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('HUBLOT Big Bang Chronograph', 950, 'Option 2', 'Images/green.jpg')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 7 -->
@@ -1035,7 +1033,7 @@
                     <meta itemprop="price" content="799">
                     <span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'Option 1', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'Option 1', 'Images/chai-silver.png')">🛒 অর্ডার করুন</button>
             </div>
 
             <!-- Product 8 -->
@@ -1055,7 +1053,7 @@
                     <meta itemprop="price" content="799">
                     <span class="card-regular-price">৳ ১০০০</span> ৳ ৭৯৯
                 </div>
-                <button class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'Option 2', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
+                <button type="button" class="btn-order-now" style="padding: 9px 12px; font-size: 0.9rem; width: 100%;" onclick="openOrderModal('BINBOND Business Luxury Men’s', 799, 'Option 2', 'Images/chain-white.png')">🛒 অর্ডার করুন</button>
             </div>
 
         </div>
@@ -1365,6 +1363,17 @@
             const totalPrice = currentProductPrice + parseInt(deliveryCharge);
             const orderId = "PR-" + Math.floor(100000 + Math.random() * 900000);
 
+            // TRACK PURCHASE FIRST (Sync Execution)
+            if (typeof fbq === 'function' && !window['purchase_tracked_' + orderId]) {
+                window['purchase_tracked_' + orderId] = true;
+                fbq('track', 'Purchase', { 
+                    value: totalPrice, 
+                    currency: 'BDT', 
+                    content_name: currentProductName, 
+                    order_id: orderId 
+                }, { eventID: orderId });
+            }
+
             const message = `🛍️ *নতুন অর্ডার এসেছে!* 🛍️\n\n` +
                             `🆔 *অর্ডার আইডি:* #${orderId}\n` +
                             `📦 *পণ্য:* ${currentProductName}\n` +
@@ -1384,18 +1393,6 @@
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
-                    // Purchase Event Tracking with Event Deduplication
-                    if (typeof fbq === 'function' && !sessionStorage.getItem('tracked_' + orderId)) {
-                        fbq('track', 'Purchase', { 
-                            value: totalPrice, 
-                            currency: 'BDT', 
-                            content_name: currentProductName, 
-                            order_id: orderId 
-                        }, { eventID: orderId });
-
-                        sessionStorage.setItem('tracked_' + orderId, 'true');
-                    }
-
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
