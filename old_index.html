@@ -1382,6 +1382,7 @@
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
+                    // Purchase Pixel Event safe fire with Deduplication Check
                     if (typeof fbq === 'function') {
                         fbq('track', 'Purchase', { 
                             value: totalPrice, 
@@ -1390,6 +1391,7 @@
                             order_id: orderId 
                         }, { eventID: orderId });
                     }
+                    
                     document.getElementById('checkout-form').style.display = 'none';
                     document.getElementById('order-id-display').innerText = `অর্ডার আইডি: #${orderId}`;
                     document.getElementById('success-message').style.display = 'block';
